@@ -8,26 +8,34 @@
 #include <string.h>
 #include <stdlib.h>
 #include <avr/interrupt.h>
-#define USART_BAUDRATE 9600
+
 #define F_CPU 8000000L
-#define BAUD_PRESCALE (((F_CPU / (USART_BAUDRATE * 16UL))) - 1)
+
+#include "uart_f.h"
+#include "hexconv.h"
+#include "leds.h"
+
 
 volatile uint8_t data[8];
 
-void uart_init(){
-	UBRR0H = (BAUD_PRESCALE >> 8); // Load upper 8-bits of the baud rate value into the high byte of the UBRR register
-	UBRR0L = BAUD_PRESCALE; // Load lower 8-bits of the baud rate value into the low byte of the UBRR register
-	UCSR0C=(0<<UMSEL0) | (0<<UPM0) | (1<<USBS0) | (3<<UCSZ0);
-	UCSR0B=(1<<RXEN0) | (1<<TXEN0);
-}
+static char private_key_hex[64] = "92990788d66bf558052d112f5498111747b3e28c55984d43fed8c8822ad9f1a7";
+static char public_key_hex[128] = "54619a4980a83e9199cc42d811ef07dcd8608c43929e1a3e443aa04deae8ff89e46154a1a074ae932b6d1395e565fcfb19dd392271d4ebedd1feadae2df9158d";
 
-void uart_puts(char* s){
-	int i;
-	for (i = 0; i < strlen(s); i++){
-		while(!( UCSR0A & 0X20));
-		UDR0=s[i];
-	}	
-}
+typedef enum {
+	IDLE_S,
+	SEND_CHALLENGE_S,
+	VERIFY_SIGNATURE_S,
+	AUTHENTICATED_S
+} state_t;
+
+typedef enum {
+	NULL_E,
+	INIT_RECEIVED,
+	SIGNATURE_RECEIVED,
+} event_t;
+
+volatile state_t state = IDLE_S;
+volatile event_t event;
 
 void CAN_INIT(void){
 
@@ -166,7 +174,6 @@ ISR (CANIT_vect){
 	 CAN_INIT();
 	
 }
-
 
  int main()
  {	

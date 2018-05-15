@@ -7,27 +7,57 @@
 #include <avr/io.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <interrupt.h>
-#define USART_BAUDRATE 9600
+#include "uECC.h"
+#include "leds.h"
+#include "uart_f.h"
+#include "hexconv.h"
+
 #define F_CPU 8000000L
-#define BAUD_PRESCALE (((F_CPU / (USART_BAUDRATE * 16UL))) - 1)
+#include <util/delay.h>
 
-enum phase {init, challenge, response, privateKey, communication };
+static char private_key_hex[64] = "92990788d66bf558052d112f5498111747b3e28c55984d43fed8c8822ad9f1a7";
+static char public_key_hex[128] = "54619a4980a83e9199cc42d811ef07dcd8608c43929e1a3e443aa04deae8ff89e46154a1a074ae932b6d1395e565fcfb19dd392271d4ebedd1feadae2df9158d";
 
-void uart_init(){
-	UBRR0H = (BAUD_PRESCALE >> 8); // Load upper 8-bits of the baud rate value into the high byte of the UBRR register
-	UBRR0L = BAUD_PRESCALE; // Load lower 8-bits of the baud rate value into the low byte of the UBRR register
-	UCSR0C=(0<<UMSEL0) | (0<<UPM0) | (1<<USBS0) | (3<<UCSZ0);
-	UCSR0B=(1<<RXEN0) | (1<<TXEN0);
+typedef enum {
+	IDLE_S,
+	INIT_AUTHENTICATION_S,
+	SIGN_CHALLENGE_S,
+	AUTHENTICATED_S
+} state_t;
+	
+typedef enum {
+	NULL_E,
+	AUTH_E,
+	CHALLENGE_RECEIVED_E,
+	AUTHENTICATION_ACK_E,
+} event_t;
+
+volatile state_t state = IDLE_S;
+volatile event_t event;
+		
+		
+void buttons_init(){
+	DDRE = 0x00;
+	PORTE = 1 << PE4 | 1 << PE5 | 1 << PE6 | 1 << PE7;
+	EICRB = 1 << ISC40 | 1 << ISC41 | 1 << ISC50 | 1 << ISC51 | 1 << ISC60 | 1 << ISC61 | 1 << ISC70 | 1 << ISC71; // set interrupt on falling edge.
+	EIMSK = 1 << INT4 | 1 << INT5 | 1 << INT6 | 1 << INT7;
 }
 
-void uart_puts(char* s){
-	int i;
-	for (i = 0; i < strlen(s); i++){
-		while(!( UCSR0A & 0X20));
-		UDR0=s[i];
-	}	
+
+static int RNG(uint8_t *dest, unsigned size) {
+	while(size){
+		uint8_t val = (uint8_t) rand();
+		*dest = val;
+		++dest;
+		--size;
+	}
+
+	// NOTE: it would be a good idea to hash the resulting random data using SHA-256 or similar.
+	return 1;
 }
+
 
 void CAN_INIT(void){
 
@@ -132,7 +162,7 @@ void SendByMOb2(void){
 
 // Send a remote frame to start the authentication protocol.
 // ID is still arbitrary (TODO)
-void init_comm(){
+void init_authentication(){
 	CANPAGE = (1 << MOBNB1);
 	int j;
 	for(j=0; j<8; j++){
@@ -141,6 +171,7 @@ void init_comm(){
 	}
 	CANIDT4 = (1 << RTRTAG);
 	CANCDMOB = (1 << CONMOB0);
+	light_led(1);
 }
 
 //MOB1-8 in Buffer receive mode.
@@ -164,22 +195,95 @@ void receive_challenge(){
 	
 }
 
+	
+void ecc_test(){
+	uint8_t private[32] = {0};
+	uint8_t public[64] = {0};
+	uint8_t hash[32] = {0};
+	uint8_t sig[64] = {0};
+		
+	const struct uECC_Curve_t *curve = uECC_secp256k1();
+	
+	#if uECC_SUPPORTS_secp256k1
+	curve = uECC_secp256k1();
+	#endif
+
+	uECC_set_rng(&RNG);
+	
+	/*
+	if (!uECC_make_key(public, private, curve)) {
+		printf("uECC_make_key() failed\n");
+		return 1;
+	}
+	
+	*/
+	
+	uint8_t private2[32] = {0};
+	uint8_t public2[64] = {0};
+	
+	hex_to_bytes(private_key_hex, private2);
+	hex_to_bytes(public_key_hex, public2);
+	if( memcmp(private,private2,32) ) uart_puts("pr ok!");
+	_delay_ms(1000);
+	if( memcmp(public,public2,64) ) uart_puts("pu ok!");
+	memcpy(hash, public, sizeof(hash));
+		
+			
+	if (!uECC_sign(private, hash, sizeof(hash), sig, curve)) {
+		uart_puts("sign failed");
+		return;
+		
+	}
+
+	if (!uECC_verify(public, hash, sizeof(hash), sig, curve)) {
+		uart_puts("verify failed");
+		return;
+	}
+	printf("\n");
+	uart_puts("Keys Match!");
+}
+
+
+	
+ISR(INT4_vect){
+	event = AUTH_E;
+	char target[] = "4";
+	uart_puts(target);
+	//SendByMOb2();
+}
+
+ISR(INT5_vect){
+	char target[] = "5";
+	uart_puts(target);
+	//SendByMOb2();
+}
+
+ISR(INT6_vect){
+	char target[] = "6";
+	uart_puts(target);
+	//SendByMOb2();
+}
+
+ISR(INT7_vect){
+	char target[] = "7";
+	uart_puts(target);
+	//SendByMOb2();
+}
+
  int main()
  {	
-	 volatile uint8_t trigger = 0x01;
 	 uart_init();
+	 buttons_init();
 	 CAN_INIT();
+	 
 	 while(1){
-			 if(!(PINE & (1 << 2))){
-				 if(trigger){
-					 trigger = 0x00;
-					 char target[] = "This is a test";
-					 uart_puts(target);
-					 SendByMOb2();
-				 }
-			}else{
-				 trigger = 0x01;
-			}	
+		 switch (event)
+		 {
+		 case AUTH_E :
+			init_authentication();
+		 	break;
+		 }
 	 }
+	 return 0;
  }
 

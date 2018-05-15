@@ -37,7 +37,11 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../main.c
+../hexconv.c \
+../leds.c \
+../main.c \
+../uart_f.c \
+../uECC.c
 
 
 PREPROCESSING_SRCS += 
@@ -47,16 +51,32 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-main.o
+hexconv.o \
+leds.o \
+main.o \
+uart_f.o \
+uECC.o
 
 OBJS_AS_ARGS +=  \
-main.o
+hexconv.o \
+leds.o \
+main.o \
+uart_f.o \
+uECC.o
 
 C_DEPS +=  \
-main.d
+hexconv.d \
+leds.d \
+main.d \
+uart_f.d \
+uECC.d
 
 C_DEPS_AS_ARGS +=  \
-main.d
+hexconv.d \
+leds.d \
+main.d \
+uart_f.d \
+uECC.d
 
 OUTPUT_FILE_PATH +=Tester.elf
 
@@ -72,6 +92,14 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
+
+
+
+
 
 
 
