@@ -8,7 +8,7 @@
 #include <avr/io.h>
 #include <stdlib.h>
 
-void bytes_to_hex(const unsigned char *src, uint8_t len, unsigned char *dest)
+void bytes_to_hex(const uint8_t *src, uint8_t len, unsigned char *dest)
 {
 	static const unsigned char table[] = "0123456789abcdef";
 

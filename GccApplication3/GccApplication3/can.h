@@ -19,11 +19,15 @@ void SendByMOb2();
 
 void can_send_message( uint8_t mobnr , uint8_t *id, uint8_t *message );
 
+void can_receive_message( uint8_t mobnr, uint8_t id, uint8_t mask);
+
 void can_get_message( uint8_t mobnr , uint8_t *message );
 
 void can_print_message( uint8_t mobnr);
 
 void can_send_frame_buffer( uint8_t *message );
+
+void can_receive_frame_buffer();
 
 
 #endif /* CAN_H_ */

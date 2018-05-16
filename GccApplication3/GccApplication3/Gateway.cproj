@@ -138,6 +138,12 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="can.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="can.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="hexconv.c">
       <SubType>compile</SubType>
     </Compile>

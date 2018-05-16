@@ -37,6 +37,7 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../can.c \
 ../hexconv.c \
 ../leds.c \
 ../main.c \
@@ -50,24 +51,28 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+can.o \
 hexconv.o \
 leds.o \
 main.o \
 uart_f.o
 
 OBJS_AS_ARGS +=  \
+can.o \
 hexconv.o \
 leds.o \
 main.o \
 uart_f.o
 
 C_DEPS +=  \
+can.d \
 hexconv.d \
 leds.d \
 main.d \
 uart_f.d
 
 C_DEPS_AS_ARGS +=  \
+can.d \
 hexconv.d \
 leds.d \
 main.d \
@@ -87,6 +92,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

@@ -155,9 +155,11 @@ ISR(INT4_vect){
 	event = AUTH_E;
 	//char target[] = "4";
 	//uart_puts(target);
-	uint8_t test[8] = { 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 };
-	uint8_t id[4] = { 0 , 5 , 0 , 5 };
-	send_message(0 , id , test );
+	uint8_t test[64] = { 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 1 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 2 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 3 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 
+						4 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 5 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 6 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 7 , 1 , 2 , 3 , 4 , 5 , 6 , 7 };
+	uint8_t id[4] = { 1 , 1 , 0 , 0 };
+	can_send_frame_buffer(test);
+	//can_send_message(0 , id , test );
 }
 
 ISR(INT5_vect){

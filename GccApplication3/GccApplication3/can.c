@@ -6,7 +6,7 @@
  */ 
 
 #include <avr/io.h>
-#include <interrupt.h>
+#include <avr/interrupt.h>
 #include "hexconv.h"
 #include "uart_f.h"
 
@@ -189,6 +189,12 @@ void can_init_mask_def(){
 	CANIDM4 = (0 << RTRMSK) | (0 << IDEMSK);
 }
 
+void can_init_mask_null(){
+	CANIDM1 = 0x00;
+	CANIDM2 = 0x00;
+	CANIDM4 = (0 << RTRMSK) | (0 << IDEMSK);
+}
+
 void can_init_mask (uint8_t mask){
 	CANIDM1 = mask << 5;
 	CANIDM2 = mask >> 3;
@@ -205,6 +211,7 @@ void can_init_message( uint8_t *message ){
 	}
 }
 
+
 void can_send_message( uint8_t mobnr , uint8_t id, uint8_t *message ){
 	//select mob.
 	CANPAGE = 1 << mobnr;
@@ -219,8 +226,9 @@ void can_send_message( uint8_t mobnr , uint8_t id, uint8_t *message ){
 void can_receive_message( uint8_t mobnr, uint8_t id, uint8_t mask){
 	CANPAGE = (1 << mobnr);
 	can_init_id(id);
-	can_init_mask(mask);
+	can_init_mask_def();
 	//CAN standard rev 2.0 A (identifiers length = 11 bits)
+	can_enable_mob_interrupt(mobnr);
 	CANCDMOB = (1 << CONMOB1) | (1 << DLC3); //enable reception and data length code = 8 bytes
 }
 
@@ -239,7 +247,16 @@ void can_receive_frame_buffer(){
 		can_init_id(j);
 		// Mask = 255
 		can_init_mask_def();
+		can_enable_mob_interrupt(j);
 		CANCDMOB = (1 << CONMOB0) | (1 << CONMOB1) | (1 << DLC3);
+	}
+}
+
+void can_enable_mob_interrupt(volatile uint8_t mobnr){
+	if(mobnr <= 7){
+		CANIE2 |= (1 << mobnr);
+	}else{
+		CANIE1 |= (1 << (mobnr-8));
 	}
 }
 
