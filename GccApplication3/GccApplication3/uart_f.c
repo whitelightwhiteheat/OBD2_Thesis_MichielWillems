@@ -25,3 +25,13 @@ void uart_puts(char* s){
 	}
 }
 
+void uart_putd(char* s){
+	int i;
+	int len = sizeof(s);
+	for (i = 0; i < len; i++){
+		while(!( UCSR0A & 0X20));
+		UDR0=s[i];
+	}
+}
+
+

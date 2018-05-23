@@ -40,9 +40,15 @@ volatile event_t event;
 
 
 ISR (CANIT_vect){
-	
 	 char target[] = "buffer received";
 	 uart_puts(target);
+	 uint8_t message[64];
+	 can_get_frame_buffer(message);
+	 char hex[129];
+	 bytes_to_hex(message, 64, hex);
+	 hex[128] = '\0';
+	 uart_puts(hex);
+	 
 	 CANSTMOB=0x00;
 	 CANGIT = CANGIT;
 }
