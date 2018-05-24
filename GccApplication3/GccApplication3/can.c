@@ -10,6 +10,11 @@
 #include "hexconv.h"
 #include "uart_f.h"
 
+#define INTR_MASK 0b10000000
+#define BXOK_MASK 0b00010000
+#define RXOK_MASK 0b00100000
+
+
 void can_init(){
 
 	cli();
@@ -24,18 +29,8 @@ void can_init(){
 	// enable receive interrupt
 	// enable general interrupt
 	CANGIE = (1 << ENIT) | (1 << ENRX) | (1 << ENTX);
-
-	// MOb 1 interrupt enable
-	// MOb======> Message object
-	//CANIE2 = (1 << IEMOB1);
-
-	// MOb 8 to 14 interrupt disable
-	//CANIE1 = 0x00 ; /*MOb 8~14*/
-
-	// can general interrupt register
 	CANGIT = 0x00;
-
-	// MOb initialization
+	
 	int c;
 	for (c=0;c<15;c++)
 	{
@@ -57,25 +52,7 @@ void can_init(){
 	// enter enable mode
 	CANGCON = 0b00000010 ;    //(1 << ENA/STB)
 
-	// MOb 1 initialization
-	
-	/*
-	CANPAGE = 0x00;    // (1 << MOBNB0)
-	CANIDT1 = 0x00; // ID = 1000
-	CANIDT2 = 0x00;
-	CANIDT3 = 0x00;
-	CANIDT4 = 0x00;
-	CANIDM1 = 0x00;  // no mask
-	CANIDM2 = 0x00;
-	CANIDM3 = 0x00;
-	CANIDM4 = 0x00;
-
-	//CAN standard rev 2.0 A (identifiers length = 11 bits)
-	CANCDMOB = (1 << CONMOB1) | (1 << DLC3); //enable reception and data length code = 8 bytes
-	
-	*/
-
-	sei();
+		sei();
 
 }
 
@@ -205,7 +182,7 @@ void can_init_message( uint8_t *message ){
 	}
 }
 
-void can_send_message( uint8_t mobnr , uint8_t id, uint8_t *message ){
+int can_send_message( uint8_t mobnr , uint8_t id, uint8_t *message ){
 	//select mob.
 	CANPAGE = (mobnr << 4);
 	//copy ID.
@@ -214,14 +191,27 @@ void can_send_message( uint8_t mobnr , uint8_t id, uint8_t *message ){
 	can_init_message(message);
 	//enable transmission
 	CANCDMOB = (1 << CONMOB0) | (1 << DLC3);
+	
+	return 0;
 }
 
-void can_receive_message( uint8_t mobnr, uint8_t id, uint8_t mask){
+int can_receive_message( uint8_t mobnr, uint8_t id, uint8_t mask, uint8_t *message){
 	CANPAGE = (mobnr << 4);
 	can_init_id(id);
 	can_init_mask(mask);
 	//CAN standard rev 2.0 A (identifiers length = 11 bits)
 	CANCDMOB = (1 << CONMOB1) | (1 << DLC3); //enable reception and data length code = 8 bytes
+	//wait for interrupt
+	while((CANGIT & INTR_MASK) != (1 << CANIT));
+	//check if it is the right interrupt.
+	if((CANSTMOB & RXOK_MASK) != (1 << RXOK)) return 1;
+	//reset mob RXOK flag.
+	CANSTMOB = 0x00;
+	//reset interrupt register.
+	CANGIT = CANGIT;
+	//retrieve message.
+	can_get_message(mobnr, message);
+	return 0;
 }
 
 void can_send_frame_buffer( uint8_t *message ){
@@ -232,7 +222,8 @@ void can_send_frame_buffer( uint8_t *message ){
 	}
 }
 
-void can_receive_frame_buffer(){
+void can_receive_frame_buffer( uint8_t *message ){
+	//Enable buffer receive interrupt.
 	CANGIE |= 1 << ENBX;
 	uint8_t j;
 	for(j=0; j<8; j++){
@@ -240,10 +231,28 @@ void can_receive_frame_buffer(){
 		can_init_id(j);
 		// Mask = 255
 		can_init_mask_def();
+		//set mob in buffer receive mode.
 		CANCDMOB = (1 << CONMOB0) | (1 << CONMOB1) | (1 << DLC3);
 	}
+	
+	CANPAGE = CANGIT & INTR_MASK;
+	CANPAGE = CANGIT & INTR_MASK;
+	CANPAGE = CANGIT & INTR_MASK;
+	//wait for interrupt.
+	while((CANGIT & INTR_MASK) != (1 << CANIT));
+	//Check if interrupt is the right one (BXOK).
+	if((CANGIT & BXOK_MASK) != (1 << BXOK)) return 1;
+	//reset mob RXOK flags
+	for(j=0; j<8; j++){
+		CANPAGE = (j << 4);
+		CANSTMOB = 0x00;
+	}
+	//Reset interrupt register.
+	CANGIT = CANGIT;
+	//retrieve message.
+	can_get_frame_buffer(message);
+	return 0;
 }
-
 
 /*
 void SendByMOb2(void){

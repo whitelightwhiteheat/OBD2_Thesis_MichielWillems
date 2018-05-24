@@ -24,22 +24,26 @@ static char public_key_hex[128] = "54619a4980a83e9199cc42d811ef07dcd8608c43929e1
 
 typedef enum {
 	IDLE_S,
-	SEND_CHALLENGE_S,
-	VERIFY_SIGNATURE_S,
+	WAIT_FOR_SIGNATURE_S,
 	AUTHENTICATED_S
 } state_t;
 
 typedef enum {
 	NULL_E,
-	INIT_RECEIVED,
-	SIGNATURE_RECEIVED,
+	INIT_RECEIVED_E,
+	SIGNATURE_RECEIVED_E,
+	MESSAGE_RECEIVED_E
 } event_t;
 
 volatile state_t state = IDLE_S;
-volatile event_t event;
+volatile event_t event = NULL_E;
 
 
 ISR (CANIT_vect){
+	
+	
+	
+		/*
 	 char target[] = "buffer received";
 	 uart_puts(target);
 	 uint8_t message[64];
@@ -51,16 +55,26 @@ ISR (CANIT_vect){
 	 
 	 CANSTMOB=0x00;
 	 CANGIT = CANGIT;
+	 */
+}
+
+void run()
+{
+	uint8_t challenge[64];
+	uint8_t signature[64];
+	can_receive_frame_buffer(signature);
+	char hex[129];
+	bytes_to_hex(signature, 64, hex);
+	hex[128] = '\0';
+	uart_puts(hex);
 }
 
  int main()
  {	
 	uart_init();
 	can_init();
-	can_receive_frame_buffer();
-	while(1){
-		
-	}
+	run();
+	can_init();
  }
 
 

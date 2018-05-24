@@ -23,6 +23,10 @@ void uart_puts(char* s){
 		while(!( UCSR0A & 0X20));
 		UDR0=s[i];
 	}
+	while(!( UCSR0A & 0X20));
+	UDR0 = 13;
+	while(!( UCSR0A & 0X20));
+	UDR0 = 10;
 }
 
 void uart_putd(char* s){
