@@ -4,6 +4,8 @@
 
 can.c
 
+ECC\uECC.c
+
 hexconv.c
 
 leds.c
@@ -11,6 +13,4 @@ leds.c
 main.c
 
 uart_f.c
-
-uECC.c
 

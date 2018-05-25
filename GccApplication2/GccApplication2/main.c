@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <interrupt.h>
-#include "uECC.h"
+#include "ECC/uECC.h"
 #include "leds.h"
 #include "uart_f.h"
 #include "hexconv.h"
@@ -23,21 +23,11 @@ static char private_key_hex[64] = "92990788d66bf558052d112f5498111747b3e28c55984
 static char public_key_hex[128] = "54619a4980a83e9199cc42d811ef07dcd8608c43929e1a3e443aa04deae8ff89e46154a1a074ae932b6d1395e565fcfb19dd392271d4ebedd1feadae2df9158d";
 
 typedef enum {
-	IDLE_S,
-	INIT_AUTHENTICATION_S,
-	SIGN_CHALLENGE_S,
-	AUTHENTICATED_S
-} state_t;
-	
-typedef enum {
-	NULL_E,
-	AUTH_E,
-	CHALLENGE_RECEIVED_E,
-	AUTHENTICATION_ACK_E,
-} event_t;
+	NOTHING,
+	SCENARIO1
+} run_t;
 
-volatile state_t state = IDLE_S;
-volatile event_t event;
+volatile run_t run_scenario = NOTHING;
 		
 		
 void buttons_init(){
@@ -59,49 +49,9 @@ static int RNG(uint8_t *dest, unsigned size) {
 	// NOTE: it would be a good idea to hash the resulting random data using SHA-256 or similar.
 	return 1;
 }
-
-
-
-
-//For testing purposes
-
-
-// Send a remote frame to start the authentication protocol.
-// ID is still arbitrary (TODO)
-void init_authentication(){
-	CANPAGE = (1 << MOBNB1);
-	int j;
-	for(j=0; j<8; j++){
-		//CANMSG = data[j];
-		CANMSG = 0b11111111;
-	}
-	CANIDT4 = (1 << RTRTAG);
-	CANCDMOB = (1 << CONMOB0);
-	light_led(1);
-}
-
-//MOB1-8 in Buffer receive mode.
-void receive_challenge(){
-	cli();
 	
-	uint8_t j = 0;
-	for(j=0; j<8; j++){
-		CANPAGE = (1 << j);
-		CANIDT1 = j;
-		CANIDT2 = 0x00;
-		CANIDT3 = 0x00;
-		CANIDT4 = 0x00;
-		CANIDM1 = 0x00;  // no mask
-		CANIDM2 = 0x00;
-		CANIDM3 = 0x00;
-		CANIDM4 = 0x00;
-		CANCDMOB = (1 << CONMOB0) | (1 << CONMOB1) | (1 << DLC3);
-	}
-	
-	
-}
 
-	
+/*	
 void ecc_test(){
 	uint8_t private[32] = {0};
 	uint8_t public[64] = {0};
@@ -116,13 +66,13 @@ void ecc_test(){
 
 	uECC_set_rng(&RNG);
 	
-	/*
+	
 	if (!uECC_make_key(public, private, curve)) {
 		printf("uECC_make_key() failed\n");
 		return 1;
 	}
 	
-	*/
+	
 	
 	uint8_t private2[32] = {0};
 	uint8_t public2[64] = {0};
@@ -149,17 +99,14 @@ void ecc_test(){
 	uart_puts("Keys Match!");
 }
 
+*/
+
+
 
 	
 ISR(INT4_vect){
-	event = AUTH_E;
-	//char target[] = "4";
-	//uart_puts(target);
-	uint8_t test[64] = { 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 1 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 2 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 3 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 
-						4 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 5 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 6 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 7 , 1 , 2 , 3 , 4 , 5 , 6 , 7 };
-	uint8_t id[4] = { 1 , 1 , 0 , 0 };
-	can_send_frame_buffer(test);
-	//can_send_message(0 , id , test );
+	uart_puts("running scenario");
+	run_scenario = SCENARIO1;
 }
 
 ISR(INT5_vect){
@@ -180,22 +127,61 @@ ISR(INT7_vect){
 	//SendByMOb2();
 }
 
+int sign_challenge(uint8_t challenge[64], uint8_t signature[64]){
+	const struct uECC_Curve_t *curve = uECC_secp256k1();
+	uint8_t hash[64];
+	uint8_t private2[32] = {0};
+	uint8_t public2[64] = {0};
+	hex_to_bytes(private_key_hex, 64, private2);
+	hex_to_bytes(public_key_hex, 128, public2);
+	memcpy(hash, public2, sizeof(hash));
+	if (!uECC_sign(private2, hash, sizeof(hash), signature, curve)) {
+		uart_puts("sign failed");
+		return 1;
+	}
+	
+	return 0;
+}
+
+int run_1(){
+	uart_puts("starting authentication");
+	uint8_t challenge[64];
+	//init authentication.
+	can_send_message(0, 0x00, 0);
+	//wait for challenge.
+	can_receive_frame_buffer(challenge);
+	uart_puts("challenge received");
+	uint8_t signature[64];
+	sign_challenge(challenge, signature);
+	//Send signature.
+	can_send_frame_buffer(signature);
+	uart_puts("signature sent");
+	uint8_t message[64];
+	//Wait for authentication acknowledgement.
+	can_receive_message(0, 0x00, 0x00,  message);
+	uart_puts("authenticated!");
+	return 0;
+}
+
  int main()
  {	
+	 
 	 uart_init();
 	 buttons_init();
 	 can_init();
 	 
 	 while(1){
-		 /*
-		 switch (event)
-		 {
-		 case AUTH_E :
-			init_authentication();
-		 	break;
-		 }
-		 */
+		run_t runlcl = run_scenario;
+		switch(runlcl){
+			case NOTHING :
+				break;
+			case SCENARIO1 :
+				run_scenario = NOTHING;
+				run_1();
+				break;
+		}
 	 }
 	 return 0;
+	 
  }
 

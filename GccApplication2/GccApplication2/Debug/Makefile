@@ -32,17 +32,18 @@ LIB_DEP:=
 LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
-SUBDIRS := 
+SUBDIRS :=  \
+../ECC
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../can.c \
+../ECC/uECC.c \
 ../hexconv.c \
 ../leds.c \
 ../main.c \
-../uart_f.c \
-../uECC.c
+../uart_f.c
 
 
 PREPROCESSING_SRCS += 
@@ -53,35 +54,35 @@ ASM_SRCS +=
 
 OBJS +=  \
 can.o \
+ECC/uECC.o \
 hexconv.o \
 leds.o \
 main.o \
-uart_f.o \
-uECC.o
+uart_f.o
 
 OBJS_AS_ARGS +=  \
 can.o \
+ECC/uECC.o \
 hexconv.o \
 leds.o \
 main.o \
-uart_f.o \
-uECC.o
+uart_f.o
 
 C_DEPS +=  \
 can.d \
+ECC/uECC.d \
 hexconv.d \
 leds.d \
 main.d \
-uart_f.d \
-uECC.d
+uart_f.d
 
 C_DEPS_AS_ARGS +=  \
 can.d \
+ECC/uECC.d \
 hexconv.d \
 leds.d \
 main.d \
-uart_f.d \
-uECC.d
+uart_f.d
 
 OUTPUT_FILE_PATH +=Tester.elf
 
@@ -111,6 +112,13 @@ LINKER_SCRIPT_DEP+=
 
 
 ./%.o: .././%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"../src/ASF/mega/drivers/cpu" -I"../src/Config" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/utils" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=at90can128 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\at90can128" -c -std=gnu99 -DUART_RX0_BUFFER_SIZE=16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+ECC/%.o: ../ECC/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"../src/ASF/mega/drivers/cpu" -I"../src/Config" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/utils" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=at90can128 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\at90can128" -c -std=gnu99 -DUART_RX0_BUFFER_SIZE=16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

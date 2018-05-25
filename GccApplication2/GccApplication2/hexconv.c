@@ -6,9 +6,9 @@
  */ 
 
 #include <avr/io.h>
-#include <stdlib.h>
+#include "hexconv.h"
 
-void bytes_to_hex(const uint8_t *src, uint8_t len, unsigned char *dest)
+void bytes_to_hex(const uint8_t *src, uint8_t len, char *dest)
 {
 	static const unsigned char table[] = "0123456789abcdef";
 
