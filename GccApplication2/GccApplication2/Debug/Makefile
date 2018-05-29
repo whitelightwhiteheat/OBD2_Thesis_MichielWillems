@@ -33,7 +33,8 @@ LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
-../ECC
+../ECC \
+../sha2
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
@@ -43,6 +44,12 @@ C_SRCS +=  \
 ../hexconv.c \
 ../leds.c \
 ../main.c \
+../sha2/sha224.c \
+../sha2/sha256.c \
+../sha2/sha2_large_common.c \
+../sha2/sha2_small_common.c \
+../sha2/sha384.c \
+../sha2/sha512.c \
 ../uart_f.c
 
 
@@ -58,6 +65,12 @@ ECC/uECC.o \
 hexconv.o \
 leds.o \
 main.o \
+sha2/sha224.o \
+sha2/sha256.o \
+sha2/sha2_large_common.o \
+sha2/sha2_small_common.o \
+sha2/sha384.o \
+sha2/sha512.o \
 uart_f.o
 
 OBJS_AS_ARGS +=  \
@@ -66,6 +79,12 @@ ECC/uECC.o \
 hexconv.o \
 leds.o \
 main.o \
+sha2/sha224.o \
+sha2/sha256.o \
+sha2/sha2_large_common.o \
+sha2/sha2_small_common.o \
+sha2/sha384.o \
+sha2/sha512.o \
 uart_f.o
 
 C_DEPS +=  \
@@ -74,6 +93,12 @@ ECC/uECC.d \
 hexconv.d \
 leds.d \
 main.d \
+sha2/sha224.d \
+sha2/sha256.d \
+sha2/sha2_large_common.d \
+sha2/sha2_small_common.d \
+sha2/sha384.d \
+sha2/sha512.d \
 uart_f.d
 
 C_DEPS_AS_ARGS +=  \
@@ -82,6 +107,12 @@ ECC/uECC.d \
 hexconv.d \
 leds.d \
 main.d \
+sha2/sha224.d \
+sha2/sha256.d \
+sha2/sha2_large_common.d \
+sha2/sha2_small_common.d \
+sha2/sha384.d \
+sha2/sha512.d \
 uart_f.d
 
 OUTPUT_FILE_PATH +=Tester.elf
@@ -111,6 +142,18 @@ LINKER_SCRIPT_DEP+=
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 ./%.o: .././%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
@@ -119,6 +162,13 @@ LINKER_SCRIPT_DEP+=
 	
 
 ECC/%.o: ../ECC/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"../src/ASF/mega/drivers/cpu" -I"../src/Config" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/utils" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=at90can128 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\at90can128" -c -std=gnu99 -DUART_RX0_BUFFER_SIZE=16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+sha2/%.o: ../sha2/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"../src/ASF/mega/drivers/cpu" -I"../src/Config" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/utils" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=at90can128 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\at90can128" -c -std=gnu99 -DUART_RX0_BUFFER_SIZE=16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

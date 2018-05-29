@@ -292,8 +292,7 @@ uECC_VLI_API uECC_word_t uECC_vli_equal(const uECC_word_t *left,
     for (i = num_words - 1; i >= 0; --i) {
         diff |= (left[i] ^ right[i]);
     }
-	volatile int result = (diff == 0);
-    return result;
+    return (diff == 0);
 }
 
 uECC_VLI_API uECC_word_t uECC_vli_sub(uECC_word_t *result,
@@ -1561,8 +1560,7 @@ int uECC_verify(const uint8_t *public_key,
     }
 
     /* Accept only if v == r. */
-	volatile int result = (int)(uECC_vli_equal(rx, r, num_words));
-    return result;
+    return (int)(uECC_vli_equal(rx, r, num_words));
 }
 
 #if uECC_ENABLE_VLI_API

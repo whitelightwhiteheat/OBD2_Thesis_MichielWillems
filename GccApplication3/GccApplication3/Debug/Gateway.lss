@@ -3,29 +3,29 @@ Gateway.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         0000007e  00800100  0000044c  000004c0  2**0
+  0 .data         000000c0  00800100  0000044c  000004c0  2**0
                   CONTENTS, ALLOC, LOAD, DATA
   1 .text         0000044c  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      00000030  00000000  00000000  0000053e  2**0
+  2 .comment      00000030  00000000  00000000  00000580  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000570  2**2
+  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000005b0  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 000000e0  00000000  00000000  000005b0  2**0
+  4 .debug_aranges 000000f0  00000000  00000000  000005f0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00001425  00000000  00000000  00000690  2**0
+  5 .debug_info   000017e8  00000000  00000000  000006e0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000d00  00000000  00000000  00001ab5  2**0
+  6 .debug_abbrev 00000dd1  00000000  00000000  00001ec8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000853  00000000  00000000  000027b5  2**0
+  7 .debug_line   00000963  00000000  00000000  00002c99  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000238  00000000  00000000  00003008  2**2
+  8 .debug_frame  000002c0  00000000  00000000  000035fc  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    000006fd  00000000  00000000  00003240  2**0
+  9 .debug_str    000007b5  00000000  00000000  000038bc  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    000006a5  00000000  00000000  0000393d  2**0
+ 10 .debug_loc    00000887  00000000  00000000  00004071  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 000000b0  00000000  00000000  00003fe2  2**0
+ 11 .debug_ranges 000000c0  00000000  00000000  000048f8  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -125,13 +125,13 @@ Disassembly of section .text:
   ae:	02 c0       	rjmp	.+4      	; 0xb4 <__do_copy_data+0x14>
   b0:	07 90       	elpm	r0, Z+
   b2:	0d 92       	st	X+, r0
-  b4:	ae 37       	cpi	r26, 0x7E	; 126
+  b4:	a0 3c       	cpi	r26, 0xC0	; 192
   b6:	b1 07       	cpc	r27, r17
   b8:	d9 f7       	brne	.-10     	; 0xb0 <__do_copy_data+0x10>
 
 000000ba <__do_clear_bss>:
   ba:	21 e0       	ldi	r18, 0x01	; 1
-  bc:	ae e7       	ldi	r26, 0x7E	; 126
+  bc:	a0 ec       	ldi	r26, 0xC0	; 192
   be:	b1 e0       	ldi	r27, 0x01	; 1
   c0:	01 c0       	rjmp	.+2      	; 0xc4 <.do_clear_bss_start>
 
@@ -139,7 +139,7 @@ Disassembly of section .text:
   c2:	1d 92       	st	X+, r1
 
 000000c4 <.do_clear_bss_start>:
-  c4:	ae 37       	cpi	r26, 0x7E	; 126
+  c4:	a0 3c       	cpi	r26, 0xC0	; 192
   c6:	b2 07       	cpc	r27, r18
   c8:	e1 f7       	brne	.-8      	; 0xc2 <.do_clear_bss_loop>
   ca:	7c d1       	rcall	.+760    	; 0x3c4 <main>
@@ -607,40 +607,26 @@ int can_receive_frame_buffer( uint8_t *message ){
  31e:	08 95       	ret
 
 00000320 <buttons_init>:
-
-volatile state_t state = IDLE_S;
-volatile event_t event = NULL_E;
-
-void buttons_init(){
-	DDRE = 0x00;
  320:	1d b8       	out	0x0d, r1	; 13
-	PORTE = 1 << PE4 | 1 << PE5 | 1 << PE6 | 1 << PE7;
+	const struct uECC_Curve_t * curve = uECC_secp256k1();
+	volatile uint8_t public[64] = {0};
+	hex_to_bytes(public_key_hex, 128, public);
+	int result = uECC_verify(public, challenge, 64, signature, curve);
+	return result;
+}
  322:	80 ef       	ldi	r24, 0xF0	; 240
  324:	8e b9       	out	0x0e, r24	; 14
-	EICRB = 1 << ISC40 | 1 << ISC41 | 1 << ISC50 | 1 << ISC51 | 1 << ISC60 | 1 << ISC61 | 1 << ISC70 | 1 << ISC71; // set interrupt on falling edge.
  326:	9f ef       	ldi	r25, 0xFF	; 255
  328:	90 93 6a 00 	sts	0x006A, r25	; 0x80006a <__TEXT_REGION_LENGTH__+0x7e006a>
-	EIMSK = 1 << INT4 | 1 << INT5 | 1 << INT6 | 1 << INT7;
  32c:	8d bb       	out	0x1d, r24	; 29
  32e:	08 95       	ret
 
 00000330 <__vector_18>:
-}
-
-
-
-ISR (CANIT_vect){
  330:	1f 92       	push	r1
  332:	0f 92       	push	r0
  334:	0f b6       	in	r0, 0x3f	; 63
  336:	0f 92       	push	r0
  338:	11 24       	eor	r1, r1
-	 uart_puts(hex);
-	 
-	 CANSTMOB=0x00;
-	 CANGIT = CANGIT;
-	 */
-}
  33a:	0f 90       	pop	r0
  33c:	0f be       	out	0x3f, r0	; 63
  33e:	0f 90       	pop	r0
@@ -663,7 +649,7 @@ int run()
  356:	0f be       	out	0x3f, r0	; 63
  358:	cd bf       	out	0x3d, r28	; 61
 	uart_puts("idle");
- 35a:	80 e4       	ldi	r24, 0x40	; 64
+ 35a:	82 e8       	ldi	r24, 0x82	; 130
  35c:	91 e0       	ldi	r25, 0x01	; 1
  35e:	45 d0       	rcall	.+138    	; 0x3ea <uart_puts>
 	uint8_t message[8];
@@ -676,7 +662,7 @@ int run()
  36a:	80 e0       	ldi	r24, 0x00	; 0
  36c:	34 df       	rcall	.-408    	; 0x1d6 <can_receive_message>
 	uart_puts("authentication started");
- 36e:	85 e4       	ldi	r24, 0x45	; 69
+ 36e:	87 e8       	ldi	r24, 0x87	; 135
  370:	91 e0       	ldi	r25, 0x01	; 1
  372:	3b d0       	rcall	.+118    	; 0x3ea <uart_puts>
 	uint8_t challenge[64] = { 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 1 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 2 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 3 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 4 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 5 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 6 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 7 , 1 , 2 , 3 , 4 , 5 , 6 , 7 };
@@ -694,7 +680,7 @@ int run()
  388:	09 96       	adiw	r24, 0x09	; 9
 	uart_puts("challenge sent");
  38a:	65 df       	rcall	.-310    	; 0x256 <can_send_frame_buffer>
- 38c:	8c e5       	ldi	r24, 0x5C	; 92
+ 38c:	8e e9       	ldi	r24, 0x9E	; 158
  38e:	91 e0       	ldi	r25, 0x01	; 1
 	uint8_t signature[64];
 	can_receive_frame_buffer(signature);
@@ -702,9 +688,10 @@ int run()
  392:	ce 01       	movw	r24, r28
  394:	87 5b       	subi	r24, 0xB7	; 183
  396:	9f 4f       	sbci	r25, 0xFF	; 255
+	//verify_signature(challenge, signature);
 	uart_puts("signature received");
  398:	72 df       	rcall	.-284    	; 0x27e <can_receive_frame_buffer>
- 39a:	8b e6       	ldi	r24, 0x6B	; 107
+ 39a:	8d ea       	ldi	r24, 0xAD	; 173
  39c:	91 e0       	ldi	r25, 0x01	; 1
 	can_send_message(0, 0x00, message);
  39e:	25 d0       	rcall	.+74     	; 0x3ea <uart_puts>

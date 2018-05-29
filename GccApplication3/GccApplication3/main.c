@@ -15,7 +15,7 @@
 #include "hexconv.h"
 #include "leds.h"
 #include "can.h"
-
+#include "ECC/uECC.h"
 
 volatile uint8_t data[8];
 
@@ -45,6 +45,81 @@ void buttons_init(){
 	EIMSK = 1 << INT4 | 1 << INT5 | 1 << INT6 | 1 << INT7;
 }
 
+int ecc_test2(){
+ int i, c;
+ uint8_t private[32] = {0};
+ uint8_t public[64] = {0};
+ uint8_t hash[32] = {0};
+ uint8_t sig[64] = {0};
+	 
+ //uECC_set_rng(&RNG);
+
+ const struct uECC_Curve_t * curve;
+ int num_curves = 1;
+ /*
+ #if uECC_SUPPORTS_secp160r1
+ curves[num_curves++] = uECC_secp160r1();
+ #endif
+ #if uECC_SUPPORTS_secp192r1
+ curves[num_curves++] = uECC_secp192r1();
+ #endif
+ #if uECC_SUPPORTS_secp224r1
+ curves[num_curves++] = uECC_secp224r1();
+ #endif
+ */
+ /*
+ #if uECC_SUPPORTS_secp256r1
+ curves[num_curves++] = uECC_secp256r1();
+ #endif
+ */
+ #if uECC_SUPPORTS_secp256k1
+ curve = uECC_secp256k1();
+ #endif
+ 
+ //printf("Testing 256 signatures\n");
+ //for (c = 0; c < num_curves; ++c) {
+		 printf("KZNUDVZIL");
+		 //fflush(stdout);
+		 
+		 if (!uECC_make_key(public, private, curve)) {
+			 printf("uECC_make_key() failed\n");
+			 return 1;
+		 }
+		 
+		 volatile uint8_t private2[32] = {0};
+		volatile uint8_t public2[64] = {0};
+	
+		hex_to_bytes(private_key_hex, 64, private2);
+		hex_to_bytes(public_key_hex, 128, public2);
+		if( !memcmp(private,private2,32) ){
+			uart_puts("pr ok!");
+		}
+	
+		//_delay_ms(1000);
+		if( !memcmp(public,public2,64) ) uart_puts("pu ok!");
+	
+
+		 
+		 memcpy(hash, public, sizeof(hash));
+		 
+		 if (!uECC_sign(private, hash, sizeof(hash), sig, curve)) {
+			 printf("uECC_sign() failed\n");
+			 return 1;
+		 }
+		volatile int result = uECC_verify(public, hash, sizeof(hash), sig, curve);
+		/*
+		 if (!uECC_verify(public, hash, sizeof(hash), sig, curve)) {
+			 //printf("uECC_verify() failed\n");
+			 uart_puts("kaka");
+			 return 1;
+		 }
+		 */
+ //}
+ 
+ return 0;
+ }
+
+
 
 
 ISR (CANIT_vect){
@@ -66,6 +141,14 @@ ISR (CANIT_vect){
 	 */
 }
 
+int verify_signature(uint8_t challenge[64], uint8_t signature[64]){
+	const struct uECC_Curve_t * curve = uECC_secp256k1();
+	volatile uint8_t public[64] = {0};
+	hex_to_bytes(public_key_hex, 128, public);
+	int result = uECC_verify(public, challenge, 64, signature, curve);
+	return result;
+}
+
 int run()
 {
 	uart_puts("idle");
@@ -77,6 +160,7 @@ int run()
 	uart_puts("challenge sent");
 	uint8_t signature[64];
 	can_receive_frame_buffer(signature);
+	//verify_signature(challenge, signature);
 	uart_puts("signature received");
 	can_send_message(0, 0x00, message);
 	return 0;

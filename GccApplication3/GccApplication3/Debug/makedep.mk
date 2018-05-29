@@ -4,6 +4,8 @@
 
 can.c
 
+ECC\uECC.c
+
 hexconv.c
 
 leds.c

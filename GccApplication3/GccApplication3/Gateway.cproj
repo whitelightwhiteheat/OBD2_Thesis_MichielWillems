@@ -144,6 +144,18 @@
     <Compile Include="can.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="ECC\types.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECC\uECC.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECC\uECC.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECC\uECC_vli.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="hexconv.c">
       <SubType>compile</SubType>
     </Compile>
@@ -165,6 +177,50 @@
     <Compile Include="uart_f.h">
       <SubType>compile</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ECC" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ECC\.gitignore">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="ECC\asm_arm.inc">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="ECC\asm_arm_mult_square.inc">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="ECC\asm_arm_mult_square_umaal.inc">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="ECC\asm_avr.inc">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="ECC\asm_avr_mult_square.inc">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="ECC\curve-specific.inc">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="ECC\emk_project.py">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="ECC\emk_rules.py">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="ECC\library.properties">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="ECC\LICENSE.txt">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="ECC\platform-specific.inc">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="ECC\README.md">
+      <SubType>compile</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>
