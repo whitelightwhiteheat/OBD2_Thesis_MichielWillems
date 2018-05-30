@@ -171,6 +171,42 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="sha2\sha224.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sha2\sha224.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sha2\sha256.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sha2\sha256.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sha2\sha2_large_common.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sha2\sha2_large_common.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sha2\sha2_small_common.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sha2\sha2_small_common.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sha2\sha384.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sha2\sha384.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sha2\sha512.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sha2\sha512.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="uart_f.c">
       <SubType>compile</SubType>
     </Compile>
@@ -180,6 +216,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ECC" />
+    <Folder Include="sha2" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ECC\.gitignore">

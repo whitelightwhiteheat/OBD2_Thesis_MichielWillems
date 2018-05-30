@@ -20,7 +20,7 @@ void uart_init();
 
 void uart_puts(char* s);
 
-void uart_putd(char* s);
+void uart_putd(char* s, uint8_t len);
 
 
 #endif /* UART_F_H_ */

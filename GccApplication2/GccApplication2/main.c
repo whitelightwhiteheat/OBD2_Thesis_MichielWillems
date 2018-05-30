@@ -21,7 +21,7 @@
 #include <util/delay.h>
 
 static char private_key_hex[64] = "92990788d66bf558052d112f5498111747b3e28c55984d43fed8c8822ad9f1a7";
-static char public_key_hex[128] = "54619a4980a83e9199cc42d811ef07dcd8608c43929e1a3e443aa04deae8ff89e46154a1a074ae932b6d1395e565fcfb19dd392271d4ebedd1feadae2df9158d";
+static char public_key_hex[128] = "f0c863f8e555114bf4882cc787b95c272a7fe4dcddf1922f4f18a494e1c357a1a6c32d07beb576ab601068068f0a9e0160c3a14119f5d426a7955da3e6ed3e81";
 
 typedef enum {
 	NOTHING,
@@ -38,7 +38,7 @@ void buttons_init(){
 	EIMSK = 1 << INT4 | 1 << INT5 | 1 << INT6 | 1 << INT7;
 }
 
-/*
+
 static int RNG(uint8_t *dest, unsigned size) {
 	while(size){
 		uint8_t val = (uint8_t) rand();
@@ -50,9 +50,9 @@ static int RNG(uint8_t *dest, unsigned size) {
 	// NOTE: it would be a good idea to hash the resulting random data using SHA-256 or similar.
 	return 1;
 }
-*/
 
-static int RNG(uint8_t *dest, unsigned size){
+
+static int RNG2(uint8_t *dest, unsigned size){
 	DDRF = 0xff;
 	ADMUX |= (1 << REFS0) | (0 << REFS1) | (0 << MUX0) | (0 << MUX1) | (0 << MUX2) | (0 << MUX3) | (0 << MUX4) | (0 << ADLAR);
 	ADCSRA = (1 << ADEN) | (0 << ADPS0) | (0 << ADPS1) | (0 << ADPS2);
@@ -72,13 +72,13 @@ int ecc_test2(){
  int i, c;
  uint8_t private[32] = {0};
  uint8_t public[64] = {0};
- uint8_t hash[32] = {0};
+ uint8_t hash[64] = {0};
  uint8_t sig[64] = {0};
 	 
  uECC_set_rng(&RNG);
 
- const struct uECC_Curve_t * curve;
- int num_curves = 1;
+ const struct uECC_Curve_t * curves[5];
+ int num_curves = 0;
  /*
  #if uECC_SUPPORTS_secp160r1
  curves[num_curves++] = uECC_secp160r1();
@@ -95,16 +95,18 @@ int ecc_test2(){
  curves[num_curves++] = uECC_secp256r1();
  #endif
  */
+ 
  #if uECC_SUPPORTS_secp256k1
- curve = uECC_secp256k1();
+ curves[num_curves++] = uECC_secp256k1();
  #endif
+ 
  
  //printf("Testing 256 signatures\n");
  //for (c = 0; c < num_curves; ++c) {
-		 printf("KZNUDVZIL");
+		 //printf("KZNUDVZIL");
 		 //fflush(stdout);
 		 
-		 if (!uECC_make_key(public, private, curve)) {
+		 if (!uECC_make_key(public, private, curves[0])) {
 			 printf("uECC_make_key() failed\n");
 			 return 1;
 		 }
@@ -123,13 +125,14 @@ int ecc_test2(){
 	
 
 		 
-		 memcpy(hash, public, sizeof(hash));
+		 //memcpy(hash, public, sizeof(hash));
+		 sha512(hash, public, 512);
 		 
-		 if (!uECC_sign(private, hash, sizeof(hash), sig, curve)) {
+		 if (!uECC_sign(private, hash, sizeof(hash), sig, curves[0])) {
 			 printf("uECC_sign() failed\n");
 			 return 1;
 		 }
-		volatile int result = uECC_verify(public, hash, sizeof(hash), sig, curve);
+		volatile int result = uECC_verify(public, hash, sizeof(hash), sig, curves[0]);
 		/*
 		 if (!uECC_verify(public, hash, sizeof(hash), sig, curve)) {
 			 //printf("uECC_verify() failed\n");
@@ -211,9 +214,10 @@ ISR(INT5_vect){
 }
 
 ISR(INT6_vect){
-	char target[] = "6";
-	uart_puts(target);
-	//SendByMOb2();
+	uint8_t signature[64];
+	uint8_t challenge[64];
+	//memcpy(challenge, public, sizeof(hash));
+	sign_challenge(challenge, signature);
 }
 
 ISR(INT7_vect){
@@ -222,29 +226,31 @@ ISR(INT7_vect){
 	//SendByMOb2();
 }
 
+
+
 int sign_challenge(uint8_t challenge[64], uint8_t signature[64]){
 	uECC_set_rng(&RNG);
-	const struct uECC_Curve_t *curve = uECC_secp256k1();
+	const struct uECC_Curve_t *curve = uECC_secp256r1();
 	uint8_t hash[64];
-	uint8_t private2[32] = {0};
-	uint8_t public2[64] = {0};
+	uint8_t private2[32];
+	uint8_t public2[64];
 	hex_to_bytes(private_key_hex, 64, private2);
 	hex_to_bytes(public_key_hex, 128, public2);
 	sha512(hash, challenge, 512);
-	memcpy(hash, public2, sizeof(hash));
-	volatile int result = uECC_valid_public_key(public2, curve);
+	//memcpy(hash, challenge, sizeof(hash));
+	//volatile int result; //= uECC_valid_public_key(public2, curve);
 	
-	uint8_t public[64] = {0};
-	result = uECC_compute_public_key(private2, public, curve);
+	//uint8_t public[64] = {0};
+	//result = uECC_compute_public_key(private2, public, curve);
 	
-	if(!memcmp(public, public2, 64)) uart_puts("the same");
+	//result = memcmp(public, public2, 64);
+	
+	//if(!memcmp(public, public2, 64)) uart_puts("the same");
 	
 	if (!uECC_sign(private2, hash, 64, signature, curve)) {
 		uart_puts("sign failed");
 		return 1;
 	}
-	
-	result = uECC_verify(public2, hash, 64, signature, curve);
 	
 	return 0;
 }
@@ -262,7 +268,7 @@ int run_1(){
 	//Send signature.
 	can_send_frame_buffer(signature);
 	uart_puts("signature sent");
-	uint8_t message[64];
+	uint8_t message[8];
 	//Wait for authentication acknowledgement.
 	can_receive_message(0, 0x00, 0x00,  message);
 	uart_puts("authenticated!");

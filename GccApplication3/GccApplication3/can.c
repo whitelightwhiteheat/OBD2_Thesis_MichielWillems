@@ -85,8 +85,8 @@ void can_print_message(uint8_t mobnr){
 }
 
 void can_init_id ( uint8_t id){
-	CANIDT1 = id << 5;
-	CANIDT2 = id >> 3;
+	CANIDT2 = id << 5;
+	CANIDT1 = id >> 3;
 	//not a remote frame.
 	CANIDT4 = 0 << RTRTAG;
 }
@@ -162,7 +162,7 @@ int can_send_frame_buffer( uint8_t *message ){
 
 int can_receive_frame_buffer( uint8_t *message ){
 	//Enable buffer receive interrupt.
-	CANGIE |= 1 << ENBX ;
+	CANGIE |= (1 << ENBX);
 	uint8_t j;
 	for(j=0; j<8; j++){
 		CANPAGE = (j << 4);
