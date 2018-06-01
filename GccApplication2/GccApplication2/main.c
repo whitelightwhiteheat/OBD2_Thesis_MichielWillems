@@ -20,8 +20,11 @@
 #define F_CPU 8000000L
 #include <util/delay.h>
 
-static char private_key_hex[64] = "92990788d66bf558052d112f5498111747b3e28c55984d43fed8c8822ad9f1a7";
-static char public_key_hex[128] = "f0c863f8e555114bf4882cc787b95c272a7fe4dcddf1922f4f18a494e1c357a1a6c32d07beb576ab601068068f0a9e0160c3a14119f5d426a7955da3e6ed3e81";
+const char private_key_hex[64] = "92990788d66bf558052d112f5498111747b3e28c55984d43fed8c8822ad9f1a7";
+const char public_key_hex[128] = "f0c863f8e555114bf4882cc787b95c272a7fe4dcddf1922f4f18a494e1c357a1a6c32d07beb576ab601068068f0a9e0160c3a14119f5d426a7955da3e6ed3e81";
+
+const static uint8_t private_key[32] = { 146,153,7,136,214,107,245,88,5,45,17,47,84,152,17,23,71,179,226,140,85,152,77,67,254,216,200,130,42,217,241,167};
+const static uint8_t public_key[64] = { 240,200,99,248,229,85,17,75,244,136,44,199,135,185,92,39,42,127,228,220,221,241,146,47,79,24,164,148,225,195,87,161,166,195,45,7,190,181,118,171,96,16,104,6,143,10,158,1,96,195,161,65,25,245,212,38,167,149,93,163,230,237,62,129	};
 
 typedef enum {
 	NOTHING,
@@ -39,7 +42,7 @@ void buttons_init(){
 }
 
 
-static int RNG(uint8_t *dest, unsigned size) {
+int RNG(uint8_t *dest, unsigned size) {
 	while(size){
 		uint8_t val = (uint8_t) rand();
 		*dest = val;
@@ -51,7 +54,7 @@ static int RNG(uint8_t *dest, unsigned size) {
 	return 1;
 }
 
-
+/*
 static int RNG2(uint8_t *dest, unsigned size){
 	DDRF = 0xff;
 	ADMUX |= (1 << REFS0) | (0 << REFS1) | (0 << MUX0) | (0 << MUX1) | (0 << MUX2) | (0 << MUX3) | (0 << MUX4) | (0 << ADLAR);
@@ -67,140 +70,7 @@ static int RNG2(uint8_t *dest, unsigned size){
 		--size;
 	}
 }
-
-int ecc_test2(){
- int i, c;
- uint8_t private[32] = {0};
- uint8_t public[64] = {0};
- uint8_t hash[64] = {0};
- uint8_t sig[64] = {0};
-	 
- uECC_set_rng(&RNG);
-
- const struct uECC_Curve_t * curves[5];
- int num_curves = 0;
- /*
- #if uECC_SUPPORTS_secp160r1
- curves[num_curves++] = uECC_secp160r1();
- #endif
- #if uECC_SUPPORTS_secp192r1
- curves[num_curves++] = uECC_secp192r1();
- #endif
- #if uECC_SUPPORTS_secp224r1
- curves[num_curves++] = uECC_secp224r1();
- #endif
- */
- /*
- #if uECC_SUPPORTS_secp256r1
- curves[num_curves++] = uECC_secp256r1();
- #endif
- */
- 
- #if uECC_SUPPORTS_secp256k1
- curves[num_curves++] = uECC_secp256k1();
- #endif
- 
- 
- //printf("Testing 256 signatures\n");
- //for (c = 0; c < num_curves; ++c) {
-		 //printf("KZNUDVZIL");
-		 //fflush(stdout);
-		 
-		 if (!uECC_make_key(public, private, curves[0])) {
-			 printf("uECC_make_key() failed\n");
-			 return 1;
-		 }
-		 
-		 volatile uint8_t private2[32] = {0};
-		volatile uint8_t public2[64] = {0};
-	
-		hex_to_bytes(private_key_hex, 64, private2);
-		hex_to_bytes(public_key_hex, 128, public2);
-		if( !memcmp(private,private2,32) ){
-			uart_puts("pr ok!");
-		}
-	
-		//_delay_ms(1000);
-		if( !memcmp(public,public2,64) ) uart_puts("pu ok!");
-	
-
-		 
-		 //memcpy(hash, public, sizeof(hash));
-		 sha512(hash, public, 512);
-		 
-		 if (!uECC_sign(private, hash, sizeof(hash), sig, curves[0])) {
-			 printf("uECC_sign() failed\n");
-			 return 1;
-		 }
-		volatile int result = uECC_verify(public, hash, sizeof(hash), sig, curves[0]);
-		/*
-		 if (!uECC_verify(public, hash, sizeof(hash), sig, curve)) {
-			 //printf("uECC_verify() failed\n");
-			 uart_puts("kaka");
-			 return 1;
-		 }
-		 */
- //}
- 
- return 0;
- }
-	
-
-
-void ecc_test(){
-	uint8_t private[32] = {0};
-	uint8_t public[64] = {0};
-	uint8_t hash[32] = {0};
-	uint8_t sig[64] = {0};
-		
-	const struct uECC_Curve_t *curve;
-	
-	#if uECC_SUPPORTS_secp256k1
-	curve = uECC_secp256k1();
-	#endif
-
-	uECC_set_rng(&RNG);
-	
-	
-	if (!uECC_make_key(public, private, curve)) {
-		printf("uECC_make_key() failed\n");
-		return 1;
-	}
-	
-	
-	
-	volatile uint8_t private2[32] = {0};
-	volatile uint8_t public2[64] = {0};
-	
-	hex_to_bytes(private_key_hex, 64, private2);
-	hex_to_bytes(public_key_hex, 128, public2);
-	if( !memcmp(private,private2,32) ){
-		uart_puts("pr ok!");
-	}
-	
-	//_delay_ms(1000);
-	if( !memcmp(public,public2,64) ) uart_puts("pu ok!");
-	memcpy(hash, public, sizeof(hash));
-	
-			
-	if (!uECC_sign(private, hash, sizeof(hash), sig, curve)) {
-		uart_puts("sign failed");
-		return;
-		
-	}
-
-	if (!uECC_verify(public, hash, sizeof(hash), sig, curve)) {
-		uart_puts("verify failed");
-		return;
-	}
-	printf("\n");
-	uart_puts("Keys Match!");
-}
-
-
-
-
-
+*/
 	
 ISR(INT4_vect){
 	uart_puts("running scenario");
@@ -214,15 +84,13 @@ ISR(INT5_vect){
 }
 
 ISR(INT6_vect){
-	uint8_t signature[64];
-	uint8_t challenge[64];
-	//memcpy(challenge, public, sizeof(hash));
-	sign_challenge(challenge, signature);
+
 }
 
 ISR(INT7_vect){
-	uint8_t target[64];
-	RNG(target, 64);
+	uint8_t target[64] = {0};
+	can_send_frame_buffer(target , 8);
+	//RNG(target, 64);
 	//SendByMOb2();
 }
 
@@ -232,22 +100,9 @@ int sign_challenge(uint8_t challenge[64], uint8_t signature[64]){
 	uECC_set_rng(&RNG);
 	const struct uECC_Curve_t *curve = uECC_secp256r1();
 	uint8_t hash[64];
-	uint8_t private2[32];
-	uint8_t public2[64];
-	hex_to_bytes(private_key_hex, 64, private2);
-	hex_to_bytes(public_key_hex, 128, public2);
 	sha512(hash, challenge, 512);
-	//memcpy(hash, challenge, sizeof(hash));
-	//volatile int result; //= uECC_valid_public_key(public2, curve);
-	
-	//uint8_t public[64] = {0};
-	//result = uECC_compute_public_key(private2, public, curve);
-	
-	//result = memcmp(public, public2, 64);
-	
-	//if(!memcmp(public, public2, 64)) uart_puts("the same");
-	
-	if (!uECC_sign(private2, hash, 64, signature, curve)) {
+
+	if (!uECC_sign(private_key, hash, 64, signature, curve)) {
 		uart_puts("sign failed");
 		return 1;
 	}
@@ -261,12 +116,13 @@ int run_1(){
 	//init authentication.
 	can_send_message(0, 0x00, 0);
 	//wait for challenge.
-	can_receive_frame_buffer(challenge);
+	can_receive_frame_buffer(challenge, 8);
 	uart_puts("challenge received");
 	uint8_t signature[64];
 	sign_challenge(challenge, signature);
 	//Send signature.
-	can_send_frame_buffer(signature);
+	can_send_frame_buffer(signature, 8);
+	//can_send_frame_buffer(signature, 8);
 	uart_puts("signature sent");
 	uint8_t message[8];
 	//Wait for authentication acknowledgement.
@@ -280,6 +136,9 @@ int run_1(){
 	 uart_init();
 	 buttons_init();
 	 can_init();
+	 
+	 //private_key_hex = "92990788d66bf558052d112f5498111747b3e28c55984d43fed8c8822ad9f1a7";
+	 //public_key_hex = "f0c863f8e555114bf4882cc787b95c272a7fe4dcddf1922f4f18a494e1c357a1a6c32d07beb576ab601068068f0a9e0160c3a14119f5d426a7955da3e6ed3e81";
 	 
 	 while(1){
 		run_t runlcl = run_scenario;

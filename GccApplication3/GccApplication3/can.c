@@ -58,8 +58,8 @@ void can_init(){
 
 }
 
-void can_get_frame_buffer( uint8_t *message ){
-	uint8_t j;
+void can_get_frame_buffer( uint8_t *message , uint8_t buff_len){
+	uint8_t j = buff_len;
 	for(j=0; j<8; j++){
 		can_get_message(j,message);
 		message = message + 8;
@@ -134,8 +134,6 @@ int can_receive_message( uint8_t mobnr, uint8_t id, uint8_t mask, uint8_t *messa
 	//CAN standard rev 2.0 A (identifiers length = 11 bits)
 	CANCDMOB = (1 << CONMOB1) | (1 << DLC3); //enable reception and data length code = 8 bytes
 	
-	CANPAGE = (mobnr << 4);
-	CANPAGE = (mobnr << 4);
 	//wait for interrupt
 	while((CANGIT & INTR_MASK) != (1 << CANIT));
 	//check if it is the right interrupt.
@@ -151,8 +149,8 @@ int can_receive_message( uint8_t mobnr, uint8_t id, uint8_t mask, uint8_t *messa
 	return 0;
 }
 
-int can_send_frame_buffer( uint8_t *message ){
-	uint8_t j;
+int can_send_frame_buffer( uint8_t *message, uint8_t buff_len ){
+	uint8_t j = buff_len;
 	for(j=0; j<8; j++){
 		can_send_message(j,j,message);
 		message = message + 8;
@@ -160,10 +158,10 @@ int can_send_frame_buffer( uint8_t *message ){
 	return 0;
 }
 
-int can_receive_frame_buffer( uint8_t *message ){
+int can_receive_frame_buffer( uint8_t *message , uint8_t buff_len){
 	//Enable buffer receive interrupt.
 	CANGIE |= (1 << ENBX);
-	uint8_t j;
+	uint8_t j = buff_len;
 	for(j=0; j<8; j++){
 		CANPAGE = (j << 4);
 		can_init_id(j);
@@ -185,7 +183,7 @@ int can_receive_frame_buffer( uint8_t *message ){
 	//Reset interrupt register.
 	CANGIT = CANGIT;
 	//retrieve message.
-	can_get_frame_buffer(message);
+	can_get_frame_buffer(message, buff_len);
 	return 0;
 }
 

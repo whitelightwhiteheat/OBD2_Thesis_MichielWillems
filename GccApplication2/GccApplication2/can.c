@@ -10,6 +10,7 @@
 #include "hexconv.h"
 #include "uart_f.h"
 #include "can.h"
+//#include <util/delay.h>
 
 #define INTR_MASK 0b10000000
 #define BXOK_MASK 0b00010000
@@ -57,9 +58,9 @@ void can_init(){
 
 }
 
-void can_get_frame_buffer( uint8_t *message ){
+void can_get_frame_buffer( uint8_t *message , uint8_t buff_len){
 	uint8_t j;
-	for(j=0; j<8; j++){
+	for(j=0; j<buff_len; j++){
 		can_get_message(j,message);
 		message = message + 8;
 	}
@@ -86,6 +87,8 @@ void can_print_message(uint8_t mobnr){
 void can_init_id ( uint8_t id){
 	CANIDT2 = id << 5;
 	CANIDT1 = id >> 3;
+	CANIDT3 = 0x00;
+	CANIDT4 = 0x00;
 	//not a remote frame.
 	CANIDT4 = 0 << RTRTAG;
 }
@@ -133,8 +136,6 @@ int can_receive_message( uint8_t mobnr, uint8_t id, uint8_t mask, uint8_t *messa
 	//CAN standard rev 2.0 A (identifiers length = 11 bits)
 	CANCDMOB = (1 << CONMOB1) | (1 << DLC3); //enable reception and data length code = 8 bytes
 	
-	CANPAGE = (mobnr << 4);
-	CANPAGE = (mobnr << 4);
 	//wait for interrupt
 	while((CANGIT & INTR_MASK) != (1 << CANIT));
 	//check if it is the right interrupt.
@@ -150,20 +151,20 @@ int can_receive_message( uint8_t mobnr, uint8_t id, uint8_t mask, uint8_t *messa
 	return 0;
 }
 
-int can_send_frame_buffer( uint8_t *message ){
+int can_send_frame_buffer( uint8_t *message, uint8_t buff_len ){
 	uint8_t j;
-	for(j=0; j<8; j++){
+	for(j=0; j<buff_len; j++){
 		can_send_message(j,j,message);
 		message = message + 8;
 	}
 	return 0;
 }
 
-int can_receive_frame_buffer( uint8_t *message ){
+int can_receive_frame_buffer( uint8_t *message , uint8_t buff_len){
 	//Enable buffer receive interrupt.
-	CANGIE |= 1 << ENBX ;
+	CANGIE |= (1 << ENBX);
 	uint8_t j;
-	for(j=0; j<8; j++){
+	for(j=0; j<buff_len; j++){
 		CANPAGE = (j << 4);
 		can_init_id(j);
 		// Mask = 255
@@ -184,7 +185,7 @@ int can_receive_frame_buffer( uint8_t *message ){
 	//Reset interrupt register.
 	CANGIT = CANGIT;
 	//retrieve message.
-	can_get_frame_buffer(message);
+	can_get_frame_buffer(message, buff_len);
 	return 0;
 }
 

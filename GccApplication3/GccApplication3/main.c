@@ -23,6 +23,9 @@ volatile uint8_t data[8];
 static char private_key_hex[64] = "92990788d66bf558052d112f5498111747b3e28c55984d43fed8c8822ad9f1a7";
 static char public_key_hex[128] = "f0c863f8e555114bf4882cc787b95c272a7fe4dcddf1922f4f18a494e1c357a1a6c32d07beb576ab601068068f0a9e0160c3a14119f5d426a7955da3e6ed3e81";
 
+const static uint8_t private_key[32] = { 146,153,7,136,214,107,245,88,5,45,17,47,84,152,17,23,71,179,226,140,85,152,77,67,254,216,200,130,42,217,241,167};
+const static uint8_t public_key[64] = { 240,200,99,248,229,85,17,75,244,136,44,199,135,185,92,39,42,127,228,220,221,241,146,47,79,24,164,148,225,195,87,161,166,195,45,7,190,181,118,171,96,16,104,6,143,10,158,1,96,195,161,65,25,245,212,38,167,149,93,163,230,237,62,129	};
+
 typedef enum {
 	IDLE_S,
 	WAIT_FOR_SIGNATURE_S,
@@ -127,7 +130,7 @@ int ecc_test2(){
 
 static int RNG(uint8_t *dest, unsigned size) {
 	while(size){
-		uint8_t val = (uint8_t) rand();
+		uint8_t val = (uint8_t) rand() + rand();
 		*dest = val;
 		++dest;
 		--size;
@@ -140,20 +143,20 @@ static int RNG(uint8_t *dest, unsigned size) {
 
 int verify_signature(uint8_t challenge[64], uint8_t signature[64]){
 	
-	uECC_set_rng(&RNG);
+	//uECC_set_rng(&RNG);
 	const struct uECC_Curve_t * curve = uECC_secp256r1();
 	uint8_t public[64];
-	uint8_t private[32];
-	volatile uint8_t sig[64];
+	//uint8_t private[32];
+	//volatile uint8_t sig[64];
 	hex_to_bytes(public_key_hex, 128, public);
-	hex_to_bytes(private_key_hex, 64, private);
-	uint8_t public2[64];
+	//hex_to_bytes(private_key_hex, 64, private);
+	//uint8_t public2[64];
 	//uECC_compute_public_key(private, public2, curve);
 	volatile int result;
-	uint8_t signature2[64];
+	//uint8_t signature2[64];
 	uint8_t hash[64];
 	sha512(hash, challenge,512);
-	uECC_sign(private, hash, 64 , signature2 , curve);
+	//uECC_sign(private, hash, 64 , signature2 , curve);
 	//char s1[128];
 	//char s2[128];
 	//uint8_t siggy[64];
@@ -163,14 +166,15 @@ int verify_signature(uint8_t challenge[64], uint8_t signature[64]){
 	//uart_puts(s1);
 	//uart_puts(s2);
 	
-	result = memcmp(signature, signature2,64);
-	if(result) uart_puts("hello");
-	result = uECC_verify(public, hash, 64, signature, curve);
-	if(result) uart_puts("hello");
+	
+	//result = memcmp(signature, signature2,64);
+	//if(!result) uart_puts("hello");
+	result = uECC_verify(public_key, hash, 64, signature, curve);
+	//if(result) uart_puts("hello");
 	return result;
 }
 
-int run()
+int run_scenario1()
 {
 	volatile uint8_t result;
 	uart_puts("idle");
@@ -178,23 +182,49 @@ int run()
 	can_receive_message(0, 0x00, 0x00, message);
 	uart_puts("authentication started");
 	uint8_t challenge[64] = { 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 1 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 2 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 3 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 4 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 5 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 6 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 7 , 1 , 2 , 3 , 4 , 5 , 6 , 7 };
-	can_send_frame_buffer(challenge);
+	can_send_frame_buffer(challenge , 8);
 	uart_puts("challenge sent");
 	uint8_t signature[64];
-	can_receive_frame_buffer(signature);
+	can_receive_frame_buffer(signature, 8);
 	result = verify_signature(challenge, signature);
-	if(result) uart_puts("signature is valid!");
+	if(result==1) uart_puts("signature is valid!");
 	can_send_message(0, 0x00, message);
 	return 0;
 }
 
+int run_scenario2(){
+	volatile uint8_t result;
+	uart_puts("idle");
+	uint8_t message[8];
+	//can_receive_message(0, 0x00, 0x00, message);
+	uart_puts("authentication started");
+	uECC_set_rng(RNG);
+	uint8_t private[32];
+	uint8_t public[64];
+	const struct uECC_Curve_t * curve = uECC_secp256r1();
+	result = uECC_make_key(public, private, curve);
+	//can_send_frame_buffer(public, 8);
+	uint8_t secret_unhashed[32];
+	result = uECC_shared_secret(public_key, private, secret_unhashed, curve);
+	uint8_t secret[32];
+	uint32_t len = 256;
+	result = sha256(secret, secret_unhashed, len);
+	char secret_hex[64];
+	bytes_to_hex(secret, 32, secret_hex);
+	uart_puts(secret_hex);
+	return result;
+}
+
+
+
 
  int main()
  {	
+	
 	uart_init();
 	buttons_init();
 	can_init();
-	run();
+	return run_scenario2();
  }
 
 
