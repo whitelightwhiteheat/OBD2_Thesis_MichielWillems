@@ -44,6 +44,7 @@ C_SRCS +=  \
 ../hexconv.c \
 ../leds.c \
 ../main.c \
+../sha2/hmac-sha256.c \
 ../sha2/sha224.c \
 ../sha2/sha256.c \
 ../sha2/sha2_large_common.c \
@@ -65,6 +66,7 @@ ECC/uECC.o \
 hexconv.o \
 leds.o \
 main.o \
+sha2/hmac-sha256.o \
 sha2/sha224.o \
 sha2/sha256.o \
 sha2/sha2_large_common.o \
@@ -79,6 +81,7 @@ ECC/uECC.o \
 hexconv.o \
 leds.o \
 main.o \
+sha2/hmac-sha256.o \
 sha2/sha224.o \
 sha2/sha256.o \
 sha2/sha2_large_common.o \
@@ -93,6 +96,7 @@ ECC/uECC.d \
 hexconv.d \
 leds.d \
 main.d \
+sha2/hmac-sha256.d \
 sha2/sha224.d \
 sha2/sha256.d \
 sha2/sha2_large_common.d \
@@ -107,6 +111,7 @@ ECC/uECC.d \
 hexconv.d \
 leds.d \
 main.d \
+sha2/hmac-sha256.d \
 sha2/sha224.d \
 sha2/sha256.d \
 sha2/sha2_large_common.d \
@@ -129,6 +134,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

@@ -12,6 +12,8 @@ leds.c
 
 main.c
 
+sha2\hmac-sha256.c
+
 sha2\sha224.c
 
 sha2\sha256.c

@@ -56,6 +56,7 @@
  * A variable of this type may hold the state of a SHA-256 hashing process
  */
 typedef sha2_small_common_ctx_t sha256_ctx_t;
+typedef uint8_t sha256_hash_t[SHA256_HASH_BITS/8];
 
 /** \fn void sha256_init(sha256_ctx_t *state)
  * \brief initialize a SHA-256 context

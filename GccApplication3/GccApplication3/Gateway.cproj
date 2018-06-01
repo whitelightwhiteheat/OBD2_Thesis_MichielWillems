@@ -171,6 +171,12 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="sha2\hmac-sha256.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sha2\hmac-sha256.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="sha2\sha224.c">
       <SubType>compile</SubType>
     </Compile>

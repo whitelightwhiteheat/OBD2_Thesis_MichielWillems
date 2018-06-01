@@ -136,6 +136,10 @@ int run_1(){
 	 uart_init();
 	 buttons_init();
 	 can_init();
+	 uint8_t message[8];
+	 uint8_t message2[8];
+	 uint8_t message3[8];
+	 hmac_sha256(message, message2, 8, message3, 8);
 	 
 	 //private_key_hex = "92990788d66bf558052d112f5498111747b3e28c55984d43fed8c8822ad9f1a7";
 	 //public_key_hex = "f0c863f8e555114bf4882cc787b95c272a7fe4dcddf1922f4f18a494e1c357a1a6c32d07beb576ab601068068f0a9e0160c3a14119f5d426a7955da3e6ed3e81";
