@@ -28,7 +28,8 @@ const static uint8_t public_key[64] = { 240,200,99,248,229,85,17,75,244,136,44,1
 
 typedef enum {
 	NOTHING,
-	SCENARIO1
+	SCENARIO1,
+	SCENARIO2
 } run_t;
 
 volatile run_t run_scenario = NOTHING;
@@ -73,14 +74,13 @@ static int RNG2(uint8_t *dest, unsigned size){
 */
 	
 ISR(INT4_vect){
-	uart_puts("running scenario");
+	uart_puts("running scenario1");
 	run_scenario = SCENARIO1;
 }
 
 ISR(INT5_vect){
-	char target[] = "5";
-	uart_puts(target);
-	//SendByMOb2();
+	uart_puts("running scenario2");
+	run_scenario = SCENARIO2;
 }
 
 ISR(INT6_vect){
@@ -131,18 +131,27 @@ int run_1(){
 	return 0;
 }
 
+int run_2(){
+	uint8_t result;
+	can_send_message(0, 0x00, 0);
+	uint8_t public[64];
+	can_receive_frame_buffer(public, 8);
+	const struct uECC_Curve_t * curve = uECC_secp256r1();
+	uint8_t secret_unhashed[32];
+	result = uECC_shared_secret(public, private_key, secret_unhashed, curve );
+	uint8_t secret2[32];
+	uint32_t len2 = 256;
+	sha256(secret2, secret_unhashed, len2);
+	char secret_hex2[64];
+	bytes_to_hex(secret2, 32, secret_hex2);
+	uart_puts(secret_hex2);
+}
+
  int main()
  {	
 	 uart_init();
 	 buttons_init();
 	 can_init();
-	 uint8_t message[8];
-	 uint8_t message2[8];
-	 uint8_t message3[8];
-	 hmac_sha256(message, message2, 8, message3, 8);
-	 
-	 //private_key_hex = "92990788d66bf558052d112f5498111747b3e28c55984d43fed8c8822ad9f1a7";
-	 //public_key_hex = "f0c863f8e555114bf4882cc787b95c272a7fe4dcddf1922f4f18a494e1c357a1a6c32d07beb576ab601068068f0a9e0160c3a14119f5d426a7955da3e6ed3e81";
 	 
 	 while(1){
 		run_t runlcl = run_scenario;
@@ -152,6 +161,10 @@ int run_1(){
 			case SCENARIO1 :
 				run_scenario = NOTHING;
 				run_1();
+				break;
+			case SCENARIO2 :
+				run_scenario = NOTHING;
+				run_2();
 				break;
 		}
 	 }

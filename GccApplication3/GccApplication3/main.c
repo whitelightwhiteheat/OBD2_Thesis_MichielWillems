@@ -114,6 +114,7 @@ int run_scenario2(){
 	sha256(secret, secret_unhashed, len);
 	can_send_frame_buffer(public, 8);
 	uart_puts("secret established");
+	can_init();
 	
 	while(1){
 		uint8_t message[8];
