@@ -171,6 +171,12 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="permission_table.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="permission_table.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="sha2\hmac-sha256.c">
       <SubType>compile</SubType>
     </Compile>
@@ -211,6 +217,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="sha2\sha512.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="types.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="uart_f.c">

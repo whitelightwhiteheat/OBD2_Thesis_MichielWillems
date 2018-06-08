@@ -44,6 +44,7 @@ C_SRCS +=  \
 ../hexconv.c \
 ../leds.c \
 ../main.c \
+../permission_table.c \
 ../sha2/hmac-sha256.c \
 ../sha2/sha224.c \
 ../sha2/sha256.c \
@@ -66,6 +67,7 @@ ECC/uECC.o \
 hexconv.o \
 leds.o \
 main.o \
+permission_table.o \
 sha2/hmac-sha256.o \
 sha2/sha224.o \
 sha2/sha256.o \
@@ -81,6 +83,7 @@ ECC/uECC.o \
 hexconv.o \
 leds.o \
 main.o \
+permission_table.o \
 sha2/hmac-sha256.o \
 sha2/sha224.o \
 sha2/sha256.o \
@@ -96,6 +99,7 @@ ECC/uECC.d \
 hexconv.d \
 leds.d \
 main.d \
+permission_table.d \
 sha2/hmac-sha256.d \
 sha2/sha224.d \
 sha2/sha256.d \
@@ -111,6 +115,7 @@ ECC/uECC.d \
 hexconv.d \
 leds.d \
 main.d \
+permission_table.d \
 sha2/hmac-sha256.d \
 sha2/sha224.d \
 sha2/sha256.d \
@@ -134,6 +139,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

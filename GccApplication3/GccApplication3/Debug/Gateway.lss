@@ -15,19 +15,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .debug_aranges 000003a8  00000000  00000000  00003260  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00009913  00000000  00000000  00003608  2**0
+  6 .debug_info   00009940  00000000  00000000  00003608  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 000016ad  00000000  00000000  0000cf1b  2**0
+  7 .debug_abbrev 000016ad  00000000  00000000  0000cf48  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00002922  00000000  00000000  0000e5c8  2**0
+  8 .debug_line   0000292c  00000000  00000000  0000e5f5  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  0000129c  00000000  00000000  00010eec  2**2
+  9 .debug_frame  00001298  00000000  00000000  00010f24  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    0000109d  00000000  00000000  00012188  2**0
+ 10 .debug_str    000010b6  00000000  00000000  000121bc  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00006ba6  00000000  00000000  00013225  2**0
+ 11 .debug_loc    00006ba6  00000000  00000000  00013272  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000398  00000000  00000000  00019dcb  2**0
+ 12 .debug_ranges 00000398  00000000  00000000  00019e18  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -4713,8 +4713,8 @@ int run_scenario2(){
     21d4:	df 93       	push	r29
     21d6:	cd b7       	in	r28, 0x3d	; 61
     21d8:	de b7       	in	r29, 0x3e	; 62
-    21da:	c1 5e       	subi	r28, 0xE1	; 225
-    21dc:	d1 09       	sbc	r29, r1
+    21da:	c9 51       	subi	r28, 0x19	; 25
+    21dc:	d1 40       	sbci	r29, 0x01	; 1
     21de:	0f b6       	in	r0, 0x3f	; 63
     21e0:	f8 94       	cli
     21e2:	de bf       	out	0x3e, r29	; 62
@@ -4726,7 +4726,7 @@ int run_scenario2(){
     21e8:	80 eb       	ldi	r24, 0xB0	; 176
     21ea:	91 e0       	ldi	r25, 0x01	; 1
     21ec:	f0 d5       	rcall	.+3040   	; 0x2dce <uart_puts>
-	uint8_t init[8];
+	can_msg_t init;
 	can_receive_message(0, 0x00, 0x00, init);
     21ee:	9e 01       	movw	r18, r28
     21f0:	2e 5f       	subi	r18, 0xFE	; 254
@@ -4797,10 +4797,10 @@ int run_scenario2(){
     225a:	0e 94 fa 00 	call	0x1f4	; 0x1f4 <can_init>
 	
 	while(1){
-		uint8_t message[8];
+		can_msg_t message[8];
 		can_receive_message(0, 0x00, 0x00, message);
     225e:	9e 01       	movw	r18, r28
-    2260:	26 52       	subi	r18, 0x26	; 38
+    2260:	26 55       	subi	r18, 0x56	; 86
     2262:	3f 4f       	sbci	r19, 0xFF	; 255
     2264:	40 e0       	ldi	r20, 0x00	; 0
     2266:	60 e0       	ldi	r22, 0x00	; 0
@@ -4808,7 +4808,7 @@ int run_scenario2(){
     226a:	0e 94 7d 01 	call	0x2fa	; 0x2fa <can_receive_message>
 		can_send_message(0, 0x00, message);
     226e:	ae 01       	movw	r20, r28
-    2270:	46 52       	subi	r20, 0x26	; 38
+    2270:	46 55       	subi	r20, 0x56	; 86
     2272:	5f 4f       	sbci	r21, 0xFF	; 255
     2274:	60 e0       	ldi	r22, 0x00	; 0
     2276:	80 e0       	ldi	r24, 0x00	; 0
@@ -4817,8 +4817,8 @@ int run_scenario2(){
 		can_receive_frame_buffer(mac,2);
     227c:	62 e0       	ldi	r22, 0x02	; 2
     227e:	ce 01       	movw	r24, r28
-    2280:	86 53       	subi	r24, 0x36	; 54
-    2282:	9f 4f       	sbci	r25, 0xFF	; 255
+    2280:	86 5f       	subi	r24, 0xF6	; 246
+    2282:	9e 4f       	sbci	r25, 0xFE	; 254
     2284:	0e 94 c8 01 	call	0x390	; 0x390 <can_receive_frame_buffer>
 		
 		uint8_t mac2[32];
@@ -4829,7 +4829,7 @@ int run_scenario2(){
     228e:	00 e0       	ldi	r16, 0x00	; 0
     2290:	10 e0       	ldi	r17, 0x00	; 0
     2292:	9e 01       	movw	r18, r28
-    2294:	26 52       	subi	r18, 0x26	; 38
+    2294:	26 55       	subi	r18, 0x56	; 86
     2296:	3f 4f       	sbci	r19, 0xFF	; 255
     2298:	49 e0       	ldi	r20, 0x09	; 9
     229a:	51 e0       	ldi	r21, 0x01	; 1
@@ -4837,18 +4837,18 @@ int run_scenario2(){
     229e:	66 57       	subi	r22, 0x76	; 118
     22a0:	7f 4f       	sbci	r23, 0xFF	; 255
     22a2:	ce 01       	movw	r24, r28
-    22a4:	86 55       	subi	r24, 0x56	; 86
+    22a4:	86 51       	subi	r24, 0x16	; 22
     22a6:	9f 4f       	sbci	r25, 0xFF	; 255
     22a8:	14 d0       	rcall	.+40     	; 0x22d2 <hmac_sha256>
 		if(memcmp(mac, mac2, 16) == 0) uart_puts("message accepted");
     22aa:	40 e1       	ldi	r20, 0x10	; 16
     22ac:	50 e0       	ldi	r21, 0x00	; 0
     22ae:	be 01       	movw	r22, r28
-    22b0:	66 55       	subi	r22, 0x56	; 86
+    22b0:	66 51       	subi	r22, 0x16	; 22
     22b2:	7f 4f       	sbci	r23, 0xFF	; 255
     22b4:	ce 01       	movw	r24, r28
-    22b6:	86 53       	subi	r24, 0x36	; 54
-    22b8:	9f 4f       	sbci	r25, 0xFF	; 255
+    22b6:	86 5f       	subi	r24, 0xF6	; 246
+    22b8:	9e 4f       	sbci	r25, 0xFE	; 254
     22ba:	16 d6       	rcall	.+3116   	; 0x2ee8 <memcmp>
     22bc:	89 2b       	or	r24, r25
     22be:	79 f6       	brne	.-98     	; 0x225e <run_scenario2+0x8c>

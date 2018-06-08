@@ -11,11 +11,13 @@
 
 #define F_CPU 8000000L
 
+#include "types.h"
 #include "uart_f.h"
 #include "hexconv.h"
 #include "leds.h"
 #include "can.h"
 #include "ECC/uECC.h"
+#include "permission_table.h"
 #include "sha2/sha512.h"
 #include "sha2/hmac-sha256.h"
 
@@ -27,18 +29,6 @@ static char public_key_hex[128] = "f0c863f8e555114bf4882cc787b95c272a7fe4dcddf19
 const static uint8_t private_key[32] = { 146,153,7,136,214,107,245,88,5,45,17,47,84,152,17,23,71,179,226,140,85,152,77,67,254,216,200,130,42,217,241,167};
 const static uint8_t public_key[64] = { 240,200,99,248,229,85,17,75,244,136,44,199,135,185,92,39,42,127,228,220,221,241,146,47,79,24,164,148,225,195,87,161,166,195,45,7,190,181,118,171,96,16,104,6,143,10,158,1,96,195,161,65,25,245,212,38,167,149,93,163,230,237,62,129	};
 
-typedef enum {
-	IDLE_S,
-	WAIT_FOR_SIGNATURE_S,
-	AUTHENTICATED_S
-} state_t;
-
-typedef enum {
-	NULL_E,
-	INIT_RECEIVED_E,
-	SIGNATURE_RECEIVED_E,
-	MESSAGE_RECEIVED_E
-} event_t;
 
 volatile state_t state = IDLE_S;
 volatile event_t event = NULL_E;
@@ -76,13 +66,13 @@ int run_scenario1()
 {
 	volatile uint8_t result;
 	uart_puts("idle");
-	uint8_t message[8];
+	can_msg_t message;
 	can_receive_message(0, 0x00, 0x00, message);
 	uart_puts("authentication started");
-	uint8_t challenge[64] = { 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 1 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 2 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 3 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 4 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 5 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 6 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 7 , 1 , 2 , 3 , 4 , 5 , 6 , 7 };
+	can_buff_512_t challenge = { 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 1 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 2 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 3 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 4 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 5 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 6 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 7 , 1 , 2 , 3 , 4 , 5 , 6 , 7 };
 	can_send_frame_buffer(challenge , 8);
 	uart_puts("challenge sent");
-	uint8_t signature[64];
+	can_msg_t signature;
 	can_receive_frame_buffer(signature, 8);
 	result = verify_signature(challenge, signature);
 	if(result==1) {
@@ -99,7 +89,7 @@ int run_scenario2(){
 	
 	volatile uint8_t result;
 	uart_puts("idle");
-	uint8_t init[8];
+	can_msg_t init;
 	can_receive_message(0, 0x00, 0x00, init);
 	uart_puts("authentication started");
 	uECC_set_rng(RNG);
@@ -117,7 +107,7 @@ int run_scenario2(){
 	can_init();
 	
 	while(1){
-		uint8_t message[8];
+		can_msg_t message[8];
 		can_receive_message(0, 0x00, 0x00, message);
 		can_send_message(0, 0x00, message);
 		uint8_t mac[16];
