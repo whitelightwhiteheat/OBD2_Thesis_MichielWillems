@@ -47,11 +47,8 @@ static int RNG(uint8_t *dest, unsigned size) {
 		++dest;
 		--size;
 	}
-	// NOTE: it would be a good idea to hash the resulting random data using SHA-256 or similar.
 	return 1;
 }
-
-
 
 int verify_signature(uint8_t challenge[64], uint8_t signature[64]){
 	const struct uECC_Curve_t * curve = uECC_secp256r1();
@@ -85,7 +82,7 @@ int run_scenario1()
 	return 0;
 }
 
-int run_scenario2(){
+int run_scenario2(role_t role){
 	
 	volatile uint8_t result;
 	uart_puts("idle");
@@ -139,12 +136,29 @@ int run_scenario2(){
 
 
  int main()
- {	
-	
+ {
 	uart_init();
 	buttons_init();
 	can_init();
-	run_scenario2();
+	init_permissions_table();
+	can_msg_t init;
+	can_receive_message(0, 0x00, 0x00, init);
+	switch((int) init){
+		case OWNER_ROLE_INIT :
+			run_scenario2(OWNER_ROLE);
+			break;
+		case REPAIRSHOP_ROLE_INIT :
+			run_scenario2(REPAISHOP_ROLE);
+			break;
+		case POLICEMAN_ROLE_INIT :
+			run_scenario2(POLICEMAN_ROLE);
+			break;
+		case TESTER_ROLE_INIT :
+			run_scenario2(TESTER_ROLE);
+			break;	
+		default : 
+			break;
+	}
  }
 
 

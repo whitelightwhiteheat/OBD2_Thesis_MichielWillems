@@ -8,6 +8,14 @@
 #include <avr/io.h>
 #include "hexconv.h"
 
+
+void hex_to_id(char hex[4], can_id_t *dest){
+	uint8_t bytes[2];
+	hex_to_bytes(hex,4,bytes);
+	dest->idh = bytes[1];
+	dest->idl = bytes[0];
+}
+
 void bytes_to_hex(const uint8_t *src, uint8_t len, char *dest)
 {
 	static const unsigned char table[] = "0123456789abcdef";

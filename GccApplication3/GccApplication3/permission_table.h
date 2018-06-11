@@ -17,8 +17,7 @@ typedef struct permissions_struct{
 } permissions_t;
 
 typedef struct entry {
-	can_msg_t message;
-	can_msg_t mask;
+	can_id_t *id;
 	permissions_t *permissions;
 	struct entry *successor;
 } entry_t;
@@ -29,7 +28,7 @@ typedef struct permission_table_struct{
 
 void init_permissions_table();
 
-int check_permission(can_msg_t message);
+int check_permission(can_id_t *msg_id, role_t role);
 
 
 #endif /* PERMISSION_TABLE_H_ */

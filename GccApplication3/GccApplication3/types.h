@@ -9,6 +9,10 @@
 #ifndef TYPES_H_
 #define TYPES_H_
 
+#define OWNER_ROLE_INIT 0X01
+#define REPAIRSHOP_ROLE_INIT 0X02
+#define POLICEMAN_ROLE_INIT 0X03
+#define TESTER_ROLE_INIT 0X04
 
 typedef enum {
 	IDLE_S,
@@ -30,6 +34,11 @@ typedef enum {
 	TESTER_ROLE
 } role_t;
 
+typedef struct id{
+	uint8_t idh;
+	uint8_t idl;
+} can_id_t;
+ 
 typedef uint8_t can_msg_t[8];
 typedef uint8_t can_buff_512_t[64];
 

@@ -10,12 +10,6 @@
 #include "hexconv.h"
 #include "uart_f.h"
 #include "can.h"
-//#include <util/delay.h>
-
-#define INTR_MASK 0b10000000
-#define BXOK_MASK 0b00010000
-#define RXOK_MASK 0b00100000
-
 
 void can_init(){
 
@@ -84,6 +78,12 @@ void can_print_message(uint8_t mobnr){
 	uart_puts(hex);
 }
 
+void can_get_id(uint8_t mobnr, can_id_t *id){
+	CANPAGE = (mobnr << 4);
+	id->idl = CANIDT2 >> 5 | CANIDT1 << 3;
+	id->idh = CANIDT1 >> 3;
+}
+
 void can_init_id ( uint8_t id){
 	CANIDT2 = id << 5;
 	CANIDT1 = id >> 3;
@@ -120,9 +120,13 @@ int can_send_message( uint8_t mobnr , uint8_t id, uint8_t *message ){
 	can_init_id(id);
 	//copy message.
 	can_init_message(message);
-	//enable transmission
+	//enable transmission.
 	CANCDMOB = (1 << CONMOB0) | (1 << DLC3);
-	
+	//wait for transmission.
+	while(CANSTMOB != (1 << TXOK));
+	//reset mob.
+	CANSTMOB = 0x00;
+	CANCDMOB = 0x00;
 	return 0;
 }
 
@@ -133,13 +137,13 @@ int can_receive_message( uint8_t mobnr, uint8_t id, uint8_t mask, uint8_t *messa
 	can_init_mask_def();
 	//CAN standard rev 2.0 A (identifiers length = 11 bits)
 	CANCDMOB = (1 << CONMOB1) | (1 << DLC3); //enable reception and data length code = 8 bytes
-	
 	//wait for interrupt
 	while((CANGIT & INTR_MASK) != (1 << CANIT));
 	//check if it is the right interrupt.
 	if((CANSTMOB & RXOK_MASK) != (1 << RXOK)) return 1;
-	//reset mob RXOK flag.
+	//reset mob.
 	CANSTMOB = 0x00;
+	CANCDMOB = 0x00;
 	//reset interrupt enable
 	CANIE2 = 0x00;
 	//reset interrupt register.
