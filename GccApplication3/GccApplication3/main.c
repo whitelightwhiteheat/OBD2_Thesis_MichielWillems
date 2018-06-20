@@ -59,12 +59,9 @@ int verify_signature(uint8_t challenge[64], uint8_t signature[64]){
 	return result;
 }
 
-int run_scenario1()
+int run_scenario1(permissions_t role)
 {
 	volatile uint8_t result;
-	uart_puts("idle");
-	can_msg_t message;
-	can_receive_message(0, 0x00, 0x00, message);
 	uart_puts("authentication started");
 	can_buff_512_t challenge = { 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 1 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 2 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 3 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 4 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 5 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 6 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 7 , 1 , 2 , 3 , 4 , 5 , 6 , 7 };
 	can_send_frame_buffer(challenge , 8);
@@ -74,20 +71,19 @@ int run_scenario1()
 	result = verify_signature(challenge, signature);
 	if(result==1) {
 		uart_puts("signature is valid!");
-		can_send_message(0, 0x00, message);
 	}else{
 		uart_puts("signature is false!");
-		can_send_message(0, 0x00, message);
 	}
+	can_msg_t ack;
+	ack[0] = role;
+	can_send_message(0, 0x00, ack);
 	return 0;
 }
 
-int run_scenario2(role_t role){
-	
+int run_scenario2(permissions_t role){
 	volatile uint8_t result;
-	uart_puts("idle");
-	can_msg_t init;
-	can_receive_message(0, 0x00, 0x00, init);
+	
+	//---Shared Secret Establishment Starts Here---//
 	uart_puts("authentication started");
 	uECC_set_rng(RNG);
 	volatile uint8_t private[32];
@@ -99,35 +95,38 @@ int run_scenario2(role_t role){
 	uint8_t secret[32];
 	uint32_t len = 256;
 	sha256(secret, secret_unhashed, len);
+	//---Secret Value Establishment Ends Here---//
+	
 	can_send_frame_buffer(public, 8);
 	uart_puts("secret established");
 	can_init();
-	
+	//---Every iteration of this loop equals 1 message being authenticated using the shared secret---.
 	while(1){
-		can_msg_t message[8];
+		can_id_t *id = malloc(sizeof(can_id_t));
+		can_msg_t message;
+		// Receive the message that the tester wants to send to the network.
 		can_receive_message(0, 0x00, 0x00, message);
+		can_get_id(0, id);
+		// Acknowledge Correct Reception of the message by retransmitting it.
 		can_send_message(0, 0x00, message);
 		uint8_t mac[16];
+		// Receive the MAC of the message
 		can_receive_frame_buffer(mac,2);
-		
 		uint8_t mac2[32];
 		hmac_sha256(mac2, secret, 265 ,message , 64);
-		if(memcmp(mac, mac2, 16) == 0) uart_puts("message accepted");
+		//Check the MAC.
+		if(memcmp(mac, mac2, 16) == 0){
+			uart_puts("Authentication Ok");
+		}else{
+			uart_puts("Authentication Failed");
+		}
+		//Check the Permission.
+		if (check_permission(id, role) == 0){
+			uart_puts("Permission Ok");
+		}else{
+			uart_puts("Permission Failed");
+		}
 	}
-	
-	
-	/*
-	const struct uECC_Curve_t * curve2 = uECC_secp256r1();
-	uint8_t secret_unhashed2[32];
-	result = uECC_shared_secret(public, private_key, secret_unhashed2, curve2 );
-	uint8_t secret2[32];
-	uint32_t len2 = 256;
-	sha256(secret2, secret_unhashed2, len2);
-	char secret_hex2[64];
-	bytes_to_hex(secret2, 32, secret_hex2);
-	uart_puts(secret_hex2);
-	*/
-	
 	return result;
 	
 }
@@ -138,22 +137,34 @@ int run_scenario2(role_t role){
  int main()
  {
 	uart_init();
+	uart_puts("test");
 	buttons_init();
 	can_init();
 	init_permissions_table();
+	volatile uint8_t id[2] = {0 , 0};
+	char input[] = "0726";
+	uart_puts(input);
+	hex_to_bytes("0726", 4, id);
+	bytes_to_hex(id, 2 , input);
+	uart_puts(input);
+	volatile int result;
+	result = check_permission(id, OWNER_ROLE); 
+	return result;
+	//uart_puts("idle");
 	can_msg_t init;
+	//initial message value is used to determine what ROLE is used to authenticate.
 	can_receive_message(0, 0x00, 0x00, init);
-	switch((int) init){
-		case OWNER_ROLE_INIT :
+	switch((int) init[0]){
+		case OWNER_ROLE :
 			run_scenario2(OWNER_ROLE);
 			break;
-		case REPAIRSHOP_ROLE_INIT :
-			run_scenario2(REPAISHOP_ROLE);
+		case REPAIRSHOP_ROLE :
+			run_scenario2(REPAIRSHOP_ROLE);
 			break;
-		case POLICEMAN_ROLE_INIT :
+		case POLICEMAN_ROLE :
 			run_scenario2(POLICEMAN_ROLE);
 			break;
-		case TESTER_ROLE_INIT :
+		case TESTER_ROLE :
 			run_scenario2(TESTER_ROLE);
 			break;	
 		default : 

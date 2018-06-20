@@ -12,13 +12,11 @@
 #include <stdint.h>
 #include "types.h"
 
-typedef struct permissions_struct{
-	role_t *roles;
-} permissions_t;
+typedef uint8_t permissions_t;
 
 typedef struct entry {
-	can_id_t *id;
-	permissions_t *permissions;
+	can_id_t id;
+	permissions_t permissions;
 	struct entry *successor;
 } entry_t;
 
@@ -28,7 +26,10 @@ typedef struct permission_table_struct{
 
 void init_permissions_table();
 
-int check_permission(can_id_t *msg_id, role_t role);
+int add_entry(can_id_t id, permissions_t permissions);
 
+int check_permission(can_id_t msg_id, permissions_t role);
+
+int add_entry_hex(char *hex, permissions_t permissions);
 
 #endif /* PERMISSION_TABLE_H_ */

@@ -78,10 +78,10 @@ void can_print_message(uint8_t mobnr){
 	uart_puts(hex);
 }
 
-void can_get_id(uint8_t mobnr, can_id_t *id){
+void can_get_id(uint8_t mobnr, can_id_t id){
 	CANPAGE = (mobnr << 4);
-	id->idl = CANIDT2 >> 5 | CANIDT1 << 3;
-	id->idh = CANIDT1 >> 3;
+	id[0] = CANIDT2 >> 5 | CANIDT1 << 3;
+	id[1] = CANIDT1 >> 3;
 }
 
 void can_init_id ( uint8_t id){
@@ -113,7 +113,7 @@ void can_init_message( uint8_t *message ){
 	}
 }
 
-int can_send_message( uint8_t mobnr , uint8_t id, uint8_t *message ){
+int can_send_message( uint8_t mobnr , can_id_t id, can_msg_t message ){
 	//select mob.
 	CANPAGE = (mobnr << 4);
 	//copy ID.
@@ -130,7 +130,7 @@ int can_send_message( uint8_t mobnr , uint8_t id, uint8_t *message ){
 	return 0;
 }
 
-int can_receive_message( uint8_t mobnr, uint8_t id, uint8_t mask, uint8_t *message){
+int can_receive_message( uint8_t mobnr, can_id_t id, uint8_t mask, can_msg_t message){
 	CANPAGE = (mobnr << 4);
 	CANIE2 = (1 << mobnr);
 	can_init_id(id);

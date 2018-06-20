@@ -14,29 +14,24 @@ permission_table_t *permission_table;
 
 void init_permissions_table(){
 	permission_table = malloc(sizeof(permission_table_t));
-	role_t roles[4] = {OWNER_ROLE, REPAISHOP_ROLE, POLICEMAN_ROLE, TESTER_ROLE};
-	add_entry("0760", roles);
-	add_entry("07E0", roles);
-	add_entry("0726", roles);
+	permissions_t permissions = 0b00001111;
+	add_entry_hex("0726", permissions);
+	add_entry_hex("07E0", permissions);
+	//add_entry_hex("0726", roles);
 }
 
-int add_entry_hex(char hex[4], role_t *roles){
-	can_id_t *id = malloc(sizeof(can_id_t));
-	hex_to_id(hex, id);
-	add_entry(id, roles);
+int add_entry_hex(char *hex, permissions_t permissions){
+	can_id_t id;
+	hex_to_bytes(hex, 4, id);
+	add_entry(id, permissions);
 	return 0;
 }
 
-
-int add_entry(can_id_t *id, role_t *roles){
+int add_entry(can_id_t id, permissions_t permissions){
 	entry_t *new_entry; 
 	new_entry = malloc(sizeof(entry_t));
-	new_entry->id = malloc(sizeof(can_id_t));
-	new_entry->id->idh = id->idl;
-	new_entry->id->idl = id->idl;
-	new_entry->permissions = malloc(sizeof(permissions_t));
-	memcpy(new_entry->permissions->roles, roles, sizeof(roles));
-	
+	new_entry->permissions = permissions;
+	memcpy(new_entry->id, id, sizeof(can_id_t));
 	entry_t *curr = permission_table->head;
 	if(curr != NULL){
 		while(curr->successor != NULL){
@@ -46,35 +41,34 @@ int add_entry(can_id_t *id, role_t *roles){
 	}else{
 		permission_table->head = new_entry;
 	}
-	
 	return 0;
 }
 
-int entrycmp(entry_t *entry, can_id_t *msg_id){
-	if(entry->id->idh == msg_id->idh && entry->id->idl == msg_id->idl) return 0;
-	return 1;
+int entrycmp(entry_t *entry, can_id_t msg_id){
+	volatile uint8_t result;
+	result = memcmp(entry->id, msg_id, 2);
+	return result;
 }
 
-int find_entry(can_id_t *msg_id, entry_t *dest){
-	entry_t *curr = permission_table->head;
+int find_entry(can_id_t msg_id, entry_t **dest){
+	volatile entry_t *curr = permission_table->head;
+	uart_puts(curr->id);
 	while(curr != NULL){
-		if(entrycmp(curr, msg_id) == 0) dest = curr;
-		return 0;
+		if(entrycmp(curr, msg_id) == 0){
+			*dest = curr;
+			return 0;
+		}else{
+			curr = curr->successor;
+		}
 	}
 	return 1;
 }
 
-int check_roles(role_t *roles, role_t role){
-	while(roles != NULL){
-		if(*roles == role) return 0;
-		roles++;
-	}
-	return 1;
-}
-
-int check_permission(can_id_t *msg_id, role_t role){
-	entry_t *entry;
-	if(find_entry(msg_id, entry)) return 1;
-	if(check_roles(entry->permissions->roles, role)) return 2; 
-	return 0;
+int check_permission(can_id_t msg_id, permissions_t role){
+	volatile entry_t **adress;
+	if(find_entry(msg_id, adress)) return 1;
+	volatile entry_t *entry = *adress;
+	volatile uint8_t test = entry->permissions;
+	if((entry->permissions && role) == role) return 0; 
+	return 2;
 }

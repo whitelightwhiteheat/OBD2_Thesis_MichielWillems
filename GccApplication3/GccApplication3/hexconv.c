@@ -9,18 +9,11 @@
 #include "hexconv.h"
 
 
-void hex_to_id(char hex[4], can_id_t *dest){
-	uint8_t bytes[2];
-	hex_to_bytes(hex,4,bytes);
-	dest->idh = bytes[1];
-	dest->idl = bytes[0];
-}
-
-void bytes_to_hex(const uint8_t *src, uint8_t len, char *dest)
+void bytes_to_hex(const uint8_t *src, uint8_t intlen, char *dest)
 {
 	static const unsigned char table[] = "0123456789abcdef";
 
-	for (; len > 0; --len)
+	for (; intlen > 0; intlen--)
 	{
 		unsigned char c = *src++;
 		*dest++ = table[c >> 4];
@@ -28,8 +21,8 @@ void bytes_to_hex(const uint8_t *src, uint8_t len, char *dest)
 	}
 }
 
-void hex_to_bytes(char* src, uint8_t slength, uint8_t* dest) {
-
+void hex_to_bytes(char* src, uint8_t slength, uint8_t dest[slength/2]) {
+	memset(dest, 0, slength/2);
 	uint8_t index = 0;
 	while (index < slength) {
 		char c = src[index];
