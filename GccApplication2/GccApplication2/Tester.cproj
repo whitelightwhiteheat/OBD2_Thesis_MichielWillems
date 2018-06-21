@@ -221,6 +221,12 @@
     <Compile Include="hexconv.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="key_api.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="key_api.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="leds.c">
       <SubType>compile</SubType>
     </Compile>
@@ -270,6 +276,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="sha2\sha512.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="types.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="uart_f.c">

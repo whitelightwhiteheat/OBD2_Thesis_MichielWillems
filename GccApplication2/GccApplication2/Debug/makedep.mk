@@ -8,6 +8,8 @@ ECC\uECC.c
 
 hexconv.c
 
+key_api.c
+
 leds.c
 
 main.c

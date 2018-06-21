@@ -10,12 +10,6 @@
 #include "hexconv.h"
 #include "uart_f.h"
 #include "can.h"
-//#include <util/delay.h>
-
-#define INTR_MASK 0b10000000
-#define BXOK_MASK 0b00010000
-#define RXOK_MASK 0b00100000
-
 
 void can_init(){
 
@@ -59,8 +53,8 @@ void can_init(){
 }
 
 void can_get_frame_buffer( uint8_t *message , uint8_t buff_len){
-	uint8_t j;
-	for(j=0; j<buff_len; j++){
+	uint8_t j = buff_len;
+	for(j=0; j<8; j++){
 		can_get_message(j,message);
 		message = message + 8;
 	}
@@ -84,11 +78,15 @@ void can_print_message(uint8_t mobnr){
 	uart_puts(hex);
 }
 
-void can_init_id ( uint8_t id){
-	CANIDT2 = id << 5;
-	CANIDT1 = id >> 3;
-	CANIDT3 = 0x00;
-	CANIDT4 = 0x00;
+void can_get_id(uint8_t mobnr, can_id_t id){
+	CANPAGE = (mobnr << 4);
+	id[0] = CANIDT2 >> 5 | CANIDT1 << 3;
+	id[1] = CANIDT1 >> 5;
+}
+
+void can_init_id ( can_id_t id){
+	CANIDT2 = id[0] << 5;
+	CANIDT1 = id[0] >> 3 | id[1] << 5;
 	//not a remote frame.
 	CANIDT4 = 0 << RTRTAG;
 }
@@ -115,33 +113,37 @@ void can_init_message( uint8_t *message ){
 	}
 }
 
-int can_send_message( uint8_t mobnr , uint8_t id, uint8_t *message ){
+int can_send_message( uint8_t mobnr , can_id_t id, can_msg_t message ){
 	//select mob.
 	CANPAGE = (mobnr << 4);
 	//copy ID.
 	can_init_id(id);
 	//copy message.
 	can_init_message(message);
-	//enable transmission
+	//enable transmission.
 	CANCDMOB = (1 << CONMOB0) | (1 << DLC3);
-	
+	//wait for transmission.
+	while(CANSTMOB != (1 << TXOK));
+	//reset mob.
+	CANSTMOB = 0x00;
+	CANCDMOB = 0x00;
 	return 0;
 }
 
-int can_receive_message( uint8_t mobnr, uint8_t id, uint8_t mask, uint8_t *message){
+int can_receive_message( uint8_t mobnr, can_id_t id, uint8_t mask, can_msg_t message){
 	CANPAGE = (mobnr << 4);
 	CANIE2 = (1 << mobnr);
 	can_init_id(id);
 	can_init_mask_def();
 	//CAN standard rev 2.0 A (identifiers length = 11 bits)
 	CANCDMOB = (1 << CONMOB1) | (1 << DLC3); //enable reception and data length code = 8 bytes
-	
 	//wait for interrupt
 	while((CANGIT & INTR_MASK) != (1 << CANIT));
 	//check if it is the right interrupt.
 	if((CANSTMOB & RXOK_MASK) != (1 << RXOK)) return 1;
-	//reset mob RXOK flag.
+	//reset mob.
 	CANSTMOB = 0x00;
+	CANCDMOB = 0x00;
 	//reset interrupt enable
 	CANIE2 = 0x00;
 	//reset interrupt register.
@@ -152,8 +154,8 @@ int can_receive_message( uint8_t mobnr, uint8_t id, uint8_t mask, uint8_t *messa
 }
 
 int can_send_frame_buffer( uint8_t *message, uint8_t buff_len ){
-	uint8_t j;
-	for(j=0; j<buff_len; j++){
+	uint8_t j = buff_len;
+	for(j=0; j<8; j++){
 		can_send_message(j,j,message);
 		message = message + 8;
 	}
@@ -163,8 +165,8 @@ int can_send_frame_buffer( uint8_t *message, uint8_t buff_len ){
 int can_receive_frame_buffer( uint8_t *message , uint8_t buff_len){
 	//Enable buffer receive interrupt.
 	CANGIE |= (1 << ENBX);
-	uint8_t j;
-	for(j=0; j<buff_len; j++){
+	uint8_t j = buff_len;
+	for(j=0; j<8; j++){
 		CANPAGE = (j << 4);
 		can_init_id(j);
 		// Mask = 255

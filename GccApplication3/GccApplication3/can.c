@@ -81,12 +81,12 @@ void can_print_message(uint8_t mobnr){
 void can_get_id(uint8_t mobnr, can_id_t id){
 	CANPAGE = (mobnr << 4);
 	id[0] = CANIDT2 >> 5 | CANIDT1 << 3;
-	id[1] = CANIDT1 >> 3;
+	id[1] = CANIDT1 >> 5;
 }
 
-void can_init_id ( uint8_t id){
-	CANIDT2 = id << 5;
-	CANIDT1 = id >> 3;
+void can_init_id ( can_id_t id){
+	CANIDT2 = id[0] << 5;
+	CANIDT1 = id[0] >> 3 | id[1] << 5;
 	//not a remote frame.
 	CANIDT4 = 0 << RTRTAG;
 }

@@ -28,3 +28,15 @@ void uart_puts(char* s){
 	UDR0 = 10;
 }
 
+void uart_putsl(char* s, uint8_t len){
+	int i;
+	for (i = 0; i < len; i++){
+		while(!( UCSR0A & 0X20));
+		UDR0=s[i];
+	}
+	while(!( UCSR0A & 0X20));
+	UDR0 = 13;
+	while(!( UCSR0A & 0X20));
+	UDR0 = 10;
+}
+

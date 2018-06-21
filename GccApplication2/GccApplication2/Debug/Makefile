@@ -42,6 +42,7 @@ C_SRCS +=  \
 ../can.c \
 ../ECC/uECC.c \
 ../hexconv.c \
+../key_api.c \
 ../leds.c \
 ../main.c \
 ../sha2/hmac-sha256.c \
@@ -64,6 +65,7 @@ OBJS +=  \
 can.o \
 ECC/uECC.o \
 hexconv.o \
+key_api.o \
 leds.o \
 main.o \
 sha2/hmac-sha256.o \
@@ -79,6 +81,7 @@ OBJS_AS_ARGS +=  \
 can.o \
 ECC/uECC.o \
 hexconv.o \
+key_api.o \
 leds.o \
 main.o \
 sha2/hmac-sha256.o \
@@ -94,6 +97,7 @@ C_DEPS +=  \
 can.d \
 ECC/uECC.d \
 hexconv.d \
+key_api.d \
 leds.d \
 main.d \
 sha2/hmac-sha256.d \
@@ -109,6 +113,7 @@ C_DEPS_AS_ARGS +=  \
 can.d \
 ECC/uECC.d \
 hexconv.d \
+key_api.d \
 leds.d \
 main.d \
 sha2/hmac-sha256.d \
@@ -134,6 +139,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

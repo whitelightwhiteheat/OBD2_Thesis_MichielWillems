@@ -132,25 +132,13 @@ int run_scenario2(permissions_t role){
 }
 
 
-
-
  int main()
  {
 	uart_init();
-	uart_puts("test");
 	buttons_init();
 	can_init();
 	init_permissions_table();
-	volatile uint8_t id[2] = {0 , 0};
-	char input[] = "0726";
-	uart_puts(input);
-	hex_to_bytes("0726", 4, id);
-	bytes_to_hex(id, 2 , input);
-	uart_puts(input);
-	volatile int result;
-	result = check_permission(id, OWNER_ROLE); 
-	return result;
-	//uart_puts("idle");
+	uart_puts("idle");
 	can_msg_t init;
 	//initial message value is used to determine what ROLE is used to authenticate.
 	can_receive_message(0, 0x00, 0x00, init);

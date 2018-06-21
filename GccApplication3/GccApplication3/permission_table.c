@@ -45,13 +45,11 @@ int add_entry(can_id_t id, permissions_t permissions){
 }
 
 int entrycmp(entry_t *entry, can_id_t msg_id){
-	volatile uint8_t result;
-	result = memcmp(entry->id, msg_id, 2);
-	return result;
+	return memcmp(entry->id, msg_id, 2);
 }
 
 int find_entry(can_id_t msg_id, entry_t **dest){
-	volatile entry_t *curr = permission_table->head;
+	entry_t *curr = permission_table->head;
 	uart_puts(curr->id);
 	while(curr != NULL){
 		if(entrycmp(curr, msg_id) == 0){
@@ -65,9 +63,9 @@ int find_entry(can_id_t msg_id, entry_t **dest){
 }
 
 int check_permission(can_id_t msg_id, permissions_t role){
-	volatile entry_t **adress;
+	entry_t **adress;
 	if(find_entry(msg_id, adress)) return 1;
-	volatile entry_t *entry = *adress;
+	entry_t *entry = *adress;
 	volatile uint8_t test = entry->permissions;
 	if((entry->permissions && role) == role) return 0; 
 	return 2;
