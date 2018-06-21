@@ -19,6 +19,10 @@
 #define POLICEMAN_ROLE 0b00000100
 #define TESTER_ROLE 0b00001000
 
+#define ACK_POS 0x00
+#define ACK_NEG 0x01
+
+
 typedef enum {
 	IDLE_S,
 	WAIT_FOR_SIGNATURE_S,
@@ -42,6 +46,7 @@ typedef enum {
 */
  
 typedef uint8_t can_id_t[2];
+typedef uint8_t can_mask_t[2];
 typedef uint8_t can_msg_t[8];
 typedef uint8_t can_buff_512_t[64];
 typedef uint8_t can_buff_128_t[64];

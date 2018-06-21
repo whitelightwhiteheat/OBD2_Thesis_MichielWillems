@@ -91,17 +91,19 @@ void can_init_id ( can_id_t id){
 	CANIDT4 = 0 << RTRTAG;
 }
 
+/*
 void can_init_mask_def(){
 	CANIDM1 = 255;
 	CANIDM2 = 255;
 	CANIDM4 = (0 << RTRMSK) | (0 << IDEMSK);
 }
+*/
 
-void can_init_mask (uint8_t mask){
-	CANIDM1 = mask << 5;
-	CANIDM2 = mask >> 3;
-	// RTRMSK = 0 : We don't use remote frames ever.
-	// IDEMSK = 0 : we don't use the extended format.
+void can_init_mask (can_mask_t mask){
+	CANIDM2 = mask[0] << 5;
+	CANIDM1 = mask[0] >> 3 | mask[1] << 5;
+	//RTRMSK = 0 : We don't use remote frames ever.
+	//IDEMSK = 0 : we don't use the extended format.
 	CANIDM4 = (0 << RTRMSK) | (0 << IDEMSK);
 }
 
@@ -130,13 +132,17 @@ int can_send_message( uint8_t mobnr , can_id_t id, can_msg_t message ){
 	return 0;
 }
 
-int can_receive_message( uint8_t mobnr, can_id_t id, uint8_t mask, can_msg_t message){
+int can_receive_message( uint8_t mobnr, can_id_t id, can_mask_t mask, can_msg_t message){
 	CANPAGE = (mobnr << 4);
 	CANIE2 = (1 << mobnr);
 	can_init_id(id);
-	can_init_mask_def();
+	can_init_mask(mask);
 	//CAN standard rev 2.0 A (identifiers length = 11 bits)
 	CANCDMOB = (1 << CONMOB1) | (1 << DLC3); //enable reception and data length code = 8 bytes
+	
+	CANPAGE = (mobnr << 4);
+	CANPAGE = (mobnr << 4);
+	CANPAGE = (mobnr << 4);
 	//wait for interrupt
 	while((CANGIT & INTR_MASK) != (1 << CANIT));
 	//check if it is the right interrupt.
@@ -170,7 +176,8 @@ int can_receive_frame_buffer( uint8_t *message , uint8_t buff_len){
 		CANPAGE = (j << 4);
 		can_init_id(j);
 		// Mask = 255
-		can_init_mask_def();
+		can_mask_t mask = { 255, 255 };
+		can_init_mask(mask);
 		//set mob in buffer receive mode.
 		CANCDMOB = (1 << CONMOB0) | (1 << CONMOB1) | (1 << DLC3);
 	}

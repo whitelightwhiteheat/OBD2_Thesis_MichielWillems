@@ -28,7 +28,7 @@ void can_print_message( uint8_t mobnr);
 
 int can_send_frame_buffer( uint8_t *message, uint8_t buff_len);
 
-int can_receive_message( uint8_t mobnr, can_id_t id, uint8_t mask, can_msg_t message);
+int can_receive_message( uint8_t mobnr, can_id_t id, can_mask_t mask, can_msg_t message);
 
 int can_receive_frame_buffer( uint8_t *message, uint8_t buff_len);
 
