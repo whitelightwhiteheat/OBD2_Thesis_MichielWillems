@@ -49,6 +49,7 @@ typedef enum {
 */
  
 typedef uint8_t can_id_t[2];
+typedef uint8_t can_mask_t[2];
 typedef uint8_t can_msg_t[8];
 typedef uint8_t can_buff_512_t[64];
 typedef uint8_t can_buff_128_t[64];

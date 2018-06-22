@@ -14,6 +14,8 @@
 #define RXOK_MASK 0b00100000
 #define TXOK_MASK 0b01000000
 
+#define PAGE_MASK 0b00001000
+
 #include "types.h"
 
 void can_init();

@@ -127,16 +127,17 @@ int single_authentication(permissions_t role)
 	can_buff_512_t challenge = { 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 1 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 2 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 3 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 4 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 5 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 6 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 7 , 1 , 2 , 3 , 4 , 5 , 6 , 7 };
 	can_send_frame_buffer(challenge , 8);
 	uart_puts("challenge sent");
-	can_msg_t signature;
+	uint8_t signature[64];
 	can_receive_frame_buffer(signature, 8);
 	result = verify_signature(challenge, signature, role);
+	can_msg_t ack;
 	if(result==1) {
 		uart_puts("signature is valid!");
+		ack[0] = ACK_POS;
 	}else{
 		uart_puts("signature is false!");
+		ack[0] = ACK_NEG;
 	}
-	can_msg_t ack;
-	ack[0] = ACK_POS;
 	can_send_message(0, 0x00, ack);
 	can_msg_t message;
 	can_receive_message(0, default_id, 0x00, message);
@@ -144,9 +145,12 @@ int single_authentication(permissions_t role)
 	can_get_id(0, id);
 	if (check_permission(id, role) == 0){
 		uart_puts("Permission Ok");
-		}else{
+		ack[0] = ACK_POS;
+	}else{
 		uart_puts("Permission Failed");
+		ack[0] = ACK_NEG;
 	}
+	can_send_message(0, 0x00, ack);
 	return 0;
 }
 
@@ -212,22 +216,25 @@ int shared_secret_authentication(permissions_t role){
 	init_permissions_table();
 	uart_puts("idle");
 	can_msg_t init;
-	can_receive_message(0, default_id, zero_mask, init);
-	switch((int) init[0]){
-		case OWNER_ROLE :
+	while(1){
+		can_receive_message(0, default_id, zero_mask, init);
+		uart_puts("kaka");
+		switch((uint8_t) init[0]){
+			case OWNER_ROLE :
 			single_authentication(OWNER_ROLE);
 			break;
-		case REPAIRSHOP_ROLE :
+			case REPAIRSHOP_ROLE :
 			single_authentication(REPAIRSHOP_ROLE);
 			break;
-		case POLICEMAN_ROLE :
+			case POLICEMAN_ROLE :
 			single_authentication(POLICEMAN_ROLE);
 			break;
-		case TESTER_ROLE :
+			case TESTER_ROLE :
 			single_authentication(TESTER_ROLE);
-			break;	
-		default : 
 			break;
+			default :
+			break;
+		}
 	}
  }
 

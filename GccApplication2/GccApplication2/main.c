@@ -22,6 +22,9 @@
 #include <util/delay.h>
 
 const can_id_t default_id = {0x00, 0x00};
+const can_mask_t zero_mask = {0x00, 0x00};
+const can_mask_t default_mask = {255, 255};
+
 
 //const static uint8_t private_key[32] = { 146,153,7,136,214,107,245,88,5,45,17,47,84,152,17,23,71,179,226,140,85,152,77,67,254,216,200,130,42,217,241,167};
 //const static uint8_t public_key[64] = { 240,200,99,248,229,85,17,75,244,136,44,199,135,185,92,39,42,127,228,220,221,241,146,47,79,24,164,148,225,195,87,161,166,195,45,7,190,181,118,171,96,16,104,6,143,10,158,1,96,195,161,65,25,245,212,38,167,149,93,163,230,237,62,129	};
@@ -141,7 +144,7 @@ int authenticate_single(can_msg_t message, can_id_t id, uint8_t role){
 	//init authentication.
 	can_msg_t init;
 	init[0] = role;
-	can_send_message(0, default_id, role);
+	can_send_message(0, default_id, init);
 	//wait for challenge.
 	can_receive_frame_buffer(challenge, 8);
 	uart_puts("challenge received");
@@ -178,7 +181,7 @@ int authenticate_shared_secret(can_msg_t *message, can_id_t *id, uint8_t role){
 	//init authentication.
 	can_msg_t init;
 	init[0] = role;
-	can_send_message(0, default_id, role);
+	can_send_message(0, default_id, init);
 	uint8_t public[64];
 	//Receive generated public key.
 	can_receive_frame_buffer(public, 8);
@@ -216,7 +219,6 @@ int authenticate_shared_secret(can_msg_t *message, can_id_t *id, uint8_t role){
 
  int main()
  {	
-	 
 	 uart_init();
 	 buttons_init();
 	 can_init();

@@ -14,10 +14,12 @@ permission_table_t *permission_table;
 
 void init_permissions_table(){
 	permission_table = malloc(sizeof(permission_table_t));
+	permission_table->head = NULL;
 	permissions_t permissions = 0b00001111;
-	add_entry_hex("0726", permissions);
-	add_entry_hex("07E0", permissions);
-	//add_entry_hex("0726", roles);
+	add_entry_hex("b107", permissions);
+	add_entry_hex("e007", permissions);
+	add_entry_hex("2607", permissions);
+	add_entry_hex("3007", permissions);
 }
 
 int add_entry_hex(char *hex, permissions_t permissions){
@@ -31,6 +33,7 @@ int add_entry(can_id_t id, permissions_t permissions){
 	entry_t *new_entry; 
 	new_entry = malloc(sizeof(entry_t));
 	new_entry->permissions = permissions;
+	new_entry->successor = NULL;
 	memcpy(new_entry->id, id, sizeof(can_id_t));
 	entry_t *curr = permission_table->head;
 	if(curr != NULL){

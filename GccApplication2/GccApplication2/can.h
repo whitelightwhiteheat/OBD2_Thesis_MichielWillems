@@ -5,7 +5,6 @@
  *  Author: michel
  */ 
 
-#include "types.h"
 
 #ifndef CAN_H_
 #define CAN_H_
@@ -14,6 +13,10 @@
 #define BXOK_MASK 0b00010000
 #define RXOK_MASK 0b00100000
 #define TXOK_MASK 0b01000000
+
+#define PAGE_MASK 0b00001000
+
+#include "types.h"
 
 void can_init();
 
@@ -27,7 +30,7 @@ void can_print_message( uint8_t mobnr);
 
 int can_send_frame_buffer( uint8_t *message, uint8_t buff_len);
 
-int can_receive_message( uint8_t mobnr, can_id_t id, uint8_t mask, can_msg_t message);
+int can_receive_message( uint8_t mobnr, can_id_t id, can_mask_t mask, can_msg_t message);
 
 int can_receive_frame_buffer( uint8_t *message, uint8_t buff_len);
 
