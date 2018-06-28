@@ -124,7 +124,8 @@ int single_authentication(permissions_t role)
 {
 	volatile uint8_t result;
 	uart_puts("authentication started");
-	can_buff_512_t challenge = { 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 1 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 2 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 3 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 4 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 5 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 6 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 7 , 1 , 2 , 3 , 4 , 5 , 6 , 7 };
+	can_buff_512_t challenge;
+	RNG(challenge, 64);
 	can_send_frame_buffer(challenge , 8);
 	uart_puts("challenge sent");
 	uint8_t signature[64];
@@ -154,7 +155,7 @@ int single_authentication(permissions_t role)
 	return 0;
 }
 
-int shared_secret_authentication(permissions_t role){
+int session_authentication(permissions_t role){
 	volatile uint8_t result;
 	
 	//---Shared Secret Establishment Starts Here---//
@@ -175,33 +176,43 @@ int shared_secret_authentication(permissions_t role){
 	
 	can_send_frame_buffer(public2, 8);
 	uart_puts("secret established");
-	can_init();
 	//---Every iteration of this loop equals 1 message being authenticated using the shared secret---.
 	while(1){
-		can_id_t *id = malloc(sizeof(can_id_t));
+		can_id_t id;
 		can_msg_t message;
+		can_msg_t ack;
+		uart_puts("test1");
 		// Receive the message that the tester wants to send to the network.
-		can_receive_message(0, 0x00, 0x00, message);
+		can_receive_message(0, default_id, zero_mask, message);
+		uart_puts("test2");
 		can_get_id(0, id);
-		// Acknowledge Correct Reception of the message by retransmitting it.
-		can_send_message(0, 0x00, message);
+		//Check the Permission.
+		uart_puts("test3");
+		if(check_permission(id, role) == 0){
+			uart_puts("Permission Ok");
+			ack[0] = ACK_POS;
+		}else{
+			uart_puts("Permission Failed");
+			ack[0] = ACK_NEG;
+		}
+		// Acknowledge permission.
+		can_send_message(0, default_id, ack);
 		uint8_t mac[16];
 		// Receive the MAC of the message
 		can_receive_frame_buffer(mac,2);
 		uint8_t mac2[32];
-		hmac_sha256(mac2, secret, 265 ,message , 64);
+		uint16_t klen = 256;
+		uint32_t msglen = 64;
+		hmac_sha256(mac2, secret, klen ,message , msglen);
 		//Check the MAC.
 		if(memcmp(mac, mac2, 16) == 0){
 			uart_puts("Authentication Ok");
+			ack[0] = ACK_POS;
 		}else{
 			uart_puts("Authentication Failed");
+			ack[0] = ACK_NEG;
 		}
-		//Check the Permission.
-		if (check_permission(id, role) == 0){
-			uart_puts("Permission Ok");
-		}else{
-			uart_puts("Permission Failed");
-		}
+		can_send_message(0, default_id, ack);
 	}
 	return result;
 	
@@ -218,22 +229,12 @@ int shared_secret_authentication(permissions_t role){
 	can_msg_t init;
 	while(1){
 		can_receive_message(0, default_id, zero_mask, init);
-		uart_puts("kaka");
-		switch((uint8_t) init[0]){
-			case OWNER_ROLE :
-			single_authentication(OWNER_ROLE);
-			break;
-			case REPAIRSHOP_ROLE :
-			single_authentication(REPAIRSHOP_ROLE);
-			break;
-			case POLICEMAN_ROLE :
-			single_authentication(POLICEMAN_ROLE);
-			break;
-			case TESTER_ROLE :
-			single_authentication(TESTER_ROLE);
-			break;
-			default :
-			break;
+		if(auth_protocol == SINGLE){
+			single_authentication(init[0]);
+			return 0;
+		}else{
+			session_authentication(init[0]);
+			return 0;
 		}
 	}
  }

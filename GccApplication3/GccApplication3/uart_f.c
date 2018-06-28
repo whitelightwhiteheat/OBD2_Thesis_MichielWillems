@@ -17,7 +17,7 @@ void uart_init(){
 }
 
 void uart_puts(char* s){
-	int i;
+	volatile uint8_t i;
 	int len = strlen(s);
 	for (i = 0; i < len; i++){
 		while(!( UCSR0A & 0X20));

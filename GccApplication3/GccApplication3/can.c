@@ -68,8 +68,8 @@ static void set_page_indx(uint8_t indx, uint8_t mobnr){
 }
 
 void can_get_frame_buffer( uint8_t *message , uint8_t buff_len){
-	uint8_t j = buff_len;
-	for(j=0; j<8; j++){
+	uint8_t j;
+	for(j=0; j<buff_len; j++){
 		can_get_message(j,message);
 		message = message + 8;
 	}

@@ -63,6 +63,11 @@ int sign_challenge(uint8_t challenge[64], uint8_t signature[64], uint8_t role){
 	return 0;
 }
 
+int sign_challenge_dummy(uint8_t challenge[64], uint8_t signature[64], uint8_t role){
+	memcpy(signature,challenge,64);
+	return 0;
+}
+
 int calculate_shared_secret(uint8_t public[64], uint8_t role, uint8_t secret[32]){
 	const struct uECC_Curve_t * curve = uECC_secp256r1();
 	uint8_t secret_unhashed[32];
@@ -75,6 +80,11 @@ int calculate_shared_secret(uint8_t public[64], uint8_t role, uint8_t secret[32]
 	}
 	uint32_t len = 256;
 	sha256(secret, secret_unhashed, len);
+	return 0;
+}
+
+int calculate_shared_secret_dummy(uint8_t public[64], uint8_t role, uint8_t secret[32]){
+	memcpy(secret, public, 32);
 	return 0;
 }
 
