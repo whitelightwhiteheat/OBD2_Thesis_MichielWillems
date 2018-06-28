@@ -42,13 +42,12 @@ const char public_key3_hex[128] = "ccfd9d101862143f83b3de5caccdf4a3aa55c0cdd8cd8
 const char private_key4_hex[64] = "b2c950abc87a55442cc00f1e3ac38f81b7e95036fd191ea134ff616d9806e10c";
 const char public_key4_hex[128] = "bd42371aac680a6603eba1cf0f5e495ace59299a4e2f42aa943b8406c42b66c8182c093637eb1199ec41dee8ba7a2faae07b04857b569033c7b73e318a1f6321";
 
+static const can_id_t default_id = {0x00, 0x00};
+static const can_mask_t zero_mask = {0x00, 0x00};
+static const can_mask_t default_mask = {255, 255};
+static const can_msg_t ack_pos = {ACK_POS};
+static const can_msg_t ack_neg = {ACK_NEG};
 
-//const static uint8_t private_key[32] = { 146,153,7,136,214,107,245,88,5,45,17,47,84,152,17,23,71,179,226,140,85,152,77,67,254,216,200,130,42,217,241,167};
-//const static uint8_t public_key[64] = { 240,200,99,248,229,85,17,75,244,136,44,199,135,185,92,39,42,127,228,220,221,241,146,47,79,24,164,148,225,195,87,161,166,195,45,7,190,181,118,171,96,16,104,6,143,10,158,1,96,195,161,65,25,245,212,38,167,149,93,163,230,237,62,129	};
-
-const can_id_t default_id = {0x00, 0x00};
-const can_mask_t zero_mask = {0x00, 0x00};
-const can_mask_t default_mask = {255, 255};
 
 volatile state_t state = IDLE_S;
 volatile event_t event = NULL_E;
@@ -121,44 +120,56 @@ int verify_signature(uint8_t challenge[64], uint8_t signature[64], permissions_t
 }
 
 int single_authentication(permissions_t role)
-{
+{	
+	//Start Protocol by sending random challenge.
 	volatile uint8_t result;
 	uart_puts("authentication started");
 	can_buff_512_t challenge;
 	RNG(challenge, 64);
 	can_send_frame_buffer(challenge , 8);
 	uart_puts("challenge sent");
+	
+	//Wait for Signature.
 	uint8_t signature[64];
 	can_receive_frame_buffer(signature, 8);
+	
+	//Verify Signature.
 	result = verify_signature(challenge, signature, role);
-	can_msg_t ack;
 	if(result==1) {
 		uart_puts("signature is valid!");
-		ack[0] = ACK_POS;
+		can_send_message(0, 0x00, ack_pos);
 	}else{
 		uart_puts("signature is false!");
-		ack[0] = ACK_NEG;
+		can_send_message(0, 0x00, ack_neg);
+		return 1;
 	}
-	can_send_message(0, 0x00, ack);
+	
+	//Receive Message to forward.
 	can_msg_t message;
 	can_receive_message(0, default_id, 0x00, message);
 	can_id_t id;
 	can_get_id(0, id);
+	
+	//Check Permission of message.
 	if (check_permission(id, role) == 0){
 		uart_puts("Permission Ok");
-		ack[0] = ACK_POS;
+		can_send_message(0, 0x00, ack_pos);
 	}else{
 		uart_puts("Permission Failed");
-		ack[0] = ACK_NEG;
+		can_send_message(0, 0x00, ack_neg);
+		return -2;
 	}
-	can_send_message(0, 0x00, ack);
+	
+	//Forward the message to the internal vehicle network.
+	forward_message(message, id);
+	
 	return 0;
 }
 
 int session_authentication(permissions_t role){
-	volatile uint8_t result;
 	
-	//---Shared Secret Establishment Starts Here---//
+	//Start protocol by calculating new private/public key pair for shared secret establishment.
+	volatile uint8_t result;
 	uart_puts("authentication started");
 	uECC_set_rng(RNG);
 	volatile uint8_t private2[32];
@@ -172,50 +183,73 @@ int session_authentication(permissions_t role){
 	uint8_t secret[32];
 	uint32_t len = 256;
 	sha256(secret, secret_unhashed, len);
-	//---Secret Value Establishment Ends Here---//
 	
+	//Send new public key.
 	can_send_frame_buffer(public2, 8);
 	uart_puts("secret established");
+	
 	//---Every iteration of this loop equals 1 message being authenticated using the shared secret---.
 	while(1){
 		can_id_t id;
 		can_msg_t message;
-		can_msg_t ack;
-		uart_puts("test1");
+		
 		// Receive the message that the tester wants to send to the network.
 		can_receive_message(0, default_id, zero_mask, message);
-		uart_puts("test2");
 		can_get_id(0, id);
+		
 		//Check the Permission.
-		uart_puts("test3");
 		if(check_permission(id, role) == 0){
 			uart_puts("Permission Ok");
-			ack[0] = ACK_POS;
+			can_send_message(0, default_id, ack_pos);
 		}else{
 			uart_puts("Permission Failed");
-			ack[0] = ACK_NEG;
+			can_send_message(0, default_id, ack_neg);
+			continue;
 		}
+		
 		// Acknowledge permission.
-		can_send_message(0, default_id, ack);
 		uint8_t mac[16];
+		
 		// Receive the MAC of the message
 		can_receive_frame_buffer(mac,2);
 		uint8_t mac2[32];
 		uint16_t klen = 256;
 		uint32_t msglen = 64;
 		hmac_sha256(mac2, secret, klen ,message , msglen);
+		
 		//Check the MAC.
 		if(memcmp(mac, mac2, 16) == 0){
 			uart_puts("Authentication Ok");
-			ack[0] = ACK_POS;
+			can_send_message(0, default_id, ack_pos);
 		}else{
 			uart_puts("Authentication Failed");
-			ack[0] = ACK_NEG;
+			can_send_message(0, default_id, ack_neg);
+			continue;
 		}
-		can_send_message(0, default_id, ack);
+		
+		//Forward the message to the internal vehicle network.
+		forward_message(message, id);
 	}
 	return result;
 	
+}
+
+void forward_message(can_msg_t msg, can_id_t id){
+	char idl[2];
+	char idh[2];
+	bytes_to_hex(id, 1, idl);
+	id++;
+	bytes_to_hex(id, 1, idh);
+	uart_puts("---MESSAGE FORWARDED ONTO NETWORK---");
+	uart_puts("IDL:");
+	uart_putd(idl,2);
+	uart_puts("IDH:");
+	uart_putd(idh,2);
+	char msghex[16];
+	bytes_to_hex(msg, 8, msghex);
+	uart_puts("MESSAGE:");
+	uart_putd(msghex, 16);
+	uart_puts("------------------------------------");
 }
 
 

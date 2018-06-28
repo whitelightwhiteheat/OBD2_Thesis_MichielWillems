@@ -107,6 +107,7 @@ int authenticate_single(can_msg_t message, can_id_t id, uint8_t role){
 	uint8_t signature[64];
 	if(run_scenario == SCENARIO1){
 		sign_challenge_dummy(challenge, signature, role);
+		_delay_ms(1000);
 	}else{
 		sign_challenge(challenge, signature, role);
 	}
@@ -156,11 +157,13 @@ int authenticate_session(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t
 	uint8_t secret[32];
 	if(run_scenario == SCENARIO1){
 		calculate_shared_secret_dummy(public, role, secret);
+		_delay_ms(1000);
 	}else{
 		calculate_shared_secret(public, role, secret);
 	}
 	
 	while(rounds > 0){
+		rounds--;
 		
 		//Send message you want to send to the vehicle network.
 		can_send_message(0, *id, *message);
@@ -172,6 +175,7 @@ int authenticate_session(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t
 			uart_puts("permission granted!");
 			}else{
 			uart_puts("permission denied!");
+			continue;
 		}
 		
 		//Calculate and send Hmac of message.
@@ -189,8 +193,9 @@ int authenticate_session(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t
 			uart_puts("message accepted!");
 		}else{
 			uart_puts("message denied!");
+			continue;
 		}
-		rounds--;
+		_delay_ms(500);
 	}
 	return 0;
 }
@@ -227,7 +232,7 @@ int authenticate_session(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t
 			}
 		}else{
 			uint8_t msgs[3][8] = { {0,0,0,0,0,0,0,0} , {0,0,0,0,0,0,0,0} , {0,0,0,0,0,0,0,0} };
-			uint8_t ids[3][2] = {{177,7},{177,7},{177,7}};
+			uint8_t ids[3][2] = {{177,7},{224,7},{38,7}};
 			switch(runlcl){
 				case NOTHING :
 					break;
