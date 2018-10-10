@@ -252,6 +252,12 @@ void forward_message(can_msg_t msg, can_id_t id){
 	uart_puts("------------------------------------");
 }
 
+int authenticate(permissions_t role){
+	
+	uint8_t public
+	can_receive_frame_buffer()
+}
+
 
  int main()
  {

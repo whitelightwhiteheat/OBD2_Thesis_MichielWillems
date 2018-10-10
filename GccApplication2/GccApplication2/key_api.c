@@ -63,6 +63,7 @@ int sign_challenge(uint8_t challenge[64], uint8_t signature[64], uint8_t role){
 	return 0;
 }
 
+
 int sign_challenge_dummy(uint8_t challenge[64], uint8_t signature[64], uint8_t role){
 	memcpy(signature,challenge,64);
 	return 0;

@@ -200,6 +200,72 @@ int authenticate_session(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t
 	return 0;
 }
 
+int authenticate(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t rounds){
+	
+	uint8_t public[64] = { 0 };
+	uint8_t signature[64] = { 0 };
+	
+	//Send Public Key
+	can_send_frame_buffer(public, 8);
+	
+	//Wait for ack
+	uint8_t ack;
+	can_receive_message(0, default_id, zero_mask, ack);
+	
+	//send Signature
+	can_send_frame_buffer(signature, 8);
+	
+	//Calculate Shared Secret
+	uint8_t secret[32];
+	if(run_scenario == SCENARIO1){
+		calculate_shared_secret_dummy(public, role, secret);
+		_delay_ms(1000);
+		}else{
+		calculate_shared_secret(public, role, secret);
+	}
+	
+	//wait for ack
+	can_receive_message(0, default_id, zero_mask, ack);
+	
+	while(rounds > 0){
+		rounds--;
+		
+		//Send message you want to send to the vehicle network.
+		can_send_message(0, *id, *message);
+		
+		//Wait for acknowledgment.
+		can_msg_t ack;
+		can_receive_message(0, default_id, 0x00, ack);
+		if(ack[0] == ACK_POS){
+			uart_puts("permission granted!");
+			}else{
+			uart_puts("permission denied!");
+			continue;
+		}
+		
+		//Calculate and send Hmac of message.
+		uint8_t mac[32];
+		uint16_t klen = 256;
+		uint32_t msglen = 64;
+		hmac_sha256(mac, secret, klen ,message , msglen);
+		uint8_t mac2[16];
+		memcpy(mac2, mac ,16);
+		can_send_frame_buffer(mac2, 2);
+		
+		//wait for acknowledgment.
+		can_receive_message(0, default_id, 0x00, ack);
+		if(ack[0] == ACK_POS){
+			uart_puts("message accepted!");
+			}else{
+			uart_puts("message denied!");
+			continue;
+		}
+		_delay_ms(500);
+	}
+	return 0;
+	
+}
+
  int main()
  {	
 	 uart_init();

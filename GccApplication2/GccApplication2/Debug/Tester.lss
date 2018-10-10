@@ -13,21 +13,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00006388  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000460  00000000  00000000  000063c8  2**0
+  5 .debug_aranges 00000468  00000000  00000000  000063c8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   0000d50d  00000000  00000000  00006828  2**0
+  6 .debug_info   0000d8b7  00000000  00000000  00006830  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00001efa  00000000  00000000  00013d35  2**0
+  7 .debug_abbrev 00001f45  00000000  00000000  000140e7  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00003898  00000000  00000000  00015c2f  2**0
+  8 .debug_line   00003964  00000000  00000000  0001602c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  0000172c  00000000  00000000  000194c8  2**2
+  9 .debug_frame  00001784  00000000  00000000  00019990  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    0000138c  00000000  00000000  0001abf4  2**0
+ 10 .debug_str    00001399  00000000  00000000  0001b114  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000c08a  00000000  00000000  0001bf80  2**0
+ 11 .debug_loc    0000c2db  00000000  00000000  0001c4ad  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000600  00000000  00000000  0002800a  2**0
+ 12 .debug_ranges 00000620  00000000  00000000  00028788  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -6932,9 +6932,9 @@ int sign_challenge(uint8_t challenge[64], uint8_t signature[64], uint8_t role){
 
 00003512 <sign_challenge_dummy>:
     3512:	fc 01       	movw	r30, r24
-	
 	return 0;
 }
+
 
 int sign_challenge_dummy(uint8_t challenge[64], uint8_t signature[64], uint8_t role){
 	memcpy(signature,challenge,64);
@@ -7069,12 +7069,12 @@ int calculate_shared_secret_dummy(uint8_t public[64], uint8_t role, uint8_t secr
     35cc:	08 95       	ret
 
 000035ce <__vector_5>:
-	//EICRB = 1 << ISC40 | 1 << ISC41 | 1 << ISC50 | 1 << ISC51 | 1 << ISC60 | 1 << ISC61 | 1 << ISC70 | 1 << ISC71; // set interrupt on falling edge.
-	EIMSK = 1 << INT4 | 1 << INT5 | 1 << INT6 | 1 << INT7;
-	
-}
-	
-ISR(INT4_vect){
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
     35ce:	1f 92       	push	r1
     35d0:	0f 92       	push	r0
     35d2:	0f b6       	in	r0, 0x3f	; 63
@@ -7094,14 +7094,7 @@ ISR(INT4_vect){
     35ee:	bf 93       	push	r27
     35f0:	ef 93       	push	r30
     35f2:	ff 93       	push	r31
-	EIMSK &= ~(1 << INT4);
     35f4:	ec 98       	cbi	0x1d, 4	; 29
-	#else
-		//round up by default
-		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
-	#endif
-
-	__builtin_avr_delay_cycles(__ticks_dc);
     35f6:	2f ef       	ldi	r18, 0xFF	; 255
     35f8:	84 e3       	ldi	r24, 0x34	; 52
     35fa:	9c e0       	ldi	r25, 0x0C	; 12
@@ -7111,17 +7104,12 @@ ISR(INT4_vect){
     3602:	e1 f7       	brne	.-8      	; 0x35fc <__vector_5+0x2e>
     3604:	00 c0       	rjmp	.+0      	; 0x3606 <__vector_5+0x38>
     3606:	00 00       	nop
-	_delay_ms(500);
-	uart_puts("running scenario 1");
     3608:	81 ee       	ldi	r24, 0xE1	; 225
     360a:	92 e0       	ldi	r25, 0x02	; 2
     360c:	0e 94 6b 2e 	call	0x5cd6	; 0x5cd6 <uart_puts>
-	run_scenario = SCENARIO1;
     3610:	81 e0       	ldi	r24, 0x01	; 1
     3612:	80 93 20 04 	sts	0x0420, r24	; 0x800420 <run_scenario>
-	EIMSK |= 1 << INT4;
     3616:	ec 9a       	sbi	0x1d, 4	; 29
-}
     3618:	ff 91       	pop	r31
     361a:	ef 91       	pop	r30
     361c:	bf 91       	pop	r27
@@ -7143,8 +7131,6 @@ ISR(INT4_vect){
     363c:	18 95       	reti
 
 0000363e <__vector_6>:
-
-ISR(INT5_vect){
     363e:	1f 92       	push	r1
     3640:	0f 92       	push	r0
     3642:	0f b6       	in	r0, 0x3f	; 63
@@ -7164,7 +7150,6 @@ ISR(INT5_vect){
     365e:	bf 93       	push	r27
     3660:	ef 93       	push	r30
     3662:	ff 93       	push	r31
-	EIMSK &= ~(1 << INT5);
     3664:	ed 98       	cbi	0x1d, 5	; 29
     3666:	2f ef       	ldi	r18, 0xFF	; 255
     3668:	84 e3       	ldi	r24, 0x34	; 52
@@ -7175,17 +7160,12 @@ ISR(INT5_vect){
     3672:	e1 f7       	brne	.-8      	; 0x366c <__vector_6+0x2e>
     3674:	00 c0       	rjmp	.+0      	; 0x3676 <__vector_6+0x38>
     3676:	00 00       	nop
-	_delay_ms(500);
-	uart_puts("running scenario 2");
     3678:	84 ef       	ldi	r24, 0xF4	; 244
     367a:	92 e0       	ldi	r25, 0x02	; 2
     367c:	0e 94 6b 2e 	call	0x5cd6	; 0x5cd6 <uart_puts>
-	run_scenario = SCENARIO2;
     3680:	82 e0       	ldi	r24, 0x02	; 2
     3682:	80 93 20 04 	sts	0x0420, r24	; 0x800420 <run_scenario>
-	EIMSK |= 1 << INT5;
     3686:	ed 9a       	sbi	0x1d, 5	; 29
-}
     3688:	ff 91       	pop	r31
     368a:	ef 91       	pop	r30
     368c:	bf 91       	pop	r27
@@ -7207,8 +7187,6 @@ ISR(INT5_vect){
     36ac:	18 95       	reti
 
 000036ae <__vector_7>:
-
-ISR(INT6_vect){
     36ae:	1f 92       	push	r1
     36b0:	0f 92       	push	r0
     36b2:	0f b6       	in	r0, 0x3f	; 63
@@ -7228,7 +7206,6 @@ ISR(INT6_vect){
     36ce:	bf 93       	push	r27
     36d0:	ef 93       	push	r30
     36d2:	ff 93       	push	r31
-	EIMSK &= ~(1 << INT6);
     36d4:	ee 98       	cbi	0x1d, 6	; 29
     36d6:	2f ef       	ldi	r18, 0xFF	; 255
     36d8:	84 e3       	ldi	r24, 0x34	; 52
@@ -7239,17 +7216,12 @@ ISR(INT6_vect){
     36e2:	e1 f7       	brne	.-8      	; 0x36dc <__vector_7+0x2e>
     36e4:	00 c0       	rjmp	.+0      	; 0x36e6 <__vector_7+0x38>
     36e6:	00 00       	nop
-	_delay_ms(500);
-	uart_puts("running scenario 3");
     36e8:	87 e0       	ldi	r24, 0x07	; 7
     36ea:	93 e0       	ldi	r25, 0x03	; 3
     36ec:	0e 94 6b 2e 	call	0x5cd6	; 0x5cd6 <uart_puts>
-	run_scenario = SCENARIO3;
     36f0:	83 e0       	ldi	r24, 0x03	; 3
     36f2:	80 93 20 04 	sts	0x0420, r24	; 0x800420 <run_scenario>
-	EIMSK |= 1 << INT6;
     36f6:	ee 9a       	sbi	0x1d, 6	; 29
-}
     36f8:	ff 91       	pop	r31
     36fa:	ef 91       	pop	r30
     36fc:	bf 91       	pop	r27
@@ -7271,8 +7243,6 @@ ISR(INT6_vect){
     371c:	18 95       	reti
 
 0000371e <__vector_8>:
-
-ISR(INT7_vect){
     371e:	1f 92       	push	r1
     3720:	0f 92       	push	r0
     3722:	0f b6       	in	r0, 0x3f	; 63
@@ -7292,7 +7262,6 @@ ISR(INT7_vect){
     373e:	bf 93       	push	r27
     3740:	ef 93       	push	r30
     3742:	ff 93       	push	r31
-	EIMSK &= ~(1 << INT7);
     3744:	ef 98       	cbi	0x1d, 7	; 29
     3746:	2f ef       	ldi	r18, 0xFF	; 255
     3748:	84 e3       	ldi	r24, 0x34	; 52
@@ -7303,29 +7272,16 @@ ISR(INT7_vect){
     3752:	e1 f7       	brne	.-8      	; 0x374c <__vector_8+0x2e>
     3754:	00 c0       	rjmp	.+0      	; 0x3756 <__vector_8+0x38>
     3756:	00 00       	nop
-	_delay_ms(500);
-	switch(auth_protocol){
     3758:	80 91 04 01 	lds	r24, 0x0104	; 0x800104 <auth_protocol>
     375c:	88 23       	and	r24, r24
     375e:	e1 f0       	breq	.+56     	; 0x3798 <__vector_8+0x7a>
     3760:	81 30       	cpi	r24, 0x01	; 1
     3762:	31 f4       	brne	.+12     	; 0x3770 <__vector_8+0x52>
-		case SINGLE :
-			auth_protocol = SESSION;
-			uart_puts("Switched to session Authentication protocol.");
-			break;
-		case SESSION :
-			auth_protocol = SINGLE;
     3764:	10 92 04 01 	sts	0x0104, r1	; 0x800104 <auth_protocol>
-			uart_puts("Switched to single Authentication protocol.");
     3768:	87 e4       	ldi	r24, 0x47	; 71
     376a:	93 e0       	ldi	r25, 0x03	; 3
     376c:	0e 94 6b 2e 	call	0x5cd6	; 0x5cd6 <uart_puts>
-			break;
-	}
-	EIMSK |= 1 << INT7;
     3770:	ef 9a       	sbi	0x1d, 7	; 29
-}
     3772:	ff 91       	pop	r31
     3774:	ef 91       	pop	r30
     3776:	bf 91       	pop	r27
@@ -7345,28 +7301,14 @@ ISR(INT7_vect){
     3792:	0f 90       	pop	r0
     3794:	1f 90       	pop	r1
     3796:	18 95       	reti
-ISR(INT7_vect){
-	EIMSK &= ~(1 << INT7);
-	_delay_ms(500);
-	switch(auth_protocol){
-		case SINGLE :
-			auth_protocol = SESSION;
     3798:	81 e0       	ldi	r24, 0x01	; 1
     379a:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <auth_protocol>
-			uart_puts("Switched to session Authentication protocol.");
     379e:	8a e1       	ldi	r24, 0x1A	; 26
     37a0:	93 e0       	ldi	r25, 0x03	; 3
     37a2:	0e 94 6b 2e 	call	0x5cd6	; 0x5cd6 <uart_puts>
-			break;
     37a6:	e4 cf       	rjmp	.-56     	; 0x3770 <__vector_8+0x52>
 
 000037a8 <authenticate_single>:
-			break;
-	}
-	EIMSK |= 1 << INT7;
-}
-
-int authenticate_single(can_msg_t message, can_id_t id, uint8_t role){
     37a8:	cf 92       	push	r12
     37aa:	df 92       	push	r13
     37ac:	ef 92       	push	r14
@@ -7387,21 +7329,14 @@ int authenticate_single(can_msg_t message, can_id_t id, uint8_t role){
     37ca:	6c 01       	movw	r12, r24
     37cc:	7b 01       	movw	r14, r22
     37ce:	14 2f       	mov	r17, r20
-	uart_puts("starting authentication");
     37d0:	83 e7       	ldi	r24, 0x73	; 115
     37d2:	93 e0       	ldi	r25, 0x03	; 3
     37d4:	0e 94 6b 2e 	call	0x5cd6	; 0x5cd6 <uart_puts>
-	uint8_t challenge[64];
-	
-	//init authentication.
-	can_msg_t init;
-	init[0] = role;
     37d8:	c7 57       	subi	r28, 0x77	; 119
     37da:	df 4f       	sbci	r29, 0xFF	; 255
     37dc:	18 83       	st	Y, r17
     37de:	c9 58       	subi	r28, 0x89	; 137
     37e0:	d0 40       	sbci	r29, 0x00	; 0
-	can_send_message(0, default_id, init);
     37e2:	ae 01       	movw	r20, r28
     37e4:	47 57       	subi	r20, 0x77	; 119
     37e6:	5f 4f       	sbci	r21, 0xFF	; 255
@@ -7409,61 +7344,33 @@ int authenticate_single(can_msg_t message, can_id_t id, uint8_t role){
     37ea:	74 e0       	ldi	r23, 0x04	; 4
     37ec:	80 e0       	ldi	r24, 0x00	; 0
     37ee:	0e 94 ad 02 	call	0x55a	; 0x55a <can_send_message>
-	
-	//wait for challenge.
-	can_receive_frame_buffer(challenge, 8);
     37f2:	68 e0       	ldi	r22, 0x08	; 8
     37f4:	ce 01       	movw	r24, r28
     37f6:	8f 5b       	subi	r24, 0xBF	; 191
     37f8:	9f 4f       	sbci	r25, 0xFF	; 255
     37fa:	0e 94 7e 03 	call	0x6fc	; 0x6fc <can_receive_frame_buffer>
-	uart_puts("challenge received");
     37fe:	8b e8       	ldi	r24, 0x8B	; 139
     3800:	93 e0       	ldi	r25, 0x03	; 3
     3802:	0e 94 6b 2e 	call	0x5cd6	; 0x5cd6 <uart_puts>
-	
-	//Sign the challenge.
-	uint8_t signature[64];
-	if(run_scenario == SCENARIO1){
     3806:	80 91 20 04 	lds	r24, 0x0420	; 0x800420 <run_scenario>
-		sign_challenge_dummy(challenge, signature, role);
     380a:	41 2f       	mov	r20, r17
     380c:	8e 01       	movw	r16, r28
     380e:	0f 5f       	subi	r16, 0xFF	; 255
     3810:	1f 4f       	sbci	r17, 0xFF	; 255
     3812:	b8 01       	movw	r22, r16
-	can_receive_frame_buffer(challenge, 8);
-	uart_puts("challenge received");
-	
-	//Sign the challenge.
-	uint8_t signature[64];
-	if(run_scenario == SCENARIO1){
     3814:	81 30       	cpi	r24, 0x01	; 1
     3816:	09 f4       	brne	.+2      	; 0x381a <authenticate_single+0x72>
     3818:	5b c0       	rjmp	.+182    	; 0x38d0 <authenticate_single+0x128>
-		sign_challenge_dummy(challenge, signature, role);
-		_delay_ms(1000);
-	}else{
-		sign_challenge(challenge, signature, role);
     381a:	ce 01       	movw	r24, r28
     381c:	8f 5b       	subi	r24, 0xBF	; 191
     381e:	9f 4f       	sbci	r25, 0xFF	; 255
     3820:	2a de       	rcall	.-940    	; 0x3476 <sign_challenge>
-	}
-	
-	//Send signature.
-	can_send_frame_buffer(signature, 8);
     3822:	68 e0       	ldi	r22, 0x08	; 8
     3824:	c8 01       	movw	r24, r16
     3826:	0e 94 57 03 	call	0x6ae	; 0x6ae <can_send_frame_buffer>
-	uart_puts("signature sent");
     382a:	8e e9       	ldi	r24, 0x9E	; 158
     382c:	93 e0       	ldi	r25, 0x03	; 3
     382e:	0e 94 6b 2e 	call	0x5cd6	; 0x5cd6 <uart_puts>
-	uint8_t ack[8];
-	
-	//Wait for authentication acknowledgment.
-	can_receive_message(0, default_id, 0x00,  ack);
     3832:	9e 01       	movw	r18, r28
     3834:	2f 57       	subi	r18, 0x7F	; 127
     3836:	3f 4f       	sbci	r19, 0xFF	; 255
@@ -7473,7 +7380,6 @@ int authenticate_single(can_msg_t message, can_id_t id, uint8_t role){
     383e:	74 e0       	ldi	r23, 0x04	; 4
     3840:	80 e0       	ldi	r24, 0x00	; 0
     3842:	0e 94 e9 02 	call	0x5d2	; 0x5d2 <can_receive_message>
-	if(ack[0] == ACK_POS){
     3846:	cf 57       	subi	r28, 0x7F	; 127
     3848:	df 4f       	sbci	r29, 0xFF	; 255
     384a:	88 81       	ld	r24, Y
@@ -7481,23 +7387,13 @@ int authenticate_single(can_msg_t message, can_id_t id, uint8_t role){
     384e:	d0 40       	sbci	r29, 0x00	; 0
     3850:	81 11       	cpse	r24, r1
     3852:	37 c0       	rjmp	.+110    	; 0x38c2 <authenticate_single+0x11a>
-		uart_puts("authenticated!");
     3854:	8d ea       	ldi	r24, 0xAD	; 173
     3856:	93 e0       	ldi	r25, 0x03	; 3
     3858:	0e 94 6b 2e 	call	0x5cd6	; 0x5cd6 <uart_puts>
-		uart_puts("authentication failed!");
-		return 1;
-	}
-	
-	//Send message
-	can_send_message(0, id, message);
     385c:	a6 01       	movw	r20, r12
     385e:	b7 01       	movw	r22, r14
     3860:	80 e0       	ldi	r24, 0x00	; 0
     3862:	0e 94 ad 02 	call	0x55a	; 0x55a <can_send_message>
-	
-	//Wait for acknowledgment.
-	can_receive_message(0, default_id, 0x00, ack);
     3866:	9e 01       	movw	r18, r28
     3868:	2f 57       	subi	r18, 0x7F	; 127
     386a:	3f 4f       	sbci	r19, 0xFF	; 255
@@ -7507,7 +7403,6 @@ int authenticate_single(can_msg_t message, can_id_t id, uint8_t role){
     3872:	74 e0       	ldi	r23, 0x04	; 4
     3874:	80 e0       	ldi	r24, 0x00	; 0
     3876:	0e 94 e9 02 	call	0x5d2	; 0x5d2 <can_receive_message>
-	if(ack[0] == ACK_POS){
     387a:	cf 57       	subi	r28, 0x7F	; 127
     387c:	df 4f       	sbci	r29, 0xFF	; 255
     387e:	88 81       	ld	r24, Y
@@ -7515,18 +7410,11 @@ int authenticate_single(can_msg_t message, can_id_t id, uint8_t role){
     3882:	d0 40       	sbci	r29, 0x00	; 0
     3884:	88 23       	and	r24, r24
     3886:	b1 f0       	breq	.+44     	; 0x38b4 <authenticate_single+0x10c>
-		uart_puts("message accepted!");
-	}else{
-		uart_puts("message denied!");
     3888:	85 ee       	ldi	r24, 0xE5	; 229
     388a:	93 e0       	ldi	r25, 0x03	; 3
     388c:	0e 94 6b 2e 	call	0x5cd6	; 0x5cd6 <uart_puts>
-		return 1;
     3890:	81 e0       	ldi	r24, 0x01	; 1
     3892:	90 e0       	ldi	r25, 0x00	; 0
-	}
-	return 0;
-}
     3894:	c0 57       	subi	r28, 0x70	; 112
     3896:	df 4f       	sbci	r29, 0xFF	; 255
     3898:	0f b6       	in	r0, 0x3f	; 63
@@ -7543,42 +7431,18 @@ int authenticate_single(can_msg_t message, can_id_t id, uint8_t role){
     38ae:	df 90       	pop	r13
     38b0:	cf 90       	pop	r12
     38b2:	08 95       	ret
-	can_send_message(0, id, message);
-	
-	//Wait for acknowledgment.
-	can_receive_message(0, default_id, 0x00, ack);
-	if(ack[0] == ACK_POS){
-		uart_puts("message accepted!");
     38b4:	83 ed       	ldi	r24, 0xD3	; 211
     38b6:	93 e0       	ldi	r25, 0x03	; 3
     38b8:	0e 94 6b 2e 	call	0x5cd6	; 0x5cd6 <uart_puts>
-	}else{
-		uart_puts("message denied!");
-		return 1;
-	}
-	return 0;
     38bc:	80 e0       	ldi	r24, 0x00	; 0
     38be:	90 e0       	ldi	r25, 0x00	; 0
     38c0:	e9 cf       	rjmp	.-46     	; 0x3894 <authenticate_single+0xec>
-	//Wait for authentication acknowledgment.
-	can_receive_message(0, default_id, 0x00,  ack);
-	if(ack[0] == ACK_POS){
-		uart_puts("authenticated!");
-	}else{
-		uart_puts("authentication failed!");
     38c2:	8c eb       	ldi	r24, 0xBC	; 188
     38c4:	93 e0       	ldi	r25, 0x03	; 3
     38c6:	0e 94 6b 2e 	call	0x5cd6	; 0x5cd6 <uart_puts>
-		return 1;
     38ca:	81 e0       	ldi	r24, 0x01	; 1
     38cc:	90 e0       	ldi	r25, 0x00	; 0
     38ce:	e2 cf       	rjmp	.-60     	; 0x3894 <authenticate_single+0xec>
-	uart_puts("challenge received");
-	
-	//Sign the challenge.
-	uint8_t signature[64];
-	if(run_scenario == SCENARIO1){
-		sign_challenge_dummy(challenge, signature, role);
     38d0:	ce 01       	movw	r24, r28
     38d2:	8f 5b       	subi	r24, 0xBF	; 191
     38d4:	9f 4f       	sbci	r25, 0xFF	; 255
@@ -7595,12 +7459,6 @@ int authenticate_single(can_msg_t message, can_id_t id, uint8_t role){
     38ea:	9b cf       	rjmp	.-202    	; 0x3822 <authenticate_single+0x7a>
 
 000038ec <authenticate_session>:
-		return 1;
-	}
-	return 0;
-}
-
-int authenticate_session(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t rounds){
     38ec:	6f 92       	push	r6
     38ee:	7f 92       	push	r7
     38f0:	8f 92       	push	r8
@@ -7627,21 +7485,14 @@ int authenticate_session(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t
     391a:	4b 01       	movw	r8, r22
     391c:	14 2f       	mov	r17, r20
     391e:	d2 2e       	mov	r13, r18
-	uart_puts("starting authentication");
     3920:	83 e7       	ldi	r24, 0x73	; 115
     3922:	93 e0       	ldi	r25, 0x03	; 3
     3924:	0e 94 6b 2e 	call	0x5cd6	; 0x5cd6 <uart_puts>
-	uint8_t challenge[64];
-	
-	//init authentication.
-	can_msg_t init;
-	init[0] = role;
     3928:	c7 56       	subi	r28, 0x67	; 103
     392a:	df 4f       	sbci	r29, 0xFF	; 255
     392c:	18 83       	st	Y, r17
     392e:	c9 59       	subi	r28, 0x99	; 153
     3930:	d0 40       	sbci	r29, 0x00	; 0
-	can_send_message(0, default_id, init);
     3932:	ae 01       	movw	r20, r28
     3934:	47 56       	subi	r20, 0x67	; 103
     3936:	5f 4f       	sbci	r21, 0xFF	; 255
@@ -7649,34 +7500,15 @@ int authenticate_session(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t
     393a:	74 e0       	ldi	r23, 0x04	; 4
     393c:	80 e0       	ldi	r24, 0x00	; 0
     393e:	0e 94 ad 02 	call	0x55a	; 0x55a <can_send_message>
-	uint8_t public[64];
-	
-	//Receive generated public key.
-	can_receive_frame_buffer(public, 8);
     3942:	68 e0       	ldi	r22, 0x08	; 8
     3944:	ce 01       	movw	r24, r28
     3946:	01 96       	adiw	r24, 0x01	; 1
     3948:	0e 94 7e 03 	call	0x6fc	; 0x6fc <can_receive_frame_buffer>
-	
-	//Calculate shared secret.
-	uint8_t secret[32];
-	if(run_scenario == SCENARIO1){
     394c:	80 91 20 04 	lds	r24, 0x0420	; 0x800420 <run_scenario>
-		calculate_shared_secret_dummy(public, role, secret);
     3950:	3e 01       	movw	r6, r28
-	//Receive generated public key.
-	can_receive_frame_buffer(public, 8);
-	
-	//Calculate shared secret.
-	uint8_t secret[32];
-	if(run_scenario == SCENARIO1){
     3952:	81 30       	cpi	r24, 0x01	; 1
     3954:	09 f4       	brne	.+2      	; 0x3958 <authenticate_session+0x6c>
     3956:	85 c0       	rjmp	.+266    	; 0x3a62 <authenticate_session+0x176>
-		calculate_shared_secret_dummy(public, role, secret);
-		_delay_ms(1000);
-	}else{
-		calculate_shared_secret(public, role, secret);
     3958:	81 e6       	ldi	r24, 0x61	; 97
     395a:	68 0e       	add	r6, r24
     395c:	71 1c       	adc	r7, r1
@@ -7685,25 +7517,14 @@ int authenticate_session(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t
     3962:	ce 01       	movw	r24, r28
     3964:	01 96       	adiw	r24, 0x01	; 1
     3966:	df dd       	rcall	.-1090   	; 0x3526 <calculate_shared_secret>
-	}
-	
-	while(rounds > 0){
     3968:	dd 20       	and	r13, r13
     396a:	09 f4       	brne	.+2      	; 0x396e <authenticate_session+0x82>
     396c:	59 c0       	rjmp	.+178    	; 0x3a20 <authenticate_session+0x134>
-		rounds--;
     396e:	da 94       	dec	r13
-		
-		//Send message you want to send to the vehicle network.
-		can_send_message(0, *id, *message);
     3970:	a5 01       	movw	r20, r10
     3972:	b4 01       	movw	r22, r8
     3974:	80 e0       	ldi	r24, 0x00	; 0
     3976:	0e 94 ad 02 	call	0x55a	; 0x55a <can_send_message>
-		
-		//Wait for acknowledgment.
-		can_msg_t ack;
-		can_receive_message(0, default_id, 0x00, ack);
     397a:	9e 01       	movw	r18, r28
     397c:	2f 56       	subi	r18, 0x6F	; 111
     397e:	3f 4f       	sbci	r19, 0xFF	; 255
@@ -7713,7 +7534,6 @@ int authenticate_session(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t
     3986:	74 e0       	ldi	r23, 0x04	; 4
     3988:	80 e0       	ldi	r24, 0x00	; 0
     398a:	0e 94 e9 02 	call	0x5d2	; 0x5d2 <can_receive_message>
-		if(ack[0] == ACK_POS){
     398e:	cf 56       	subi	r28, 0x6F	; 111
     3990:	df 4f       	sbci	r29, 0xFF	; 255
     3992:	88 81       	ld	r24, Y
@@ -7721,16 +7541,9 @@ int authenticate_session(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t
     3996:	d0 40       	sbci	r29, 0x00	; 0
     3998:	81 11       	cpse	r24, r1
     399a:	59 c0       	rjmp	.+178    	; 0x3a4e <authenticate_session+0x162>
-			uart_puts("permission granted!");
     399c:	85 ef       	ldi	r24, 0xF5	; 245
     399e:	93 e0       	ldi	r25, 0x03	; 3
     39a0:	0e 94 6b 2e 	call	0x5cd6	; 0x5cd6 <uart_puts>
-		
-		//Calculate and send Hmac of message.
-		uint8_t mac[32];
-		uint16_t klen = 256;
-		uint32_t msglen = 64;
-		hmac_sha256(mac, secret, klen ,message , msglen);
     39a4:	10 e4       	ldi	r17, 0x40	; 64
     39a6:	e1 2e       	mov	r14, r17
     39a8:	f1 2c       	mov	r15, r1
@@ -7744,8 +7557,6 @@ int authenticate_session(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t
     39b8:	8f 5b       	subi	r24, 0xBF	; 191
     39ba:	9f 4f       	sbci	r25, 0xFF	; 255
     39bc:	d1 d0       	rcall	.+418    	; 0x3b60 <hmac_sha256>
-		uint8_t mac2[16];
-		memcpy(mac2, mac ,16);
     39be:	80 e1       	ldi	r24, 0x10	; 16
     39c0:	fe 01       	movw	r30, r28
     39c2:	ef 5b       	subi	r30, 0xBF	; 191
@@ -7757,15 +7568,11 @@ int authenticate_session(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t
     39ce:	0d 92       	st	X+, r0
     39d0:	8a 95       	dec	r24
     39d2:	e1 f7       	brne	.-8      	; 0x39cc <authenticate_session+0xe0>
-		can_send_frame_buffer(mac2, 2);
     39d4:	62 e0       	ldi	r22, 0x02	; 2
     39d6:	ce 01       	movw	r24, r28
     39d8:	8f 57       	subi	r24, 0x7F	; 127
     39da:	9f 4f       	sbci	r25, 0xFF	; 255
     39dc:	0e 94 57 03 	call	0x6ae	; 0x6ae <can_send_frame_buffer>
-		
-		//wait for acknowledgment.
-		can_receive_message(0, default_id, 0x00, ack);
     39e0:	9e 01       	movw	r18, r28
     39e2:	2f 56       	subi	r18, 0x6F	; 111
     39e4:	3f 4f       	sbci	r19, 0xFF	; 255
@@ -7775,7 +7582,6 @@ int authenticate_session(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t
     39ec:	74 e0       	ldi	r23, 0x04	; 4
     39ee:	80 e0       	ldi	r24, 0x00	; 0
     39f0:	0e 94 e9 02 	call	0x5d2	; 0x5d2 <can_receive_message>
-		if(ack[0] == ACK_POS){
     39f4:	cf 56       	subi	r28, 0x6F	; 111
     39f6:	df 4f       	sbci	r29, 0xFF	; 255
     39f8:	88 81       	ld	r24, Y
@@ -7783,7 +7589,6 @@ int authenticate_session(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t
     39fc:	d0 40       	sbci	r29, 0x00	; 0
     39fe:	81 11       	cpse	r24, r1
     3a00:	2b c0       	rjmp	.+86     	; 0x3a58 <authenticate_session+0x16c>
-			uart_puts("message accepted!");
     3a02:	83 ed       	ldi	r24, 0xD3	; 211
     3a04:	93 e0       	ldi	r25, 0x03	; 3
     3a06:	0e 94 6b 2e 	call	0x5cd6	; 0x5cd6 <uart_puts>
@@ -7796,20 +7601,8 @@ int authenticate_session(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t
     3a16:	e1 f7       	brne	.-8      	; 0x3a10 <authenticate_session+0x124>
     3a18:	00 c0       	rjmp	.+0      	; 0x3a1a <authenticate_session+0x12e>
     3a1a:	00 00       	nop
-		_delay_ms(1000);
-	}else{
-		calculate_shared_secret(public, role, secret);
-	}
-	
-	while(rounds > 0){
     3a1c:	d1 10       	cpse	r13, r1
     3a1e:	a7 cf       	rjmp	.-178    	; 0x396e <authenticate_session+0x82>
-			continue;
-		}
-		_delay_ms(500);
-	}
-	return 0;
-}
     3a20:	80 e0       	ldi	r24, 0x00	; 0
     3a22:	90 e0       	ldi	r25, 0x00	; 0
     3a24:	c0 56       	subi	r28, 0x60	; 96
@@ -7833,34 +7626,14 @@ int authenticate_session(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t
     3a48:	7f 90       	pop	r7
     3a4a:	6f 90       	pop	r6
     3a4c:	08 95       	ret
-		can_msg_t ack;
-		can_receive_message(0, default_id, 0x00, ack);
-		if(ack[0] == ACK_POS){
-			uart_puts("permission granted!");
-			}else{
-			uart_puts("permission denied!");
     3a4e:	89 e0       	ldi	r24, 0x09	; 9
     3a50:	94 e0       	ldi	r25, 0x04	; 4
     3a52:	0e 94 6b 2e 	call	0x5cd6	; 0x5cd6 <uart_puts>
-			continue;
     3a56:	88 cf       	rjmp	.-240    	; 0x3968 <authenticate_session+0x7c>
-		//wait for acknowledgment.
-		can_receive_message(0, default_id, 0x00, ack);
-		if(ack[0] == ACK_POS){
-			uart_puts("message accepted!");
-		}else{
-			uart_puts("message denied!");
     3a58:	85 ee       	ldi	r24, 0xE5	; 229
     3a5a:	93 e0       	ldi	r25, 0x03	; 3
     3a5c:	0e 94 6b 2e 	call	0x5cd6	; 0x5cd6 <uart_puts>
-			continue;
     3a60:	83 cf       	rjmp	.-250    	; 0x3968 <authenticate_session+0x7c>
-	can_receive_frame_buffer(public, 8);
-	
-	//Calculate shared secret.
-	uint8_t secret[32];
-	if(run_scenario == SCENARIO1){
-		calculate_shared_secret_dummy(public, role, secret);
     3a62:	21 e6       	ldi	r18, 0x61	; 97
     3a64:	62 0e       	add	r6, r18
     3a66:	71 1c       	adc	r7, r1
@@ -7881,8 +7654,8 @@ int authenticate_session(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t
     3a84:	71 cf       	rjmp	.-286    	; 0x3968 <authenticate_session+0x7c>
 
 00003a86 <main>:
-	}
 	return 0;
+	
 }
 
  int main()
