@@ -32,13 +32,6 @@ typedef enum {
 	SCENARIO3
 } run_t;
 
-typedef enum {
-	SINGLE,
-	SESSION
-} authetication_protocol_t;
-
-volatile authetication_protocol_t auth_protocol = SESSION;
-
 volatile run_t run_scenario = NOTHING;
 		
 void buttons_init(){
@@ -77,72 +70,11 @@ ISR(INT6_vect){
 ISR(INT7_vect){
 	EIMSK &= ~(1 << INT7);
 	_delay_ms(500);
-	switch(auth_protocol){
-		case SINGLE :
-			auth_protocol = SESSION;
-			uart_puts("Switched to session Authentication protocol.");
-			break;
-		case SESSION :
-			auth_protocol = SINGLE;
-			uart_puts("Switched to single Authentication protocol.");
-			break;
-	}
 	EIMSK |= 1 << INT7;
 }
 
-int authenticate_single(can_msg_t message, can_id_t id, uint8_t role){
+int authenticate(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t rounds){
 	uart_puts("starting authentication");
-	uint8_t challenge[64];
-	
-	//init authentication.
-	can_msg_t init;
-	init[0] = role;
-	can_send_message(0, default_id, init);
-	
-	//wait for challenge.
-	can_receive_frame_buffer(challenge, 8);
-	uart_puts("challenge received");
-	
-	//Sign the challenge.
-	uint8_t signature[64];
-	if(run_scenario == SCENARIO1){
-		sign_challenge_dummy(challenge, signature, role);
-		_delay_ms(1000);
-	}else{
-		sign_challenge(challenge, signature, role);
-	}
-	
-	//Send signature.
-	can_send_frame_buffer(signature, 8);
-	uart_puts("signature sent");
-	uint8_t ack[8];
-	
-	//Wait for authentication acknowledgment.
-	can_receive_message(0, default_id, 0x00,  ack);
-	if(ack[0] == ACK_POS){
-		uart_puts("authenticated!");
-	}else{
-		uart_puts("authentication failed!");
-		return 1;
-	}
-	
-	//Send message
-	can_send_message(0, id, message);
-	
-	//Wait for acknowledgment.
-	can_receive_message(0, default_id, 0x00, ack);
-	if(ack[0] == ACK_POS){
-		uart_puts("message accepted!");
-	}else{
-		uart_puts("message denied!");
-		return 1;
-	}
-	return 0;
-}
-
-int authenticate_session(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t rounds){
-	uart_puts("starting authentication");
-	uint8_t challenge[64];
 	
 	//init authentication.
 	can_msg_t init;
@@ -158,74 +90,32 @@ int authenticate_session(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t
 	if(run_scenario == SCENARIO1){
 		calculate_shared_secret_dummy(public, role, secret);
 		_delay_ms(1000);
-	}else{
+		}else{
 		calculate_shared_secret(public, role, secret);
 	}
 	
-	while(rounds > 0){
-		rounds--;
-		
-		//Send message you want to send to the vehicle network.
-		can_send_message(0, *id, *message);
-		
-		//Wait for acknowledgment.
-		can_msg_t ack;
-		can_receive_message(0, default_id, 0x00, ack);
-		if(ack[0] == ACK_POS){
-			uart_puts("permission granted!");
-			}else{
-			uart_puts("permission denied!");
-			continue;
-		}
-		
-		//Calculate and send Hmac of message.
-		uint8_t mac[32];
-		uint16_t klen = 256;
-		uint32_t msglen = 64;
-		hmac_sha256(mac, secret, klen ,message , msglen);
-		uint8_t mac2[16];
-		memcpy(mac2, mac ,16);
-		can_send_frame_buffer(mac2, 2);
-		
-		//wait for acknowledgment.
-		can_receive_message(0, default_id, 0x00, ack);
-		if(ack[0] == ACK_POS){
-			uart_puts("message accepted!");
-		}else{
-			uart_puts("message denied!");
-			continue;
-		}
-		_delay_ms(500);
-	}
-	return 0;
-}
-
-int authenticate(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t rounds){
-	
-	uint8_t public[64] = { 0 };
-	uint8_t signature[64] = { 0 };
-	
-	//Send Public Key
-	can_send_frame_buffer(public, 8);
-	
-	//Wait for ack
-	uint8_t ack;
-	can_receive_message(0, default_id, zero_mask, ack);
-	
-	//send Signature
-	can_send_frame_buffer(signature, 8);
-	
-	//Calculate Shared Secret
-	uint8_t secret[32];
+	//Sign the public key.
+	uint8_t signature[64];
 	if(run_scenario == SCENARIO1){
-		calculate_shared_secret_dummy(public, role, secret);
+		sign_challenge_dummy(public, signature, role);
 		_delay_ms(1000);
 		}else{
-		calculate_shared_secret(public, role, secret);
+		sign_challenge(public, signature, role);
 	}
 	
-	//wait for ack
-	can_receive_message(0, default_id, zero_mask, ack);
+	//Send signature.
+	can_send_frame_buffer(signature, 8);
+	uart_puts("signature sent");
+	uint8_t ack[8];
+	
+	//wait for acknowledgment.
+	can_receive_message(0, default_id, 0x00, ack);
+	if(ack[0] == ACK_POS){
+		uart_puts("Succesfully authenticated!");
+		}else{
+		uart_puts("Authentication failed!");
+		return 0;
+	}
 	
 	while(rounds > 0){
 		rounds--;
@@ -256,14 +146,15 @@ int authenticate(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t rounds)
 		can_receive_message(0, default_id, 0x00, ack);
 		if(ack[0] == ACK_POS){
 			uart_puts("message accepted!");
-			}else{
+		}else{
 			uart_puts("message denied!");
 			continue;
 		}
 		_delay_ms(500);
+		id++;
+		message++;
 	}
 	return 0;
-	
 }
 
  int main()
@@ -272,49 +163,31 @@ int authenticate(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t rounds)
 	 buttons_init();
 	 can_init();
 	 
-	 
 	 while(1){
 		run_t runlcl = run_scenario;
-		authetication_protocol_t protocol = auth_protocol;
-		
-		if(protocol == SINGLE){
-			can_msg_t msg = {0, 0, 0, 0, 0, 0, 0, 0};
-			can_id_t id = {177, 7};
-			switch(runlcl){
-				case NOTHING :
-					break;
-				case SCENARIO1 :
-					authenticate_single( msg, id, OWNER_ROLE);
-					return 0;
-					break;
-				case SCENARIO2 :
-					authenticate_single( msg, id, OWNER_ROLE);
-					return 0;
-					break;
-				case SCENARIO3 :
-					authenticate_single( msg, id, TESTER_ROLE);
-					return 0;
-					break;
-			}
-		}else{
-			uint8_t msgs[3][8] = { {0,0,0,0,0,0,0,0} , {0,0,0,0,0,0,0,0} , {0,0,0,0,0,0,0,0} };
-			uint8_t ids[3][2] = {{177,7},{224,7},{38,7}};
-			switch(runlcl){
-				case NOTHING :
-					break;
-				case SCENARIO1 :
-					authenticate_session(msgs, ids, OWNER_ROLE,3);
-					return 0;
-					break;
-				case SCENARIO2 :
-					authenticate_session(msgs, ids, OWNER_ROLE,3);
-					return 0;
-					break;
-				case SCENARIO3 :
-					authenticate_session(msgs, ids, TESTER_ROLE,3);
-					return 0;
-					break;
-			}
+		uint8_t msgs[3][8] = { {0,0,0,0,0,0,0,0} , {0,0,0,0,0,0,0,0} , {0,0,0,0,0,0,0,0} };
+		uint8_t ids[3][2] = {{177,7},{224,7},{38,7}};
+		switch(runlcl){
+			case NOTHING :
+				break;
+				
+			//SCENARIO1: Use wrong key.
+			case SCENARIO1 :
+				authenticate(msgs, ids, OWNER_ROLE,3);
+				return 0;
+				break;
+				
+			//SCENARIO2: Use owner private key (Some messages will be denied).
+			case SCENARIO2 :
+				authenticate(msgs, ids, OWNER_ROLE,3);
+				return 0;
+				break;
+				
+			//SCENARIO3: Use tester private key (all messages accepted).
+			case SCENARIO3 :
+				authenticate(msgs, ids, TESTER_ROLE,3);
+				return 0;
+				break;
 		}
 	 }
 	 return 0;

@@ -23,11 +23,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   9 .debug_frame  000000f0  00000000  00000000  00003644  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000005c7  00000000  00000000  00003734  2**0
+ 10 .debug_str    0000061d  00000000  00000000  00003734  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000005f8  00000000  00000000  00003cfb  2**0
+ 11 .debug_loc    000005f8  00000000  00000000  00003d51  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000028  00000000  00000000  000042f3  2**0
+ 12 .debug_ranges 00000028  00000000  00000000  00004349  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -160,1250 +160,577 @@ Disassembly of section .text:
  1b4:	25 cf       	rjmp	.-438    	; 0x0 <__vectors>
 
 000001b6 <rsa_mov_ac>:
-;	al is the size in R18	;
-;	bl is the size in R16	;
-;	cl is the size in R14	;
-; RETURN r25:r24
-rsa_mov_ac:
- 		push r2
  1b6:	2f 92       	push	r2
- 		push r3
  1b8:	3f 92       	push	r3
- 		push r4
  1ba:	4f 92       	push	r4
- 		push r5
  1bc:	5f 92       	push	r5
- 		push r6
  1be:	6f 92       	push	r6
- 		push r7
  1c0:	7f 92       	push	r7
- 		push r8
  1c2:	8f 92       	push	r8
- 		push r9
  1c4:	9f 92       	push	r9
- 		push r10
  1c6:	af 92       	push	r10
- 		push r11
  1c8:	bf 92       	push	r11
- 		push r12
  1ca:	cf 92       	push	r12
- 		push r13
  1cc:	df 92       	push	r13
- 		push r14
  1ce:	ef 92       	push	r14
- 		push r15
  1d0:	ff 92       	push	r15
- 		push r16
  1d2:	0f 93       	push	r16
- 		push r17
  1d4:	1f 93       	push	r17
- 		push r28
  1d6:	cf 93       	push	r28
- 		push r29
  1d8:	df 93       	push	r29
- 		mov r6,r24	 ;  a, a
  1da:	68 2e       	mov	r6, r24
- 		mov r7,r25	 ;  a, a
  1dc:	79 2e       	mov	r7, r25
- 		mov r27,r23	 ;  b, b
  1de:	b7 2f       	mov	r27, r23
- 		mov r26,r22	 ;  b, b
  1e0:	a6 2f       	mov	r26, r22
- 		mov r2,r20	 ;  c, c
  1e2:	24 2e       	mov	r2, r20
- 		mov r3,r21	 ;  c, c
  1e4:	35 2e       	mov	r3, r21
- 		mov r17,r18	 ;  al, al
  1e6:	12 2f       	mov	r17, r18
- 		mov r4,r14	 ;  cl, cl
  1e8:	4e 2c       	mov	r4, r14
- 		mov r8,r16	 ;  bl, bl
  1ea:	80 2e       	mov	r8, r16
- 		clr r9	 	 ;  bl
  1ec:	99 24       	eor	r9, r9
- 		mov r19,r9	 ;  ts, bl
  1ee:	39 2d       	mov	r19, r9
- 		mov r18,r8	 ;  ts, bl
  1f0:	28 2d       	mov	r18, r8
- 		dec r18
  1f2:	2a 95       	dec	r18
- 		sbc r19,__zero_reg__
  1f4:	31 09       	sbc	r19, r1
- 		lsl r18	 ;  ts
  1f6:	22 0f       	add	r18, r18
- 		rol r19	 ;  ts
  1f8:	33 1f       	adc	r19, r19
- 		lsl r18	 ;  ts
  1fa:	22 0f       	add	r18, r18
- 		rol r19	 ;  ts
  1fc:	33 1f       	adc	r19, r19
- 		lsl r18	 ;  ts
  1fe:	22 0f       	add	r18, r18
- 		rol r19	 ;  ts
  200:	33 1f       	adc	r19, r19
- 		mov r5,__zero_reg__	 ;  s
  202:	51 2c       	mov	r5, r1
- 		mov r28,__zero_reg__ ;  tc,
  204:	c1 2d       	mov	r28, r1
- 		mov r29,__zero_reg__ ;  tc,
  206:	d1 2d       	mov	r29, r1
-.L6:
-		cp r28,r18	 ;  tc, ts
  208:	c2 17       	cp	r28, r18
-		cpc r29,r19	 ;  tc, ts
  20a:	d3 07       	cpc	r29, r19
- 		brsh .L3	 ; ,
  20c:	30 f4       	brcc	.+12     	; 0x21a <rsa_mov_ac+0x64>
-  		ld r24,X+	 ;  tmp94,* b	
  20e:	8d 91       	ld	r24, X+
- 		tst r24	 	 ;  tmp94
  210:	88 23       	and	r24, r24
- 		brne .L3	 ; ,
  212:	19 f4       	brne	.+6      	; 0x21a <rsa_mov_ac+0x64>
- 		inc r5	 	 ;  s
  214:	53 94       	inc	r5
-		adiw r28,8	 ;  tc,
  216:	28 96       	adiw	r28, 0x08	; 8
- 		rjmp .L6	 ; 
  218:	f7 cf       	rjmp	.-18     	; 0x208 <rsa_mov_ac+0x52>
-.L3:
- 		inc r5	 ;  s
  21a:	53 94       	inc	r5
- 		adiw r28,8	 ;  tc,
  21c:	28 96       	adiw	r28, 0x08	; 8
- 		mov r12,r5	 ;  s, s
  21e:	c5 2c       	mov	r12, r5
- 		clr r13	 ;  s
  220:	dd 24       	eor	r13, r13
- 		mov r10,r4	 ;  cl, cl
  222:	a4 2c       	mov	r10, r4
- 		clr r11	 ;  cl
  224:	bb 24       	eor	r11, r11
- 		mov r15,r11	 ;  tmp59, cl
  226:	fb 2c       	mov	r15, r11
- 		mov r14,r10	 ;  tmp59, cl
  228:	ea 2c       	mov	r14, r10
- 		sub r14,r12	 ;  tmp59, s
  22a:	ec 18       	sub	r14, r12
- 		sbc r15,r13	 ;  tmp59, s
  22c:	fd 08       	sbc	r15, r13
- 		mov r21,r15	 ; , tmp59
  22e:	5f 2d       	mov	r21, r15
- 		mov r20,r14	 ; , tmp59
  230:	4e 2d       	mov	r20, r14
- 		mov r23,r7	 ;  a, a
  232:	77 2d       	mov	r23, r7
- 		mov r22,r6	 ;  a, a
  234:	66 2d       	mov	r22, r6
- 		mov r25,r13	 ; , s
  236:	9d 2d       	mov	r25, r13
- 		mov r24,r12	 ; , s
  238:	8c 2d       	mov	r24, r12
- 		add r24,r2	 ; , c
  23a:	82 0d       	add	r24, r2
- 		adc r25,r3	 ; , c
  23c:	93 1d       	adc	r25, r3
- 		rcall memcpy	 ; 
  23e:	cf d2       	rcall	.+1438   	; 0x7de <memcpy>
- 		mov r16,r17	 ;  tmp69, al
  240:	01 2f       	mov	r16, r17
- 		clr r17	 ;  tmp69
  242:	11 27       	eor	r17, r17
- 		sub r16,r10	 ;  tmp69, cl
  244:	0a 19       	sub	r16, r10
- 		sbc r17,r11	 ;  tmp69, cl
  246:	1b 09       	sbc	r17, r11
- 		add r16,r12	 ;  tmp69, s
  248:	0c 0d       	add	r16, r12
- 		adc r17,r13	 ;  tmp69, s
  24a:	1d 1d       	adc	r17, r13
- 		add r14,r6	 ;  tmp59, a
  24c:	e6 0c       	add	r14, r6
- 		adc r15,r7	 ;  tmp59, a
  24e:	f7 1c       	adc	r15, r7
- 		mov r21,r17	 ; , tmp69
  250:	51 2f       	mov	r21, r17
- 		mov r20,r16	 ; , tmp69
  252:	40 2f       	mov	r20, r16
- 		mov r23,r15	 ; , tmp59
  254:	7f 2d       	mov	r23, r15
- 		mov r22,r14	 ; , tmp59
  256:	6e 2d       	mov	r22, r14
- 		mov r25,r7	 ;  a, a
  258:	97 2d       	mov	r25, r7
- 		mov r24,r6	 ;  a, a
  25a:	86 2d       	mov	r24, r6
- 		rcall memcpy	 ; 
  25c:	c0 d2       	rcall	.+1408   	; 0x7de <memcpy>
- 		sub r4,r5	 ;  cl, s
  25e:	45 18       	sub	r4, r5
- 		mov r22,r4	 ; , cl
  260:	64 2d       	mov	r22, r4
- 		mov r25,r7	 ; , a
  262:	97 2d       	mov	r25, r7
- 		mov r24,r6	 ; , a
  264:	86 2d       	mov	r24, r6
- 		add r24,r16	 ; , tmp69
  266:	80 0f       	add	r24, r16
- 		adc r25,r17	 ; , tmp69
  268:	91 1f       	adc	r25, r17
- 		rcall rsa_clrl	 ; 
  26a:	c3 d0       	rcall	.+390    	; 0x3f2 <rsa_clrl>
- 	 	lsl r8	 
  26c:	88 0c       	add	r8, r8
- 		rol r9	 
  26e:	99 1c       	adc	r9, r9
- 	 	lsl r8	 
  270:	88 0c       	add	r8, r8
- 		rol r9	 
  272:	99 1c       	adc	r9, r9
- 	 	lsl r8	 
  274:	88 0c       	add	r8, r8
- 		rol r9	 
  276:	99 1c       	adc	r9, r9
- 		mov r25,r9	 
  278:	99 2d       	mov	r25, r9
- 		mov r24,r8	 
  27a:	88 2d       	mov	r24, r8
- 		sub r24,r28	 
  27c:	8c 1b       	sub	r24, r28
- 		sbc r25,r29	 
  27e:	9d 0b       	sbc	r25, r29
- 		pop r29
  280:	df 91       	pop	r29
- 		pop r28
  282:	cf 91       	pop	r28
- 		pop r17
  284:	1f 91       	pop	r17
- 		pop r16
  286:	0f 91       	pop	r16
- 		pop r15
  288:	ff 90       	pop	r15
- 		pop r14
  28a:	ef 90       	pop	r14
- 		pop r13
  28c:	df 90       	pop	r13
- 		pop r12
  28e:	cf 90       	pop	r12
- 		pop r11
  290:	bf 90       	pop	r11
- 		pop r10
  292:	af 90       	pop	r10
- 		pop r9
  294:	9f 90       	pop	r9
- 		pop r8
  296:	8f 90       	pop	r8
- 		pop r7
  298:	7f 90       	pop	r7
- 		pop r6
  29a:	6f 90       	pop	r6
- 		pop r5
  29c:	5f 90       	pop	r5
- 		pop r4
  29e:	4f 90       	pop	r4
- 		pop r3
  2a0:	3f 90       	pop	r3
- 		pop r2
  2a2:	2f 90       	pop	r2
- 		ret
  2a4:	08 95       	ret
 
 000002a6 <rsa_add1>:
-; C calling  rsa_add1(unsigned char   *a,unsigned char al);
-;	*a is in R25:R24 
-;	al is the size in R22	;
-; 	This function will add 1 to a
-rsa_add1:
-	mov r31,r25
  2a6:	f9 2f       	mov	r31, r25
-	mov r30,r24
  2a8:	e8 2f       	mov	r30, r24
-	add r30,r22
  2aa:	e6 0f       	add	r30, r22
-	adc r31,__zero_reg__ 
  2ac:	f1 1d       	adc	r31, r1
 
 000002ae <RSAADD1>:
-RSAADD1:
-	ld r24,-Z
  2ae:	82 91       	ld	r24, -Z
-	inc R24
  2b0:	83 95       	inc	r24
-	st Z,R24
  2b2:	80 83       	st	Z, r24
-	BRNE RSAADD0
  2b4:	21 f4       	brne	.+8      	; 0x2be <RSAADD0>
-	DEC R22
  2b6:	6a 95       	dec	r22
-	BRNE RSAADD1
  2b8:	d1 f7       	brne	.-12     	; 0x2ae <RSAADD1>
-	ldi R24,1
  2ba:	81 e0       	ldi	r24, 0x01	; 1
-	rjmp RSAADD2
  2bc:	01 c0       	rjmp	.+2      	; 0x2c0 <RSAADD2>
 
 000002be <RSAADD0>:
-RSAADD0:
-	CLR R24
  2be:	88 27       	eor	r24, r24
 
 000002c0 <RSAADD2>:
-RSAADD2:
-	CLR R25
  2c0:	99 27       	eor	r25, r25
-	ret
  2c2:	08 95       	ret
 
 000002c4 <rsa_cmpl>:
-;	*a is in R25:R24 
-;	*b is in R23:R22 
-;	al is the size in R20	;
-; 	This function will compare 2 longs
-rsa_cmpl:
-	mov R31,R23	; X
  2c4:	f7 2f       	mov	r31, r23
-	mov R30,R22
  2c6:	e6 2f       	mov	r30, r22
-	mov R27,R25	; Z
  2c8:	b9 2f       	mov	r27, r25
-	mov R26,R24
  2ca:	a8 2f       	mov	r26, r24
 
 000002cc <RSACMPL2>:
-RSACMPL2:
-	ld R25,x+
  2cc:	9d 91       	ld	r25, X+
-	ld R24,z+
  2ce:	81 91       	ld	r24, Z+
-	CP R24,R25
  2d0:	89 17       	cp	r24, r25
-	brlo RSACMPL0
  2d2:	38 f0       	brcs	.+14     	; 0x2e2 <RSACMPL0>
-	CP R25,R24
  2d4:	98 17       	cp	r25, r24
-	brlo RSACMPL1
  2d6:	18 f0       	brcs	.+6      	; 0x2de <RSACMPL1>
-	dec R20
  2d8:	4a 95       	dec	r20
-	BRNE RSACMPL2
  2da:	c1 f7       	brne	.-16     	; 0x2cc <RSACMPL2>
-	rjmp RSACMPL0
  2dc:	02 c0       	rjmp	.+4      	; 0x2e2 <RSACMPL0>
 
 000002de <RSACMPL1>:
-RSACMPL1:
-	ldi R24,1
  2de:	81 e0       	ldi	r24, 0x01	; 1
-	rjmp RSACMPL3
  2e0:	01 c0       	rjmp	.+2      	; 0x2e4 <RSACMPL3>
 
 000002e2 <RSACMPL0>:
-RSACMPL0:
-	CLR R24
  2e2:	88 27       	eor	r24, r24
 
 000002e4 <RSACMPL3>:
-RSACMPL3:
-	CLR R25
  2e4:	99 27       	eor	r25, r25
-// R25/R24	return;
-	ret 	 	
  2e6:	08 95       	ret
 
 000002e8 <rsa_rol>:
-
-rsa_rol:
-// R25/R24 	= *a
-// R22 		= al
-// R20 		= carry
-	mov R31,R25
  2e8:	f9 2f       	mov	r31, r25
-	mov R30,R24
  2ea:	e8 2f       	mov	r30, r24
-	add R30,R22
  2ec:	e6 0f       	add	r30, r22
-	adc R31,__zero_reg__
  2ee:	f1 1d       	adc	r31, r1
-	mov R25,R20
  2f0:	94 2f       	mov	r25, r20
-	ROL R20
  2f2:	44 1f       	adc	r20, r20
 
 000002f4 <RSAROL1>:
-RSAROL1:
-	ld R24,-Z
  2f4:	82 91       	ld	r24, -Z
-	ROL R24
  2f6:	88 1f       	adc	r24, r24
-	st Z,R24
  2f8:	80 83       	st	Z, r24
-	dec R22
  2fa:	6a 95       	dec	r22
-	BRNE RSAROL1
  2fc:	d9 f7       	brne	.-10     	; 0x2f4 <RSAROL1>
-	mov R24,R25
  2fe:	89 2f       	mov	r24, r25
-	rol R24
  300:	88 1f       	adc	r24, r24
-	mov R25,__zero_reg__
  302:	91 2d       	mov	r25, r1
-//  R25/R24	= return
-	ret   	
  304:	08 95       	ret
 
 00000306 <rsa_ror>:
-; 	This function will ror a long
-rsa_ror:
-// R25/R24 	= *a
-// R22 		= al
-// R20 		= carry
-	mov R31,R25
  306:	f9 2f       	mov	r31, r25
-	mov R30,R24
  308:	e8 2f       	mov	r30, r24
-	ROR R20
  30a:	47 95       	ror	r20
 
 0000030c <RSAROR1>:
-RSAROR1:
-	ld R24,Z
  30c:	80 81       	ld	r24, Z
-	ROR R24
  30e:	87 95       	ror	r24
-	st Z+,R24
  310:	81 93       	st	Z+, r24
-	dec R22
  312:	6a 95       	dec	r22
-	BRNE RSAROR1
  314:	d9 f7       	brne	.-10     	; 0x30c <RSAROR1>
-// R25/R24	= return
-	ret 		
  316:	08 95       	ret
 
 00000318 <rsa_modulo>:
-;	bl is the size in R16
-;	cl is the size in R14
-
-rsa_modulo:	
-
-	push	r7
  318:	7f 92       	push	r7
-	push	r8
  31a:	8f 92       	push	r8
-	push	r9
  31c:	9f 92       	push	r9
-	push	r10
  31e:	af 92       	push	r10
-	push	r11
  320:	bf 92       	push	r11
-	push	r12
  322:	cf 92       	push	r12
-	push	r13
  324:	df 92       	push	r13
-	push	r14
  326:	ef 92       	push	r14
-	push	r15
  328:	ff 92       	push	r15
-	push	r16
  32a:	0f 93       	push	r16
-	push	r17
  32c:	1f 93       	push	r17
-	push	r28
  32e:	cf 93       	push	r28
-	push	r29
  330:	df 93       	push	r29
-	mov	r8, r24
  332:	88 2e       	mov	r8, r24
-	mov	r9, r25
  334:	99 2e       	mov	r9, r25
-	mov	r10, r22
  336:	a6 2e       	mov	r10, r22
-	mov	r11, r23
  338:	b7 2e       	mov	r11, r23
-	mov	r12, r20
  33a:	c4 2e       	mov	r12, r20
-	mov	r13, r21
  33c:	d5 2e       	mov	r13, r21
-	mov	r17, r18
  33e:	12 2f       	mov	r17, r18
-	mov	r7, r14
  340:	7e 2c       	mov	r7, r14
-
-;unsigned int tl,tc,ts;
-;unsigned char carry_idvl;
-;unsigned char stap;
-;rsa_clrl(c,cl);
-	mov	r22, r14
  342:	6e 2d       	mov	r22, r14
- 	mov	r25, r21
  344:	95 2f       	mov	r25, r21
-	mov	r24, r20
  346:	84 2f       	mov	r24, r20
-	rcall	rsa_clrl   
  348:	54 d0       	rcall	.+168    	; 0x3f2 <rsa_clrl>
-;tc=al;
-	mov	r28, r17
  34a:	c1 2f       	mov	r28, r17
-	eor	r29, r29
  34c:	dd 27       	eor	r29, r29
-;tc<<=3;
-	lsl r28
  34e:	cc 0f       	add	r28, r28
-	rol r29
  350:	dd 1f       	adc	r29, r29
-	lsl r28
  352:	cc 0f       	add	r28, r28
-	rol r29
  354:	dd 1f       	adc	r29, r29
-	lsl r28
  356:	cc 0f       	add	r28, r28
-	rol r29
  358:	dd 1f       	adc	r29, r29
-;ts=rsa_mov_ac(a,b,c,al,bl,cl); /* it just for speed up */
-	mov	r18, r17
  35a:	21 2f       	mov	r18, r17
-	mov	r21, r13
  35c:	5d 2d       	mov	r21, r13
-	mov	r20, r12
  35e:	4c 2d       	mov	r20, r12
-	mov	r23, r11
  360:	7b 2d       	mov	r23, r11
-	mov	r22, r10
  362:	6a 2d       	mov	r22, r10
-	mov	r25, r9
  364:	99 2d       	mov	r25, r9
-	mov	r24, r8
  366:	88 2d       	mov	r24, r8
-	rcall	rsa_mov_ac
  368:	26 df       	rcall	.-436    	; 0x1b6 <rsa_mov_ac>
-;stap=0;
-	eor	r14, r14
  36a:	ee 24       	eor	r14, r14
-;for(tl=ts;tl<tc;tl++)
-	cp	r24, r28
  36c:	8c 17       	cp	r24, r28
-	cpc	r25, r29
  36e:	9d 07       	cpc	r25, r29
-	brcc	rsa_modulo_1 
  370:	90 f5       	brcc	.+100    	; 0x3d6 <rsa_modulo_1>
-	sub	r28, r24
  372:	c8 1b       	sub	r28, r24
-	sbc	r29, r25
  374:	d9 0b       	sbc	r29, r25
-	mov	r16, r28
  376:	0c 2f       	mov	r16, r28
-	mov	r17, r29
  378:	1d 2f       	mov	r17, r29
 
 0000037a <rsa_modulo_2>:
-;   {
-rsa_modulo_2:
-;   if(0 == stap){
-	and	r14, r14
  37a:	ee 20       	and	r14, r14
-	brne	rsa_modulo_5
  37c:	39 f4       	brne	.+14     	; 0x38c <rsa_modulo_5>
-;   carry_idvl=*a;
-;				a++;
-	mov	r31, r9
  37e:	f9 2d       	mov	r31, r9
-	mov	r30, r8
  380:	e8 2d       	mov	r30, r8
-	ld	r15, Z+
  382:	f1 90       	ld	r15, Z+
-	mov	r8, r30
  384:	8e 2e       	mov	r8, r30
-	mov	r9, r31
  386:	9f 2e       	mov	r9, r31
-;				stap=8;
-	ldi	r24, 0x08	; 8
  388:	88 e0       	ldi	r24, 0x08	; 8
-	mov	r14, r24
  38a:	e8 2e       	mov	r14, r24
 
 0000038c <rsa_modulo_5>:
-;				}
-;   stap--;
-rsa_modulo_5:
- 	dec	r14
  38c:	ea 94       	dec	r14
-;   carry_idvl= rsa_rol(c,cl,carry_idvl);
-	mov	r20, r15
  38e:	4f 2d       	mov	r20, r15
-	mov	r22, r7
  390:	67 2d       	mov	r22, r7
-	mov	r25, r13
  392:	9d 2d       	mov	r25, r13
-	mov	r24, r12
  394:	8c 2d       	mov	r24, r12
-	rcall	rsa_rol 
  396:	a8 df       	rcall	.-176    	; 0x2e8 <rsa_rol>
-	mov	r15, r24
  398:	f8 2e       	mov	r15, r24
-;   if(carry_idvl&0x01)
-	sbrs	r24, 0
  39a:	80 ff       	sbrs	r24, 0
-	rjmp	rsa_modulo_4
  39c:	09 c0       	rjmp	.+18     	; 0x3b0 <rsa_modulo_4>
-;	{
-;	rsa_subl(c,b,cl);      /*  c(al) = c(al) - b(bl) */
-	mov	r20, r7
  39e:	47 2d       	mov	r20, r7
-	mov	r23, r11
  3a0:	7b 2d       	mov	r23, r11
-	mov	r22, r10
  3a2:	6a 2d       	mov	r22, r10
-	mov	r25, r13
  3a4:	9d 2d       	mov	r25, r13
-	mov	r24, r12
  3a6:	8c 2d       	mov	r24, r12
-	rcall	rsa_subl
  3a8:	ab d0       	rcall	.+342    	; 0x500 <rsa_subl>
-;	carry_idvl|=0x01;
-	ldi	r31, 0x01	; 1
  3aa:	f1 e0       	ldi	r31, 0x01	; 1
-	or	r15, r31
  3ac:	ff 2a       	or	r15, r31
-	rjmp	rsa_modulo_3
  3ae:	10 c0       	rjmp	.+32     	; 0x3d0 <rsa_modulo_3>
 
 000003b0 <rsa_modulo_4>:
-;	}
-;  else
-rsa_modulo_4:
-;	 if(!rsa_cmpl(c,b,cl))
-	mov	r20, r7
  3b0:	47 2d       	mov	r20, r7
-	mov	r23, r11
  3b2:	7b 2d       	mov	r23, r11
-	mov	r22, r10
  3b4:	6a 2d       	mov	r22, r10
-	mov	r25, r13
  3b6:	9d 2d       	mov	r25, r13
-	mov	r24, r12
  3b8:	8c 2d       	mov	r24, r12
-	rcall	rsa_cmpl
  3ba:	84 df       	rcall	.-248    	; 0x2c4 <rsa_cmpl>
-	and	r24, r24
  3bc:	88 23       	and	r24, r24
-	brne	rsa_modulo_3
  3be:	41 f4       	brne	.+16     	; 0x3d0 <rsa_modulo_3>
-;		{
-;		rsa_subl(c,b,cl);  /*  c(al) = c(al) - b(bl) */
-	mov	r20, r7
  3c0:	47 2d       	mov	r20, r7
-	mov	r23, r11
  3c2:	7b 2d       	mov	r23, r11
-	mov	r22, r10
  3c4:	6a 2d       	mov	r22, r10
-	mov	r25, r13
  3c6:	9d 2d       	mov	r25, r13
-	mov	r24, r12
  3c8:	8c 2d       	mov	r24, r12
-	rcall	rsa_subl
  3ca:	9a d0       	rcall	.+308    	; 0x500 <rsa_subl>
-;		carry_idvl|=0x01;
-	ldi	r24, 0x01	; 1
  3cc:	81 e0       	ldi	r24, 0x01	; 1
-	or	r15, r24
  3ce:	f8 2a       	or	r15, r24
 
 000003d0 <rsa_modulo_3>:
-rsa_modulo_3:
-	subi	r16, 0x01	; 1
  3d0:	01 50       	subi	r16, 0x01	; 1
-	sbci	r17, 0x00	; 0
  3d2:	10 40       	sbci	r17, 0x00	; 0
-	brne	rsa_modulo_2 
  3d4:	91 f6       	brne	.-92     	; 0x37a <rsa_modulo_2>
 
 000003d6 <rsa_modulo_1>:
-rsa_modulo_1:
-	pop	r29
  3d6:	df 91       	pop	r29
-	pop	r28
  3d8:	cf 91       	pop	r28
-	pop	r17
  3da:	1f 91       	pop	r17
-	pop	r16
  3dc:	0f 91       	pop	r16
-	pop	r15
  3de:	ff 90       	pop	r15
-	pop	r14
  3e0:	ef 90       	pop	r14
-	pop	r13
  3e2:	df 90       	pop	r13
-	pop	r12
  3e4:	cf 90       	pop	r12
-	pop	r11
  3e6:	bf 90       	pop	r11
-	pop	r10
  3e8:	af 90       	pop	r10
-	pop	r9
  3ea:	9f 90       	pop	r9
-	pop	r8
  3ec:	8f 90       	pop	r8
-	pop	r7
  3ee:	7f 90       	pop	r7
-	ret
  3f0:	08 95       	ret
 
 000003f2 <rsa_clrl>:
-; C calling  rsa_clrl(unsigned char   *a,unsigned char al);
-;	*a is in R25:R24 
-;	al is the size in R22	;
-; 	This function will clear
-rsa_clrl:
-	mov r31,r25
  3f2:	f9 2f       	mov	r31, r25
-	mov r30,r24
  3f4:	e8 2f       	mov	r30, r24
 
 000003f6 <Mem_Clr_1>:
-Mem_Clr_1:
-	st Z+,__zero_reg__
  3f6:	11 92       	st	Z+, r1
-	dec r22
  3f8:	6a 95       	dec	r22
-	brne Mem_Clr_1
  3fa:	e9 f7       	brne	.-6      	; 0x3f6 <Mem_Clr_1>
-	ret 	
  3fc:	08 95       	ret
 
 000003fe <rsa_mull>:
-;	blp is the size in R16
-;	clp is the size in R14
-
-; 	This function will Mull
-rsa_mull:
-	push r3
  3fe:	3f 92       	push	r3
-	push r4
  400:	4f 92       	push	r4
-	push r5
  402:	5f 92       	push	r5
-	push r6
  404:	6f 92       	push	r6
-	push r7
  406:	7f 92       	push	r7
-	push r8
  408:	8f 92       	push	r8
-	push r9
  40a:	9f 92       	push	r9
-	push r10
  40c:	af 92       	push	r10
-	push r11
  40e:	bf 92       	push	r11
-	push r12
  410:	cf 92       	push	r12
-	push r13
  412:	df 92       	push	r13
-	push r14
  414:	ef 92       	push	r14
-	push r15
  416:	ff 92       	push	r15
-	push r16
  418:	0f 93       	push	r16
-	push r17
  41a:	1f 93       	push	r17
-	push r28
  41c:	cf 93       	push	r28
-	push r29
  41e:	df 93       	push	r29
-	mov r4,r24
  420:	48 2e       	mov	r4, r24
-	mov r5,r25
  422:	59 2e       	mov	r5, r25
-	mov r8,r22
  424:	86 2e       	mov	r8, r22
-	mov r9,r23
  426:	97 2e       	mov	r9, r23
-	mov r12,r20
  428:	c4 2e       	mov	r12, r20
-	mov r13,r21
  42a:	d5 2e       	mov	r13, r21
-
-	mov r3,r18
  42c:	32 2e       	mov	r3, r18
-	mov r17,r16
  42e:	10 2f       	mov	r17, r16
-	mov r6,r14
  430:	6e 2c       	mov	r6, r14
-// unsigned char cl,bl,al;
-// unsigned int mullab;
-// unsigned char *pa,*pc;
-// b=&b[blp];
-	add r8,r17
  432:	81 0e       	add	r8, r17
-	adc r9,__zero_reg__
  434:	91 1c       	adc	r9, r1
-	mov r27,r9// X
  436:	b9 2d       	mov	r27, r9
-	mov r26,r8
  438:	a8 2d       	mov	r26, r8
-// pa=&a[alp];
-	add r4,r3
  43a:	43 0c       	add	r4, r3
-	adc r5,__zero_reg__
  43c:	51 1c       	adc	r5, r1
-// pc=c;
-	mov r10,r12
  43e:	ac 2c       	mov	r10, r12
-	mov r11,r13
  440:	bd 2c       	mov	r11, r13
-// clrl(pc,clp);
-	mov r22,r6
  442:	66 2d       	mov	r22, r6
-	mov r25,r11
  444:	9b 2d       	mov	r25, r11
-	mov r24,r10
  446:	8a 2d       	mov	r24, r10
-	rcall rsa_clrl
  448:	d4 df       	rcall	.-88     	; 0x3f2 <rsa_clrl>
-// bl=blp;
-	mov r7,r17
  44a:	71 2e       	mov	r7, r17
-// clp-=blp;
-	sub r6,r7
  44c:	67 18       	sub	r6, r7
 
 0000044e <.MULL37>:
-	.MULL37:
-// do
-//   {  
-//  cl=clp+bl;  /* */
-	mov r16,r6
  44e:	06 2d       	mov	r16, r6
-	add r16,r7
  450:	07 0d       	add	r16, r7
-//   c=&pc[cl];  
-	mov r13,r11
  452:	db 2c       	mov	r13, r11
-	mov r12,r10
  454:	ca 2c       	mov	r12, r10
-	add r12,r16
  456:	c0 0e       	add	r12, r16
-	adc r13,__zero_reg__
  458:	d1 1c       	adc	r13, r1
-//   b--;
-   LD R24,-X // R24 is dummy 
  45a:	8e 91       	ld	r24, -X
-//   a=pa;
-	mov r29,r5
  45c:	d5 2d       	mov	r29, r5
-	mov r28,r4
  45e:	c4 2d       	mov	r28, r4
-//   cl--;  
-	subi r16,lo8(-(-1))
  460:	01 50       	subi	r16, 0x01	; 1
-//   c--;
-	sec
  462:	08 94       	sec
-	sbc r12,__zero_reg__
  464:	c1 08       	sbc	r12, r1
-	sbc r13,__zero_reg__
  466:	d1 08       	sbc	r13, r1
-
-//   al=alp;         /* end of a[] +1 */
-	mov r17,r3
  468:	13 2d       	mov	r17, r3
 
 0000046a <.MULL36>:
-	.MULL36:
-// 	do
-//	 {	 
-//	 a--;         
-//      mullab=(*a)*(*b);
-	ld r24,-y
  46a:	8a 91       	ld	r24, -Y
-	ld r22,x
  46c:	6c 91       	ld	r22, X
-	ROR R14
-	ROR R24
-//	 *c+= mullab ;
-#else
-// R14:R24 = R24*R22
-	mul R24,R22
  46e:	86 9f       	mul	r24, r22
-	mov r24,r0
  470:	80 2d       	mov	r24, r0
-	mov r14,r1
  472:	e1 2c       	mov	r14, r1
-	eor r1,r1
  474:	11 24       	eor	r1, r1
-#endif	
-
-	mov r31,r13
  476:	fd 2d       	mov	r31, r13
-	mov r30,r12
  478:	ec 2d       	mov	r30, r12
-
-	ld r22,Z
  47a:	60 81       	ld	r22, Z
-	add r22,r24
  47c:	68 0f       	add	r22, r24
-	st Z,r22
  47e:	60 83       	st	Z, r22
-//	 if(*c<(mullab & 0xff))add1(pc,cl);
-   brcc .MULL33
  480:	20 f4       	brcc	.+8      	; 0x48a <.MULL33>
-//   push R25
-	mov r22,r16
  482:	60 2f       	mov	r22, r16
-	mov r25,r11
  484:	9b 2d       	mov	r25, r11
-	mov r24,r10
  486:	8a 2d       	mov	r24, r10
-	rcall rsa_add1
  488:	0e df       	rcall	.-484    	; 0x2a6 <rsa_add1>
 
 0000048a <.MULL33>:
-.MULL33:
-//		 cl--;
-	dec r16
  48a:	0a 95       	dec	r16
-//		 c--;
-	sec
  48c:	08 94       	sec
-	sbc r12,__zero_reg__
  48e:	c1 08       	sbc	r12, r1
-	sbc r13,__zero_reg__
  490:	d1 08       	sbc	r13, r1
-//          mullab>>=8;
-//          if(mullab!=0)
-	tst R14
  492:	ee 20       	and	r14, r14
-	breq .MULL34
  494:	51 f0       	breq	.+20     	; 0x4aa <.MULL34>
-//		   {
-//           *c+=(unsigned char) mullab;
-	mov r31,r13
  496:	fd 2d       	mov	r31, r13
-	mov r30,r12
  498:	ec 2d       	mov	r30, r12
-	ld r24,Z
  49a:	80 81       	ld	r24, Z
-	add r24,R14
  49c:	8e 0d       	add	r24, r14
-	st Z,r24
  49e:	80 83       	st	Z, r24
-//             if(*c<mullab)add1(pc,cl);
-	brcc .MULL34
  4a0:	20 f4       	brcc	.+8      	; 0x4aa <.MULL34>
-	mov r22,r16
  4a2:	60 2f       	mov	r22, r16
-	mov r25,r11
  4a4:	9b 2d       	mov	r25, r11
-	mov r24,r10
  4a6:	8a 2d       	mov	r24, r10
-	rcall rsa_add1
  4a8:	fe de       	rcall	.-516    	; 0x2a6 <rsa_add1>
 
 000004aa <.MULL34>:
-.MULL34:
-// 		   }
-// 	  al--;
-	dec r17
  4aa:	1a 95       	dec	r17
-// 	 } while(al>0);
-	breq .MULL36NOT
  4ac:	09 f0       	breq	.+2      	; 0x4b0 <.MULL36NOT>
-	rjmp .MULL36
  4ae:	dd cf       	rjmp	.-70     	; 0x46a <.MULL36>
 
 000004b0 <.MULL36NOT>:
-.MULL36NOT:
-//	 bl--;
-	dec r7
  4b0:	7a 94       	dec	r7
-//    }while(bl>0);   
-	breq .MULL37NOT
  4b2:	09 f0       	breq	.+2      	; 0x4b6 <.MULL37NOT>
-	rjmp .MULL37
  4b4:	cc cf       	rjmp	.-104    	; 0x44e <.MULL37>
 
 000004b6 <.MULL37NOT>:
-.MULL37NOT:
-  	pop r29
  4b6:	df 91       	pop	r29
-	pop r28
  4b8:	cf 91       	pop	r28
-	pop r17
  4ba:	1f 91       	pop	r17
-	pop r16
  4bc:	0f 91       	pop	r16
-	pop r15
  4be:	ff 90       	pop	r15
-	pop r14
  4c0:	ef 90       	pop	r14
-	pop r13
  4c2:	df 90       	pop	r13
-	pop r12
  4c4:	cf 90       	pop	r12
-	pop r11
  4c6:	bf 90       	pop	r11
-	pop r10
  4c8:	af 90       	pop	r10
-	pop r9
  4ca:	9f 90       	pop	r9
-	pop r8
  4cc:	8f 90       	pop	r8
-	pop r7
  4ce:	7f 90       	pop	r7
-	pop r6
  4d0:	6f 90       	pop	r6
-	pop r5
  4d2:	5f 90       	pop	r5
-	pop r4
  4d4:	4f 90       	pop	r4
-	pop r3
  4d6:	3f 90       	pop	r3
-	ret  	
  4d8:	08 95       	ret
 
 000004da <rsa_addl>:
-; 	This function will add two longs
-rsa_addl:
-// R25/R24 	= *a
-// R23/R22	= *b
-// R20 		= al
-	mov R31,R25 	; Z
  4da:	f9 2f       	mov	r31, r25
-	mov R30,R24
  4dc:	e8 2f       	mov	r30, r24
-	add R30,R20
  4de:	e4 0f       	add	r30, r20
-	adc R31,__zero_reg__
  4e0:	f1 1d       	adc	r31, r1
-	mov R27,R23		;X
  4e2:	b7 2f       	mov	r27, r23
-	mov R26,R22
  4e4:	a6 2f       	mov	r26, r22
-	add R26,R20
  4e6:	a4 0f       	add	r26, r20
-	adc R27,__zero_reg__
  4e8:	b1 1d       	adc	r27, r1
- 	CLC
  4ea:	88 94       	clc
 
 000004ec <RSAADDL1>:
-RSAADDL1:
-	ld R24,-Z
  4ec:	82 91       	ld	r24, -Z
-	ld R25,-X
  4ee:	9e 91       	ld	r25, -X
-	adc R24,R25
  4f0:	89 1f       	adc	r24, r25
-	st Z,R24
  4f2:	80 83       	st	Z, r24
-	dec R20
  4f4:	4a 95       	dec	r20
-	BRNE RSAADDL1
  4f6:	d1 f7       	brne	.-12     	; 0x4ec <RSAADDL1>
-	clr R24
  4f8:	88 27       	eor	r24, r24
-	rol R24
  4fa:	88 1f       	adc	r24, r24
-	clr R25
  4fc:	99 27       	eor	r25, r25
-// R25/R24	= return
-	ret  	
  4fe:	08 95       	ret
 
 00000500 <rsa_subl>:
-;	*a is in R25:R24 
-;	*b is in R23:R22 
-;	al is the size in R20	
-; 	This function will add two longs
-rsa_subl:
-	mov R31,R25 	;Z
  500:	f9 2f       	mov	r31, r25
-	mov R30,R24
  502:	e8 2f       	mov	r30, r24
-	add R30,R20
  504:	e4 0f       	add	r30, r20
-	adc R31,__zero_reg__
  506:	f1 1d       	adc	r31, r1
-	mov R27,R23		;X
  508:	b7 2f       	mov	r27, r23
-	mov R26,R22
  50a:	a6 2f       	mov	r26, r22
-	add R26,R20
  50c:	a4 0f       	add	r26, r20
-	adc R27,__zero_reg__
  50e:	b1 1d       	adc	r27, r1
- 	CLC
  510:	88 94       	clc
 
 00000512 <RSASUBL1>:
-RSASUBL1:
-	ld R24,-Z
  512:	82 91       	ld	r24, -Z
-	ld R25,-X
  514:	9e 91       	ld	r25, -X
-	SBC R24,R25
  516:	89 0b       	sbc	r24, r25
-	st Z,R24
  518:	80 83       	st	Z, r24
-	dec R20
  51a:	4a 95       	dec	r20
-	BRNE RSASUBL1
  51c:	d1 f7       	brne	.-12     	; 0x512 <RSASUBL1>
-	ret  	
  51e:	08 95       	ret
 
 00000520 <rsa_movel>:
-;	*s is in R23:R22 
-;	ld is the size in R20	
-;	ld is the size in R18	
-; 	This function one long to the ohther
-rsa_movel:
- 	push r14
  520:	ef 92       	push	r14
- 	push r15
  522:	ff 92       	push	r15
- 	push r16
  524:	0f 93       	push	r16
- 	push r17
  526:	1f 93       	push	r17
- 	push r28
  528:	cf 93       	push	r28
- 	push r29
  52a:	df 93       	push	r29
- 
- 	mov r29,r25
  52c:	d9 2f       	mov	r29, r25
- 	mov r28,r24
  52e:	c8 2f       	mov	r28, r24
- 	mov r14,r22
  530:	e6 2e       	mov	r14, r22
- 	mov r15,r23
  532:	f7 2e       	mov	r15, r23
- 	mov r16,r20
  534:	04 2f       	mov	r16, r20
- 	mov r17,r18
  536:	12 2f       	mov	r17, r18
- // if(ld>ls)clrl(d,ld-ls);
- 
- 	cp r17,r16
  538:	10 17       	cp	r17, r16
- 	brsh .MOVEL28
  53a:	30 f4       	brcc	.+12     	; 0x548 <.MOVEL28>
- 	mov r24,r16
  53c:	80 2f       	mov	r24, r16
- 	sub r24,r17
  53e:	81 1b       	sub	r24, r17
- 	mov r22,r24
  540:	68 2f       	mov	r22, r24
- 	mov r24,r28
  542:	8c 2f       	mov	r24, r28
- 	mov r25,r29
  544:	9d 2f       	mov	r25, r29
- 	rcall rsa_clrl
  546:	55 df       	rcall	.-342    	; 0x3f2 <rsa_clrl>
 
 00000548 <.MOVEL28>:
-.MOVEL28:
- // d=&d[ld];
- 	add r28,r16
  548:	c0 0f       	add	r28, r16
- 	adc r29,__zero_reg__
  54a:	d1 1d       	adc	r29, r1
- // s=&s[ls];
- 	add r14,r17;
  54c:	e1 0e       	add	r14, r17
- 	adc r15,__zero_reg__
  54e:	f1 1c       	adc	r15, r1
- 	mov r31,r15
  550:	ff 2d       	mov	r31, r15
- 	mov r30,r14
  552:	ee 2d       	mov	r30, r14
- // while(ls>0 && ld>0)
- 	rjmp .MOVEL34
  554:	04 c0       	rjmp	.+8      	; 0x55e <.MOVEL34>
 
 00000556 <.MOVEL31>:
-.MOVEL31:
- //   {
- //   ld--;
- 	dec r16
  556:	0a 95       	dec	r16
- //   ls--;
- 	dec r17
  558:	1a 95       	dec	r17
- //   d--;
- //   s--;
- //   *d=*s;  
- 	ld r24,-Z
  55a:	82 91       	ld	r24, -Z
- 	st -Y,r24
  55c:	8a 93       	st	-Y, r24
 
 0000055e <.MOVEL34>:
-.MOVEL34:
- 	tst r17
  55e:	11 23       	and	r17, r17
- 	breq .MOVEL30
  560:	11 f0       	breq	.+4      	; 0x566 <.MOVEL30>
- 	tst r16
  562:	00 23       	and	r16, r16
- 	brne .MOVEL31
  564:	c1 f7       	brne	.-16     	; 0x556 <.MOVEL31>
 
 00000566 <.MOVEL30>:
-.MOVEL30:
- 	pop r29
  566:	df 91       	pop	r29
- 	pop r28
  568:	cf 91       	pop	r28
- 	pop r17
  56a:	1f 91       	pop	r17
- 	pop r16
  56c:	0f 91       	pop	r16
- 	pop r15
  56e:	ff 90       	pop	r15
- 	pop r14
  570:	ef 90       	pop	r14
-	ret	
  572:	08 95       	ret
 
 00000574 <rsa_memtst>:
-;	*a is in R25:R24 
-;	al is the size in R22	
-;	Return R25:R24
-
-rsa_memtst:
-	mov R30,R24
  574:	e8 2f       	mov	r30, r24
-	mov R31,R25
  576:	f9 2f       	mov	r31, r25
-	add r30,r22
  578:	e6 0f       	add	r30, r22
-	adc r31,__zero_reg__
  57a:	f1 1d       	adc	r31, r1
-	mov R24,__zero_reg__
  57c:	81 2d       	mov	r24, r1
-	mov R25,__zero_reg__
  57e:	91 2d       	mov	r25, r1
 
 00000580 <memtst_L1>:
-memtst_L1:
-	dec R22
  580:	6a 95       	dec	r22
-	breq memtst_end
  582:	21 f0       	breq	.+8      	; 0x58c <memtst_end>
-	ld r24,-Z
  584:	82 91       	ld	r24, -Z
-	tst R24
  586:	88 23       	and	r24, r24
-	breq memtst_L1
  588:	d9 f3       	breq	.-10     	; 0x580 <memtst_L1>
-	ldi R24,1 
  58a:	81 e0       	ldi	r24, 0x01	; 1
 
 0000058c <memtst_end>:
-memtst_end:
-	ret
  58c:	08 95       	ret
 
 0000058e <main>:
@@ -1543,12 +870,6 @@ unsigned char f;
  666:	08 95       	ret
 
 00000668 <rsa>:
-// 202 msec on a at90s8515 @ 8 Mc and 512 Bits
-// 174 msec on a ATMEGA32  @ 8 Mc and 512 Bits
-// 1520 Bytes of Flash used
-
-void rsa(unsigned char   *a ,unsigned char e,unsigned char   *d)
-{
  668:	af 92       	push	r10
  66a:	bf 92       	push	r11
  66c:	cf 92       	push	r12
@@ -1561,57 +882,23 @@ void rsa(unsigned char   *a ,unsigned char e,unsigned char   *d)
  67a:	6c 01       	movw	r12, r24
  67c:	c6 2f       	mov	r28, r22
  67e:	5a 01       	movw	r10, r20
-unsigned char flag;
-flag=2;
-/* s = 1 */
-/* a = a^e%d */
-while(e!=0)
  680:	66 23       	and	r22, r22
  682:	09 f4       	brne	.+2      	; 0x686 <rsa+0x1e>
  684:	39 c0       	rjmp	.+114    	; 0x6f8 <rsa+0x90>
  686:	d2 e0       	ldi	r29, 0x02	; 2
-  {
-	if(0!=(e&1))
-	  {/*   s=(s*a)%d; */
-	   if(flag)
-		  { 
-	  		flag=0;
  688:	10 e0       	ldi	r17, 0x00	; 0
-flag=2;
-/* s = 1 */
-/* a = a^e%d */
-while(e!=0)
-  {
-	if(0!=(e&1))
  68a:	c0 ff       	sbrs	r28, 0
  68c:	1f c0       	rjmp	.+62     	; 0x6cc <rsa+0x64>
-	  {/*   s=(s*a)%d; */
-	   if(flag)
  68e:	dd 23       	and	r29, r29
  690:	41 f0       	breq	.+16     	; 0x6a2 <rsa+0x3a>
-		  { 
-	  		flag=0;
-			rsa_movel(s,a,RSALEN,RSALEN);                  
  692:	20 e4       	ldi	r18, 0x40	; 64
  694:	40 e4       	ldi	r20, 0x40	; 64
  696:	b6 01       	movw	r22, r12
  698:	81 ec       	ldi	r24, 0xC1	; 193
  69a:	91 e0       	ldi	r25, 0x01	; 1
  69c:	41 df       	rcall	.-382    	; 0x520 <rsa_movel>
-  {
-	if(0!=(e&1))
-	  {/*   s=(s*a)%d; */
-	   if(flag)
-		  { 
-	  		flag=0;
  69e:	d1 2f       	mov	r29, r17
  6a0:	15 c0       	rjmp	.+42     	; 0x6cc <rsa+0x64>
-			rsa_movel(s,a,RSALEN,RSALEN);                  
-             /*  modulo(tmp,d,s,A_LEN,D_LEN,S_LEN);*/ /* S = A % D */
-		  }
-		else
-		  {
-		  	rsa_mull(a,s,rsa_tmp,RSALEN,RSALEN,2*RSALEN); /* TMP = A*S   */                  
  6a2:	68 94       	set
  6a4:	ee 24       	eor	r14, r14
  6a6:	e7 f8       	bld	r14, 7
@@ -1623,7 +910,6 @@ while(e!=0)
  6b2:	71 e0       	ldi	r23, 0x01	; 1
  6b4:	c6 01       	movw	r24, r12
  6b6:	a3 de       	rcall	.-698    	; 0x3fe <rsa_mull>
-		  	rsa_modulo(rsa_tmp,d,s,2*RSALEN,RSALEN,RSALEN); /* S = TMP % D */
  6b8:	68 94       	set
  6ba:	ee 24       	eor	r14, r14
  6bc:	e6 f8       	bld	r14, 6
@@ -1634,15 +920,8 @@ while(e!=0)
  6c6:	81 e0       	ldi	r24, 0x01	; 1
  6c8:	92 e0       	ldi	r25, 0x02	; 2
  6ca:	26 de       	rcall	.-948    	; 0x318 <rsa_modulo>
-		  }
-	  }
-	e>>=1;
  6cc:	c6 95       	lsr	r28
-	/* a=(a*a)%d   */
-	if(e) /* A is not used is e == 0 */
  6ce:	a1 f0       	breq	.+40     	; 0x6f8 <rsa+0x90>
-	{
-	  rsa_mull(a,a,rsa_tmp,RSALEN,RSALEN,2*RSALEN); /* TMP = A * A    */
  6d0:	68 94       	set
  6d2:	ee 24       	eor	r14, r14
  6d4:	e7 f8       	bld	r14, 7
@@ -1653,7 +932,6 @@ while(e!=0)
  6de:	b6 01       	movw	r22, r12
  6e0:	c6 01       	movw	r24, r12
  6e2:	8d de       	rcall	.-742    	; 0x3fe <rsa_mull>
-	  rsa_modulo(rsa_tmp,d,a,2*RSALEN,RSALEN,RSALEN); /* A   = TMP % D  */
  6e4:	68 94       	set
  6e6:	ee 24       	eor	r14, r14
  6e8:	e6 f8       	bld	r14, 6
@@ -1664,16 +942,12 @@ while(e!=0)
  6f2:	92 e0       	ldi	r25, 0x02	; 2
  6f4:	11 de       	rcall	.-990    	; 0x318 <rsa_modulo>
  6f6:	c9 cf       	rjmp	.-110    	; 0x68a <rsa+0x22>
-    }
-  }
-rsa_movel(a,s,RSALEN,RSALEN);
  6f8:	20 e4       	ldi	r18, 0x40	; 64
  6fa:	40 e4       	ldi	r20, 0x40	; 64
  6fc:	61 ec       	ldi	r22, 0xC1	; 193
  6fe:	71 e0       	ldi	r23, 0x01	; 1
  700:	c6 01       	movw	r24, r12
  702:	0e df       	rcall	.-484    	; 0x520 <rsa_movel>
-}
  704:	df 91       	pop	r29
  706:	cf 91       	pop	r28
  708:	1f 91       	pop	r17
@@ -1686,12 +960,6 @@ rsa_movel(a,s,RSALEN,RSALEN);
  716:	08 95       	ret
 
 00000718 <rsa_inc>:
-// 76.6 sec on a at90s8515 @ 8 Mc and 512 Bits
-// 65.4 sec on a ATMEGA32  @ 8 Mc and 512 Bits
-//
-
-void rsa_inc(unsigned char  *a ,unsigned char *e,unsigned char  *d)
-{
  718:	af 92       	push	r10
  71a:	bf 92       	push	r11
  71c:	cf 92       	push	r12
@@ -1705,55 +973,24 @@ void rsa_inc(unsigned char  *a ,unsigned char *e,unsigned char  *d)
  72c:	6c 01       	movw	r12, r24
  72e:	eb 01       	movw	r28, r22
  730:	5a 01       	movw	r10, r20
-unsigned char flag;
-flag=2;
  732:	68 94       	set
  734:	ff 24       	eor	r15, r15
  736:	f1 f8       	bld	r15, 1
-while(rsa_memtst(e,RSALEN)!=0)
-  {
-	if(0!=(e[RSALEN-1]&1))
-	  {/*   s=(s*a)%d; */
-	   if(flag)
-		  { flag=0;
  738:	10 e0       	ldi	r17, 0x00	; 0
-{
-unsigned char flag;
-flag=2;
-/* s = 1 */
-/* a = a^e%d */
-while(rsa_memtst(e,RSALEN)!=0)
  73a:	3b c0       	rjmp	.+118    	; 0x7b2 <rsa_inc+0x9a>
-  {
-	if(0!=(e[RSALEN-1]&1))
  73c:	8f ad       	ldd	r24, Y+63	; 0x3f
  73e:	80 ff       	sbrs	r24, 0
  740:	1f c0       	rjmp	.+62     	; 0x780 <rsa_inc+0x68>
-	  {/*   s=(s*a)%d; */
-	   if(flag)
  742:	ff 20       	and	r15, r15
  744:	41 f0       	breq	.+16     	; 0x756 <rsa_inc+0x3e>
-		  { flag=0;
-			rsa_movel(s,a,RSALEN,RSALEN);
  746:	20 e4       	ldi	r18, 0x40	; 64
  748:	40 e4       	ldi	r20, 0x40	; 64
  74a:	b6 01       	movw	r22, r12
  74c:	81 ec       	ldi	r24, 0xC1	; 193
  74e:	91 e0       	ldi	r25, 0x01	; 1
  750:	e7 de       	rcall	.-562    	; 0x520 <rsa_movel>
-while(rsa_memtst(e,RSALEN)!=0)
-  {
-	if(0!=(e[RSALEN-1]&1))
-	  {/*   s=(s*a)%d; */
-	   if(flag)
-		  { flag=0;
  752:	f1 2e       	mov	r15, r17
  754:	15 c0       	rjmp	.+42     	; 0x780 <rsa_inc+0x68>
-			rsa_movel(s,a,RSALEN,RSALEN);
-		  }
-		else
-		  {
-		  rsa_mull(a,s,rsa_tmp,RSALEN,RSALEN,2*RSALEN); /* TMP = A*S   */
  756:	68 94       	set
  758:	ee 24       	eor	r14, r14
  75a:	e7 f8       	bld	r14, 7
@@ -1765,7 +1002,6 @@ while(rsa_memtst(e,RSALEN)!=0)
  766:	71 e0       	ldi	r23, 0x01	; 1
  768:	c6 01       	movw	r24, r12
  76a:	49 de       	rcall	.-878    	; 0x3fe <rsa_mull>
-		  rsa_modulo(rsa_tmp,d,s,2*RSALEN,RSALEN,RSALEN); /* S = TMP % D */
  76c:	68 94       	set
  76e:	ee 24       	eor	r14, r14
  770:	e6 f8       	bld	r14, 6
@@ -1776,19 +1012,12 @@ while(rsa_memtst(e,RSALEN)!=0)
  77a:	81 e0       	ldi	r24, 0x01	; 1
  77c:	92 e0       	ldi	r25, 0x02	; 2
  77e:	cc dd       	rcall	.-1128   	; 0x318 <rsa_modulo>
-		  }
-	  }
-	rsa_ror(e,RSALEN,0);
  780:	41 2f       	mov	r20, r17
  782:	60 e4       	ldi	r22, 0x40	; 64
  784:	ce 01       	movw	r24, r28
  786:	bf dd       	rcall	.-1154   	; 0x306 <rsa_ror>
-	/* a=(a*a)%d   */
-	if(e) /* A is not used is e == 0 */
  788:	20 97       	sbiw	r28, 0x00	; 0
  78a:	99 f0       	breq	.+38     	; 0x7b2 <rsa_inc+0x9a>
-	 {
-	  rsa_mull(a,a,rsa_tmp,RSALEN,RSALEN,2*RSALEN); /* TMP = A * A    */
  78c:	68 94       	set
  78e:	ee 24       	eor	r14, r14
  790:	e7 f8       	bld	r14, 7
@@ -1799,7 +1028,6 @@ while(rsa_memtst(e,RSALEN)!=0)
  79a:	b6 01       	movw	r22, r12
  79c:	c6 01       	movw	r24, r12
  79e:	2f de       	rcall	.-930    	; 0x3fe <rsa_mull>
-	  rsa_modulo(rsa_tmp,d,a,2*RSALEN,RSALEN,RSALEN); /* A   = TMP % D  */
  7a0:	68 94       	set
  7a2:	ee 24       	eor	r14, r14
  7a4:	e6 f8       	bld	r14, 6
@@ -1808,23 +1036,11 @@ while(rsa_memtst(e,RSALEN)!=0)
  7aa:	b5 01       	movw	r22, r10
  7ac:	81 e0       	ldi	r24, 0x01	; 1
  7ae:	92 e0       	ldi	r25, 0x02	; 2
-{
-unsigned char flag;
-flag=2;
-/* s = 1 */
-/* a = a^e%d */
-while(rsa_memtst(e,RSALEN)!=0)
  7b0:	b3 dd       	rcall	.-1178   	; 0x318 <rsa_modulo>
  7b2:	60 e4       	ldi	r22, 0x40	; 64
  7b4:	ce 01       	movw	r24, r28
  7b6:	de de       	rcall	.-580    	; 0x574 <rsa_memtst>
  7b8:	81 11       	cpse	r24, r1
-	 {
-	  rsa_mull(a,a,rsa_tmp,RSALEN,RSALEN,2*RSALEN); /* TMP = A * A    */
-	  rsa_modulo(rsa_tmp,d,a,2*RSALEN,RSALEN,RSALEN); /* A   = TMP % D  */
-	 }
-  }
-rsa_movel(a,s,RSALEN,RSALEN);
  7ba:	c0 cf       	rjmp	.-128    	; 0x73c <rsa_inc+0x24>
  7bc:	20 e4       	ldi	r18, 0x40	; 64
  7be:	40 e4       	ldi	r20, 0x40	; 64
@@ -1832,7 +1048,6 @@ rsa_movel(a,s,RSALEN,RSALEN);
  7c2:	71 e0       	ldi	r23, 0x01	; 1
  7c4:	c6 01       	movw	r24, r12
  7c6:	ac de       	rcall	.-680    	; 0x520 <rsa_movel>
-}
  7c8:	df 91       	pop	r29
  7ca:	cf 91       	pop	r28
  7cc:	1f 91       	pop	r17

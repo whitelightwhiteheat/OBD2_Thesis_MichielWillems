@@ -22,13 +22,6 @@
 #include "sha2/hmac-sha256.h"
 #include <util/delay.h>
 
-typedef enum {
-	SINGLE,
-	SESSION
-} authetication_protocol_t;
-
-volatile authetication_protocol_t auth_protocol = SINGLE;
-
 
 const char private_key1_hex[64] = "92990788d66bf558052d112f5498111747b3e28c55984d43fed8c8822ad9f1a7";
 const char public_key1_hex[128] = "f0c863f8e555114bf4882cc787b95c272a7fe4dcddf1922f4f18a494e1c357a1a6c32d07beb576ab601068068f0a9e0160c3a14119f5d426a7955da3e6ed3e81";
@@ -52,21 +45,6 @@ static const can_msg_t ack_neg = {ACK_NEG};
 volatile state_t state = IDLE_S;
 volatile event_t event = NULL_E;
 
-ISR(INT7_vect){
-	EIMSK &= ~(1 << INT7);
-	_delay_ms(500);
-	switch(auth_protocol){
-		case SINGLE :
-		auth_protocol = SESSION;
-		uart_puts("Switched to session Authentication protocol.");
-		break;
-		case SESSION :
-		auth_protocol = SINGLE;
-		uart_puts("Switched to single Authentication protocol.");
-		break;
-	}
-	EIMSK |= 1 << INT7;
-}
 
 
 void buttons_init(){
@@ -106,8 +84,6 @@ static void get_public_key(uint8_t role, uint8_t public[64]){
 	}
 }
 
-
-
 int verify_signature(uint8_t challenge[64], uint8_t signature[64], permissions_t role){
 	const struct uECC_Curve_t * curve = uECC_secp256r1();
 	int result;
@@ -119,54 +95,8 @@ int verify_signature(uint8_t challenge[64], uint8_t signature[64], permissions_t
 	return result;
 }
 
-int single_authentication(permissions_t role)
-{	
-	//Start Protocol by sending random challenge.
-	volatile uint8_t result;
-	uart_puts("authentication started");
-	can_buff_512_t challenge;
-	RNG(challenge, 64);
-	can_send_frame_buffer(challenge , 8);
-	uart_puts("challenge sent");
-	
-	//Wait for Signature.
-	uint8_t signature[64];
-	can_receive_frame_buffer(signature, 8);
-	
-	//Verify Signature.
-	result = verify_signature(challenge, signature, role);
-	if(result==1) {
-		uart_puts("signature is valid!");
-		can_send_message(0, 0x00, ack_pos);
-	}else{
-		uart_puts("signature is false!");
-		can_send_message(0, 0x00, ack_neg);
-		return 1;
-	}
-	
-	//Receive Message to forward.
-	can_msg_t message;
-	can_receive_message(0, default_id, 0x00, message);
-	can_id_t id;
-	can_get_id(0, id);
-	
-	//Check Permission of message.
-	if (check_permission(id, role) == 0){
-		uart_puts("Permission Ok");
-		can_send_message(0, 0x00, ack_pos);
-	}else{
-		uart_puts("Permission Failed");
-		can_send_message(0, 0x00, ack_neg);
-		return -2;
-	}
-	
-	//Forward the message to the internal vehicle network.
-	forward_message(message, id);
-	
-	return 0;
-}
 
-int session_authentication(permissions_t role){
+int authenticate(permissions_t role){
 	
 	//Start protocol by calculating new private/public key pair for shared secret establishment.
 	volatile uint8_t result;
@@ -179,14 +109,34 @@ int session_authentication(permissions_t role){
 	uint8_t secret_unhashed[32];
 	uint8_t public[64];
 	get_public_key(role, public);
-	result = uECC_shared_secret(public, private2, secret_unhashed, curve);
-	uint8_t secret[32];
-	uint32_t len = 256;
-	sha256(secret, secret_unhashed, len);
 	
 	//Send new public key.
 	can_send_frame_buffer(public2, 8);
-	uart_puts("secret established");
+	uart_puts("public key sent");
+	
+	//Wait for Signature.
+	uint8_t signature[64];
+	can_receive_frame_buffer(signature, 8);
+	
+	uint8_t ack;
+	uint8_t secret[32];
+	
+	//Verify Signature.
+	result = verify_signature(public2, signature, role);
+	if(result==1) {
+		uart_puts("signature is valid!");
+		
+		//calculate shared secret.
+		result = uECC_shared_secret(public, private2, secret_unhashed, curve);
+		uint32_t len = 256;
+		sha256(secret, secret_unhashed, len);
+		
+		can_send_message(0, 0x00, ack_pos);
+	}else{
+		uart_puts("signature is false!");
+		can_send_message(0, 0x00, ack_neg);
+		return 1;
+	}
 	
 	//---Every iteration of this loop equals 1 message being authenticated using the shared secret---.
 	while(1){
@@ -252,11 +202,7 @@ void forward_message(can_msg_t msg, can_id_t id){
 	uart_puts("------------------------------------");
 }
 
-int authenticate(permissions_t role){
-	
-	uint8_t public
-	can_receive_frame_buffer()
-}
+
 
 
  int main()
@@ -269,13 +215,7 @@ int authenticate(permissions_t role){
 	can_msg_t init;
 	while(1){
 		can_receive_message(0, default_id, zero_mask, init);
-		if(auth_protocol == SINGLE){
-			single_authentication(init[0]);
-			return 0;
-		}else{
-			session_authentication(init[0]);
-			return 0;
-		}
+		authenticate(init[0]);
 	}
  }
 

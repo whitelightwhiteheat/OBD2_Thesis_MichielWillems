@@ -15,11 +15,10 @@ permission_table_t *permission_table;
 void init_permissions_table(){
 	permission_table = malloc(sizeof(permission_table_t));
 	permission_table->head = NULL;
-	permissions_t permissions = 0b00001111;
-	add_entry_hex("b107", permissions);
-	add_entry_hex("e007", permissions);
-	add_entry_hex("2607", permissions);
-	add_entry_hex("3007", permissions);
+	add_entry_hex("b107", 0b00001111);
+	add_entry_hex("e007", 0b00001110);
+	add_entry_hex("2607", 0b00001100);
+	add_entry_hex("3007", 0b00001000);
 }
 
 int add_entry_hex(char *hex, permissions_t permissions){
