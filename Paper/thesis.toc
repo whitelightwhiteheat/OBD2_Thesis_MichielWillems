@@ -1,0 +1,46 @@
+\contentsline {section}{\numberline {1}Acronyms and abbreviations}{1}
+\contentsline {section}{\numberline {2}Introduction}{2}
+\contentsline {paragraph}{Motivation}{2}
+\contentsline {paragraph}{Challenges}{3}
+\contentsline {paragraph}{Context}{4}
+\contentsline {paragraph}{Contributions}{5}
+\contentsline {section}{\numberline {3}Literature Review}{5}
+\contentsline {subsection}{\numberline {3.1}Vehicle Network Infrastructure}{5}
+\contentsline {subsection}{\numberline {3.2}OBD-II}{7}
+\contentsline {paragraph}{Goal}{7}
+\contentsline {paragraph}{Brief History}{7}
+\contentsline {paragraph}{DLC}{8}
+\contentsline {paragraph}{PID's}{9}
+\contentsline {subsection}{\numberline {3.3}CAN}{10}
+\contentsline {paragraph}{Brief History}{11}
+\contentsline {paragraph}{Architecture}{11}
+\contentsline {paragraph}{CAN Frames}{12}
+\contentsline {paragraph}{Data Transmission}{12}
+\contentsline {paragraph}{Bit wise message arbitration}{13}
+\contentsline {paragraph}{Layering}{14}
+\contentsline {subsection}{\numberline {3.4}OBD-II Security Issues}{14}
+\contentsline {subsection}{\numberline {3.5}CAN security challenges}{15}
+\contentsline {subsection}{\numberline {3.6}OBD-II security challenges}{16}
+\contentsline {subsection}{\numberline {3.7}Attacker model}{16}
+\contentsline {subsection}{\numberline {3.8}Example attacks}{17}
+\contentsline {paragraph}{Speedometer}{17}
+\contentsline {paragraph}{Denial of Service}{18}
+\contentsline {paragraph}{Diagnostic session}{18}
+\contentsline {paragraph}{Impact}{19}
+\contentsline {section}{\numberline {4}Related work}{20}
+\contentsline {paragraph}{Introduction}{20}
+\contentsline {subsection}{\numberline {4.1}OBD-II Access Control}{21}
+\contentsline {paragraph}{Seed key algorithm}{21}
+\contentsline {paragraph}{Two-Way authentication method}{21}
+\contentsline {paragraph}{Timer Method}{21}
+\contentsline {paragraph}{Discussion}{22}
+\contentsline {subsection}{\numberline {4.2}Other attack vectors}{22}
+\contentsline {subsubsection}{\numberline {4.2.1}Indirect physical access}{22}
+\contentsline {paragraph}{Entertainment: Disk, USB and IPod}{22}
+\contentsline {subsubsection}{\numberline {4.2.2}Short-range wireless access}{22}
+\contentsline {paragraph}{Remote Keyless Entry}{22}
+\contentsline {paragraph}{RFID car keys}{23}
+\contentsline {paragraph}{TPMS}{23}
+\contentsline {paragraph}{V2V, V2I and V2N}{23}
+\contentsline {subsubsection}{\numberline {4.2.3}Long-rangeb wireless access}{24}
+\contentsline {section}{\numberline {5}Solution}{24}
