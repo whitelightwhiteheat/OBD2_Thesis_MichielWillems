@@ -436,6 +436,40 @@ VulCAN is a generic design for vehicular message authentication, software compon
 
 \subsubsection{VatiCAN} VatiCAN is a framework for embedded controllers connected to the CAN bus, which allows both senders and receivers to authenticate exchanged data. It introduces some the same features that VulCAN does: MAC's for message authentication, nonces to prevent replay attacks and backward compatibility. However, it also introduces a new feature, namely spoof detection and prevention. spoofed messages are detected by monitoring messages with its own sender identification (remember that CAN messages are broadcasted over the entire network). If a component detects a message with its own sender ID, it must be a spoofed message. Once spoofing is detected it can still be prevented (the ID is the first thing that is sent over the bus). This is done by writing dominant bits (zeros) to the bus, effectively invalidating the CRC bits while the spoofed CAN frame is still being processed.\cite{VatiCAN}
 
+\section{Preliminaries}
+\label{sec:preliminaries}
+
+This section serves as a technical primer to all the security related software solutions that are employed in this paper. An in-depth discussion of these topics is considered out of scope. First, the reader is familiarised with the concept of public key cryptography, and what sets it apart from symmetric cryptography. Second, we will take a look at how secret keys (asymmetric or symmetric) are established between two parties. Third, we will explain how public key cryptography can be used in the context of authentication. Fourth, the concept of hashing and why it i useful is explained. The last chapter of this section gives an overview of all the specific implementations that were selected by the researchers of this paper, as well as motivating this decision. The reader should keep in mind that the selection of systems selected here is far for comprehensive, only the ones that are relevant to the solution presented in this paper are discussed. 
+
+\subsection{Public Key Cryptography}
+
+\paragraph{Cryptography} The primary goal of cryptography in general is to allow for secure communication between two parties. This means that protocols are designed that prevent third parties or the public in general from reading private messages. This is done by encrypting the message, which consists of converting the information from a readable state to apparent nonsense. Only the intended recipient should be able to restore the information to it's original form, which is called decryption. To allow for this to work, the procedure of encryption and decryption should only be possible by the sender and the receiver respectively. Generally this procedure consists of two parts. First, there is the cypher, which is the algorithm that does the actual conversion. Second, there's the secret key, which is used by the cipher together with the input (plaintext) to create the encrypted output (ciphertext). The main advantage of this architecture is that the chosen cipher can be made public, as long as the key is kept secret. The receiver of the secret message, who is in possession of the same secret key, runs the same cipher in reverse with the secret key and the ciphertext as inputs, yielding the original plaintext.\cite{Cryptowiki}
+
+\paragraph{Symmetric vs Asymmetric}The procedure outlined above is called symmetric key cryptography since both parties are in possession of the same secret key. The disadvantage here is that these keys need to be securely exchanged beforehand (e.g. via a secure channel) to allow for secure communications. Asymmetric (or public key) cryptography offers a solution to this problem. In this case a key pair is created where each one serves a specific function. The first one is called the private key, which is meant to be kept secret at all times by the owner. The second one is called the public key, which is disseminated widely to the public. The idea is that if someone wants to send an encrypted message to the owner of the private key, he/she looks up the corresponding public key (generally found online), uses it to encrypt a message, and sends this message to the owner. Since only the owner is in possession of the corresponding private key, he/she is able to decrypt the message.
+
+\subsection{Key Exchange} The specifications of symmetric and asymmetric encryption are sound. However they both rely on both parties being in possession of the right key. In the case of asymmetric encryption this is easy: The owner generates a new public/private key pair, stores the private key in a safe location, and distributes the corresponding public key on the internet. Anyone wanting to securely communicate with the owner only has to look up the corresponding public key. This procedure does not apply to symmetric encryption however, since only the sender and receiver should be in possession of the secret key. One way of safely distributing the key is to use a secure communications channel. Examples of this are: a text message, a phone call, physically handing over the key, sending a letter, etc. It is clear however that in most situations this method simply will not do, since it requires significant effort before a secure communication session can be established. Two more realistic alternatives exist: using asymmetric keys to establish a session key and key exchange algorithms. Both will be discussed in turn next.
+
+\paragraph{Session Keys} In this solution the free distribution of public keys is leveraged to establish a new temporary shared key, also called a session key. If Alice has an asymmetric key pair already established, and Bob wishes to establish a shared secret key with Alice. Bob only has to look up Alice's public key, generate a new session key, encrypt the new session key using Bob's public key and send it to Alice. Alice can then decrypt the session key using her private key. In the end both parties are in possession of the new session key, and a secure communication can be established. Now, the reader might wonder why it is necessary to establish a session key, since secure communications could also be performed using asymmetric keys (granted they both have an asymmetric key pair)? Well, this is mainly due to performance. Asymmetric keys are significantly longer than symmetric keys, and the corresponding procedures (e.g. encryption, decryption, signing, etc.) take significantly longer to perform. Therefore, it is often beneficial to establish a session key and using these, instead of repeatedly using asymmetric keys.
+
+\paragraph{Key Exchange Algorithms} Key exchange algorithms allow two parties that have no prior knowledge of each other to establish a shared secret key over an insecure channel. The most famous example of such an algorithm is the Diffie-Hellman key exchange method (for more information on Diffie-Hellman see \cite{DiffieHellmanwiki}). These algorithms typically rely on computationally hard to solve mathematical problems such as the discrete logarithm.
+
+\subsection{Authentication} Besides protecting messages from being read by a third party, the recipient of the message might also want certainty on who sent it in the first place, as well as knowing that the message has not been tampered with. In other words the recipient wants to guarantee the integrity of the message, as well as to authenticate the sender. Fortunately asymmetric and symmetric cryptography offer solutions in the form of digital signatures and message authentication codes respectively. Before going into this however, it is necessary to first take a look at hash functions.
+
+\paragraph{Hash functions} A hash function is used to map data of arbitrary size to data of a fixed size. The values returned by a hash function are called hash values, hash codes, digests, or simply hashes\footnote{We will be using the term hash values when referring to the output of a hash function}. For a hash function to be useful in cryptography (also called a cryptographic hash function) it has to possess the following properties:
+
+\begin{itemize}
+	\item The same message always results in the same hash value.
+	\item The hash function does not take long to perform.
+	\item It is infeasible to reconstruct the original message from the hash value.
+	\item Two similar messages have widely varying hash values.
+	\item it is infeasible to find two different messages with the same hash value.
+\end{itemize}
+
+\paragraph{Digital Signatures} A digital signature is used to verify the authenticity of digital messages. The principle is simple: If Alice wants to send an authenticated message to Bob, she will first sign the message using her private key. She then sends the message, together with the generated signature to Bob. Bob can then check the authenticity of the message by verifying the signature using Alice's public key. If the verification was successful Bob can safely assume 2 things: the message was sent by Alice (since only she is in possession of the corresponding private key) and the message was not tampered with in transit (since in that case the signature would no longer match the message, resulting in a failed verification) 2 additional algorithms are required: a signing algorithm and a signature verification algorithm. Ideally the signing algorithm would produce a signature of the same size, regardless of the size of the original message. This is where cryptographic hash functions come in, since they possess this property. Generally the message will first be hashed to a fixed size, before being processed by the signing algorithm. Besides guaranteeing a fixed sized output, this also improves the overall efficiency. 
+
+\paragraph{MAC's} a message authentication code (MAC) serves the same function as a digital signature algorithm. Namely, guaranteeing the authenticity and integrity of a transmitted message. The main difference is that MAC's are based on symmetric keys rather than asymmetric keys. 
+
+
 \section{Solution}
 Quote: The OBD-II port was created to provide consumers with choice and control over their purchase. At the same time, this freedom must be balanced with thoughtful conversations on how to limit adversaries’ access to vehicle internals, Dan Klinedinst Christopher King
 
@@ -512,6 +546,15 @@ Quote: The OBD-II port was created to provide consumers with choice and control 
 	\bibitem{Bluetooth}
 	Pauric Doherty, Alan Molloy, Martin Glavin, Fearghal Morgan,
 	\textit{A Review Of Bluetooth Security In The Automotive Environment}, 2004.
+	
+	\bibitem{Cryptowiki}
+	https://en.wikipedia.org/wiki/Cryptography
+	
+	\bibitem{Hashwiki}
+	https://en.wikipedia.org/wiki/Cryptographic\textunderscore hash\textunderscore function
+	
+	\bibitem{DiffieHellmanwiki}
+	https://en.wikipedia.org/wiki/Diffie\%E2\%80\%93Hellman\textunderscore key\textunderscore exchange
 	
 	\bibitem{Protocolwiki}
 	https://en.wikipedia.org/wiki/Protocol\textunderscore stack

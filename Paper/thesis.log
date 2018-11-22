@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  21 NOV 2018 00:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  22 NOV 2018 01:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -407,55 +407,63 @@ File: images-thesis/SANCUS.png Graphic file (type png)
 <use images-thesis/SANCUS.png>
 Package pdftex.def Info: images-thesis/SANCUS.png used on input line 433.
 (pdftex.def)             Requested size: 360.0pt x 287.65674pt.
- [28 <./images-thesis/SANCUS.png>]
+ [28 <./images-thesis/SANCUS.png>] [29] [30]
+[31]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
+ [32]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 468--470
+Underfull \hbox (badness 10000) in paragraph at lines 502--504
 []\OT1/cmr/m/n/10.95 Siam Ahmed, https://www.geotab.com/blog/connected-vehicle-
 
  []
 
-[29]
-Underfull \hbox (badness 1852) in paragraph at lines 476--477
+
+Underfull \hbox (badness 1852) in paragraph at lines 510--511
 []\OT1/cmr/m/n/10.95 Aastha Ya-dav, Gau-rav Bose, Rad-hika Bhange, Karan Kapoor
 ,
  []
 
 Missing character: There is no Â in font cmr10!
 Missing character: There is no · in font cmr10!
-
-Underfull \hbox (badness 10000) in paragraph at lines 500--502
+[33]
+Underfull \hbox (badness 10000) in paragraph at lines 534--536
 []\OT1/cmr/m/n/10.95 Autotap, \OT1/cmr/m/it/10.95 OB-DII: Past, Present & Fu-tu
 re\OT1/cmr/m/n/10.95 ,
  []
 
-[30]
-Underfull \hbox (badness 7468) in paragraph at lines 532--533
+
+Overfull \hbox (4.45908pt too wide) in paragraph at lines 557--558
+[]\OT1/cmr/m/n/10.95 https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman[]key[
+]exchange 
+ []
+
+
+Underfull \hbox (badness 7468) in paragraph at lines 575--576
 []\OT1/cmr/m/n/10.95 Abdul Re-hwan An-war, \OT1/cmr/m/it/10.95 Bus ar-bi-tra-ti
 on in CAN (Con-troller
  []
 
+[34]
 Missing character: There is no â in font cmti10!
 Missing character: There is no € in font cmti10!
 Missing character: There is no “ in font cmti10!
 
-Underfull \hbox (badness 2080) in paragraph at lines 566--569
+Underfull \hbox (badness 2080) in paragraph at lines 609--612
 []\OT1/cmr/m/n/10.95 European Union Agency for Net-work and In-for-ma-tion Se-c
 u-rity
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 576--579
+Underfull \hbox (badness 10000) in paragraph at lines 619--622
 \OT1/cmr/m/n/10.95 news/92304/car-hacking-study-shows-over-100-models-at-risk, 
 \OT1/cmr/m/it/10.95 Car
  []
 
-[31]
 Missing character: There is no â in font cmti10!
 Missing character: There is no € in font cmti10!
 Missing character: There is no ” in font cmti10!
@@ -468,6 +476,7 @@ Missing character: There is no ” in font cmti10!
 Missing character: There is no â in font cmti10!
 Missing character: There is no € in font cmti10!
 Missing character: There is no ” in font cmti10!
+[35]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
@@ -476,22 +485,22 @@ Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
 Missing character: There is no Ì in font cmr10!
 Missing character: There is no ˆ in font cmr10!
- [32]
 Missing character: There is no Ì in font cmr10!
 Missing character: There is no ˆ in font cmr10!
+ [36]
 Missing character: There is no Ì in font cmr10!
 Missing character: There is no ˆ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ” in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 657--658
+Underfull \hbox (badness 10000) in paragraph at lines 700--701
 []\OT1/cmr/m/n/10.95 Julia Lay-ton, \OT1/cmr/m/it/10.95 Are RFID ig-ni-tion sys
 -tems se-cure?\OT1/cmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 657--658
+Underfull \hbox (badness 10000) in paragraph at lines 700--701
 \OT1/cmr/m/n/10.95 https://electronics.howstuffworks.com/gadgets/automotive/rfi
 d-
  []
@@ -499,7 +508,7 @@ d-
 Missing character: There is no â in font cmti10!
 Missing character: There is no € in font cmti10!
 Missing character: There is no ” in font cmti10!
-[33] (./thesis.aux)
+[37] (./thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -508,10 +517,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3078 strings out of 493014
- 43214 string characters out of 6133351
- 125886 words of memory out of 5000000
- 6581 multiletter control sequences out of 15000+600000
+ 3082 strings out of 493014
+ 43274 string characters out of 6133351
+ 126907 words of memory out of 5000000
+ 6585 multiletter control sequences out of 15000+600000
  9155 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,14n,35p,3188b,251s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -523,10 +532,10 @@ usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr
 cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local
 /texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/
 texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on thesis.pdf (33 pages, 2140545 bytes).
+Output written on thesis.pdf (37 pages, 2151170 bytes).
 PDF statistics:
- 156 PDF objects out of 1000 (max. 8388607)
- 99 compressed objects within 1 object stream
+ 172 PDF objects out of 1000 (max. 8388607)
+ 110 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
