@@ -1,0 +1,112 @@
+\documentclass[11pt]{article}
+
+\title{Contribution}
+\author{Michiel Willems}
+
+
+\begin{document}
+	
+\maketitle
+
+\section{Contribution: OBD-II Role Based Access Control}
+The lack of security of the CAN protocol combined with the access that the OBD-II DLC allows makes for a very vulnerable system that is open to many forms of attack. The impact of these attacks vary. Some of these could even be detrimental to the safety of any people inside the vehicle. If a malicious agent were to gain remote access to the vehicle system (For example via a Wifi compatible ODB-II data tool covertly inserted into the vehicle), He would be able to inject CAN frames to distract the driver (Steering changes, Turn on wipers, etc) \cite{Washington}. Other attacks could have a less safety critical impact. Examples of this type of attacks are changing emissions information (similar to the dieselgate Volkswagen schandal), Changing the odometer value (The odometer records the distance the vehicle has driven so far in it's lifetime, changing this value would increase the cars value when it's being sold), Changing recorded crash data, etc. \cite{Bayer15}\newline
+\newline
+The contribution of this thesis will be to tackle the problem of unauthorised access to the vehicle CAN network via the OBD-II Data Link Connector. Since the OBD-II protocol was designed solely for diagnostic purposes the goal will be to limit access accordingly. The system designed and implemented in this thesis is basically a role based access control protocol that limits the messaging capabilities that are obtained by interfacing with a vehicle's internal communications network.\newline
+\newline 
+As with any role based access control system every role corresponds to a given set of permissions that are granted with respect to the target system (the internal communications network of a vehicle in this instance). This thesis will put forward a list of proposed roles and corresponding permissions that are in accordance with the demands of the current automotive industry. As well as providing an example permissions-table (used in the demo) implementing the roles that are proposed in this paper (thus corresponding each role with a list of CAN messages it is allowed to broadcast to the network).  \newline
+\newline
+
+\begin{table}
+	\begin{tabular}{ | l | p{5cm} | }
+		\hline
+		Role & Permission \\ \hline
+		Car Owner & Should not really have any permission at all. \\ \hline
+		Repair shop technician & read only permission (only OBD diagnostics messages) \\ \hline
+		Policeman & Should be able to check the internal network for tampering and fraud. \\ \hline
+		Repairman at official dealership/ & Full permission \\
+		Tester at factory \\
+		\hline
+	\end{tabular}
+	\caption{roles and permissions}
+	\label{table:roles}
+\end{table}
+
+As seen in Table \ref{table:roles} these roles range from the owner of the car (with minimal permissions granted) to a technician at an official dealership (who has full control of the internal network). Each of these roles should facilitate different capabilities within the system (e.g. a technician at an official dealership should be able to update an ECU and perform various alterations, while a technician at a basic repair shop should only be able to diagnose a mechanical problem). \newline
+\newline
+This thesis will not only design this system, but will also provide a physical microcontroller implementation mimicking the functionality of the central gateway ECU inside a modern vehicle, augmented with the access control mechanism proposed in this thesis. The purpose of this demo will be:
+
+\begin{itemize}
+	\item To determine whether real world implementation of the proposed mechanism is feasible in the context of dedicated microcontrollers with limited resource availability.
+	\item To evaluate the security of the proposed mechanism.
+	\item To analyse the system in terms of performance and efficiency.
+\end{itemize}
+
+The ultimate goal of this paper is to provide a simple but sound mechanism to secure the OBD interface in any modern vehicle. It should be simple enough as to enable it to be implemented in nearly any modern car that enforces the OBD standard, as well as being secure enough to provide protection against any form of unauthorised access.
+
+
+
+
+\begin{thebibliography}{10}
+	
+	\bibitem{Pike15}
+	Lee Pike, Jamey Sharp, Mark Tullsen, Patrick C. Hickey and James Bielman, \textit{Securing the automobile: A comprehensive approach}, 2015.
+	
+	\bibitem{Klinedinst05}
+	Dan Klinedinst, Christopher King, 
+	\textit{On Board Diagnostics: Risks and Vulnerabilities of the Connected Vehicle}, 2016.
+	
+	\bibitem{Kleberger15}
+	Pierre Kleberger, \textit{On Securing the Connected Car},
+	2015.
+	
+	\bibitem{Russel17}
+	Brian Russell, Aaron Guzman, Paul Lanois, Drew Van Duren,
+	\textit{Observations and Recommendations on Connected Vehicle Security},
+	Cloud Security Alliance Internet of Things Working group, 2017.
+	
+	\bibitem{MillerA}
+	Charlie Miller, Chris Valasek,
+	\textit{A Survey of Remote Automotive Attack Surfaces}, 2015.
+	
+	\bibitem{Yadav16}
+	Aastha Yadav, Gaurav Bose, Radhika Bhange, Karan Kapoor, N.Ch.S.N Iyengar, Ronnie D. Caytiles, \textit{Security, Vulnerability and Protection of Vehicular On-board Diagnostics}, 2016.
+	
+	\bibitem{ODBwiki}
+	https://en.wikipedia.org/wiki/On-board\textunderscore diagnostics.
+	
+	\bibitem{PIDwiki}
+	https://en.wikipedia.org/wiki/OBD-II\textunderscore PIDs.
+	
+	\bibitem{CANwiki}
+	https://en.wikipedia.org/wiki/CAN\textunderscore bus.
+	
+	\bibitem{MillerB}
+	Charlie Miller, Chris Valasek,
+	\textit{CAN Message Injection},
+	OG Dynamite Edition
+	, 2016.
+	
+	\bibitem{MillerC}
+	Charlie Miller, Chris Valasek,
+	/textit{Adventures in Automotive Networks and Control Units}.
+	
+	\bibitem{Washington}
+	Stephen Checkoway, Damon McCoy, Brian Kantor, Danny Anderson, Hovav Shacham, and Stefan Savage University of California, San Diego
+	Karl Koscher, Alexei Czeskis, Franziska Roesner, and Tadayoshi Kohno,
+	University of Washington
+	\textit{Comprehensive Experimental Analyses of Automotive Attack Surfaces}.
+	
+	\bibitem{Bayer15}
+	Stephanie Bayer, Thomas Enderle, Dennis Kengo Oka , Marko Wolf.
+	\textit{Security Crash Test – Practical Security Evaluations of Automotive Onboard IT Components}, 2015.
+	
+	\bibitem{Enisa}
+	European Union Agency for Network and Information Security (ENISA),
+	\textit{Cyber Security and Resilience of smart cars},
+	2016.
+
+	
+\end{thebibliography}
+
+\end{document}
+

@@ -1,0 +1,138 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{fixltx2e}
+\graphicspath{ {images/} }
+
+
+\title{Literary Review}
+\author{Michiel Willems}
+
+
+\begin{document}
+	
+\section{Title Page (1p)}
+\begin{itemize}
+	\item Title: Security in automobiles: OBD-II Access Control.
+\end{itemize}
+
+\section{Abstract (1/2p)}
+
+\section{Introduction (3-5 pages)}
+\begin{itemize}
+	\item \textbf{Problem Statement + Motivation}: briefly explain (through examples) the vulnerability of the current modern automobile (attack vectors).
+	\item \textbf{Challenges}: basically sufficiently secure + fast.
+	\item \textbf{Context}: How does my solution fit into other existing security solutions (e.g. Authentication of nodes, secure key storage, etc).
+	\item \textbf{Proposed contribution}: Secure OBD-II authentication.
+	\item \textbf{Outline} (basically this text).
+\end{itemize}
+
+\section{Literature Review(17-22p)}
+
+\subsection{Vehicle network Infrastructure (2p)}
+\begin{itemize}
+	\item ECU's.
+	\item Communication protocols (can etc).
+	\item Gateway.
+\end{itemize}
+
+\subsection{OBDII protocol (2-3p)}
+\begin{itemize}
+	\item The goal of OBDII.
+	\item brief history.
+	\item DLC.
+	\item PID's.
+	\item Scan Tools
+	\item Signalling protocols (can etc).
+\end{itemize}
+
+\subsection{CAN Protocol (2-3p)}
+\begin{itemize}
+	\item brief history.
+	\item Architecture.
+	\item CAN frames.
+	\item CAN priorities.
+	\item CAN security vulnerabilities.
+\end{itemize}
+
+\subsection{OBDII Security Threats (4-5p)}
+\begin{itemize}
+	\item Architectural shortcomings.
+	\item examples of potential attacks.
+	\item examples of impact of attacks.
+	\item e.g. charlie miller and chris valasek.
+\end{itemize}
+
+\subsection{Related Work (8-10p)}
+\begin{itemize}
+	\item Survey of potential attack vectors.
+	\item other proposed OBD security measure (e.g Seed-key).
+	\item Internal vehicle security (e.g. Leia, VatiCAN, VulCAN, CANcrypt).
+	\item External vehicle security (e.g. DoIp, UDS, Connected Repair shop, etc).
+	\item Automobile security requirements/assurance levels: Autosar, ASIL, ASEAL, ENISA. 
+\end{itemize}
+
+\subsection{Conclusion (1p)}
+\begin{itemize}
+	\item propose that is is proven that proposed OBD access control solution is a solid addition to the existing automotive security landscape.
+\end{itemize}
+
+\section{Preliminaries}
+\subsection{Hardware requirements/limitations (2-4p)}
+\begin{itemize}
+	\item Typical ECU hardware (e.g 8/16 bit microcontroller).
+\end{itemize}
+
+\subsection{Security Primitives (5-6p)}
+\begin{itemize}
+	\item ECC/ECDSA/ECSS
+	\item Hashing (sha)
+	\item Hmac-Sha 
+	\item Secure API for key operations (SGX enclave?)
+\end{itemize}
+
+\section{Solution}
+\subsection{Role based Access Control (8-10p)}
+\begin{itemize}
+	\item types of roles: repairman, dealer, police, etc.
+	\item allocation of public keys to roles.
+	\item Authentication algorithm (both scenarios).
+	\item Key distribution and access.
+\end{itemize}
+
+\section{Implementation (8-10p)}
+\begin{itemize}
+	\item Hardware overview (AT90CAN boards with CAN controller).
+	\item Implementation assumptions: RNG, OBD-Messages, other Gateway functionality, etc. 
+	\item implementation specifics (permission table, private key API, etc).
+	\item Demo results (pictures).
+	\item used libraries: AVR-crypto, tinyECC, SANCUS.
+\end{itemize}
+
+\section{Evaluation (5p)}
+\subsection{Security Evaluation}
+\begin{itemize}
+	\item cryptographic strength: ECC, Shared secret, Hmac.
+	\item security against potential attacks: MiM, Side-channel, bruto force, etc.
+	\item importance of secure private key storage.
+\end{itemize}
+
+\subsection{Performance Evalution}
+
+\section{Future Work (3-4p)}
+\begin{itemize}
+	\item study on which/how many roles are required.
+	\item Private Key infrastructure.
+	\item Raising Automotive industry awareness.
+\end{itemize}
+
+\section{Conclusion (1-2 p)}
+
+\section{References}.
+
+
+
+
+
+
+\end{document}
+

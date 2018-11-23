@@ -1,66 +1,72 @@
 \contentsline {section}{\numberline {1}Acronyms and abbreviations}{1}
-\contentsline {section}{\numberline {2}Introduction}{2}
-\contentsline {paragraph}{Motivation}{2}
+\contentsline {section}{\numberline {2}Introduction}{3}
+\contentsline {paragraph}{Motivation}{3}
 \contentsline {paragraph}{Challenges}{4}
 \contentsline {paragraph}{Context}{4}
 \contentsline {paragraph}{Contributions}{5}
-\contentsline {section}{\numberline {3}Literature Review}{5}
-\contentsline {subsection}{\numberline {3.1}Vehicle Network Infrastructure}{5}
+\contentsline {section}{\numberline {3}Literature Review}{6}
+\contentsline {subsection}{\numberline {3.1}Vehicle Network Infrastructure}{6}
 \contentsline {subsection}{\numberline {3.2}OBD-II}{7}
 \contentsline {paragraph}{Goal}{7}
 \contentsline {paragraph}{Brief History}{8}
 \contentsline {paragraph}{DLC}{9}
-\contentsline {paragraph}{PID's}{9}
-\contentsline {subsection}{\numberline {3.3}CAN}{10}
+\contentsline {paragraph}{PID's}{10}
+\contentsline {subsection}{\numberline {3.3}CAN}{11}
 \contentsline {paragraph}{Brief History}{11}
-\contentsline {paragraph}{Architecture}{11}
+\contentsline {paragraph}{Architecture}{12}
 \contentsline {paragraph}{CAN Frames}{12}
 \contentsline {paragraph}{Data Transmission}{13}
-\contentsline {paragraph}{Bit wise message arbitration}{13}
+\contentsline {paragraph}{Bit wise message arbitration}{14}
 \contentsline {paragraph}{Layering}{14}
 \contentsline {subsection}{\numberline {3.4}OBD-II Security Issues}{14}
 \contentsline {subsection}{\numberline {3.5}CAN security challenges}{15}
 \contentsline {subsection}{\numberline {3.6}OBD-II security challenges}{16}
 \contentsline {subsection}{\numberline {3.7}Attacker model}{16}
 \contentsline {subsection}{\numberline {3.8}Example attacks}{17}
-\contentsline {paragraph}{Speedometer}{18}
-\contentsline {paragraph}{Denial of Service}{18}
+\contentsline {paragraph}{Speedometer}{19}
+\contentsline {paragraph}{Denial of Service}{19}
 \contentsline {paragraph}{Diagnostic session}{19}
 \contentsline {paragraph}{Impact}{20}
-\contentsline {section}{\numberline {4}Related work}{20}
-\contentsline {paragraph}{Introduction}{20}
+\contentsline {section}{\numberline {4}Related work}{21}
+\contentsline {paragraph}{Introduction}{21}
 \contentsline {subsection}{\numberline {4.1}OBD-II Access Control}{21}
 \contentsline {paragraph}{Seed key algorithm}{21}
-\contentsline {paragraph}{Two-Way authentication method}{21}
-\contentsline {paragraph}{Timer Method}{21}
+\contentsline {paragraph}{Two-Way authentication method}{22}
+\contentsline {paragraph}{Timer Method}{22}
 \contentsline {paragraph}{Discussion}{22}
 \contentsline {subsection}{\numberline {4.2}Other attack vectors}{22}
-\contentsline {subsubsection}{\numberline {4.2.1}Indirect physical access}{22}
-\contentsline {paragraph}{Entertainment: Disk, USB and IPod}{22}
+\contentsline {subsubsection}{\numberline {4.2.1}Indirect physical access}{23}
+\contentsline {paragraph}{Entertainment: Disk, USB and IPod}{23}
 \contentsline {subsubsection}{\numberline {4.2.2}Short-range wireless access}{23}
 \contentsline {paragraph}{Remote Keyless Entry}{23}
 \contentsline {paragraph}{RFID car keys}{23}
 \contentsline {paragraph}{TPMS}{23}
-\contentsline {paragraph}{V2V, V2I and V2N}{23}
+\contentsline {paragraph}{V2V, V2I and V2N}{24}
 \contentsline {subsubsection}{\numberline {4.2.3}Long-range wireless access}{24}
 \contentsline {paragraph}{GPS}{24}
 \contentsline {paragraph}{Radio}{24}
-\contentsline {paragraph}{Vehicle Telematics}{24}
+\contentsline {paragraph}{Vehicle Telematics}{25}
 \contentsline {subsubsection}{\numberline {4.2.4}Future Systems}{25}
 \contentsline {paragraph}{ITS}{25}
-\contentsline {subsection}{\numberline {4.3}Internal Vehicle Security}{26}
+\contentsline {subsection}{\numberline {4.3}Internal Vehicle Security}{27}
 \contentsline {subsubsection}{\numberline {4.3.1}VulCAN}{27}
 \contentsline {subsubsection}{\numberline {4.3.2}CANCrypt}{28}
-\contentsline {subsubsection}{\numberline {4.3.3}VatiCAN}{29}
+\contentsline {subsubsection}{\numberline {4.3.3}VatiCAN}{28}
 \contentsline {section}{\numberline {5}Preliminaries}{29}
-\contentsline {subsection}{\numberline {5.1}Public Key Cryptography}{29}
-\contentsline {paragraph}{Cryptography}{29}
+\contentsline {subsection}{\numberline {5.1}Public Key Cryptography}{30}
+\contentsline {paragraph}{Cryptography}{30}
 \contentsline {paragraph}{Symmetric vs Asymmetric}{30}
-\contentsline {subsection}{\numberline {5.2}Key Exchange}{30}
+\contentsline {subsection}{\numberline {5.2}Key Exchange}{31}
 \contentsline {paragraph}{Session Keys}{31}
 \contentsline {paragraph}{Key Exchange Algorithms}{31}
-\contentsline {subsection}{\numberline {5.3}Authentication}{31}
+\contentsline {subsection}{\numberline {5.3}Authentication}{32}
 \contentsline {paragraph}{Hash functions}{32}
 \contentsline {paragraph}{Digital Signatures}{32}
-\contentsline {paragraph}{MAC's}{32}
-\contentsline {section}{\numberline {6}Solution}{33}
+\contentsline {paragraph}{MAC's}{33}
+\contentsline {subsection}{\numberline {5.4}Chosen Security Systems}{33}
+\contentsline {subsubsection}{\numberline {5.4.1}Elliptic Curve Cryptography}{33}
+\contentsline {paragraph}{ECC}{34}
+\contentsline {paragraph}{ECDH}{34}
+\contentsline {subsection}{\numberline {5.5}Sha}{35}
+\contentsline {subsection}{\numberline {5.6}HMAC}{36}
+\contentsline {section}{\numberline {6}Solution}{36}
