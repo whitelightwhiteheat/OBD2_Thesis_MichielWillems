@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  23 NOV 2018 01:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  27 NOV 2018 01:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -218,9 +218,24 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
+(/usr/local/texlive/2016/texmf-dist/tex/latex/footmisc/footmisc.sty
+Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
+\FN@temptoken=\toks23
+\footnotemargin=\dimen125
+\c@pp@next@reset=\count112
+Package footmisc Info: Declaring symbol style bringhurst on input line 855.
+Package footmisc Info: Declaring symbol style chicago on input line 863.
+Package footmisc Info: Declaring symbol style wiley on input line 872.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 883.
+
+Package footmisc Info: Declaring symbol style lamport* on input line 903.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
+.
+)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
- (./thesis.aux
+
+(./thesis.aux
 
 LaTeX Warning: Label `Leia' multiply defined.
 
@@ -230,31 +245,31 @@ LaTeX Warning: Label `VatiCAN' multiply defined.
 )
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
  (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count112
-\scratchdimen=\dimen125
+\scratchcounter=\count113
+\scratchdimen=\dimen126
 \scratchbox=\box28
-\nofMPsegments=\count113
-\nofMParguments=\count114
-\everyMPshowfont=\toks23
-\MPscratchCnt=\count115
-\MPscratchDim=\dimen126
-\MPnumerator=\count116
-\makeMPintoPDFobject=\count117
-\everyMPtoPDFconversion=\toks24
+\nofMPsegments=\count114
+\nofMParguments=\count115
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count116
+\MPscratchDim=\dimen127
+\MPnumerator=\count117
+\makeMPintoPDFobject=\count118
+\everyMPtoPDFconversion=\toks25
 ) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -305,7 +320,10 @@ e
 [1
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./thesis.toc)
+Overfull \vbox (22.7429pt too high) has occurred while \output is active []
+
+
+[2] (./thesis.toc [3])
 \tf@toc=\write3
 \openout3 = `thesis.toc'.
 
@@ -314,22 +332,22 @@ Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
 
 
-LaTeX Warning: Citation `Checkoway' on page 2 undefined on input line 64.
+LaTeX Warning: Citation `Checkoway' on page 4 undefined on input line 76.
 
-[2] [3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 70.
+[4]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 82.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 70.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 82.
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--79
+Underfull \hbox (badness 10000) in paragraph at lines 88--91
 
  []
 
-[4]
-Overfull \hbox (4.6963pt too wide) in paragraph at lines 86--87
+[5]
+Overfull \hbox (4.6963pt too wide) in paragraph at lines 98--99
 \OT1/cmr/m/n/10.95 through a proper im-ple-men-ta-tion on CAN-enabled resource-
 constrained
  []
@@ -337,41 +355,41 @@ constrained
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no Ÿ in font cmr10!
-[5] <images-thesis/gateway.png, id=22, 493.845pt x 203.76125pt>
+[6] <images-thesis/gateway.png, id=25, 493.845pt x 203.76125pt>
 File: images-thesis/gateway.png Graphic file (type png)
 
 <use images-thesis/gateway.png>
-Package pdftex.def Info: images-thesis/gateway.png used on input line 108.
+Package pdftex.def Info: images-thesis/gateway.png used on input line 120.
 (pdftex.def)             Requested size: 360.0pt x 148.53615pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 124--126
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 136--138
 
  []
 
-[7 <./images-thesis/gateway.png (PNG copy)>] [8]
-<images-thesis/typeA.png, id=33, 218.8175pt x 87.32625pt>
+[8 <./images-thesis/gateway.png (PNG copy)>] [9]
+<images-thesis/typeA.png, id=36, 218.8175pt x 87.32625pt>
 File: images-thesis/typeA.png Graphic file (type png)
 
 <use images-thesis/typeA.png>
-Package pdftex.def Info: images-thesis/typeA.png used on input line 148.
+Package pdftex.def Info: images-thesis/typeA.png used on input line 160.
 (pdftex.def)             Requested size: 218.81696pt x 87.32603pt.
 
-<images-thesis/typeB.png, id=35, 218.8175pt x 87.32625pt>
+<images-thesis/typeB.png, id=38, 218.8175pt x 87.32625pt>
 File: images-thesis/typeB.png Graphic file (type png)
 
 <use images-thesis/typeB.png>
-Package pdftex.def Info: images-thesis/typeB.png used on input line 155.
+Package pdftex.def Info: images-thesis/typeB.png used on input line 167.
 (pdftex.def)             Requested size: 218.81696pt x 87.32603pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--164
+Underfull \hbox (badness 10000) in paragraph at lines 173--176
 
  []
 
-[9 <./images-thesis/typeA.png> <./images-thesis/typeB.png>]
+[10 <./images-thesis/typeA.png> <./images-thesis/typeB.png>]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no œ in font cmr10!
@@ -383,82 +401,82 @@ Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
 
 
-LaTeX Warning: Citation `Checkoway' on page 10 undefined on input line 169.
+LaTeX Warning: Citation `Checkoway' on page 11 undefined on input line 181.
 
 
-Underfull \hbox (badness 7722) in paragraph at lines 169--169
-[][]\OT1/cmr/m/n/9 For more in-for-ma-tion on SAE J2534, see the full API ref-e
-r-ence at:
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
+[][][]\OT1/cmr/m/n/9 For more in-for-ma-tion on SAE J2534, see the full API ref
+-er-ence at:
  []
 
 
-LaTeX Warning: Citation `Checkoway' on page 10 undefined on input line 174.
+LaTeX Warning: Citation `Checkoway' on page 11 undefined on input line 186.
 
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
-[10]
+[11]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
- [11] [12]
+ [12] [13]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 221.
+               Default added (so using `tbp') on input line 233.
 
 
-Overfull \hbox (81.56416pt too wide) in paragraph at lines 222--239
+Overfull \hbox (81.56416pt too wide) in paragraph at lines 234--251
 [][] 
  []
 
 
-Overfull \hbox (0.68384pt too wide) in paragraph at lines 247--248
+Overfull \hbox (0.68384pt too wide) in paragraph at lines 259--260
  \OT1/cmr/bx/n/10.95 Data Trans-mis-sion[] \OT1/cmr/m/n/10.95 The op-er-a-tion 
 of the CAN pro-to-col is pretty straight-
  []
 
-[13]
+[14]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
- [14]
+ [15]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
- [15] [16] [17]
-<images-thesis/ExploitSetup.png, id=69, 727.71875pt x 544.0325pt>
+ [16] [17] [18]
+<images-thesis/ExploitSetup.png, id=72, 727.71875pt x 544.0325pt>
 File: images-thesis/ExploitSetup.png Graphic file (type png)
 
 <use images-thesis/ExploitSetup.png>
-Package pdftex.def Info: images-thesis/ExploitSetup.png used on input line 324.
+Package pdftex.def Info: images-thesis/ExploitSetup.png used on input line 336.
 
 (pdftex.def)             Requested size: 360.0pt x 269.13504pt.
- [18 <./images-thesis/ExploitSetup.png>]
-<images-thesis/speedometer.png, id=74, 644.4075pt x 359.3425pt>
+ [19 <./images-thesis/ExploitSetup.png>]
+<images-thesis/speedometer.png, id=78, 644.4075pt x 359.3425pt>
 File: images-thesis/speedometer.png Graphic file (type png)
 
 <use images-thesis/speedometer.png>
-Package pdftex.def Info: images-thesis/speedometer.png used on input line 333.
+Package pdftex.def Info: images-thesis/speedometer.png used on input line 345.
 (pdftex.def)             Requested size: 360.0pt x 200.75339pt.
 
-<images-thesis/DoS.png, id=75, 708.6475pt x 400.49625pt>
+<images-thesis/DoS.png, id=79, 708.6475pt x 400.49625pt>
 File: images-thesis/DoS.png Graphic file (type png)
 
 <use images-thesis/DoS.png>
-Package pdftex.def Info: images-thesis/DoS.png used on input line 342.
+Package pdftex.def Info: images-thesis/DoS.png used on input line 354.
 (pdftex.def)             Requested size: 360.0pt x 203.45595pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[19 <./images-thesis/speedometer.png>] [20 <./images-thesis/DoS.png>] [21]
-[22]
-Overfull \hbox (15.37256pt too wide) in paragraph at lines 385--386
+[20 <./images-thesis/speedometer.png>] [21 <./images-thesis/DoS.png>] [22]
+[23]
+Overfull \hbox (15.37256pt too wide) in paragraph at lines 395--396
 \OT1/cmr/m/n/10.95 doors, ac-ti-vate alarms, flash lights and, in some cases, e
 ven start the ignition[[]].
  []
 
-[23] [24]
+[24] [25]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
@@ -471,84 +489,82 @@ Missing character: There is no ™ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
- [25] [26]
+ [26] [27] [28]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
- [27]
-<images-thesis/SANCUS.png, id=107, 419.5675pt x 335.2525pt>
+
+<images-thesis/SANCUS.png, id=110, 419.5675pt x 335.2525pt>
 File: images-thesis/SANCUS.png Graphic file (type png)
 
 <use images-thesis/SANCUS.png>
-Package pdftex.def Info: images-thesis/SANCUS.png used on input line 440.
+Package pdftex.def Info: images-thesis/SANCUS.png used on input line 452.
 (pdftex.def)             Requested size: 360.0pt x 287.65674pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[28] [29 <./images-thesis/SANCUS.png>] [30] [31] [32] [33]
-<images-thesis/ECC.png, id=129, 584.1825pt x 359.3425pt>
+[29] [30 <./images-thesis/SANCUS.png>] [31] [32] [33] [34] [35] [36] [37]
+<images-thesis/ECC.png, id=142, 584.1825pt x 359.3425pt>
 File: images-thesis/ECC.png Graphic file (type png)
 
 <use images-thesis/ECC.png>
-Package pdftex.def Info: images-thesis/ECC.png used on input line 492.
+Package pdftex.def Info: images-thesis/ECC.png used on input line 536.
 (pdftex.def)             Requested size: 360.0pt x 221.45216pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[34] [35 <./images-thesis/ECC.png>]
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no ™ in font cmr10!
- [36]
+ [38 <./images-thesis/ECC.png>] [39] [40] [41]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 546--548
+Underfull \hbox (badness 10000) in paragraph at lines 596--598
 []\OT1/cmr/m/n/10.95 Siam Ahmed, https://www.geotab.com/blog/connected-vehicle-
 
  []
 
 
-Underfull \hbox (badness 1852) in paragraph at lines 554--555
+Underfull \hbox (badness 1852) in paragraph at lines 604--605
 []\OT1/cmr/m/n/10.95 Aastha Ya-dav, Gau-rav Bose, Rad-hika Bhange, Karan Kapoor
 ,
  []
 
+[42]
 Missing character: There is no Â in font cmr10!
 Missing character: There is no · in font cmr10!
-[37]
-Underfull \hbox (badness 10000) in paragraph at lines 578--580
+
+Underfull \hbox (badness 10000) in paragraph at lines 628--630
 []\OT1/cmr/m/n/10.95 Autotap, \OT1/cmr/m/it/10.95 OB-DII: Past, Present & Fu-tu
 re\OT1/cmr/m/n/10.95 ,
  []
 
 
-Overfull \hbox (4.45908pt too wide) in paragraph at lines 613--614
+Underfull \hbox (badness 10000) in paragraph at lines 635--636
+[]\OT1/cmr/m/n/10.95 https://www.elprocus.com/different-microcontrollers-used-i
+n-
+ []
+
+[43]
+Overfull \hbox (4.45908pt too wide) in paragraph at lines 666--667
 []\OT1/cmr/m/n/10.95 https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman[]key[
 ]exchange 
  []
 
 
-Underfull \hbox (badness 7468) in paragraph at lines 631--632
+Underfull \hbox (badness 7468) in paragraph at lines 684--685
 []\OT1/cmr/m/n/10.95 Abdul Re-hwan An-war, \OT1/cmr/m/it/10.95 Bus ar-bi-tra-ti
 on in CAN (Con-troller
  []
 
-[38]
 Missing character: There is no â in font cmti10!
 Missing character: There is no € in font cmti10!
 Missing character: There is no “ in font cmti10!
-
-Underfull \hbox (badness 2080) in paragraph at lines 668--671
+[44]
+Underfull \hbox (badness 2080) in paragraph at lines 724--727
 []\OT1/cmr/m/n/10.95 European Union Agency for Net-work and In-for-ma-tion Se-c
 u-rity
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 678--681
+Underfull \hbox (badness 10000) in paragraph at lines 734--737
 \OT1/cmr/m/n/10.95 news/92304/car-hacking-study-shows-over-100-models-at-risk, 
 \OT1/cmr/m/it/10.95 Car
  []
@@ -565,7 +581,16 @@ Missing character: There is no ” in font cmti10!
 Missing character: There is no â in font cmti10!
 Missing character: There is no € in font cmti10!
 Missing character: There is no ” in font cmti10!
-[39]
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+[45]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
@@ -576,20 +601,19 @@ Missing character: There is no Ì in font cmr10!
 Missing character: There is no ˆ in font cmr10!
 Missing character: There is no Ì in font cmr10!
 Missing character: There is no ˆ in font cmr10!
- [40]
 Missing character: There is no Ì in font cmr10!
 Missing character: There is no ˆ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ” in font cmr10!
-
-Underfull \hbox (badness 10000) in paragraph at lines 759--760
+ [46]
+Underfull \hbox (badness 10000) in paragraph at lines 826--827
 []\OT1/cmr/m/n/10.95 Julia Lay-ton, \OT1/cmr/m/it/10.95 Are RFID ig-ni-tion sys
 -tems se-cure?\OT1/cmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 759--760
+Underfull \hbox (badness 10000) in paragraph at lines 826--827
 \OT1/cmr/m/n/10.95 https://electronics.howstuffworks.com/gadgets/automotive/rfi
 d-
  []
@@ -597,7 +621,7 @@ d-
 Missing character: There is no â in font cmti10!
 Missing character: There is no € in font cmti10!
 Missing character: There is no ” in font cmti10!
-[41] (./thesis.aux)
+[47] (./thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -606,13 +630,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4241 strings out of 493014
- 59818 string characters out of 6133351
- 149226 words of memory out of 5000000
- 7714 multiletter control sequences out of 15000+600000
+ 4350 strings out of 493014
+ 61515 string characters out of 6133351
+ 147931 words of memory out of 5000000
+ 7819 multiletter control sequences out of 15000+600000
  10508 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,14n,35p,3188b,266s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,14n,35p,3188b,290s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
@@ -623,10 +647,10 @@ cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local
 /texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/te
 xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on thesis.pdf (41 pages, 2213989 bytes).
+Output written on thesis.pdf (47 pages, 2227340 bytes).
 PDF statistics:
- 194 PDF objects out of 1000 (max. 8388607)
- 124 compressed objects within 2 object streams
+ 213 PDF objects out of 1000 (max. 8388607)
+ 137 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
