@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  27 NOV 2018 01:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  28 NOV 2018 03:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -232,6 +232,611 @@ Package footmisc Info: Declaring symbol style lamport* on input line 903.
 Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
 .
 )
+(/usr/local/texlive/2016/texmf-dist/tex/latex/cryptocode/cryptocode.sty
+Package: cryptocode 2015/04/22 v0.1 Cryptocode LaTeX package for writing pseudo
+code in cryptographic settings
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+x
+\pgfutil@everybye=\toks24
+\pgfutil@tempdima=\dimen126
+\pgfutil@tempdimb=\dimen127
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-li
+sts.tex))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box28
+(/usr/local/texlive/2016/texmf-dist/tex/latex/ms/everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
+))
+Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks25
+\pgfkeys@temptoks=\toks26
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.c
+ode.tex
+\pgfkeys@tmptoks=\toks27
+))
+\pgf@x=\dimen128
+\pgf@y=\dimen129
+\pgf@xa=\dimen130
+\pgf@ya=\dimen131
+\pgf@xb=\dimen132
+\pgf@yb=\dimen133
+\pgf@xc=\dimen134
+\pgf@yc=\dimen135
+\w@pgf@writea=\write3
+\r@pgf@reada=\read1
+\c@pgf@counta=\count113
+\c@pgf@countb=\count114
+\c@pgf@countc=\count115
+\c@pgf@countd=\count116
+\t@pgf@toka=\toks28
+\t@pgf@tokb=\toks29
+\t@pgf@tokc=\toks30
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.d
+ef
+File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-p
+df.def
+File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
+)))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
+code.tex
+File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
+\pgfsyssoftpath@smallbuffer@items=\count117
+\pgfsyssoftpath@bigbuffer@items=\count118
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
+code.tex
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen136
+\pgfmath@count=\count119
+\pgfmath@box=\box29
+\pgfmath@toks=\toks31
+\pgfmath@stack@operand=\toks32
+\pgfmath@stack@operation=\toks33
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
+tex
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic
+.code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigo
+nometric.code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.rando
+m.code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.compa
+rison.code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.
+code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round
+.code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.
+code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
+erarithmetics.code.tex)))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count120
+))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
+de.tex
+File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
+\pgf@picminx=\dimen137
+\pgf@picmaxx=\dimen138
+\pgf@picminy=\dimen139
+\pgf@picmaxy=\dimen140
+\pgf@pathminx=\dimen141
+\pgf@pathmaxx=\dimen142
+\pgf@pathminy=\dimen143
+\pgf@pathmaxy=\dimen144
+\pgf@xx=\dimen145
+\pgf@xy=\dimen146
+\pgf@yx=\dimen147
+\pgf@yy=\dimen148
+\pgf@zx=\dimen149
+\pgf@zy=\dimen150
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
+ruct.code.tex
+File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
+\pgf@path@lastx=\dimen151
+\pgf@path@lasty=\dimen152
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
+.code.tex
+File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
+\pgf@shorten@end@additional=\dimen153
+\pgf@shorten@start@additional=\dimen154
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
+de.tex
+File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
+\pgfpic=\box30
+\pgf@hbox=\box31
+\pgf@layerbox@main=\box32
+\pgf@picture@serial@count=\count121
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
+ate.code.tex
+File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
+\pgflinewidth=\dimen155
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
+ations.code.tex
+File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
+\pgf@pt@x=\dimen156
+\pgf@pt@y=\dimen157
+\pgf@pt@temp=\dimen158
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
+e.tex
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.c
+ode.tex
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathproce
+ssing.code.tex
+File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
+de.tex
+File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
+\pgfarrowsep=\dimen159
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
+e.tex
+File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
+\pgf@max=\dimen160
+\pgf@sys@shading@range@num=\count122
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
+e.tex
+File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.
+code.tex
+File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
+\pgfexternal@startupbox=\box33
+))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
+de.tex
+File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretranspare
+ncy.code.tex
+File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.
+code.tex
+File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
+)))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
+e.tex
+File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
+\pgfnodeparttextbox=\box34
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
+tex
+File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-0-65.sty
+Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen161
+\pgf@nodesepend=\dimen162
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-1-18.sty
+Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen163
+\pgffor@skip=\dimen164
+\pgffor@stack=\toks34
+\pgffor@toks=\toks35
+))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
+e.tex
+Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
+dlers.code.tex
+File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
+\pgf@plot@mark@count=\count123
+\pgfplotmarksize=\dimen165
+)
+\tikz@lastx=\dimen166
+\tikz@lasty=\dimen167
+\tikz@lastxsaved=\dimen168
+\tikz@lastysaved=\dimen169
+\tikzleveldistance=\dimen170
+\tikzsiblingdistance=\dimen171
+\tikz@figbox=\box35
+\tikz@figbox@bg=\box36
+\tikz@tempbox=\box37
+\tikz@tempbox@bg=\box38
+\tikztreelevel=\count124
+\tikznumberofchildren=\count125
+\tikznumberofcurrentchild=\count126
+\tikz@fig@count=\count127
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
+e.tex
+File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
+\pgfmatrixcurrentrow=\count128
+\pgfmatrixcurrentcolumn=\count129
+\pgf@matrix@numberofcolumns=\count130
+)
+\tikz@expandcount=\count131
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
+)))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.1a (rcs-revision 1.9)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/xargs/xargs.sty
+Package: xargs 2008/03/22 v1.1  extended macro definitions  (mpg)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2016/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks36
+\XKV@tempa@toks=\toks37
+)
+\XKV@depth=\count132
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+\xargs@max=\count133
+\xargs@toksa=\toks38
+\xargs@toksb=\toks39
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/forloop/forloop.sty
+Package: forloop 2006/09/18 v3.0 For Loops for LaTeX
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/local/texlive/2016/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2016/05/18 v6512 L3 programming layer (loader) 
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/l3kernel/expl3-code.tex
+Package: expl3 2016/05/18 v6512 L3 programming layer (code)
+L3 Module: l3bootstrap 2016/02/12 v6412 L3 Bootstrap code
+L3 Module: l3names 2016/03/11 v6433 L3 Namespace for primitives
+L3 Module: l3basics 2015/11/22 v6315 L3 Basic definitions
+L3 Module: l3expan 2015/09/10 v5983 L3 Argument expansion
+L3 Module: l3tl 2016/03/26 v6465 L3 Token lists
+L3 Module: l3str 2016/03/24 v6441 L3 Strings
+L3 Module: l3seq 2015/08/05 v5777 L3 Sequences and stacks
+L3 Module: l3int 2016/03/24 v6441 L3 Integers
+\c_max_int=\count134
+\l_tmpa_int=\count135
+\l_tmpb_int=\count136
+\g_tmpa_int=\count137
+\g_tmpb_int=\count138
+L3 Module: l3quark 2015/08/17 v5855 L3 Quarks
+L3 Module: l3prg 2015/11/01 v6216 L3 Control structures
+\g__prg_map_int=\count139
+L3 Module: l3clist 2015/09/02 v5901 L3 Comma separated lists
+L3 Module: l3token 2016/04/03 v6470 L3 Experimental token manipulation
+L3 Module: l3prop 2016/01/05 v6366 L3 Property lists
+L3 Module: l3msg 2016/03/26 v6464 L3 Messages
+L3 Module: l3file 2016/03/25 v6458 L3 File and I/O operations
+\l_iow_line_count_int=\count140
+\l__iow_target_count_int=\count141
+\l__iow_current_line_int=\count142
+\l__iow_current_word_int=\count143
+\l__iow_current_indentation_int=\count144
+L3 Module: l3skip 2016/01/05 v6366 L3 Dimensions and skips
+\c_zero_dim=\dimen172
+\c_max_dim=\dimen173
+\l_tmpa_dim=\dimen174
+\l_tmpb_dim=\dimen175
+\g_tmpa_dim=\dimen176
+\g_tmpb_dim=\dimen177
+\c_zero_skip=\skip57
+\c_max_skip=\skip58
+\l_tmpa_skip=\skip59
+\l_tmpb_skip=\skip60
+\g_tmpa_skip=\skip61
+\g_tmpb_skip=\skip62
+\c_zero_muskip=\muskip11
+\c_max_muskip=\muskip12
+\l_tmpa_muskip=\muskip13
+\l_tmpb_muskip=\muskip14
+\g_tmpa_muskip=\muskip15
+\g_tmpb_muskip=\muskip16
+L3 Module: l3keys 2015/11/17 v6284 L3 Key-value interfaces
+\g__keyval_level_int=\count145
+\l_keys_choice_int=\count146
+L3 Module: l3fp 2016/03/26 v6465 L3 Floating points
+\c__fp_leading_shift_int=\count147
+\c__fp_middle_shift_int=\count148
+\c__fp_trailing_shift_int=\count149
+\c__fp_big_leading_shift_int=\count150
+\c__fp_big_middle_shift_int=\count151
+\c__fp_big_trailing_shift_int=\count152
+\c__fp_Bigg_leading_shift_int=\count153
+\c__fp_Bigg_middle_shift_int=\count154
+\c__fp_Bigg_trailing_shift_int=\count155
+L3 Module: l3box 2015/08/09 v5822 L3 Experimental boxes
+\c_empty_box=\box39
+\l_tmpa_box=\box40
+\l_tmpb_box=\box41
+\g_tmpa_box=\box42
+\g_tmpb_box=\box43
+L3 Module: l3coffins 2016/05/17 v6508 L3 Coffin code layer
+\l__coffin_internal_box=\box44
+\l__coffin_internal_dim=\dimen178
+\l__coffin_offset_x_dim=\dimen179
+\l__coffin_offset_y_dim=\dimen180
+\l__coffin_x_dim=\dimen181
+\l__coffin_y_dim=\dimen182
+\l__coffin_x_prime_dim=\dimen183
+\l__coffin_y_prime_dim=\dimen184
+\c_empty_coffin=\box45
+\l__coffin_aligned_coffin=\box46
+\l__coffin_aligned_internal_coffin=\box47
+\l_tmpa_coffin=\box48
+\l_tmpb_coffin=\box49
+\l__coffin_display_coffin=\box50
+\l__coffin_display_coord_coffin=\box51
+\l__coffin_display_pole_coffin=\box52
+\l__coffin_display_offset_dim=\dimen185
+\l__coffin_display_x_dim=\dimen186
+\l__coffin_display_y_dim=\dimen187
+L3 Module: l3color 2014/08/23 v5354 L3 Experimental color support
+L3 Module: l3sys 2015/09/25 v6087 L3 Experimental system/runtime functions
+L3 Module: l3candidates 2016/05/13 v6484 L3 Experimental additions to l3kernel
+\l__box_top_dim=\dimen188
+\l__box_bottom_dim=\dimen189
+\l__box_left_dim=\dimen190
+\l__box_right_dim=\dimen191
+\l__box_top_new_dim=\dimen192
+\l__box_bottom_new_dim=\dimen193
+\l__box_left_new_dim=\dimen194
+\l__box_right_new_dim=\dimen195
+\l__box_internal_box=\box53
+\l__coffin_bounding_shift_dim=\dimen196
+\l__coffin_left_corner_dim=\dimen197
+\l__coffin_right_corner_dim=\dimen198
+\l__coffin_bottom_corner_dim=\dimen199
+\l__coffin_top_corner_dim=\dimen256
+\l__coffin_scaled_total_height_dim=\dimen257
+\l__coffin_scaled_width_dim=\dimen258
+L3 Module: l3luatex 2016/03/26 v6465 L3 Experimental LuaTeX-specific functions
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
+File: l3pdfmode.def 2016/03/26 v6465 L3 Experimental driver: PDF mode
+\l__driver_color_stack_int=\count156
+\l__driver_tmp_box=\box54
+))
+Package: xparse 2016/05/18 v6512 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count157
+\l__xparse_m_args_int=\count158
+\l__xparse_mandatory_args_int=\count159
+\l__xparse_processor_int=\count160
+\l__xparse_v_nesting_int=\count161
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/l3experimental/l3str/l3regex.sty
+Package: l3regex 2016/05/14 v6492 L3 Experimental regular expressions
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/l3experimental/l3str/l3tl-build.s
+ty
+Package: l3tl-build 2016/05/14 v6492 L3 Experimental token list construction
+\l__tl_build_start_index_int=\count162
+\l__tl_build_index_int=\count163
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/l3experimental/l3str/l3tl-analysi
+s.sty
+Package: l3tl-analysis 2016/03/24 v6443 L3 Experimental token lists analysis
+\l__tl_analysis_normal_int=\count164
+\l__tl_analysis_index_int=\count165
+\l__tl_analysis_nesting_int=\count166
+\l__tl_analysis_type_int=\count167
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/l3experimental/l3str/l3flag.sty
+Package: l3flag 2016/05/14 v6492 L3 Experimental flags
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/l3experimental/l3str/l3str-conver
+t.sty
+Package: l3str-convert 2016/03/24 v6443 L3 Experimental string encoding convers
+ions
+\l__str_internal_int=\count168
+\c__str_replacement_char_int=\count169
+)
+\l__regex_internal_a_int=\count170
+\l__regex_internal_b_int=\count171
+\l__regex_internal_c_int=\count172
+\l__regex_balance_int=\count173
+\l__regex_group_level_int=\count174
+\l__regex_mode_int=\count175
+\l__regex_catcodes_int=\count176
+\l__regex_default_catcodes_int=\count177
+\c__regex_catcode_D_int=\count178
+\c__regex_catcode_S_int=\count179
+\c__regex_catcode_L_int=\count180
+\c__regex_catcode_O_int=\count181
+\c__regex_catcode_A_int=\count182
+\c__regex_all_catcodes_int=\count183
+\l__regex_show_lines_int=\count184
+\l__regex_min_state_int=\count185
+\l__regex_max_state_int=\count186
+\l__regex_left_state_int=\count187
+\l__regex_right_state_int=\count188
+\l__regex_capturing_group_int=\count189
+\l__regex_min_pos_int=\count190
+\l__regex_max_pos_int=\count191
+\l__regex_current_pos_int=\count192
+\l__regex_start_pos_int=\count193
+\l__regex_success_pos_int=\count194
+\l__regex_current_char_int=\count195
+\l__regex_current_catcode_int=\count196
+\l__regex_last_char_int=\count197
+\l__regex_case_changed_char_int=\count198
+\l__regex_current_state_int=\count199
+\l__regex_step_int=\count266
+\l__regex_min_active_int=\count267
+\l__regex_max_active_int=\count268
+\l__regex_replacement_csnames_int=\count269
+\l__regex_match_count_int=\count270
+\l__regex_submatch_int=\count271
+\l__regex_zeroth_submatch_int=\count272
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/pbox/pbox.sty
+Package: pbox 2011/12/07 v1.2 Dynamic parboxes
+\pb@xlen=\skip63
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box55
+\sift@deathcycles=\count273
+\@vwid@loff=\dimen259
+\@vwid@roff=\dimen260
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/bigfoot/suffix.sty
+Package: suffix 2006/07/15 1.5a Variant command support
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/etex-pkg/etex.sty
+Package: etex 2016/01/11 v2.6 eTeX basic definition package (PEB,DPC)
+
+
+Package etex Warning: Extended allocation already in use.
+(etex)                etex.sty code will not be used.
+(etex)                To force etex package to load, add
+(etex)                \RequirePackage{etex}
+(etex)                at the start of the document.
+
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\c@@pc@global@pc@cnt=\count274
+\c@@pc@global@pc@nestcnt=\count275
+\c@@spacecounter=\count276
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \@pc@stringsubstitution with sig. 'mmm' on line 444.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \@pc@spacesubstitution with sig. 'mmm' on line 461.
+.................................................
+\c@pclinenumber=\count277
+\c@Hpclinenumber=\count278
+\c@@pclinenumber=\count279
+\c@H@pclinenumber=\count280
+\c@@pclinenumbertmp=\count281
+\c@pcgamecounter=\count282
+\c@Hpcgamecounter=\count283
+\c@pcrlinenumber=\count284
+\c@Hpcrlinenumber=\count285
+\c@@pcrlinenumbertmp=\count286
+\@pcindentwidth=\skip64
+\@pc@minipage@length=\skip65
+\@pc@alt@minipage@length=\skip66
+\@pc@length@tmp@width@vstack=\skip67
+\c@@pc@indentationlevel=\count287
+\c@@pc@remember=\count288
+\@bb@message@hoffset=\skip68
+\@bb@query@hoffset=\skip69
+\@bb@oraclequery@hoffset=\skip70
+\@bb@challengerquery@hoffset=\skip71
+\c@@bb@oracle@cnt=\count289
+\c@@bb@oracle@nestcnt=\count290
+\c@@bb@challenger@cnt=\count291
+\c@@bb@challenger@nestcnt=\count292
+\c@@bb@env@nestcnt=\count293
+\@bb@com@tmpoffset=\skip72
+\@bb@tmplength@b=\skip73
+\pcbeforehstackskip=\skip74
+\c@@pcsubprogcnt1=\count294
+\c@@pcrsubprogcnt1=\count295
+\c@@pcsubprogcnt2=\count296
+\c@@pcrsubprogcnt2=\count297
+\c@@pcsubprogcnt3=\count298
+\c@@pcrsubprogcnt3=\count299
+\c@@pcsubprogcnt4=\count300
+\c@@pcrsubprogcnt4=\count301
+\c@@pcsubprogcnt5=\count302
+\c@@pcrsubprogcnt5=\count303
+\c@@pcsubprogcnt6=\count304
+\c@@pcrsubprogcnt6=\count305
+\c@@pcsubprogcnt7=\count306
+\c@@pcrsubprogcnt7=\count307
+\c@@pcsubprogcnt8=\count308
+\c@@pcrsubprogcnt8=\count309
+\c@@pcsubprogcnt9=\count310
+\c@@pcrsubprogcnt9=\count311
+\c@@pcsubprogstep=\count312
+\pcmessagearrow=\skip75
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \sendmessagerightx with sig. 'O{\pcdefaultlongmessagelength
+. }mO{}m' on line 1627.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \sendmessageleftx with sig. 'O{\pcdefaultlongmessagelength
+. }mO{}m' on line 1631.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \pcintertext with sig. 'O{}m' on line 1639.
+.................................................
+\c@pcstartgamecounter=\count313
+)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
 
@@ -245,31 +850,31 @@ LaTeX Warning: Label `VatiCAN' multiply defined.
 )
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
  (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count113
-\scratchdimen=\dimen126
-\scratchbox=\box28
-\nofMPsegments=\count114
-\nofMParguments=\count115
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count116
-\MPscratchDim=\dimen127
-\MPnumerator=\count117
-\makeMPintoPDFobject=\count118
-\everyMPtoPDFconversion=\toks25
+\scratchcounter=\count314
+\scratchdimen=\dimen261
+\scratchbox=\box56
+\nofMPsegments=\count315
+\nofMParguments=\count316
+\everyMPshowfont=\toks40
+\MPscratchCnt=\count317
+\MPscratchDim=\dimen262
+\MPnumerator=\count318
+\makeMPintoPDFobject=\count319
+\everyMPtoPDFconversion=\toks41
 ) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -317,37 +922,37 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-[1
+ABD: EveryShipout initializing macros [1
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \vbox (22.7429pt too high) has occurred while \output is active []
+Overfull \vbox (63.54288pt too high) has occurred while \output is active []
 
 
 [2] (./thesis.toc [3])
-\tf@toc=\write3
-\openout3 = `thesis.toc'.
+\tf@toc=\write4
+\openout4 = `thesis.toc'.
 
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
 
 
-LaTeX Warning: Citation `Checkoway' on page 4 undefined on input line 76.
+LaTeX Warning: Citation `Checkoway' on page 4 undefined on input line 80.
 
 [4]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 82.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 86.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 82.
-
-Underfull \hbox (badness 10000) in paragraph at lines 88--91
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 86.
+ [5]
+Underfull \hbox (badness 10000) in paragraph at lines 92--95
 
  []
 
-[5]
-Overfull \hbox (4.6963pt too wide) in paragraph at lines 98--99
+[6]
+Overfull \hbox (4.6963pt too wide) in paragraph at lines 102--103
 \OT1/cmr/m/n/10.95 through a proper im-ple-men-ta-tion on CAN-enabled resource-
 constrained
  []
@@ -355,41 +960,35 @@ constrained
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no Ÿ in font cmr10!
-[6] <images-thesis/gateway.png, id=25, 493.845pt x 203.76125pt>
+[7] <images-thesis/gateway.png, id=32, 493.845pt x 203.76125pt>
 File: images-thesis/gateway.png Graphic file (type png)
 
 <use images-thesis/gateway.png>
-Package pdftex.def Info: images-thesis/gateway.png used on input line 120.
+Package pdftex.def Info: images-thesis/gateway.png used on input line 124.
 (pdftex.def)             Requested size: 360.0pt x 148.53615pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 136--138
+ [8 <./images-thesis/gateway.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 140--142
 
  []
 
-[8 <./images-thesis/gateway.png (PNG copy)>] [9]
-<images-thesis/typeA.png, id=36, 218.8175pt x 87.32625pt>
+[9] <images-thesis/typeA.png, id=39, 218.8175pt x 87.32625pt>
 File: images-thesis/typeA.png Graphic file (type png)
 
 <use images-thesis/typeA.png>
-Package pdftex.def Info: images-thesis/typeA.png used on input line 160.
+Package pdftex.def Info: images-thesis/typeA.png used on input line 164.
 (pdftex.def)             Requested size: 218.81696pt x 87.32603pt.
 
-<images-thesis/typeB.png, id=38, 218.8175pt x 87.32625pt>
+<images-thesis/typeB.png, id=41, 218.8175pt x 87.32625pt>
 File: images-thesis/typeB.png Graphic file (type png)
 
 <use images-thesis/typeB.png>
-Package pdftex.def Info: images-thesis/typeB.png used on input line 167.
+Package pdftex.def Info: images-thesis/typeB.png used on input line 171.
 (pdftex.def)             Requested size: 218.81696pt x 87.32603pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--176
+ [10 <./images-thesis/typeA.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 177--180
 
  []
 
-[10 <./images-thesis/typeA.png> <./images-thesis/typeB.png>]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no œ in font cmr10!
@@ -400,78 +999,83 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
 
+LaTeX Warning: Citation `Checkoway' on page 11 undefined on input line 185.
 
-LaTeX Warning: Citation `Checkoway' on page 11 undefined on input line 181.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 181--181
+Underfull \hbox (badness 10000) in paragraph at lines 185--185
 [][][]\OT1/cmr/m/n/9 For more in-for-ma-tion on SAE J2534, see the full API ref
 -er-ence at:
  []
 
 
-LaTeX Warning: Citation `Checkoway' on page 11 undefined on input line 186.
+LaTeX Warning: Citation `Checkoway' on page 11 undefined on input line 190.
 
+[11 <./images-thesis/typeB.png>]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
-[11]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
  [12] [13]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 233.
+               Default added (so using `tbp') on input line 237.
 
 
-Overfull \hbox (81.56416pt too wide) in paragraph at lines 234--251
+Overfull \hbox (81.56416pt too wide) in paragraph at lines 238--255
 [][] 
  []
 
 
-Overfull \hbox (0.68384pt too wide) in paragraph at lines 259--260
+Overfull \hbox (0.68384pt too wide) in paragraph at lines 263--264
  \OT1/cmr/bx/n/10.95 Data Trans-mis-sion[] \OT1/cmr/m/n/10.95 The op-er-a-tion 
 of the CAN pro-to-col is pretty straight-
  []
 
-[14]
+[14] [15]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
- [15]
+ [16]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
- [16] [17] [18]
-<images-thesis/ExploitSetup.png, id=72, 727.71875pt x 544.0325pt>
+ [17] [18]
+<images-thesis/ExploitSetup.png, id=75, 727.71875pt x 544.0325pt>
 File: images-thesis/ExploitSetup.png Graphic file (type png)
 
 <use images-thesis/ExploitSetup.png>
-Package pdftex.def Info: images-thesis/ExploitSetup.png used on input line 336.
+Package pdftex.def Info: images-thesis/ExploitSetup.png used on input line 340.
 
 (pdftex.def)             Requested size: 360.0pt x 269.13504pt.
- [19 <./images-thesis/ExploitSetup.png>]
-<images-thesis/speedometer.png, id=78, 644.4075pt x 359.3425pt>
-File: images-thesis/speedometer.png Graphic file (type png)
-
-<use images-thesis/speedometer.png>
-Package pdftex.def Info: images-thesis/speedometer.png used on input line 345.
-(pdftex.def)             Requested size: 360.0pt x 200.75339pt.
-
-<images-thesis/DoS.png, id=79, 708.6475pt x 400.49625pt>
-File: images-thesis/DoS.png Graphic file (type png)
-
-<use images-thesis/DoS.png>
-Package pdftex.def Info: images-thesis/DoS.png used on input line 354.
-(pdftex.def)             Requested size: 360.0pt x 203.45595pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[20 <./images-thesis/speedometer.png>] [21 <./images-thesis/DoS.png>] [22]
-[23]
-Overfull \hbox (15.37256pt too wide) in paragraph at lines 395--396
+<images-thesis/speedometer.png, id=76, 644.4075pt x 359.3425pt>
+File: images-thesis/speedometer.png Graphic file (type png)
+
+<use images-thesis/speedometer.png>
+Package pdftex.def Info: images-thesis/speedometer.png used on input line 349.
+(pdftex.def)             Requested size: 360.0pt x 200.75339pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images-thesis/DoS.png, id=77, 708.6475pt x 400.49625pt>
+File: images-thesis/DoS.png Graphic file (type png)
+
+<use images-thesis/DoS.png>
+Package pdftex.def Info: images-thesis/DoS.png used on input line 358.
+(pdftex.def)             Requested size: 360.0pt x 203.45595pt.
+ [19]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[20 <./images-thesis/ExploitSetup.png>] [21 <./images-thesis/speedometer.png>]
+[22 <./images-thesis/DoS.png>] [23]
+Overfull \hbox (15.37256pt too wide) in paragraph at lines 399--400
 \OT1/cmr/m/n/10.95 doors, ac-ti-vate alarms, flash lights and, in some cases, e
 ven start the ignition[[]].
  []
@@ -493,78 +1097,79 @@ Missing character: There is no ™ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
-
-<images-thesis/SANCUS.png, id=110, 419.5675pt x 335.2525pt>
+ [29]
+<images-thesis/SANCUS.png, id=116, 419.5675pt x 335.2525pt>
 File: images-thesis/SANCUS.png Graphic file (type png)
 
 <use images-thesis/SANCUS.png>
-Package pdftex.def Info: images-thesis/SANCUS.png used on input line 452.
+Package pdftex.def Info: images-thesis/SANCUS.png used on input line 456.
 (pdftex.def)             Requested size: 360.0pt x 287.65674pt.
+ [30 <./images-thesis/SANCUS.png>] [31] [32]
+[33] [34] [35] [36] [37]
+<images-thesis/ECC.png, id=146, 584.1825pt x 359.3425pt>
+File: images-thesis/ECC.png Graphic file (type png)
+
+<use images-thesis/ECC.png>
+Package pdftex.def Info: images-thesis/ECC.png used on input line 552.
+(pdftex.def)             Requested size: 360.0pt x 221.45216pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[29] [30 <./images-thesis/SANCUS.png>] [31] [32] [33] [34] [35] [36] [37]
-<images-thesis/ECC.png, id=142, 584.1825pt x 359.3425pt>
-File: images-thesis/ECC.png Graphic file (type png)
-
-<use images-thesis/ECC.png>
-Package pdftex.def Info: images-thesis/ECC.png used on input line 536.
-(pdftex.def)             Requested size: 360.0pt x 221.45216pt.
- [38 <./images-thesis/ECC.png>] [39] [40] [41]
+[38] [39 <./images-thesis/ECC.png>] [40] [41] [42] [43] [44]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 596--598
+Underfull \hbox (badness 10000) in paragraph at lines 666--668
 []\OT1/cmr/m/n/10.95 Siam Ahmed, https://www.geotab.com/blog/connected-vehicle-
 
  []
 
-
-Underfull \hbox (badness 1852) in paragraph at lines 604--605
+[45]
+Underfull \hbox (badness 1852) in paragraph at lines 674--675
 []\OT1/cmr/m/n/10.95 Aastha Ya-dav, Gau-rav Bose, Rad-hika Bhange, Karan Kapoor
 ,
  []
 
-[42]
 Missing character: There is no Â in font cmr10!
 Missing character: There is no · in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 628--630
+Underfull \hbox (badness 10000) in paragraph at lines 698--700
 []\OT1/cmr/m/n/10.95 Autotap, \OT1/cmr/m/it/10.95 OB-DII: Past, Present & Fu-tu
 re\OT1/cmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 635--636
+Underfull \hbox (badness 10000) in paragraph at lines 705--706
 []\OT1/cmr/m/n/10.95 https://www.elprocus.com/different-microcontrollers-used-i
 n-
  []
 
-[43]
-Overfull \hbox (4.45908pt too wide) in paragraph at lines 666--667
+[46]
+Overfull \hbox (4.45908pt too wide) in paragraph at lines 736--737
 []\OT1/cmr/m/n/10.95 https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman[]key[
 ]exchange 
  []
 
 
-Underfull \hbox (badness 7468) in paragraph at lines 684--685
+Underfull \hbox (badness 7468) in paragraph at lines 754--755
 []\OT1/cmr/m/n/10.95 Abdul Re-hwan An-war, \OT1/cmr/m/it/10.95 Bus ar-bi-tra-ti
 on in CAN (Con-troller
  []
 
+[47]
 Missing character: There is no â in font cmti10!
 Missing character: There is no € in font cmti10!
 Missing character: There is no “ in font cmti10!
-[44]
-Underfull \hbox (badness 2080) in paragraph at lines 724--727
+
+Underfull \hbox (badness 2080) in paragraph at lines 794--797
 []\OT1/cmr/m/n/10.95 European Union Agency for Net-work and In-for-ma-tion Se-c
 u-rity
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 734--737
+Underfull \hbox (badness 10000) in paragraph at lines 804--807
 \OT1/cmr/m/n/10.95 news/92304/car-hacking-study-shows-over-100-models-at-risk, 
 \OT1/cmr/m/it/10.95 Car
  []
@@ -581,6 +1186,7 @@ Missing character: There is no ” in font cmti10!
 Missing character: There is no â in font cmti10!
 Missing character: There is no € in font cmti10!
 Missing character: There is no ” in font cmti10!
+[48]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
@@ -590,7 +1196,6 @@ Missing character: There is no “ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
-[45]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
@@ -599,6 +1204,7 @@ Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
 Missing character: There is no Ì in font cmr10!
 Missing character: There is no ˆ in font cmr10!
+ [49]
 Missing character: There is no Ì in font cmr10!
 Missing character: There is no ˆ in font cmr10!
 Missing character: There is no Ì in font cmr10!
@@ -606,14 +1212,14 @@ Missing character: There is no ˆ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ” in font cmr10!
- [46]
-Underfull \hbox (badness 10000) in paragraph at lines 826--827
+
+Underfull \hbox (badness 10000) in paragraph at lines 906--907
 []\OT1/cmr/m/n/10.95 Julia Lay-ton, \OT1/cmr/m/it/10.95 Are RFID ig-ni-tion sys
 -tems se-cure?\OT1/cmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 826--827
+Underfull \hbox (badness 10000) in paragraph at lines 906--907
 \OT1/cmr/m/n/10.95 https://electronics.howstuffworks.com/gadgets/automotive/rfi
 d-
  []
@@ -621,7 +1227,7 @@ d-
 Missing character: There is no â in font cmti10!
 Missing character: There is no € in font cmti10!
 Missing character: There is no ” in font cmti10!
-[47] (./thesis.aux)
+[50] (./thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -630,27 +1236,28 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4350 strings out of 493014
- 61515 string characters out of 6133351
- 147931 words of memory out of 5000000
- 7819 multiletter control sequences out of 15000+600000
- 10508 words of font info for 38 fonts, out of 8000000 for 9000
+ 23161 strings out of 493014
+ 457647 string characters out of 6133351
+ 495408 words of memory out of 5000000
+ 26337 multiletter control sequences out of 15000+600000
+ 11435 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,14n,35p,3188b,290s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,23n,63p,10412b,1440s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
-/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/lo
-cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local
-/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/te
-xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on thesis.pdf (47 pages, 2227340 bytes).
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
+sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
+/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
+ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/loca
+l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
+exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on thesis.pdf (50 pages, 2244818 bytes).
 PDF statistics:
- 213 PDF objects out of 1000 (max. 8388607)
- 137 compressed objects within 2 object streams
+ 230 PDF objects out of 1000 (max. 8388607)
+ 150 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
 
