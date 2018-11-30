@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  28 NOV 2018 03:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  30 NOV 2018 00:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -837,43 +837,46 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 .................................................
 \c@pcstartgamecounter=\count313
 )
+(/usr/local/texlive/2016/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip76
+\bibsep=\skip77
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count314
+)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
-
-(./thesis.aux
-
-LaTeX Warning: Label `Leia' multiply defined.
-
-
-LaTeX Warning: Label `VatiCAN' multiply defined.
-
-)
+ (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
- (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+(/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count314
+\scratchcounter=\count315
 \scratchdimen=\dimen261
 \scratchbox=\box56
-\nofMPsegments=\count315
-\nofMParguments=\count316
+\nofMPsegments=\count316
+\nofMParguments=\count317
 \everyMPshowfont=\toks40
-\MPscratchCnt=\count317
+\MPscratchCnt=\count318
 \MPscratchDim=\dimen262
-\MPnumerator=\count318
-\makeMPintoPDFobject=\count319
+\MPnumerator=\count319
+\makeMPintoPDFobject=\count320
 \everyMPtoPDFconversion=\toks41
 ) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
@@ -925,7 +928,7 @@ e
 ABD: EveryShipout initializing macros [1
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \vbox (63.54288pt too high) has occurred while \output is active []
+Overfull \vbox (77.14287pt too high) has occurred while \output is active []
 
 
 [2] (./thesis.toc [3])
@@ -935,24 +938,21 @@ Overfull \vbox (63.54288pt too high) has occurred while \output is active []
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
+ [4] [5]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 89.
 
-
-LaTeX Warning: Citation `Checkoway' on page 4 undefined on input line 80.
-
-[4]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 86.
- (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 86.
- [5]
-Underfull \hbox (badness 10000) in paragraph at lines 92--95
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 89.
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--98
 
  []
 
 [6]
-Overfull \hbox (4.6963pt too wide) in paragraph at lines 102--103
+Overfull \hbox (4.6963pt too wide) in paragraph at lines 105--106
 \OT1/cmr/m/n/10.95 through a proper im-ple-men-ta-tion on CAN-enabled resource-
 constrained
  []
@@ -964,10 +964,10 @@ Missing character: There is no Ÿ in font cmr10!
 File: images-thesis/gateway.png Graphic file (type png)
 
 <use images-thesis/gateway.png>
-Package pdftex.def Info: images-thesis/gateway.png used on input line 124.
+Package pdftex.def Info: images-thesis/gateway.png used on input line 127.
 (pdftex.def)             Requested size: 360.0pt x 148.53615pt.
  [8 <./images-thesis/gateway.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 140--142
+Underfull \hbox (badness 10000) in paragraph at lines 143--145
 
  []
 
@@ -975,17 +975,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 140--142
 File: images-thesis/typeA.png Graphic file (type png)
 
 <use images-thesis/typeA.png>
-Package pdftex.def Info: images-thesis/typeA.png used on input line 164.
+Package pdftex.def Info: images-thesis/typeA.png used on input line 167.
 (pdftex.def)             Requested size: 218.81696pt x 87.32603pt.
-
-<images-thesis/typeB.png, id=41, 218.8175pt x 87.32625pt>
+ [10]
+<images-thesis/typeB.png, id=44, 218.8175pt x 87.32625pt>
 File: images-thesis/typeB.png Graphic file (type png)
 
 <use images-thesis/typeB.png>
-Package pdftex.def Info: images-thesis/typeB.png used on input line 171.
+Package pdftex.def Info: images-thesis/typeB.png used on input line 174.
 (pdftex.def)             Requested size: 218.81696pt x 87.32603pt.
- [10 <./images-thesis/typeA.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 177--180
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--183
 
  []
 
@@ -999,18 +999,12 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
 
-LaTeX Warning: Citation `Checkoway' on page 11 undefined on input line 185.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 185--185
+Underfull \hbox (badness 10000) in paragraph at lines 188--188
 [][][]\OT1/cmr/m/n/9 For more in-for-ma-tion on SAE J2534, see the full API ref
 -er-ence at:
  []
 
-
-LaTeX Warning: Citation `Checkoway' on page 11 undefined on input line 190.
-
-[11 <./images-thesis/typeB.png>]
+[11 <./images-thesis/typeA.png> <./images-thesis/typeB.png>]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
@@ -1020,15 +1014,15 @@ Missing character: There is no ™ in font cmr10!
  [12] [13]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 237.
+               Default added (so using `tbp') on input line 240.
 
 
-Overfull \hbox (81.56416pt too wide) in paragraph at lines 238--255
+Overfull \hbox (81.56416pt too wide) in paragraph at lines 241--258
 [][] 
  []
 
 
-Overfull \hbox (0.68384pt too wide) in paragraph at lines 263--264
+Overfull \hbox (0.68384pt too wide) in paragraph at lines 266--267
  \OT1/cmr/bx/n/10.95 Data Trans-mis-sion[] \OT1/cmr/m/n/10.95 The op-er-a-tion 
 of the CAN pro-to-col is pretty straight-
  []
@@ -1046,36 +1040,36 @@ Missing character: There is no ™ in font cmr10!
 File: images-thesis/ExploitSetup.png Graphic file (type png)
 
 <use images-thesis/ExploitSetup.png>
-Package pdftex.def Info: images-thesis/ExploitSetup.png used on input line 340.
+Package pdftex.def Info: images-thesis/ExploitSetup.png used on input line 343.
 
 (pdftex.def)             Requested size: 360.0pt x 269.13504pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images-thesis/speedometer.png, id=76, 644.4075pt x 359.3425pt>
+[19] <images-thesis/speedometer.png, id=80, 644.4075pt x 359.3425pt>
 File: images-thesis/speedometer.png Graphic file (type png)
 
 <use images-thesis/speedometer.png>
-Package pdftex.def Info: images-thesis/speedometer.png used on input line 349.
+Package pdftex.def Info: images-thesis/speedometer.png used on input line 352.
 (pdftex.def)             Requested size: 360.0pt x 200.75339pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images-thesis/DoS.png, id=77, 708.6475pt x 400.49625pt>
+<images-thesis/DoS.png, id=81, 708.6475pt x 400.49625pt>
 File: images-thesis/DoS.png Graphic file (type png)
 
 <use images-thesis/DoS.png>
-Package pdftex.def Info: images-thesis/DoS.png used on input line 358.
+Package pdftex.def Info: images-thesis/DoS.png used on input line 361.
 (pdftex.def)             Requested size: 360.0pt x 203.45595pt.
- [19]
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [20 <./images-thesis/ExploitSetup.png>] [21 <./images-thesis/speedometer.png>]
 [22 <./images-thesis/DoS.png>] [23]
-Overfull \hbox (15.37256pt too wide) in paragraph at lines 399--400
+Overfull \hbox (15.37256pt too wide) in paragraph at lines 402--403
 \OT1/cmr/m/n/10.95 doors, ac-ti-vate alarms, flash lights and, in some cases, e
 ven start the ignition[[]].
  []
@@ -1102,162 +1096,322 @@ Missing character: There is no ™ in font cmr10!
 File: images-thesis/SANCUS.png Graphic file (type png)
 
 <use images-thesis/SANCUS.png>
-Package pdftex.def Info: images-thesis/SANCUS.png used on input line 456.
+Package pdftex.def Info: images-thesis/SANCUS.png used on input line 459.
 (pdftex.def)             Requested size: 360.0pt x 287.65674pt.
- [30 <./images-thesis/SANCUS.png>] [31] [32]
-[33] [34] [35] [36] [37]
-<images-thesis/ECC.png, id=146, 584.1825pt x 359.3425pt>
-File: images-thesis/ECC.png Graphic file (type png)
-
-<use images-thesis/ECC.png>
-Package pdftex.def Info: images-thesis/ECC.png used on input line 552.
-(pdftex.def)             Requested size: 360.0pt x 221.45216pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[38] [39 <./images-thesis/ECC.png>] [40] [41] [42] [43] [44]
+[30] [31 <./images-thesis/SANCUS.png>] [32] [33] [34] [35] [36] [37] [38]
+<images-thesis/ECC.png, id=149, 584.1825pt x 359.3425pt>
+File: images-thesis/ECC.png Graphic file (type png)
+
+<use images-thesis/ECC.png>
+Package pdftex.def Info: images-thesis/ECC.png used on input line 557.
+(pdftex.def)             Requested size: 360.0pt x 221.45216pt.
+ [39 <./images-thesis/ECC.png>] [40] [41] [42]
+[43] [44] [45] [46]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[47] [48]
+Overfull \hbox (19.32863pt too wide) in paragraph at lines 695--695
+ [] 
+ []
+
+
+Overfull \hbox (39.0786pt too wide) in paragraph at lines 695--696
+ [][] 
+ []
+
+(./thesis.bbl [49]
+Underfull \hbox (badness 5771) in paragraph at lines 14--18
+[]\OT1/cmr/m/n/10.95 Siam Ahmed.  Get to know con-nected ve-hi-cle tech-nol-ogy
+:
+ []
+
+
+Underfull \hbox (badness 1748) in paragraph at lines 14--18
+\OT1/cmr/m/n/10.95 V2v, v2x, v2i.  2018.  URL: $\OT1/cmtt/m/n/10.95 https : / /
+ www . geotab . com / blog /
+ []
+
+
+Underfull \hbox (badness 5817) in paragraph at lines 20--24
+[]\OT1/cmr/m/n/10.95 Abdul Re-hwan An-war.  Bus ar-bi-tra-tion in can (con-trol
+ler
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--24
+\OT1/cmr/m/n/10.95 area net-work).  URL: $\OT1/cmtt/m/n/10.95 https : / / www .
+ linkedin . com / pulse /
+ []
+
+
+Overfull \hbox (29.17569pt too wide) in paragraph at lines 20--24
+\OT1/cmtt/m/n/10.95 bus-[]arbitration-[]can-[]controller-[]area-[]network-[]abd
+ul-[]rehman-[]anwer ,[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--32
+[]\OT1/cmr/m/n/10.95 Tarun Ar-gawal.  Dif-fer-ent types of mi-cro-con-trollers 
+are
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--32
+\OT1/cmr/m/n/10.95 used in au-to-mo-bile ap-pli-ca-tions.  [On-line; ac-cessed 
+29-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--32
+\OT1/cmr/m/n/10.95 November-2018].  URL: $\OT1/cmtt/m/n/10.95 https : / / www .
+ elprocus . com /
+ []
+
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+[50]
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no Ì in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+
+Underfull \hbox (badness 2503) in paragraph at lines 102--107
+[]\OT1/cmr/m/n/10.95 Jeronimo Gar-cia.  El-lip-tic curve crypto , the ba-sics. 
+ [On-
+ []
+
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ” in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+[51]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 666--668
-[]\OT1/cmr/m/n/10.95 Siam Ahmed, https://www.geotab.com/blog/connected-vehicle-
-
+Underfull \hbox (badness 3930) in paragraph at lines 168--172
+[]\OT1/cmr/m/n/10.95 Julia Lay-ton.  Are rfid ig-ni-tion sys-tems se-cure?  URL
+:
  []
 
-[45]
-Underfull \hbox (badness 1852) in paragraph at lines 674--675
+
+Underfull \hbox (badness 10000) in paragraph at lines 168--172
+\OT1/cmtt/m/n/10.95 https : / / electronics . howstuffworks . com / gadgets / a
+utomotive /
+ []
+
+Missing character: There is no Ì in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+[52]
+Missing character: There is no ï in font cmti10!
+Missing character: There is no ¿ in font cmti10!
+Missing character: There is no ½ in font cmti10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+ [53]
+Underfull \hbox (badness 2951) in paragraph at lines 291--297
+\OT1/cmr/m/n/10.95 the free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-Nov
+ember-
+ []
+
+
+Underfull \hbox (badness 5504) in paragraph at lines 291--297
+\OT1/cmr/m/n/10.95 2018].  URL: $\OT1/cmtt/m/n/10.95 https : / / en . wikipedia
+ . org / w / index . php ? title =
+ []
+
+
+Underfull \hbox (badness 2173) in paragraph at lines 299--304
+[]\OT1/cmr/m/n/10.95 Wikipedia con-trib-u-tors.  Cryp-tog-ra-phy --- Wikipedia,
+ the free
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 299--304
+\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? title 
+= Cryptography &
+ []
+
+
+Underfull \hbox (badness 2951) in paragraph at lines 306--312
+\OT1/cmr/m/n/10.95 the free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-Nov
+ember-
+ []
+
+
+Underfull \hbox (badness 5504) in paragraph at lines 306--312
+\OT1/cmr/m/n/10.95 2018].  URL: $\OT1/cmtt/m/n/10.95 https : / / en . wikipedia
+ . org / w / index . php ? title =
+ []
+
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+
+Underfull \hbox (badness 3547) in paragraph at lines 322--327
+[]\OT1/cmr/m/n/10.95 Wikipedia con-trib-u-tors.  Dig-i-tal sig-na-ture --- Wiki
+pedia, the
+ []
+
+
+Underfull \hbox (badness 2302) in paragraph at lines 322--327
+\OT1/cmr/m/n/10.95 free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-Novembe
+r-2018].
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 322--327
+\OT1/cmr/m/n/10.95 URL: $\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org /
+ w / index . php ? title = Digital _
+ []
+
+
+Underfull \hbox (badness 2951) in paragraph at lines 329--335
+\OT1/cmr/m/n/10.95 the free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-Nov
+ember-
+ []
+
+
+Underfull \hbox (badness 5504) in paragraph at lines 329--335
+\OT1/cmr/m/n/10.95 2018].  URL: $\OT1/cmtt/m/n/10.95 https : / / en . wikipedia
+ . org / w / index . php ? title =
+ []
+
+[54]
+Underfull \hbox (badness 1242) in paragraph at lines 337--342
+\OT1/cmr/m/n/10.95 cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-November-2018].
+  URL:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 337--342
+\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? title 
+= OBD-[]II _ PIDs &
+ []
+
+
+Underfull \hbox (badness 4832) in paragraph at lines 344--349
+[]\OT1/cmr/m/n/10.95 Wikipedia con-trib-u-tors.  On-board di-ag-nos-tics --- Wi
+kipedia,
+ []
+
+
+Underfull \hbox (badness 2951) in paragraph at lines 344--349
+\OT1/cmr/m/n/10.95 the free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-Nov
+ember-
+ []
+
+
+Underfull \hbox (badness 5504) in paragraph at lines 344--349
+\OT1/cmr/m/n/10.95 2018].  URL: $\OT1/cmtt/m/n/10.95 https : / / en . wikipedia
+ . org / w / index . php ? title =
+ []
+
+
+Underfull \hbox (badness 1331) in paragraph at lines 351--356
+[]\OT1/cmr/m/n/10.95 Wikipedia con-trib-u-tors.  Pro-to-col stack --- Wikipedia
+, the free
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 351--356
+\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? title 
+= Protocol _ stack &
+ []
+
+
+Underfull \hbox (badness 2951) in paragraph at lines 358--364
+\OT1/cmr/m/n/10.95 the free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-Nov
+ember-
+ []
+
+
+Underfull \hbox (badness 5504) in paragraph at lines 358--364
+\OT1/cmr/m/n/10.95 2018].  URL: $\OT1/cmtt/m/n/10.95 https : / / en . wikipedia
+ . org / w / index . php ? title =
+ []
+
+
+Underfull \hbox (badness 8056) in paragraph at lines 366--371
+[]\OT1/cmr/m/n/10.95 Wikipedia con-trib-u-tors.  Rsa (cryp-tosys-tem) --- Wikip
+edia,
+ []
+
+
+Underfull \hbox (badness 2951) in paragraph at lines 366--371
+\OT1/cmr/m/n/10.95 the free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-Nov
+ember-
+ []
+
+
+Underfull \hbox (badness 1715) in paragraph at lines 373--379
+[]\OT1/cmr/m/n/10.95 Wikipedia con-trib-u-tors.  Se-cure hash al-go-rithms --- 
+Wikipedia,
+ []
+
+
+Underfull \hbox (badness 2951) in paragraph at lines 373--379
+\OT1/cmr/m/n/10.95 the free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-Nov
+ember-
+ []
+
+
+Underfull \hbox (badness 5504) in paragraph at lines 373--379
+\OT1/cmr/m/n/10.95 2018].  URL: $\OT1/cmtt/m/n/10.95 https : / / en . wikipedia
+ . org / w / index . php ? title =
+ []
+
+
+Underfull \hbox (badness 1852) in paragraph at lines 381--387
 []\OT1/cmr/m/n/10.95 Aastha Ya-dav, Gau-rav Bose, Rad-hika Bhange, Karan Kapoor
 ,
  []
 
-Missing character: There is no Â in font cmr10!
-Missing character: There is no · in font cmr10!
-
-Underfull \hbox (badness 10000) in paragraph at lines 698--700
-[]\OT1/cmr/m/n/10.95 Autotap, \OT1/cmr/m/it/10.95 OB-DII: Past, Present & Fu-tu
-re\OT1/cmr/m/n/10.95 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 705--706
-[]\OT1/cmr/m/n/10.95 https://www.elprocus.com/different-microcontrollers-used-i
-n-
- []
-
-[46]
-Overfull \hbox (4.45908pt too wide) in paragraph at lines 736--737
-[]\OT1/cmr/m/n/10.95 https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman[]key[
-]exchange 
- []
-
-
-Underfull \hbox (badness 7468) in paragraph at lines 754--755
-[]\OT1/cmr/m/n/10.95 Abdul Re-hwan An-war, \OT1/cmr/m/it/10.95 Bus ar-bi-tra-ti
-on in CAN (Con-troller
- []
-
-[47]
-Missing character: There is no â in font cmti10!
-Missing character: There is no € in font cmti10!
-Missing character: There is no “ in font cmti10!
-
-Underfull \hbox (badness 2080) in paragraph at lines 794--797
-[]\OT1/cmr/m/n/10.95 European Union Agency for Net-work and In-for-ma-tion Se-c
-u-rity
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 804--807
-\OT1/cmr/m/n/10.95 news/92304/car-hacking-study-shows-over-100-models-at-risk, 
-\OT1/cmr/m/it/10.95 Car
- []
-
-Missing character: There is no â in font cmti10!
-Missing character: There is no € in font cmti10!
-Missing character: There is no ” in font cmti10!
-Missing character: There is no â in font cmti10!
-Missing character: There is no € in font cmti10!
-Missing character: There is no ” in font cmti10!
-Missing character: There is no â in font cmti10!
-Missing character: There is no € in font cmti10!
-Missing character: There is no ” in font cmti10!
-Missing character: There is no â in font cmti10!
-Missing character: There is no € in font cmti10!
-Missing character: There is no ” in font cmti10!
-[48]
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no “ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no “ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no “ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no ™ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no “ in font cmr10!
 Missing character: There is no Ì in font cmr10!
 Missing character: There is no ˆ in font cmr10!
- [49]
-Missing character: There is no Ì in font cmr10!
-Missing character: There is no ˆ in font cmr10!
-Missing character: There is no Ì in font cmr10!
-Missing character: There is no ˆ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no ” in font cmr10!
-
-Underfull \hbox (badness 10000) in paragraph at lines 906--907
-[]\OT1/cmr/m/n/10.95 Julia Lay-ton, \OT1/cmr/m/it/10.95 Are RFID ig-ni-tion sys
--tems se-cure?\OT1/cmr/m/n/10.95 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 906--907
-\OT1/cmr/m/n/10.95 https://electronics.howstuffworks.com/gadgets/automotive/rfi
-d-
- []
-
-Missing character: There is no â in font cmti10!
-Missing character: There is no € in font cmti10!
-Missing character: There is no ” in font cmti10!
-[50] (./thesis.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+) [55] (./thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 23161 strings out of 493014
- 457647 string characters out of 6133351
- 495408 words of memory out of 5000000
- 26337 multiletter control sequences out of 15000+600000
- 11435 words of font info for 41 fonts, out of 8000000 for 9000
+ 23694 strings out of 493014
+ 465080 string characters out of 6133351
+ 507335 words of memory out of 5000000
+ 26858 multiletter control sequences out of 15000+600000
+ 11603 words of font info for 42 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,23n,63p,10412b,1440s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
-/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
-ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/loca
-l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
-ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on thesis.pdf (50 pages, 2244818 bytes).
+ 62i,23n,63p,10398b,1442s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.
+pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
+></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on thesis.pdf (55 pages, 2282553 bytes).
 PDF statistics:
- 230 PDF objects out of 1000 (max. 8388607)
- 150 compressed objects within 2 object streams
+ 258 PDF objects out of 1000 (max. 8388607)
+ 170 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  53 words of extra memory for PDF output out of 10000 (max. 10000000)
 

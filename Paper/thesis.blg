@@ -1,0 +1,78 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: thesis.aux
+The style file: plainurl.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: references.bib
+Warning--entry type for "ECU" isn't style-file defined
+--line 207 of file references.bib
+Warning--I didn't find a database entry for "Checkoway"
+Warning--to sort, need author or key in ISO11898-3
+Warning--to sort, need author or key in Enisa
+Warning--empty author in Enisa
+Warning--empty author in ISO11898-3
+Warning--empty note in Ahmed
+Warning--empty note in CANarbitration
+Warning--empty note in Bayer
+Warning--empty institution in Bayer15
+Warning--empty note in Crispo
+Warning--empty year in Kosher
+Warning--empty booktitle in GPS2
+Warning--empty note in CANhistory
+Warning--empty year in Kleberger
+Warning--empty note in Klinedinst05
+Warning--empty title in Kosher2
+Warning--empty note in RFID
+Warning--empty note in MillerC
+Warning--empty institution in MillerA
+Warning--empty note in MillerD
+Warning--empty year in Sancus
+Warning--empty note in Pfeiffer
+Warning--empty note in Pike15
+Warning--empty title in Leia
+Warning--empty year in TPMS
+You've used 60 entries,
+            2849 wiz_defined-function locations,
+            911 strings with 15388 characters,
+and the built_in function-call counts, 21811 in all, are:
+= -- 2198
+> -- 979
+< -- 2
++ -- 369
+- -- 306
+* -- 965
+:= -- 3335
+add.period$ -- 198
+call.type$ -- 60
+change.case$ -- 347
+chr.to.int$ -- 0
+cite$ -- 84
+duplicate$ -- 544
+empty$ -- 1958
+format.name$ -- 306
+if$ -- 5614
+int.to.chr$ -- 0
+int.to.str$ -- 60
+missing$ -- 10
+newline$ -- 320
+num.names$ -- 116
+pop$ -- 651
+preamble$ -- 1
+purify$ -- 273
+quote$ -- 0
+skip$ -- 1606
+stack$ -- 0
+substring$ -- 367
+swap$ -- 54
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 240
+warning$ -- 24
+while$ -- 119
+width$ -- 62
+write$ -- 641
+(There were 26 warnings)
