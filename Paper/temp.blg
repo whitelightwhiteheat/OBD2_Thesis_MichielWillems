@@ -1,68 +1,77 @@
 This is BibTeX, Version 0.99d (TeX Live 2016)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: thesis.aux
-A level-1 auxiliary file: introduction.aux
-A level-1 auxiliary file: chapter1.aux
+The top-level auxiliary file: temp.aux
 The style file: plainurl.bst
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: references.bib
-Warning--to sort, need author or key in Enisa
+Warning--entry type for "ECU" isn't style-file defined
+--line 205 of file references.bib
 Warning--to sort, need author or key in ISO11898-3
+Warning--to sort, need author or key in Enisa
 Warning--empty author in Enisa
 Warning--empty author in ISO11898-3
 Warning--empty note in Ahmed
 Warning--empty note in CANarbitration
+Warning--empty note in Bayer
+Warning--empty institution in Bayer15
+Warning--empty note in Crispo
 Warning--empty year in Kosher
+Warning--empty booktitle in GPS2
 Warning--empty note in CANhistory
+Warning--empty year in Kleberger
 Warning--empty note in Klinedinst05
 Warning--empty title in Kosher2
+Warning--empty note in RFID
 Warning--empty note in MillerC
 Warning--empty institution in MillerA
+Warning--empty note in MillerD
+Warning--empty year in Sancus
 Warning--empty note in Pfeiffer
 Warning--empty note in Pike15
 Warning--empty title in Leia
-You've used 34 entries,
+Warning--empty year in TPMS
+You've used 60 entries,
             2849 wiz_defined-function locations,
-            783 strings with 11023 characters,
-and the built_in function-call counts, 12119 in all, are:
-= -- 1211
-> -- 558
-< -- 0
-+ -- 212
-- -- 176
-* -- 544
-:= -- 1889
-add.period$ -- 108
-call.type$ -- 34
-change.case$ -- 199
+            909 strings with 15440 characters,
+and the built_in function-call counts, 22072 in all, are:
+= -- 2234
+> -- 979
+< -- 2
++ -- 369
+- -- 306
+* -- 974
+:= -- 3353
+add.period$ -- 198
+call.type$ -- 60
+change.case$ -- 347
 chr.to.int$ -- 0
-cite$ -- 49
-duplicate$ -- 289
-empty$ -- 1080
-format.name$ -- 176
-if$ -- 3099
+cite$ -- 84
+duplicate$ -- 562
+empty$ -- 1976
+format.name$ -- 306
+if$ -- 5686
 int.to.chr$ -- 0
-int.to.str$ -- 34
-missing$ -- 4
-newline$ -- 179
-num.names$ -- 64
-pop$ -- 365
+int.to.str$ -- 60
+missing$ -- 10
+newline$ -- 320
+num.names$ -- 116
+pop$ -- 651
 preamble$ -- 1
-purify$ -- 156
+purify$ -- 273
 quote$ -- 0
-skip$ -- 874
+skip$ -- 1633
 stack$ -- 0
-substring$ -- 193
-swap$ -- 15
-text.length$ -- 0
+substring$ -- 412
+swap$ -- 72
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 136
-warning$ -- 15
-while$ -- 65
-width$ -- 36
-write$ -- 358
-(There were 15 warnings)
+type$ -- 240
+warning$ -- 24
+while$ -- 119
+width$ -- 62
+write$ -- 641
+(There were 25 warnings)
