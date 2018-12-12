@@ -30,9 +30,15 @@
 
 
 \begin{document}
+	
+\tableofcontents*
+	
+\listoffiguresandtables
+\chapter{List of Abbreviations and Symbols}
+\section*{Abbreviations}
 
-\section{Acronyms and abbreviations}
-\begin{tabular}{ l l }
+	\renewcommand{\arraystretch}{1.1}
+	\begin{tabularx}{\textwidth}{@{}p{12mm}X@{}}
 	ACK & Acknowledgement \\
 	AK & Authenticated Key Agreement \\
 	AKC & Authenticated Key Agreement with key Conformation \\
@@ -78,15 +84,14 @@
 	V2N & Vehicle-to-network \\
 	V2I & Vehicle-to-infrastructure  \\
 	V2V & Vehicle-to-vehicle \\
-\end{tabular}
+	\end{tabularx}
 
-\newpage
-\tableofcontents*
 
 \mainmatter
 
 \include{introduction}
 \include{chapter1}
+\include{chapter2}
 
 \backmatter
 

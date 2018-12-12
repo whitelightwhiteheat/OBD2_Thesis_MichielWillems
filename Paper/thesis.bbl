@@ -22,6 +22,12 @@ Abdul~Rehwan Anwar.
 \newblock URL:
   \url{https://www.linkedin.com/pulse/bus-arbitration-can-controller-area-network-abdul-rehman-anwer,2017}.
 
+\bibitem{Bayer15}
+Stephanie Bayer, Thomas Enderle, Dennis~Kengo Oka, and Marko Wolf.
+\newblock Security crash test \textendash practical security evaluations of
+  automotive onboard it components.
+\newblock Technical report, 2015.
+
 \bibitem{CANissues}
 Robert Buttigieg, Mario Farrugia, and Clyde Meli.
 \newblock Security issues in controller area networks in automobiles.
@@ -109,6 +115,12 @@ Jan~Tobias M\"{u}hlberg, Frank Piessens, and Jo~Van Bulck.
   automotive control networks.
 \newblock Technical report, Imec-Distrinet KuLeuven, 2017.
 
+\bibitem{Petit}
+Jonathan Petit and Steven~E. Schladover.
+\newblock Potential cyberattacks on automated vehicles.
+\newblock {\em IEEE Transactions on Intelligent Transportation Systems},
+  September 2014.
+
 \bibitem{Pfeiffer}
 Olaf Pfeiffer and Christian Keydel.
 \newblock Scalable can security for can, canopen and other protocols.
@@ -123,6 +135,11 @@ Lee Pike, Jamey Sharp, Mark Tullsen, Patrick~C. Hickey, and James Bielman.
 Andreea-Ina Radu and D.~Flavio.
 \newblock Technical report, Garcia School of Computer Science, University of
   Birmingham, UK, LeiA: A Lightweight Authentication Protocol for CAN.
+
+\bibitem{Maxim}
+Maxim Raya and Jean-Pierre Hubaux.
+\newblock Securing vehicular ad hoc networks.
+\newblock {\em Journal of Computer Security}, 15, 2007.
 
 \bibitem{Russel17}
 Brian Russell, Aaron Guzman, Paul Lanois, and Drew~Van Duren.

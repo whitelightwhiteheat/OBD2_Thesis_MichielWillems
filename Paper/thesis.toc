@@ -7,7 +7,8 @@
 \select@language {dutch}
 \select@language {english}
 \select@language {english}
-\contentsline {section}{Acronyms and abbreviations}{ii}{section*.1}
+\contentsline {chapter}{List of Figures and Tables}{ii}{chapter*.1}
+\contentsline {chapter}{List of Abbreviations and Symbols}{iv}{chapter*.4}
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Challenges}{2}{section.1.2}
@@ -31,7 +32,15 @@
 \contentsline {subsection}{\numberline {2.3.3}DLC}{14}{subsection.2.3.3}
 \contentsline {subsection}{\numberline {2.3.4}PID's}{14}{subsection.2.3.4}
 \contentsline {subsection}{\numberline {2.3.5}Security Issues}{15}{subsection.2.3.5}
-\contentsline {chapter}{Bibliography}{17}{section*.3}
+\contentsline {chapter}{\chapternumberline {3}Problem Statement}{17}{chapter.3}
+\contentsline {section}{\numberline {3.1}Current State}{17}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Example attacks}{17}{subsection.3.1.1}
+\contentsline {subsubsection}{Speedometer}{18}{section*.6}
+\contentsline {subsubsection}{Denial of Service}{18}{section*.7}
+\contentsline {subsubsection}{Diagnostic session}{19}{section*.8}
+\contentsline {subsection}{\numberline {3.1.2}Impact}{19}{subsection.3.1.2}
+\contentsline {section}{\numberline {3.2}Attacker model}{19}{section.3.2}
+\contentsline {chapter}{Bibliography}{21}{section*.10}
 \select@language {dutch}
 \select@language {english}
 \select@language {dutch}
