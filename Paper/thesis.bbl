@@ -22,11 +22,41 @@ Abdul~Rehwan Anwar.
 \newblock URL:
   \url{https://www.linkedin.com/pulse/bus-arbitration-can-controller-area-network-abdul-rehman-anwer,2017}.
 
+\bibitem{ECU}
+Tarun Argawal.
+\newblock Different types of microcontrollers are used in automobile
+  applications.
+\newblock [Online; accessed 29-November-2018].
+\newblock URL:
+  \url{https://www.elprocus.com/different-microcontrollers-used-in-automobiles/}.
+
+\bibitem{Bayer}
+S.~Bayer, R.~Jung, and M.~Wolf.
+\newblock Obd = open barn door? security vulnerabilities and protections for
+  vehicular on-board diagnosis (obd).
+
 \bibitem{Bayer15}
 Stephanie Bayer, Thomas Enderle, Dennis~Kengo Oka, and Marko Wolf.
 \newblock Security crash test \textendash practical security evaluations of
   automotive onboard it components.
 \newblock Technical report, 2015.
+
+\bibitem{Crispo}
+Cesar Bernardini, Muhammad~Rizwan Asghar, and Bruno Crispo.
+\newblock Security and privacy in vehicular communications: Challenges and
+  opportunities.
+\newblock 2017.
+
+\bibitem{RFC4492}
+S.~Blake-Wilson, N.~Bolyard, V.~Gupta, C.~Hawk, and B.~Moeller.
+\newblock Elliptic curve cryptography (ecc) cipher suites for transport layer
+  security (tls).
+\newblock RFC 4492, IETF, May 2006.
+
+\bibitem{Blake-Wilson}
+S.~Blake-Wilson, D.~Johnson, and A.~Menezes.
+\newblock Key agreement protocols and their security analysis.
+\newblock {\em Cryptography and Coding}, 1355, 1997.
 
 \bibitem{CANissues}
 Robert Buttigieg, Mario Farrugia, and Clyde Meli.
@@ -47,6 +77,11 @@ Stephen Checkoway, Damon McCoy, Brian Kantor, Danny Anderson, Hovav Shacham,
 \newblock Technical report, University of California, San Diego and University
   of Washington.
 
+\bibitem{GPS1}
+C.~Dixon, C.~Hill, M.~Dumville, and D.~Lowe.
+\newblock Gnss vulnerabilities: Testing the truth.
+\newblock {\em Coordinates Mag}, 8(3):13\textendash 20, March 2012.
+
 \bibitem{Bluetooth}
 Pauric Doherty, Alan Molloy, Martin Glavin, and Fearghal Morgan.
 \newblock A review of bluetooth security in the automotive environment.
@@ -62,6 +97,34 @@ Thomas Eisenbarth, Timo Kasper, Amir Moradi, Christof Paar, Mahmoud
   University Bochum, Germany and Department of Computer Engineering and
   Electronic Research Center Sharif University of Technology, Tehran, Iran,
   2008.
+
+\bibitem{ECCbasics}
+Jeronimo Garcia.
+\newblock Elliptic curve crypto , the basics.
+\newblock [Online; accessed 29-November-2018].
+\newblock URL:
+  \url{https://hackernoon.com/eliptic-curve-crypto-the-basics-e8eb1e934dc5}.
+
+\bibitem{Wired}
+Andy Greenberg.
+\newblock Hackers remotely kill a jeep on the highway\textendash with me in it.
+\newblock {\em Wired}, 2015.
+\newblock URL:
+  \url{https://www.wired.com/2015/07/hackers-remotely-kill-jeep-highway/?mbid=social_twitter}.
+
+\bibitem{GPS3}
+G.~Hancke.
+\newblock Security of embedded location systems.
+\newblock {\em Secure Smart Embedded Devices, Platforms and Applications,},
+  267\textendash 286, 2014.
+
+\bibitem{GPS2}
+T.~E. Humphreys, B.~M. Ledvina, M.~L. Psiaki, B.~W. OHanlon, and P.~M.~Kintner
+  Jr.
+\newblock Assessing the spoofing threat: Development portable gps civilian
+  spoofer.
+\newblock page 2314\textendash 2325. in Proc. 21st Int. Techn. Meet. Satellite
+  Division ION GNSS, 2008.
 
 \bibitem{CANhistory}
 CAN in~Automation~(CiA).
@@ -80,6 +143,12 @@ Pierre Kleberger.
 \newblock PhD thesis, Department of Computer Science and Engineering Chalmers
   University of Technology SE\textendash 412 96 Gothenburg, Sweden, 2015.
 
+\bibitem{Kleberger}
+Pierre Kleberger, Tomas Olovsson, and Erland Jonsson.
+\newblock An in-depth analysis of the security of the connected repair shop.
+\newblock Technical report, Department of Computer Science and Engineering
+  Chalmers University of Technology SE\textendash 412 96 Gothenburg, Sweden.
+
 \bibitem{Klinedinst05}
 Dan Klinedinst and Christopher King.
 \newblock On board diagnostics: Risks and vulnerabilities of the connected
@@ -95,6 +164,12 @@ Karl Koscher, Alexei Czeskis, Franziska Roesner, Shwetak Patel, Tadayoshi
   University of California San Diego, 2010.
 \newblock Experimental Security Analysis of a Modern Automobile.
 
+\bibitem{RFID}
+Julia Layton.
+\newblock Are rfid ignition systems secure?
+\newblock URL:
+  \url{https://electronics.howstuffworks.com/gadgets/automotive/rfid-ignition-system.html}.
+
 \bibitem{MillerC}
 Charlie Miller and Chris Valasek.
 \newblock Adventures in automotive networks and control units.
@@ -109,11 +184,24 @@ Charlie Miller and Chris Valasek.
 \newblock Can message injection.
 \newblock OG Dynamite Edition, 2016.
 
+\bibitem{MillerD}
+Charlie Miller and Chris Valasek.
+\newblock Remote exploitation of an unaltered passenger vehicle.
+\newblock 2017.
+
 \bibitem{VulCAN}
 Jan~Tobias M\"{u}hlberg, Frank Piessens, and Jo~Van Bulck.
 \newblock Vulcan: Efficient component authentication and so ware isolation for
   automotive control networks.
 \newblock Technical report, Imec-Distrinet KuLeuven, 2017.
+
+\bibitem{Sancus}
+Job Noorman, Pieter Agten, Wilfried Daniels, Raoul Strackx, Anthony~Van
+  Herrewege, Christophe Huygens, Bart Preneel, Frank Piessens, and Ingrid
+  Verbauwhede.
+\newblock Sancus: Low-cost trustworthy extensible networked devices with a
+  zero-software trusted computing base.
+\newblock Technical report, iMinds-DistriNet and iMinds-COSIC, KU Leuven.
 
 \bibitem{Petit}
 Jonathan Petit and Steven~E. Schladover.
@@ -141,11 +229,27 @@ Maxim Raya and Jean-Pierre Hubaux.
 \newblock Securing vehicular ad hoc networks.
 \newblock {\em Journal of Computer Security}, 15, 2007.
 
+\bibitem{TPMS}
+Ishtiaq Roufa, Rob Millerb, Hossen Mustafaa, Sangho~Ohb Travis~Taylora, Wenyuan
+  Xua, Marco Gruteserb, Wade Trappeb, and Ivan Seskarb.
+\newblock Security and privacy vulnerabilities of in-car wireless networks: A
+  tire pressure monitoring system case study.
+\newblock Technical report, Dept. of CSE, Univ. of South Carolina, Columbia and
+  Rutgers Univ., Piscataway, NJ USA.
+
 \bibitem{Russel17}
 Brian Russell, Aaron Guzman, Paul Lanois, and Drew~Van Duren.
 \newblock Observations and recommendations on connected vehicle security.
 \newblock Technical report, Cloud Security Alliance Internet of Things Working
   group, 2017.
+
+\bibitem{Sethi}
+M.~Sethi, J.~Arkko, A.~Keranen, H.~Back Ericsson, and Comptel.
+\newblock Practical considerations and implementation experiences in securing
+  smart object networks.
+\newblock Technical report, IETF, August 2017.
+\newblock URL:
+  \url{https://tools.ietf.org/id/draft-ietf-lwig-crypto-sensors-04.html}.
 
 \bibitem{OBDconnector}
 AutoTap \textendash OBDII Automotive Diagnostic~Tool.
@@ -195,6 +299,21 @@ Stefan~N. \"{u}rnberger and Christian~Rossow Cispa.
 \newblock URL:
   \url{https://en.wikipedia.org/w/index.php?title=CAN_bus&oldid=870995924}.
 
+\bibitem{wiki:Hash}
+{Wikipedia contributors}.
+\newblock Cryptographic hash function --- {Wikipedia}{,} the free encyclopedia,
+  2018.
+\newblock [Online; accessed 29-November-2018].
+\newblock URL:
+  \url{https://en.wikipedia.org/w/index.php?title=Cryptographic_hash_function&oldid=868055371}.
+
+\bibitem{wiki:Cryptography}
+{Wikipedia contributors}.
+\newblock Cryptography --- {Wikipedia}{,} the free encyclopedia, 2018.
+\newblock [Online; accessed 29-November-2018].
+\newblock URL:
+  \url{https://en.wikipedia.org/w/index.php?title=Cryptography&oldid=870755003}.
+
 \bibitem{wiki:CRC}
 {Wikipedia contributors}.
 \newblock Cyclic redundancy check --- {Wikipedia}{,} the free encyclopedia,
@@ -202,6 +321,29 @@ Stefan~N. \"{u}rnberger and Christian~Rossow Cispa.
 \newblock [Online; accessed 29-November-2018].
 \newblock URL:
   \url{https://en.wikipedia.org/w/index.php?title=Cyclic_redundancy_check&oldid=867705976}.
+
+\bibitem{wiki:DH}
+{Wikipedia contributors}.
+\newblock Diffie\textendash hellman key exchange --- {Wikipedia}{,} the free
+  encyclopedia, 2018.
+\newblock [Online; accessed 29-November-2018].
+\newblock URL:
+  \url{https://en.wikipedia.org/w/index.php?title=Diffie%E2%80%93Hellman_key_exchange&oldid=869274861}.
+
+\bibitem{wiki:DigitalSignature}
+{Wikipedia contributors}.
+\newblock Digital signature --- {Wikipedia}{,} the free encyclopedia, 2018.
+\newblock [Online; accessed 29-November-2018].
+\newblock URL:
+  \url{https://en.wikipedia.org/w/index.php?title=Digital_signature&oldid=871043749}.
+
+\bibitem{wiki:ECC}
+{Wikipedia contributors}.
+\newblock Elliptic-curve cryptography --- {Wikipedia}{,} the free encyclopedia,
+  2018.
+\newblock [Online; accessed 29-November-2018].
+\newblock URL:
+  \url{https://en.wikipedia.org/w/index.php?title=Elliptic-curve_cryptography&oldid=867536222}.
 
 \bibitem{wiki:PID}
 {Wikipedia contributors}.
@@ -223,6 +365,29 @@ Stefan~N. \"{u}rnberger and Christian~Rossow Cispa.
 \newblock [Online; accessed 29-November-2018].
 \newblock URL:
   \url{https://en.wikipedia.org/w/index.php?title=Protocol_stack&oldid=866619457}.
+
+\bibitem{wiki:RBAC}
+{Wikipedia contributors}.
+\newblock Role-based access control --- {Wikipedia}{,} the free encyclopedia,
+  2018.
+\newblock [Online; accessed 29-November-2018].
+\newblock URL:
+  \url{https://en.wikipedia.org/w/index.php?title=Role-based_access_control&oldid=867860238}.
+
+\bibitem{wiki:RSA}
+{Wikipedia contributors}.
+\newblock Rsa (cryptosystem) --- {Wikipedia}{,} the free encyclopedia, 2018.
+\newblock [Online; accessed 29-November-2018].
+\newblock URL:
+  \url{https://en.wikipedia.org/w/index.php?title=RSA_(cryptosystem)&oldid=869016344}.
+
+\bibitem{wiki:SHA}
+{Wikipedia contributors}.
+\newblock Secure hash algorithms --- {Wikipedia}{,} the free encyclopedia,
+  2018.
+\newblock [Online; accessed 29-November-2018].
+\newblock URL:
+  \url{https://en.wikipedia.org/w/index.php?title=Secure_Hash_Algorithms&oldid=837517049}.
 
 \bibitem{Yadav16}
 Aastha Yadav, Gaurav Bose, Radhika Bhange, Karan Kapoor, N.~Ch.S.~N Iyengar,

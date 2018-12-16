@@ -4,67 +4,79 @@ The top-level auxiliary file: thesis.aux
 A level-1 auxiliary file: introduction.aux
 A level-1 auxiliary file: chapter1.aux
 A level-1 auxiliary file: chapter2.aux
+A level-1 auxiliary file: chapter3.aux
+A level-1 auxiliary file: chapter4.aux
 The style file: plainurl.bst
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: references.bib
+Warning--entry type for "ECU" isn't style-file defined
+--line 223 of file references.bib
 Warning--to sort, need author or key in Enisa
 Warning--to sort, need author or key in ISO11898-3
 Warning--empty author in Enisa
 Warning--empty author in ISO11898-3
 Warning--empty note in Ahmed
 Warning--empty note in CANarbitration
+Warning--empty note in Bayer
 Warning--empty institution in Bayer15
+Warning--empty note in Crispo
 Warning--empty year in Kosher
+Warning--empty booktitle in GPS2
 Warning--empty note in CANhistory
+Warning--empty year in Kleberger
 Warning--empty note in Klinedinst05
 Warning--empty title in Kosher2
+Warning--empty note in RFID
 Warning--empty note in MillerC
 Warning--empty institution in MillerA
+Warning--empty note in MillerD
+Warning--empty year in Sancus
 Warning--empty note in Pfeiffer
 Warning--empty note in Pike15
 Warning--empty title in Leia
-You've used 37 entries,
+Warning--empty year in TPMS
+You've used 61 entries,
             2849 wiz_defined-function locations,
-            799 strings with 11421 characters,
-and the built_in function-call counts, 13195 in all, are:
-= -- 1317
-> -- 612
-< -- 0
-+ -- 231
-- -- 192
-* -- 593
-:= -- 2059
-add.period$ -- 117
-call.type$ -- 37
-change.case$ -- 217
+            918 strings with 15655 characters,
+and the built_in function-call counts, 22535 in all, are:
+= -- 2275
+> -- 1014
+< -- 2
++ -- 382
+- -- 318
+* -- 1005
+:= -- 3429
+add.period$ -- 201
+call.type$ -- 61
+change.case$ -- 356
 chr.to.int$ -- 0
-cite$ -- 53
-duplicate$ -- 317
-empty$ -- 1169
-format.name$ -- 192
-if$ -- 3372
+cite$ -- 85
+duplicate$ -- 572
+empty$ -- 2006
+format.name$ -- 318
+if$ -- 5794
 int.to.chr$ -- 0
-int.to.str$ -- 37
-missing$ -- 6
-newline$ -- 194
-num.names$ -- 70
-pop$ -- 392
+int.to.str$ -- 61
+missing$ -- 11
+newline$ -- 325
+num.names$ -- 118
+pop$ -- 664
 preamble$ -- 1
-purify$ -- 170
+purify$ -- 281
 quote$ -- 0
-skip$ -- 959
+skip$ -- 1661
 stack$ -- 0
-substring$ -- 208
-swap$ -- 17
-text.length$ -- 0
+substring$ -- 417
+swap$ -- 73
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 148
-warning$ -- 16
-while$ -- 71
-width$ -- 39
-write$ -- 389
-(There were 16 warnings)
+type$ -- 244
+warning$ -- 24
+while$ -- 121
+width$ -- 63
+write$ -- 651
+(There were 25 warnings)

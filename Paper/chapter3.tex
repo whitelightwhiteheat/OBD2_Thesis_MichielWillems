@@ -1,0 +1,111 @@
+
+\chapter{Problem Statement}
+\label{chap:problem_statement}
+
+From the discussion in chapter \ref{chap:problem_statement} it follows that the use of CAN as signalling protocol for  performing OBD-II operations, thereby inheriting all of CAN's security related shortcomings, attributes to a system that is inherently insecure. This chapter serves as a description of the security related problems that arise from the OBD-II specification, as well as providing a series of examples illustrating these problems.
+
+\section{Current State}
+\label{sec:current_state}
+
+Figure \ref{fig:topography} shows the typical topography of the OBD-II system. The user interacts with the intra vehicle network via the OBD-II interface using some computerised device (see section \ref{subsec:obd:pid}). The central gateway receives and interprets all messages issued by this device, before forwarding them to the appropriate sub-networks. Optionally, upon reception by the intended ECU, a response could be issued and forwarded back to the user. All of this happens concurrently with the normal operation of the intra vehicle network, i.e. messages are exchanged by ECU's over the entire intra vehicle network to guarantee the optimal operation of the vehicle. The problem of this system is the indiscriminate nature at which the gateway forwards the messages it receives from the OBD-II interface. It does not discern between a normal message and a potentially harmful one. This results in an interface that is rendered wide open to any message that the gateway understands. While in theory, it was designed solely for diagnostic and maintenance purposes. This discrepancy between the intention of the OBD-II design and the wide open nature of it's implementation is apparent. As a result of this, the OBD-II interface can be used to mount a series of attacks. To get a sense of the scope, difficulty and impact of these attacks, a couple of real examples are discussed next.
+
+\begin{figure}[h]
+	\label{fig:topography}
+	\centering
+	\includegraphics[width=\textwidth]{obd_topography.png}
+	\caption{OBD-II System Topography}
+\end{figure}
+
+\subsection{Example attacks}
+\label{subsec:example_attacks}
+The exploits that are presented here were performed by Charlie Miller and Chris Valasek, in an effort to raise awareness about the issue, as well as allowing car manufacturers to build safer cars in the future. They accomplished this by not only finding and exploiting various vulnerabilities in extant vehicles, but also sharing any software that made these exploits possible. An example of this is EcomCat, which is software written to aid in the reading and writing of data to the CAN bus through one or more Ecom cables \cite{MillerC}. The Ecom cable is then used to connect a laptop to the OBD-II DLC, allowing the researchers to use their EcomCat software to inject their own CAN messages onto the internal bus. Although seemingly straightforward there are many potential problems in attempting to make the vehicle perform actions by injecting packets on the CAN bus. First, not everything can be controlled via the CAN bus (e.g. cruise control). Second, if a specific type of CAN packet is found to be a request (An ECU asking for another ECU to perform an action) replaying a fake copy does not guarantee that the message is accepted. This is because the original message is still sent, possibly confusing the ECU with conflicting information. Third, It is also possible that fake messages are ignored because of built-in security features inside the ECU. Despite these difficulties, these researchers did manage to mount a series of interesting exploits, two of which are presented here.
+
+\subsubsection{Speedometer} 
+\label{subsec:speedometer}
+
+In this example ,performed on a 2010 Toyota Prius, the researchers managed to identify the messages that are sent to the speedometer to display the current velocity of the vehicle. Replaying this message with custom data fields allowed them to display any arbitrary speed on the speedometer display.
+
+\subsubsection{Denial of Service} 
+\label{subsec:denial_of_service}
+
+Here the researches cleverly take advantage of how the CAN protocol works. Remember from \ref{sec:can} that CAN uses priority scheduling over the ID's of the messages that are sent on the bus. This means that spamming a high priority message would prevent all other messages from being transmitted. This vulnerability is exploited here by flooding the bus with CAN messages with an ID of 0. This flooding of the CAN bus halts the engine from being turned on, as well as putting the system in an all out state of disarray.
+
+\subsubsection{Diagnostic session} 
+\label{subsec:diagnostic_session}
+
+The aforementioned examples used injection of messages that are normally sent from ECU to ECU, thereby erroneously invoking certain actions. Another approach is to trick the vehicle network into starting a diagnostic session. These are used in normal circumstances by a technician at a garage. It allows them to test the function of an ECU without having to take the vehicle on the road, as well as recalibrating them. Starting a diagnostic session does require circumventing an authentication procedure (see \ref{sec:obd_access_control}) but this proved rather easy (they did this by reverse engineering an official authentication device and extracting the keys). Once a diagnostic session was established it opened up a wide array of possible attacks: Killing the engine, disabling the brakes, honking the horn, unlocking/locking doors, and even reprogramming of certain ECU's (see \cite{MillerC} for a detailed description of the attacks).
+
+\subsection{Impact}
+\label{subsec:impact}
+
+It is clear that the level of control that is obtainable via the OBD-II port is worrying. Especially if we consider that there exist OBD-II devices with Bluetooth or Wifi capabilities, allowing attacks to be mounted from a distance (imagine a DoS attack being mounted while driving a car at high speed). It is these scenarios that elevate the concern from mere vehicular integrity, to concern over the physical safety of the driver and his/her passengers. Sure it could be stated that this danger originates from a malicious agent gaining illegal access to the vehicle, rather than the security of the internal vehicle system. But this assertion would gloss over the fact that the OBD-II interface was designed to be used only by repairman, testers, policemen, etc. Therefore it is only logical that this privileged use is enforced by the system, rather than being merely implied.
+
+\section{Attacker model} 
+\label{sec:attacker_model}
+
+To further characterize the security issues of OBD-II it is useful do specify an attacker model. This model serves as a survey of the attacker's capabilities and motives, thus defining a set of criteria on which potential countermeasures can be judged. A typical attacker will not necessarily conform to all these characteristics, but the idea is that any countermeasure would have to address them nonetheless. First a general overview of a typical attack is discussed, after which a more formal classification is given.
+
+\subsection{Informal Model}
+\label{subsec:informal_model}
+
+From the discussion in section \ref{sec:current_state} it follows that the OBD-II DLC is a wide open interface, allowing various attacks to be mounted. The inherent vulnerabilities this interface introduces are apparent. The scope of these vulnerabilities, i.e. what type of attacks are possible and how attackers are able to perform these remains unclear. This topic is discussed first, after which the types of attackers and their motives are presented.
+
+\subsubsection{Type of Attack}  
+All the attacks presented in section \ref{subsec:example_attacks} were leveraged by gaining physical access to the vehicle. This situation is illustrated in figure \ref{fig:attackmodel_1}. Physical access is ideally only granted to the owner of the vehicle, and it's safe to assume that he or she is not intent on mounting an attack on their own vehicle. It is not unthinkable however, for an attacker to gain access illegally (e.g. car theft) or by abusing privileges that were bestowed on them by the owner (e.g. a repairman). While physical access is the most evident way of mounting an attack via the OBD-II interface, another alternative is certainly worth examining. In this approach an attacker would abuse the connection of an extant OBD-II communications by hijacking the session. When the extant session is physical in nature, i.e. a user directly interfacing with the OBD-II system via a hand-held device, this scenario is unlikely since the user would be aware of any malicious third parties hijacking the session. When we consider that the session can be wireless however, like the DLC connector with wifi/Bluetooth capabilities discussed in section \ref{subsec:obd:pid}, this scenario becomes increasingly likely. Especially since the wireless capabilities of diagnostics systems will only increase in the future, as is discussed in \cite{Kleberger}. This situation is illustrated in figure \ref{fig:attackmodel_2}.
+
+
+\begin{figure}[h]
+	\label{fig:attackmodel_1}
+	\centering
+	\includegraphics[width=\textwidth]{attackmodel_1.png}
+	\caption{Attacker with physical access.}
+\end{figure}
+
+\begin{figure}[h]
+	\label{fig:attackmodel_2}
+	\centering
+	\includegraphics[width=\textwidth]{attackmodel_2.png}
+	\caption{Attacker hijacking another OBD-II session.}
+\end{figure}
+
+\subsubsection{Type of Attacker}
+Aside from the type of attacks that are possible, it is valuable to define which type of attackers would be interested in attempting them and why. The European Union Agency for Network and Information Security (ENISA) defines 4 types of cyberattacks on smart cars in \cite{Enisa}: 
+
+\begin{itemize}
+	\item \textbf{Attacks targeting driver/passenger safety:} This is probably the most serious and harmful type of attacks, since they directly involve the safety of the passengers. Why anyone would be motivated to jeopardize the well-being of another person can vary: Extortion, financial gain, rivalries, etc. In the context of OBD-II it is the second attack scenario (i.e. remote OBD-II session hijacking) that is especially relevant here, since these would allow an adversary to initiate the attack while the vehicle is on the road. However, it is not entirely unlikely that someone would compromise the vehicle via the OBD-II interface beforehand, with the intention of compromising drivers/passenger in the future.
+	
+	
+	\item \textbf{Persistent vehicle alteration by legitimate users:} Most car owners will never concern themselves with the OBD-II interface, and might not even know it exists. Others however, albeit out of sheer curiosity, might take an interest and discover all the possibilities that the OBD-II has to offer. These 'automotive network adventurers' could inadvertently compromise the integrity of the network, thereby endangering themselves and all their passengers. Another incentive for people to alter the behaviour of their own vehicle is personal gain: lowering the internal odometer value before selling the vehicle, clearing recent crash data to fool insurance companies, recalibrating sensors to pass emissions tests, improving the performance of the engine, etc.  
+	
+	\item \textbf{Surveillance:} The DLC connectors with wifi/Bluetooth capabilities presented in section \ref{subsec:obd:pid} enable adversaries to remotely monitor the position of the vehicle, and by extension the driver and passengers. This could be taken even further if the GPS system could be remotely compromised. There are many reasons why an adversary or an organisation would be interested in collecting vehicle locations. These depend on the type of surveillance: 
+	\begin{itemize}
+		\item \textbf{Targeted Surveillance:} Where an individual is tracked using a vulnerability in its vehicle systems. The effort and cost involved in such an operation hints at the following motives: espionage, crime, terrorism, or business intelligence.
+		
+		\item \textbf{Mass surveillance:} where a great number of individuals are tracked by exploiting some common vulnerability. Because of the scope these types of attacks, it is likely they are issued by government agencies and criminal organisations.
+	\end{itemize}
+	
+	
+	\item \textbf{Theft:} While exploiting remote keyless entry (RKE) vulnerabilities (see section \ref{subsubsec:rke}) and replaying Radio Frequency identification (RFID) signals (see section \ref{subsubsec:rfid}) are more common ways of stealing cars, it is not entirely unlikely for the OBD-II interface to be exploited as well. For example: a resourceful adversary could inject a series of messages, via the OBD-II interface, that tricks the vehicle into starting the ignition.	
+\end{itemize}
+
+\subsection{Formal Model}
+In this section a more formal attacker model is presented. A similar classification as \cite{Maxim} and \cite{Petit} is followed:
+
+\begin{itemize}
+	\item \textbf{Insider or outsider:} The insider is considered an interactive member of the network, meaning he/she can communicate with other members freely. The outsider however is limited in the diversity of attacks he/she can mount.
+	
+	Classification: \textbf{outsider}, since the attacker is not part of the CAN bus. It is worth noting however that when the attacker uses the OBD port to mount an attack, he/she can communicate with the other nodes on the bus. This however is treated by this paper as part of a successful attack, not as an a priori capability of the attacker.
+	
+	\item \textbf{Malicious or rational:}  A malicious attacker exploits the system for reasons other than personal gain, making them more unpredictable since their motives and resources can vary. A rational attacker however is motivated solely by personal profit, be it money or fame, making them more predictable.
+	
+	Classification: \textbf{both}, since an attacker using the OBD port as attack vector could be both malicious (e.g. Endangering the life of a rival) and rational (e.g. lowering the internal odometer value before selling the vehicle).
+	
+	\item \textbf{Active or passive:} An active attacker is able to generate and transmit messages, whereas a passive attacker is constrained to eavesdropping.
+	
+	Classification: \textbf{active}, since we know the attacker can have access to tools (e.g. PassThru) that grant him/her active capabilities.
+	
+	\item \textbf{Local or extended:} This criterion is based on the scope of the attacker. A local attacker has only limited attack vectors, whereas an extended attacker has access to lots.
+	
+	Classification: \textbf{local}, since a comprehensive analysis of multiple attack vectors, although touched upon in section \ref{sec:other_attack_vectors}, is considered out of scope for this paper (c.f. \cite{Pike15}\cite{Kleberger15}\cite{Russel17}\cite{MillerA}\cite{Petit}\cite{Kosher}\cite{Kosher2}\cite{Bayer15}).
+\end{itemize}
+

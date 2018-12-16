@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  12 DEC 2018 00:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  13 DEC 2018 02:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1319,7 +1319,8 @@ Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
  (./thesis.aux
-(./introduction.aux) (./chapter1.aux) (./chapter2.aux))
+(./introduction.aux) (./chapter1.aux) (./chapter2.aux) (./chapter3.aux)
+(./chapter4.aux))
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
@@ -1447,7 +1448,7 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `kulemtfpf' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- <logokuleng.pdf, id=131, 159.33528pt x 85.358pt>
+ <logokuleng.pdf, id=248, 159.33528pt x 85.358pt>
 File: logokuleng.pdf Graphic file (type pdf)
 
 <use logokuleng.pdf>
@@ -1472,11 +1473,11 @@ Package microtype Info: Loading generic settings for font family
 
 
 ]
-(./thesis.toc) [1
+(./thesis.toc [1
 
 
 
-] (./thesis.lof) (./thesis.lot) [2
+]) [2] (./thesis.lof) (./thesis.lot) [3
 
 ]
 Overfull \hbox (4.45851pt too wide) in paragraph at lines 87--87
@@ -1496,13 +1497,15 @@ Overfull \hbox (3.11714pt too wide) in paragraph at lines 87--87
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [3
+ [4
 
 ]
 Overfull \vbox (249.14561pt too high) has occurred while \output is active []
 
 
-[4]
+[5] [6
+
+]
 \openout2 = `introduction.aux'.
 
  (./introduction.tex
@@ -1511,23 +1514,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--7
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6--7
-
- []
-
-
-Underfull \vbox (badness 4108) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [1
 
 
-
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 20--23
+Underfull \hbox (badness 10000) in paragraph at lines 18--21
 
  []
 
-[2]) [3]
+
+Underfull \vbox (badness 1931) has occurred while \output is active []
+
+ [2])
+[3]
 \openout2 = `chapter1.aux'.
 
  (./chapter1.tex [4
@@ -1535,14 +1536,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--23
 
 
 ] [5]
-<images-thesis/enisa.png, id=295, 853.1875pt x 724.7075pt>
+<images-thesis/enisa.png, id=460, 853.1875pt x 724.7075pt>
 File: images-thesis/enisa.png Graphic file (type png)
 
 <use images-thesis/enisa.png>
 Package pdftex.def Info: images-thesis/enisa.png used on input line 30.
 (pdftex.def)             Requested size: 398.0pt x 338.0692pt.
  [6 <./images-thesis/enisa.png>]
-<images-thesis/network_technologies2.png, id=306, 787.94376pt x 262.9825pt>
+<images-thesis/network_technologies2.png, id=471, 787.94376pt x 262.9825pt>
 File: images-thesis/network_technologies2.png Graphic file (type png)
 
 <use images-thesis/network_technologies2.png>
@@ -1550,7 +1551,7 @@ Package pdftex.def Info: images-thesis/network_technologies2.png used on input
 line 39.
 (pdftex.def)             Requested size: 398.0pt x 132.83519pt.
 
-<images-thesis/network_technologies.png, id=310, 843.15pt x 576.1525pt>
+<images-thesis/network_technologies.png, id=475, 843.15pt x 576.1525pt>
 File: images-thesis/network_technologies.png Graphic file (type png)
 
 <use images-thesis/network_technologies.png>
@@ -1584,14 +1585,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 186--188
 
  []
 
-[12] [13] <images-thesis/typeA.png, id=393, 218.8175pt x 87.32625pt>
+[12] [13] <images-thesis/typeA.png, id=557, 218.8175pt x 87.32625pt>
 File: images-thesis/typeA.png Graphic file (type png)
 
 <use images-thesis/typeA.png>
 Package pdftex.def Info: images-thesis/typeA.png used on input line 212.
 (pdftex.def)             Requested size: 218.81696pt x 87.32603pt.
 
-<images-thesis/typeB.png, id=396, 218.8175pt x 87.32625pt>
+<images-thesis/typeB.png, id=560, 218.8175pt x 87.32625pt>
 File: images-thesis/typeB.png Graphic file (type png)
 
 <use images-thesis/typeB.png>
@@ -1607,32 +1608,98 @@ Underfull \hbox (badness 10000) in paragraph at lines 226--230
 
 
 (./chapter2.tex
-<images-thesis/obd_topography.png, id=432, 912.40875pt x 459.7175pt>
-File: images-thesis/obd_topography.png Graphic file (type png)
 
-<use images-thesis/obd_topography.png>
-Package pdftex.def Info: images-thesis/obd_topography.png used on input line 15
-.
-(pdftex.def)             Requested size: 398.0pt x 200.52965pt.
+LaTeX Warning: Reference `sec:example_attacks' on page 17 undefined on input li
+ne 9.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: Reference `sec:example_attacks' on page 17 undefined on input li
+ne 12.
 
 [17
 
 
 
-] [18 <./images-thesis/obd_topography.png>]
+] [18] [19] [20] [21] [22]
 
-LaTeX Warning: Reference `sec:obd_access_control' on page 19 undefined on input
- line 36.
+LaTeX Warning: Reference `fig:SANCUS' on page 23 undefined on input line 108.
 
-[19]
+[23]) [24]
+\openout2 = `chapter3.aux'.
 
-LaTeX Warning: Reference `sec:other_attack_vectors' on page 20 undefined on inp
-ut line 62.
+ (./chapter3.tex
+<images-thesis/obd_topography.png, id=720, 908.39375pt x 470.75874pt>
+File: images-thesis/obd_topography.png Graphic file (type png)
 
-) [20] (./thesis.bbl
+<use images-thesis/obd_topography.png>
+Package pdftex.def Info: images-thesis/obd_topography.png used on input line 15
+.
+(pdftex.def)             Requested size: 398.0pt x 206.25813pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[25
+
+
+
+] [26 <./images-thesis/obd_topography.png>] [27]
+<images-thesis/attackmodel_1.png, id=747, 917.4275pt x 469.755pt>
+File: images-thesis/attackmodel_1.png Graphic file (type png)
+
+<use images-thesis/attackmodel_1.png>
+Package pdftex.def Info: images-thesis/attackmodel_1.png used on input line 60.
+
+(pdftex.def)             Requested size: 398.0pt x 203.78986pt.
+
+<images-thesis/attackmodel_2.png, id=748, 896.34875pt x 466.74374pt>
+File: images-thesis/attackmodel_2.png Graphic file (type png)
+
+<use images-thesis/attackmodel_2.png>
+Package pdftex.def Info: images-thesis/attackmodel_2.png used on input line 67.
+
+(pdftex.def)             Requested size: 398.0pt x 207.24094pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[28 <./images-thesis/attackmodel_1.png>] [29 <./images-thesis/attackmodel_2.png
+>] [30]) [31]
+\openout2 = `chapter4.aux'.
+
+ (./chapter4.tex [32
+
+
+
+]
+
+LaTeX Warning: Reference `sec:solution' on page 33 undefined on input line 4.
+
+[33] [34]
+Underfull \vbox (badness 6016) has occurred while \output is active []
+
+ [35]
+[36]
+
+LaTeX Warning: Reference `sec:authentication_procedure' on page 37 undefined on
+ input line 87.
+
+[37] [38] <images-thesis/ECC.png, id=854, 584.1825pt x 359.3425pt>
+File: images-thesis/ECC.png Graphic file (type png)
+
+<use images-thesis/ECC.png>
+Package pdftex.def Info: images-thesis/ECC.png used on input line 107.
+(pdftex.def)             Requested size: 398.0pt x 244.82669pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[39]
+
+LaTeX Warning: Reference `sec:authentication_procedure' on page 40 undefined on
+ input line 124.
+
+[40 <./images-thesis/ECC.png>] [41]) [42] (./thesis.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 20--24
 []\OT1/cmr/m/n/10.95 (+20) Abdul Re-hwan An-war.  Bus ar-bi-tra-tion in can (co
 n-troller
@@ -1650,65 +1717,150 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--24
 ul-[]rehman-[]anwer ,[]
  []
 
-[21
+[43
 
 
 
-] [22]
-Underfull \hbox (badness 1472) in paragraph at lines 176--182
+]
+Underfull \hbox (badness 5203) in paragraph at lines 102--107
+[]\OT1/cmr/m/n/10.95 (+20) Jeronimo Gar-cia.  El-lip-tic curve crypto , the ba-
+sics.  [On-line;
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--107
+\OT1/cmr/m/n/10.95 (+20) ac-cessed 29-November-2018].  URL: [][]$\OT1/cmtt/m/n/
+10.95 https : / / hackernoon . com /
+ []
+
+
+Underfull \hbox (badness 1215) in paragraph at lines 109--114
+[]\OT1/cmr/m/n/10.95 (+20) Andy Green-berg.  Hack-ers re-motely kill a jeep on 
+the high-way{with
+ []
+
+
+Underfull \hbox (badness 3590) in paragraph at lines 109--114
+\OT1/cmr/m/n/10.95 (+20) me in it.  \OT1/cmr/m/it/10.95 (+20) Wired\OT1/cmr/m/n
+/10.95 (+20) , 2015.  URL: [][]$\OT1/cmtt/m/n/10.95 https : / / www . wired . c
+om / 2015 / 07 /
+ []
+
+[44] [45]
+Underfull \hbox (badness 1472) in paragraph at lines 280--286
 []\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  Anti-lock brak-ing sys-t
 em --- Wikipedia, the
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 176--182
+Underfull \hbox (badness 1028) in paragraph at lines 280--286
 \OT1/cmr/m/n/10.95 (+20) free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-N
 ovember-2018].  URL:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--182
+Underfull \hbox (badness 10000) in paragraph at lines 280--286
 [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? t
 itle = Anti-[]lock _ braking _
  []
 
 
-Underfull \hbox (badness 7576) in paragraph at lines 184--190
+Underfull \hbox (badness 7576) in paragraph at lines 288--294
 []\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  Byzan-tine fault tol-er-
 ance --- Wikipedia,
  []
 
 
-Underfull \hbox (badness 4229) in paragraph at lines 184--190
+Underfull \hbox (badness 4229) in paragraph at lines 288--294
 \OT1/cmr/m/n/10.95 (+20) the free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 
 29-November-2018].
  []
 
 
-Underfull \hbox (badness 3525) in paragraph at lines 184--190
+Underfull \hbox (badness 3525) in paragraph at lines 288--294
 \OT1/cmr/m/n/10.95 (+20) URL: [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikiped
 ia . org / w / index . php ? title = Byzantine _ fault _
  []
 
-
-Underfull \hbox (badness 1694) in paragraph at lines 199--205
-[]\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  Cyclic re-dun-dancy chec
-k --- Wikipedia, the
- []
-
-
-Underfull \hbox (badness 1028) in paragraph at lines 199--205
+[46]
+Underfull \hbox (badness 1028) in paragraph at lines 303--309
 \OT1/cmr/m/n/10.95 (+20) free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-N
 ovember-2018].  URL:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--205
+Underfull \hbox (badness 10000) in paragraph at lines 303--309
+[][]$\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? t
+itle = Cryptographic _ hash _
+ []
+
+
+Underfull \hbox (badness 1694) in paragraph at lines 318--324
+[]\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  Cyclic re-dun-dancy chec
+k --- Wikipedia, the
+ []
+
+
+Underfull \hbox (badness 1028) in paragraph at lines 318--324
+\OT1/cmr/m/n/10.95 (+20) free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-N
+ovember-2018].  URL:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 318--324
 [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? t
 itle = Cyclic _ redundancy _
  []
 
-[23]) [24] [25
+
+Underfull \hbox (badness 3312) in paragraph at lines 326--332
+[]\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  Diffie{hellman key ex-ch
+ange --- Wikipedia,
+ []
+
+
+Underfull \hbox (badness 4229) in paragraph at lines 326--332
+\OT1/cmr/m/n/10.95 (+20) the free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 
+29-November-2018].
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 326--332
+\OT1/cmr/m/n/10.95 (+20) URL: [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikiped
+ia . org / w / index . php ? title = Diffie % E2 % 80 %
+ []
+
+
+Underfull \hbox (badness 1028) in paragraph at lines 341--347
+\OT1/cmr/m/n/10.95 (+20) free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-N
+ovember-2018].  URL:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 341--347
+[][]$\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? t
+itle = Elliptic-[]curve _
+ []
+
+
+Underfull \hbox (badness 1383) in paragraph at lines 370--376
+[]\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  Role-based ac-cess con-t
+rol --- Wikipedia, the
+ []
+
+
+Underfull \hbox (badness 1028) in paragraph at lines 370--376
+\OT1/cmr/m/n/10.95 (+20) free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-N
+ovember-2018].  URL:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--376
+[][]$\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? t
+itle = Role-[]based _ access _
+ []
+
+[47]) [48] [49
 
 ]
 \tf@toc=\write6
@@ -1720,46 +1872,51 @@ itle = Cyclic _ redundancy _
 \tf@lot=\write8
 \openout8 = `thesis.lot'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 101.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 101.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 103.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 103.
  (./thesis.aux (./introduction.aux) (./chapter1.aux)
-(./chapter2.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 101.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 101.
+(./chapter2.aux) (./chapter3.aux) (./chapter4.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 103.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 103.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: C415DB0D4359EE72C583AF5D76ED0947;1893.
+(rerunfilecheck)             Checksum: 9A2FA9E3C5F72364E5DC15C3BC9B6278;3813.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 33117 strings out of 493014
- 606793 string characters out of 6133351
- 758147 words of memory out of 5000000
- 35927 multiletter control sequences out of 15000+600000
- 28571 words of font info for 110 fonts, out of 8000000 for 9000
+ 33534 strings out of 493014
+ 613564 string characters out of 6133351
+ 769411 words of memory out of 5000000
+ 36186 multiletter control sequences out of 15000+600000
+ 29861 words of font info for 119 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,14n,56p,10398b,671s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,23n,65p,10398b,1478s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/te
 xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/tex
 live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texli
-ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive
-/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/20
-16/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2016/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf
--dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2016/texmf-di
-st/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016/texmf-dist/font
-s/type1/urw/helvetic/uhvr8a.pfb>
-Output written on thesis.pdf (31 pages, 704300 bytes).
+live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/
+2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/20
+16/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2016
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2016/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/font
+s/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2016/texmf-dist/fonts/
+type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/u
+rw/helvetic/uhvr8a.pfb>
+Output written on thesis.pdf (57 pages, 993115 bytes).
 PDF statistics:
- 593 PDF objects out of 1000 (max. 8388607)
- 521 compressed objects within 6 object streams
- 118 named destinations out of 1000 (max. 500000)
- 22312 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 1104 PDF objects out of 1200 (max. 8388607)
+ 990 compressed objects within 10 object streams
+ 245 named destinations out of 1000 (max. 500000)
+ 24095 words of extra memory for PDF output out of 24883 (max. 10000000)
 

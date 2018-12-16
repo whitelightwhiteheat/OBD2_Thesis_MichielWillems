@@ -7,8 +7,8 @@
 \select@language {dutch}
 \select@language {english}
 \select@language {english}
-\contentsline {chapter}{List of Figures and Tables}{ii}{chapter*.1}
-\contentsline {chapter}{List of Abbreviations and Symbols}{iv}{chapter*.4}
+\contentsline {chapter}{List of Figures and Tables}{iii}{chapter*.1}
+\contentsline {chapter}{List of Abbreviations and Symbols}{v}{chapter*.4}
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Challenges}{2}{section.1.2}
@@ -32,15 +32,66 @@
 \contentsline {subsection}{\numberline {2.3.3}DLC}{14}{subsection.2.3.3}
 \contentsline {subsection}{\numberline {2.3.4}PID's}{14}{subsection.2.3.4}
 \contentsline {subsection}{\numberline {2.3.5}Security Issues}{15}{subsection.2.3.5}
-\contentsline {chapter}{\chapternumberline {3}Problem Statement}{17}{chapter.3}
-\contentsline {section}{\numberline {3.1}Current State}{17}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Example attacks}{17}{subsection.3.1.1}
-\contentsline {subsubsection}{Speedometer}{18}{section*.6}
-\contentsline {subsubsection}{Denial of Service}{18}{section*.7}
-\contentsline {subsubsection}{Diagnostic session}{19}{section*.8}
-\contentsline {subsection}{\numberline {3.1.2}Impact}{19}{subsection.3.1.2}
-\contentsline {section}{\numberline {3.2}Attacker model}{19}{section.3.2}
-\contentsline {chapter}{Bibliography}{21}{section*.10}
+\contentsline {chapter}{\chapternumberline {3}Related work}{17}{chapter.3}
+\contentsline {section}{\numberline {3.1}OBD-II Access Control}{17}{section.3.1}
+\contentsline {paragraph}{Seed key algorithm}{17}{section*.6}
+\contentsline {paragraph}{Two-Way authentication method}{18}{section*.7}
+\contentsline {paragraph}{Timer Method}{18}{section*.8}
+\contentsline {subsection}{\numberline {3.1.1}Discussion}{18}{subsection.3.1.1}
+\contentsline {section}{\numberline {3.2}Other attack vectors}{18}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Indirect physical access}{19}{subsection.3.2.1}
+\contentsline {subsubsection}{Entertainment: Disk, USB and IPod}{19}{section*.9}
+\contentsline {subsection}{\numberline {3.2.2}Short-range wireless access}{19}{subsection.3.2.2}
+\contentsline {subsubsection}{Remote Keyless Entry}{19}{section*.10}
+\contentsline {subsubsection}{RFID car keys}{19}{section*.11}
+\contentsline {subsubsection}{TPMS}{19}{section*.12}
+\contentsline {subsubsection}{V2V, V2I and V2N}{20}{section*.13}
+\contentsline {subsection}{\numberline {3.2.3}Long-range wireless access}{20}{subsection.3.2.3}
+\contentsline {subsubsection}{GPS}{20}{section*.14}
+\contentsline {subsubsection}{Radio}{20}{section*.15}
+\contentsline {subsubsection}{Vehicle Telematics}{21}{section*.16}
+\contentsline {subsection}{\numberline {3.2.4}Future Systems}{21}{subsection.3.2.4}
+\contentsline {subsubsection}{ITS}{21}{section*.17}
+\contentsline {section}{\numberline {3.3}Internal Vehicle Security}{22}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}VulCAN}{23}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}CANCrypt}{24}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}VatiCAN}{24}{subsection.3.3.3}
+\contentsline {chapter}{\chapternumberline {4}Problem Statement}{25}{chapter.4}
+\contentsline {section}{\numberline {4.1}Current State}{25}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Example attacks}{25}{subsection.4.1.1}
+\contentsline {subsubsection}{Speedometer}{26}{section*.18}
+\contentsline {subsubsection}{Denial of Service}{26}{section*.19}
+\contentsline {subsubsection}{Diagnostic session}{27}{section*.20}
+\contentsline {subsection}{\numberline {4.1.2}Impact}{27}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Attacker model}{27}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Informal Model}{28}{subsection.4.2.1}
+\contentsline {subsubsection}{Type of Attack}{28}{section*.21}
+\contentsline {subsubsection}{Type of Attacker}{29}{section*.22}
+\contentsline {subsection}{\numberline {4.2.2}Formal Model}{30}{subsection.4.2.2}
+\contentsline {chapter}{\chapternumberline {5}Preliminaries}{33}{chapter.5}
+\contentsline {section}{\numberline {5.1}ECU Microcontrollers}{33}{section.5.1}
+\contentsline {section}{\numberline {5.2}Role-Base Access Control}{34}{section.5.2}
+\contentsline {section}{\numberline {5.3}Public Key Cryptography}{35}{section.5.3}
+\contentsline {paragraph}{Cryptography}{35}{section*.23}
+\contentsline {paragraph}{Symmetric vs Asymmetric}{35}{section*.24}
+\contentsline {section}{\numberline {5.4}Key Exchange}{36}{section.5.4}
+\contentsline {paragraph}{Session Keys}{36}{section*.25}
+\contentsline {paragraph}{Key Exchange Algorithms}{36}{section*.26}
+\contentsline {section}{\numberline {5.5}Authentication}{36}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Hash functions}{37}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}Digital Signatures}{37}{subsection.5.5.2}
+\contentsline {subsection}{\numberline {5.5.3}MAC's}{37}{subsection.5.5.3}
+\contentsline {section}{\numberline {5.6}Authenticated Key Agreement}{38}{section.5.6}
+\contentsline {section}{\numberline {5.7}Security Level}{38}{section.5.7}
+\contentsline {section}{\numberline {5.8}Chosen Security Systems}{38}{section.5.8}
+\contentsline {subsection}{\numberline {5.8.1}Elliptic Curve Cryptography}{38}{subsection.5.8.1}
+\contentsline {paragraph}{ECC}{39}{section*.27}
+\contentsline {subsubsection}{ECDSA}{39}{section*.28}
+\contentsline {subsubsection}{ECDH}{39}{section*.29}
+\contentsline {subsubsection}{ECDHE\_ECDSA}{40}{section*.30}
+\contentsline {subsection}{\numberline {5.8.2}SHA}{41}{subsection.5.8.2}
+\contentsline {subsection}{\numberline {5.8.3}HMAC}{42}{subsection.5.8.3}
+\contentsline {chapter}{Bibliography}{43}{section*.32}
 \select@language {dutch}
 \select@language {english}
 \select@language {dutch}
