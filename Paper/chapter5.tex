@@ -35,7 +35,7 @@ The goal of the authentication procedure to prove to the gateway possession of t
 	
 	\item \textbf{Mutual Authentication:} The first authentication step can be omitted (i.e signing by the gateway, and verification by the tester). Because of the absence of a gateway key pair, it is impossible for the gateway to authenticate itself to the tester. Moreover, this is not even a requirement of our authentication procedure.
 \end{enumerate}
-Applying all of these modifications the procedure from figure \ref{fig:authentication_procedure} is obtained. Before the procedure is initiated the central server is in possession of the OBD-II private key $Pr_{obd}$, while the gateway has the appropriate public key $Pb_{obd}$ stored in memory. The user of the tester initiates the procedure by connecting to the OBD-II DLC, after which the tester sends an initialization message to the gateway. This initialization message also specifies the role that the user of the tester wishes to authenticate as. The gateway responds to this by creating a new ECC key pair: KGen($Pb_g$,$Pr_g$), and sending the newly created public key $Pb_g$ to the tester. The tester then forwards this secret key to the central server, which in turn signs this public key using the OBD-II private key: Sig($Pb_g$,$Pr_{obd}$), before sending the signature back to the tester. The tester then forwards this signature (only the signature) back to the gateway. After the gateway has verified the signature using the OBD-II private key: Ver(Sig,$Pb_{obd}$), both parties calculate the shared secret using ECDH. The gateway does so on his own: $K$=ECDH($Pr_g$,$Pb_{obd}$). The tester however does not have all the ingredients to do so ,since the OBD private key is stored on the central server. That is why it is generated on the server, and securely sent to the tester. This newly created secret can then be used to authenticate every OBD-II message that is sent in the upcoming session. This procedure is discussed next.
+Applying all of these modifications the procedure from figure \ref{fig:authentication_procedure} is obtained. Before the procedure is initiated the central server is in possession of the OBD-II private key $Pr_{obd}$, while the gateway has the appropriate public key $Pb_{obd}$ stored in memory. The user of the tester initiates the procedure by connecting to the OBD-II DLC, after which the tester sends an initialization message to the gateway. This initialization message also specifies the role that the user of the tester wishes to authenticate as. The gateway responds to this by creating a new ECC key pair: KGen($Pb_g$,$Pr_g$), and sending the newly created public key $Pb_g$ to the tester. The tester then forwards this secret key to the central server, which in turn signs this public key using the OBD-II private key: Sig($Pb_g$,$Pr_{obd}$), before sending the signature back to the tester. The tester then forwards this signature (only the signature) back to the gateway. After the gateway has verified the signature using the OBD-II private key: Ver(Sig,$Pb_{obd}$), both parties calculate the shared secret using ECDH. The gateway does so on his own: $K$=ECDH($Pr_g$,$Pb_{obd}$). The tester however does not have all the ingredients to do so, since the OBD private key is stored on the central server. That is why it is generated on the server, and securely sent to the tester. This newly created secret can then be used to authenticate every OBD-II message that is sent in the upcoming session. This procedure is discussed next.
  
 \begin{figure}[h]
 	\centering
@@ -65,7 +65,7 @@ The authentication procedure from section \ref{sec:authentication_procedure} aut
 	
 	\item \textbf{MAC Verification} Ver(MAC,$K$): After the message $M$ passes the permissions check, the gateway will check whether the received MAC is correct. This way ensuring that the sender of this message is authorized. Again, if this test fails the message will be denied and the tester is notified
 \end{itemize}
-If both these checks succeed, the OBD-II message $M$ is forwarded to the appropriate sub-network and the tester receives an acknowledgement (ACK). The order of the two checking operations is motivated by the fact that the MAC verification operation takes much longer to perform than checking the permissions table. By checking the permissions first, it is avoided that a previously initiated signature verification operation is rendered redundant (e.g. when the permissions check fails).
+If both these checks succeed, the OBD-II message $M$ is forwarded to the appropriate sub-network and the tester receives an acknowledgement (ACK). 
 
 \begin{figure}[h]
 	\centering
@@ -74,8 +74,8 @@ If both these checks succeed, the OBD-II message $M$ is forwarded to the appropr
 			\textbf{Tester}  \<\< \textbf{Gateway} \<\< \textbf{Network}\\
 			\text{$K$}  \<\< \text{$K$} \<\< \\
 			\< \sendmessageright{length=3cm, top=\text{OBD-II message $M$}} \<\<\<\\
-			\< \sendmessageright{length=3cm, top=\text{MAC($M$,$K$)}} \<\<\<\\
 			\<\< \text{CheckP($M$)} \<\< \\
+			\< \sendmessageright{length=3cm, top=\text{MAC($M$,$K$)}} \<\<\<\\
 			\<\< \text{Ver(MAC,$K$)} \<\< \\
 			\<\<\< \sendmessageright{length=3cm, top=\text{$M$}} \< \\
 			\< \sendmessageleft{length=3cm, top=\text{ACK}} \<\<\< \\

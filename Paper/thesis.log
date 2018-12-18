@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  18 DEC 2018 02:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  18 DEC 2018 20:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1480,22 +1480,22 @@ Package microtype Info: Loading generic settings for font family
 ]) [2] (./thesis.lof) (./thesis.lot) [3
 
 ]
-Overfull \hbox (4.45851pt too wide) in paragraph at lines 89--89
+Overfull \hbox (4.45851pt too wide) in paragraph at lines 90--90
 []|\OT1/cmr/m/n/10.95 (-20) ECDHE| 
  []
 
 
-Overfull \hbox (3.11714pt too wide) in paragraph at lines 89--89
+Overfull \hbox (3.11714pt too wide) in paragraph at lines 90--90
 []|\OT1/cmr/m/n/10.95 (-20) ECDLP| 
  []
 
 
-Overfull \hbox (3.11714pt too wide) in paragraph at lines 89--89
+Overfull \hbox (3.11714pt too wide) in paragraph at lines 90--90
 []|\OT1/cmr/m/n/10.95 (-20) ECDSA| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--89
+Underfull \hbox (badness 10000) in paragraph at lines 90--90
 []|\OT1/cmr/m/n/10.95 (+20) RS-
  []
 
@@ -1505,7 +1505,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [4
 
 ]
-Overfull \vbox (277.70567pt too high) has occurred while \output is active []
+Overfull \vbox (292.66573pt too high) has occurred while \output is active []
 
 
 [5] [6
@@ -1546,14 +1546,14 @@ Underfull \vbox (badness 1931) has occurred while \output is active []
 
 
 ] [5]
-<images-thesis/enisa.png, id=537, 853.1875pt x 724.7075pt>
+<images-thesis/enisa.png, id=541, 853.1875pt x 724.7075pt>
 File: images-thesis/enisa.png Graphic file (type png)
 
 <use images-thesis/enisa.png>
 Package pdftex.def Info: images-thesis/enisa.png used on input line 30.
 (pdftex.def)             Requested size: 398.0pt x 338.0692pt.
  [6 <./images-thesis/enisa.png>]
-<images-thesis/network_technologies2.png, id=548, 787.94376pt x 262.9825pt>
+<images-thesis/network_technologies2.png, id=552, 787.94376pt x 262.9825pt>
 File: images-thesis/network_technologies2.png Graphic file (type png)
 
 <use images-thesis/network_technologies2.png>
@@ -1561,7 +1561,7 @@ Package pdftex.def Info: images-thesis/network_technologies2.png used on input
 line 39.
 (pdftex.def)             Requested size: 398.0pt x 132.83519pt.
 
-<images-thesis/network_technologies.png, id=552, 843.15pt x 576.1525pt>
+<images-thesis/network_technologies.png, id=556, 843.15pt x 576.1525pt>
 File: images-thesis/network_technologies.png Graphic file (type png)
 
 <use images-thesis/network_technologies.png>
@@ -1578,7 +1578,7 @@ Package natbib Warning: Citation `MillerB' on page 8 undefined on input line 67
 .
 
 [8 <./images-thesis/network_technologies.png>] [9]
-<images-thesis/CANframe.png, id=582, 853.1875pt x 288.07625pt>
+<images-thesis/CANframe.png, id=586, 853.1875pt x 288.07625pt>
 File: images-thesis/CANframe.png Graphic file (type png)
 
 <use images-thesis/CANframe.png>
@@ -1596,14 +1596,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 168--170
 
  []
 
-[12] [13] <images-thesis/typeA.png, id=631, 218.8175pt x 87.32625pt>
+[12] [13] <images-thesis/typeA.png, id=635, 218.8175pt x 87.32625pt>
 File: images-thesis/typeA.png Graphic file (type png)
 
 <use images-thesis/typeA.png>
 Package pdftex.def Info: images-thesis/typeA.png used on input line 194.
 (pdftex.def)             Requested size: 218.81696pt x 87.32603pt.
 
-<images-thesis/typeB.png, id=634, 218.8175pt x 87.32625pt>
+<images-thesis/typeB.png, id=638, 218.8175pt x 87.32625pt>
 File: images-thesis/typeB.png Graphic file (type png)
 
 <use images-thesis/typeB.png>
@@ -1647,7 +1647,7 @@ LaTeX Warning: Reference `fig:SANCUS' on page 23 undefined on input line 108.
 \openout2 = `chapter3.aux'.
 
  (./chapter3.tex
-<images-thesis/obd_topography.png, id=791, 908.39375pt x 470.75874pt>
+<images-thesis/obd_topography.png, id=795, 908.39375pt x 470.75874pt>
 File: images-thesis/obd_topography.png Graphic file (type png)
 
 <use images-thesis/obd_topography.png>
@@ -1663,7 +1663,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 ] [26 <./images-thesis/obd_topography.png>] [27]
-<images-thesis/attackmodel_1.png, id=818, 917.4275pt x 469.755pt>
+<images-thesis/attackmodel_1.png, id=822, 917.4275pt x 469.755pt>
 File: images-thesis/attackmodel_1.png Graphic file (type png)
 
 <use images-thesis/attackmodel_1.png>
@@ -1671,7 +1671,7 @@ Package pdftex.def Info: images-thesis/attackmodel_1.png used on input line 60.
 
 (pdftex.def)             Requested size: 398.0pt x 203.78986pt.
 
-<images-thesis/attackmodel_2.png, id=819, 896.34875pt x 466.74374pt>
+<images-thesis/attackmodel_2.png, id=823, 896.34875pt x 466.74374pt>
 File: images-thesis/attackmodel_2.png Graphic file (type png)
 
 <use images-thesis/attackmodel_2.png>
@@ -1729,7 +1729,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--18
 
  []
 
-[44] <images-thesis/solution.png, id=986, 946.53625pt x 562.1pt>
+[44] <images-thesis/solution.png, id=990, 946.53625pt x 562.1pt>
 File: images-thesis/solution.png Graphic file (type png)
 
 <use images-thesis/solution.png>
@@ -1777,13 +1777,23 @@ Overfull \hbox (7.632pt too wide) in paragraph at lines 66--67
  []
 
 
-Underfull \vbox (badness 1314) has occurred while \output is active []
+LaTeX Warning: `h' float specifier changed to `ht'.
 
- [54])
-[55] [56
+[54]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images-thesis/permissions.png, id=1095, 1087.06125pt x 297.11pt>
+File: images-thesis/permissions.png Graphic file (type png)
+
+<use images-thesis/permissions.png>
+Package pdftex.def Info: images-thesis/permissions.png used on input line 106.
+(pdftex.def)             Requested size: 398.0pt x 108.78198pt.
 
 
-] (./thesis.bbl
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) [55] [56 <./images-thesis/permissions.png>] (./thesis.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 20--24
 []\OT1/cmr/m/n/10.95 (+20) Abdul Re-hwan An-war.  Bus ar-bi-tra-tion in can (co
 n-troller
@@ -1802,6 +1812,8 @@ ul-[]rehman-[]anwer ,[]
  []
 
 [57
+
+
 
 ]
 Underfull \hbox (badness 1215) in paragraph at lines 102--107
@@ -1933,12 +1945,12 @@ Package natbib Warning: There were undefined citations.
 \tf@lot=\write8
 \openout8 = `thesis.lot'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 107.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 107.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 108.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 108.
 (./thesis.aux (./introduction.aux) (./chapter1.aux) (./chapter2.aux)
 (./chapter3.aux) (./chapter4.aux) (./chapter5.aux) (./chapter6.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 107.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 107.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 108.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 108.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 26770C52FE2A54E09EBDAC4F04DEC10F;4822.
 
@@ -1947,11 +1959,11 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 33680 strings out of 493014
- 616037 string characters out of 6133351
- 794386 words of memory out of 5000000
- 36253 multiletter control sequences out of 15000+600000
- 29861 words of font info for 119 fonts, out of 8000000 for 9000
+ 33711 strings out of 493014
+ 616652 string characters out of 6133351
+ 794809 words of memory out of 5000000
+ 36267 multiletter control sequences out of 15000+600000
+ 29912 words of font info for 120 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,23n,65p,10398b,1480s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
@@ -1975,10 +1987,10 @@ type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
 e1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/
 helvetic/uhvr8a.pfb>
-Output written on thesis.pdf (71 pages, 1100830 bytes).
+Output written on thesis.pdf (71 pages, 1121337 bytes).
 PDF statistics:
- 1313 PDF objects out of 1440 (max. 8388607)
- 1181 compressed objects within 12 object streams
- 309 named destinations out of 1000 (max. 500000)
- 24212 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 1343 PDF objects out of 1440 (max. 8388607)
+ 1208 compressed objects within 13 object streams
+ 323 named destinations out of 1000 (max. 500000)
+ 24217 words of extra memory for PDF output out of 24883 (max. 10000000)
 

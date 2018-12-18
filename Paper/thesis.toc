@@ -103,8 +103,8 @@
 \contentsline {section}{\numberline {7.2}Demo Set-Up}{52}{section.7.2}
 \contentsline {section}{\numberline {7.3}OBD-II Access Control Implementation}{53}{section.7.3}
 \contentsline {subsection}{\numberline {7.3.1}Authentication Procedure Implementation}{53}{subsection.7.3.1}
-\contentsline {paragraph}{The Procedure}{53}{section*.31}
-\contentsline {subsection}{\numberline {7.3.2}Message Authentication Procedure Implementation}{55}{subsection.7.3.2}
+\contentsline {paragraph}{The Procedure}{54}{section*.31}
+\contentsline {subsection}{\numberline {7.3.2}Message Authentication Procedure Implementation}{54}{subsection.7.3.2}
 \contentsline {subsection}{\numberline {7.3.3}Permissions Table Implementation}{55}{subsection.7.3.3}
 \contentsline {chapter}{Bibliography}{57}{section*.33}
 \select@language {dutch}

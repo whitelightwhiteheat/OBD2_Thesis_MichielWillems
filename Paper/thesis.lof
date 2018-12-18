@@ -30,7 +30,9 @@
 \contentsline {figure}{\numberline {6.3}{\ignorespaces OBD-II Message Authentication}}{48}{figure.6.3}
 \addvspace {10pt}
 \contentsline {figure}{\numberline {7.1}{\ignorespaces Hardware set-up that is used to implement the proposed solution.}}{53}{figure.7.1}
-\contentsline {figure}{\numberline {7.2}{\ignorespaces OBD-II Authentication Procedure Implementation}}{54}{figure.7.2}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces OBD-II Authentication Procedure Implementation}}{55}{figure.7.2}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces OBD-II Message Authentication Implementation}}{56}{figure.7.3}
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Permissions table implementation with example.}}{56}{figure.7.4}
 \select@language {dutch}
 \select@language {english}
 \select@language {dutch}
