@@ -98,13 +98,6 @@ Thomas Eisenbarth, Timo Kasper, Amir Moradi, Christof Paar, Mahmoud
   Electronic Research Center Sharif University of Technology, Tehran, Iran,
   2008.
 
-\bibitem{ECCbasics}
-Jeronimo Garcia.
-\newblock Elliptic curve crypto , the basics.
-\newblock [Online; accessed 29-November-2018].
-\newblock URL:
-  \url{https://hackernoon.com/eliptic-curve-crypto-the-basics-e8eb1e934dc5}.
-
 \bibitem{Wired}
 Andy Greenberg.
 \newblock Hackers remotely kill a jeep on the highway\textendash with me in it.
@@ -179,11 +172,6 @@ Charlie Miller and Chris Valasek.
 \newblock A survey of remote automotive attack surfaces.
 \newblock Technical report, 2015.
 
-\bibitem{MillerB}
-Charlie Miller and Chris Valasek.
-\newblock Can message injection.
-\newblock OG Dynamite Edition, 2016.
-
 \bibitem{MillerD}
 Charlie Miller and Chris Valasek.
 \newblock Remote exploitation of an unaltered passenger vehicle.
@@ -202,6 +190,13 @@ Job Noorman, Pieter Agten, Wilfried Daniels, Raoul Strackx, Anthony~Van
 \newblock Sancus: Low-cost trustworthy extensible networked devices with a
   zero-software trusted computing base.
 \newblock Technical report, iMinds-DistriNet and iMinds-COSIC, KU Leuven.
+
+\bibitem{Pan}
+L.~Pan, X.~Zheng, H.X. Chen, T.~Luan, H.~Bootwala, and L.~Batten.
+\newblock Cyber security attacks to modern vehicular systems.
+\newblock Technical report, School of Information Technology,Deakin University,
+  Geelong, Victoria, 3220, Australia and State Key Laboratory of Automotive
+  Safety and Energy, Tsinghua University, Beijing, China, August 2017.
 
 \bibitem{Petit}
 Jonathan Petit and Steven~E. Schladover.
@@ -292,13 +287,6 @@ Stefan~N. \"{u}rnberger and Christian~Rossow Cispa.
 \newblock URL:
   \url{https://en.wikipedia.org/w/index.php?title=Byzantine_fault_tolerance&oldid=869107483}.
 
-\bibitem{wiki:CAN}
-{Wikipedia contributors}.
-\newblock Can bus --- {Wikipedia}{,} the free encyclopedia, 2018.
-\newblock [Online; accessed 29-November-2018].
-\newblock URL:
-  \url{https://en.wikipedia.org/w/index.php?title=CAN_bus&oldid=870995924}.
-
 \bibitem{wiki:Hash}
 {Wikipedia contributors}.
 \newblock Cryptographic hash function --- {Wikipedia}{,} the free encyclopedia,
@@ -313,14 +301,6 @@ Stefan~N. \"{u}rnberger and Christian~Rossow Cispa.
 \newblock [Online; accessed 29-November-2018].
 \newblock URL:
   \url{https://en.wikipedia.org/w/index.php?title=Cryptography&oldid=870755003}.
-
-\bibitem{wiki:CRC}
-{Wikipedia contributors}.
-\newblock Cyclic redundancy check --- {Wikipedia}{,} the free encyclopedia,
-  2018.
-\newblock [Online; accessed 29-November-2018].
-\newblock URL:
-  \url{https://en.wikipedia.org/w/index.php?title=Cyclic_redundancy_check&oldid=867705976}.
 
 \bibitem{wiki:DH}
 {Wikipedia contributors}.
@@ -344,6 +324,14 @@ Stefan~N. \"{u}rnberger and Christian~Rossow Cispa.
 \newblock [Online; accessed 29-November-2018].
 \newblock URL:
   \url{https://en.wikipedia.org/w/index.php?title=Elliptic-curve_cryptography&oldid=867536222}.
+
+\bibitem{wiki:ECDSA}
+{Wikipedia contributors}.
+\newblock Elliptic curve digital signature algorithm --- {Wikipedia}{,} the
+  free encyclopedia, 2018.
+\newblock [Online; accessed 18-December-2018].
+\newblock URL:
+  \url{https://en.wikipedia.org/w/index.php?title=Elliptic_Curve_Digital_Signature_Algorithm&oldid=873142043}.
 
 \bibitem{wiki:PID}
 {Wikipedia contributors}.

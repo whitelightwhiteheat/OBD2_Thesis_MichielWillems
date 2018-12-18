@@ -14,16 +14,23 @@
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Typical intra vehicle network infrastructure \cite {Enisa}}}{6}{figure.2.1}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces An overview of different network technologies and their characteristics \cite {Tuhoy}.}}{7}{figure.2.2}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Mapping of traffic types to network technologies \cite {Tuhoy}.}}{8}{figure.2.3}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Type A female connector \cite {wiki:OBD}}}{14}{figure.2.4}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Type B female connector \cite {wiki:OBD}}}{14}{figure.2.5}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces base format CAN frame \cite {Pan}}}{10}{figure.2.4}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Type A female connector \cite {wiki:OBD}}}{14}{figure.2.5}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Type B female connector \cite {wiki:OBD}}}{14}{figure.2.6}
 \addvspace {10pt}
 \addvspace {10pt}
 \contentsline {figure}{\numberline {4.1}{\ignorespaces OBD-II System Topography}}{26}{figure.4.1}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Attacker with physical access.}}{28}{figure.4.2}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Attacker hijacking another OBD-II session.}}{29}{figure.4.3}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {5.1}{\ignorespaces An elliptic curve. \cite {ECCbasics}}}{40}{figure.5.1}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces ECDHE\_ECDSA}}{41}{figure.5.2}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces ECDHE\_ECDSA}}{41}{figure.5.1}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces OBD-II access control architecture.}}{45}{figure.6.1}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces OBD-II Authentication Procedure}}{47}{figure.6.2}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces OBD-II Message Authentication}}{48}{figure.6.3}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Hardware set-up that is used to implement the proposed solution.}}{53}{figure.7.1}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces OBD-II Authentication Procedure Implementation}}{54}{figure.7.2}
 \select@language {dutch}
 \select@language {english}
 \select@language {dutch}

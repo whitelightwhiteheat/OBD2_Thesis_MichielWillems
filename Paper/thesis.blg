@@ -6,6 +6,8 @@ A level-1 auxiliary file: chapter1.aux
 A level-1 auxiliary file: chapter2.aux
 A level-1 auxiliary file: chapter3.aux
 A level-1 auxiliary file: chapter4.aux
+A level-1 auxiliary file: chapter5.aux
+A level-1 auxiliary file: chapter6.aux
 The style file: plainurl.bst
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
@@ -14,6 +16,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: references.bib
 Warning--entry type for "ECU" isn't style-file defined
 --line 223 of file references.bib
+Warning--I didn't find a database entry for "MillerB"
 Warning--to sort, need author or key in Enisa
 Warning--to sort, need author or key in ISO11898-3
 Warning--empty author in Enisa
@@ -38,45 +41,45 @@ Warning--empty note in Pfeiffer
 Warning--empty note in Pike15
 Warning--empty title in Leia
 Warning--empty year in TPMS
-You've used 61 entries,
+You've used 59 entries,
             2849 wiz_defined-function locations,
-            918 strings with 15655 characters,
-and the built_in function-call counts, 22535 in all, are:
-= -- 2275
-> -- 1014
+            915 strings with 15764 characters,
+and the built_in function-call counts, 22061 in all, are:
+= -- 2218
+> -- 1018
 < -- 2
-+ -- 382
-- -- 318
-* -- 1005
-:= -- 3429
-add.period$ -- 201
-call.type$ -- 61
-change.case$ -- 356
++ -- 384
+- -- 322
+* -- 1008
+:= -- 3366
+add.period$ -- 193
+call.type$ -- 59
+change.case$ -- 353
 chr.to.int$ -- 0
-cite$ -- 85
-duplicate$ -- 572
-empty$ -- 2006
-format.name$ -- 318
-if$ -- 5794
+cite$ -- 83
+duplicate$ -- 557
+empty$ -- 1943
+format.name$ -- 322
+if$ -- 5649
 int.to.chr$ -- 0
-int.to.str$ -- 61
+int.to.str$ -- 59
 missing$ -- 11
-newline$ -- 325
-num.names$ -- 118
-pop$ -- 664
+newline$ -- 313
+num.names$ -- 114
+pop$ -- 650
 preamble$ -- 1
-purify$ -- 281
+purify$ -- 279
 quote$ -- 0
-skip$ -- 1661
+skip$ -- 1609
 stack$ -- 0
-substring$ -- 417
-swap$ -- 73
+substring$ -- 407
+swap$ -- 72
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 244
+type$ -- 236
 warning$ -- 24
-while$ -- 121
-width$ -- 63
-write$ -- 651
-(There were 25 warnings)
+while$ -- 117
+width$ -- 61
+write$ -- 629
+(There were 26 warnings)

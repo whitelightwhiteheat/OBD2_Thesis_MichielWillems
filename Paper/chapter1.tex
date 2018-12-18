@@ -103,31 +103,13 @@ Since CAN is a message based protocol, it facilitates communication by transmitt
 	\item Overload frame: transmitted by a node to include a delay between data or remote frame.
 \end{itemize}
 
-There are 2 frame formats: base frame format and the extended frame format. The only difference being that the extended frame format uses a 29 identifier bits and the base frame format only uses 11. Table \ref{table:1} lists all the fields of a base format data frame. The extended frame format is the same except for an additional identifier field (18 bits) right after the identifier extension bit (IDE) field.
-
-\begin{table}[]
-	\begin{tabular}{|l|l|l|}
-		\hline
-		\rowcolor[HTML]{9B9B9B} 
-		name & size (bits) & purpose \\ \hline
-		start-of-frame & 1 & Denote start of transmission \\ \hline
-		identifier (ID) & 11 & Unique identifier + determines priority \\ \hline
-		remote transmission request (RTR) & 1 & must be 1 for remote frames \\ \hline
-		identifier extension bit (IDE) & 1 & must be 1 for extended frames \\ \hline
-		reserved bit & 1 & reserved for future use \\ \hline
-		data length code (DLC) & 4 & length of data field \\ \hline
-		data field & 64 & data to be transmitted \\ \hline
-		cyclic redundancy check (CLC) & 15 & check for errors \footnotemark  \\ \hline
-		CRC delimiter & 1 &  must be 1 \\ \hline
-		acknowledgement slot (ACK) & 1 & used for message acknowledgement \\ \hline
-		ACK delimiter & 1 & must be 1 \\ \hline
-		end-of-frame (EOF) & 7 & must be 1  \\ \hline
-	\end{tabular}
-	\caption{base frame format \cite{wiki:CAN}}
-	\label{table:1}
-\end{table}
-
-\footnotetext{A cyclic redundancy check is a way of detecting accidental changes to transmitted data (e.g. due to noise, interference, etc). For more information on cyclic redundancy checking see \cite{wiki:CRC}.}
+There are 2 frame formats: base frame format and the extended frame format. The only difference being that the extended frame format uses a 29 identifier bits and the base frame format only uses 11. Figure \ref{fig:CANframe} shows a base format data frame. The extended frame format is the same except for an additional identifier field (18 bits) right after the identifier extension bit (IDE) field. 
+\begin{figure}[h]
+	\label{fig:CANframe}
+	\centering
+	\includegraphics[width=\textwidth]{CANframe.png}
+	\caption{base format CAN frame \cite{Pan}}
+\end{figure}
 
 \subsection{Data Transmission}
 \label{subsec:can:data_transmission}

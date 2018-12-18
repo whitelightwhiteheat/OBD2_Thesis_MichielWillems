@@ -11,9 +11,11 @@
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {table}{\numberline {2.1}{\ignorespaces base frame format \cite {wiki:CAN}}}{10}{table.2.1}
 \addvspace {10pt}
 \addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {table}{\numberline {6.1}{\ignorespaces OBD-II permissions table example.}}{49}{table.6.1}
 \addvspace {10pt}
 \select@language {dutch}
 \select@language {english}
