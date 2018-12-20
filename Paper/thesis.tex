@@ -32,14 +32,21 @@
 \begin{document}
 	
 \tableofcontents*
+
+\begin{abstract}
+Recently, there's been an alarming amount of studies that successfully expose the various vulnerabilities of automotive networks. This results in an ever growing number of attack surfaces being revealed like Bluetooth, GPS, Infotainment, etc. One of these is the on-board diagnostics (OBD-II) interface. Originally designed as an efficient way of retrieving information from the internal vehicle network, it has frequently been exposed as an easy way of gaining unauthorised access. This paper aims to illustrate the scope of this problem, by first providing some insight in how vehicle networks work, before surveying the security related problems that arise from their design. Specifically, the OBD-II interface is discussed, as well as the various studies that expose it as a potential safety hazard. After reading the first half of this paper, the reader should be convinced that the modern car constitutes a driving system of attack surfaces, waiting to be exploited. And, that the OBD-II interface is an important contributor to this issue, stressing the need for a change in it's design. \\ \\
+The second part of this research paper is dedicated to our attempt at amending the security related problems of the OBD-II interface. A role-based access control system is proposed that curtails the wide open nature of the interface, requiring an authentication procedure to be performed before access is granted. This system employs asymmetric key cryptography to enforce the agreed upon security policy. To evaluate the design of this system, a hardware implementation was provided, before being analysed in terms of security, speed and portability. The proposal and it's subsequent evaluation, serve as a proof of concept of how extant OBD-II systems can be improved, as well as how automotive diagnostics systems could be designed in the future. 
+
+
+\end{abstract}
 	
 \listoffiguresandtables
 
-\chapter{List of Abbreviations and Symbols}
+\chapter{List of Abbreviations}
 \section*{Abbreviations}
 
 	\renewcommand{\arraystretch}{1.1}
-	\begin{tabularx}{\textwidth}{@{}p{12mm}X@{}}
+	\begin{tabularx}{\textwidth}{@{}p{14mm}X@{}}
 	ACK & Acknowledgement \\
 	AK & Authenticated Key Agreement \\
 	AKC & Authenticated Key Agreement with key Conformation \\
@@ -67,6 +74,9 @@
 	Hz & Hertz \\
 	ID & Identifier \\
 	IDE & Identifier Extension Bit \\
+	\end{tabularx}
+\newpage
+	\begin{tabularx}{\textwidth}{@{}p{14mm}X@{}}
 	IDP & Integrated Development Platform \\
 	ITS & Intelligent Transportation Systems \\
 	LIDAR & Light Detection And Ranging \\

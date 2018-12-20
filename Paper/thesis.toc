@@ -7,13 +7,15 @@
 \select@language {dutch}
 \select@language {english}
 \select@language {english}
-\contentsline {chapter}{List of Figures and Tables}{iii}{chapter*.1}
-\contentsline {chapter}{List of Abbreviations and Symbols}{v}{chapter*.4}
+\contentsline {chapter}{Abstract}{iii}{chapter*.1}
+\contentsline {chapter}{List of Figures and Tables}{iv}{chapter*.2}
+\contentsline {chapter}{List of Abbreviations}{v}{chapter*.5}
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
-\contentsline {section}{\numberline {1.2}Challenges}{2}{section.1.2}
-\contentsline {section}{\numberline {1.3}Context}{3}{section.1.3}
+\contentsline {section}{\numberline {1.2}Context}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Challenges}{2}{section.1.3}
 \contentsline {section}{\numberline {1.4}Contributions}{3}{section.1.4}
+\contentsline {section}{\numberline {1.5}Text Outline}{3}{section.1.5}
 \contentsline {chapter}{\chapternumberline {2}Background}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}Intra Vehicle Networks}{5}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Sub-Networks}{5}{subsection.2.1.1}
@@ -34,24 +36,24 @@
 \contentsline {subsection}{\numberline {2.3.5}Security Issues}{15}{subsection.2.3.5}
 \contentsline {chapter}{\chapternumberline {3}Related work}{17}{chapter.3}
 \contentsline {section}{\numberline {3.1}OBD-II Access Control}{17}{section.3.1}
-\contentsline {paragraph}{Seed key algorithm}{17}{section*.6}
-\contentsline {paragraph}{Two-Way authentication method}{18}{section*.7}
-\contentsline {paragraph}{Timer Method}{18}{section*.8}
+\contentsline {paragraph}{Seed key algorithm}{17}{section*.7}
+\contentsline {paragraph}{Two-Way authentication method}{18}{section*.8}
+\contentsline {paragraph}{Timer Method}{18}{section*.9}
 \contentsline {subsection}{\numberline {3.1.1}Discussion}{18}{subsection.3.1.1}
 \contentsline {section}{\numberline {3.2}Other attack vectors}{18}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Indirect physical access}{19}{subsection.3.2.1}
-\contentsline {subsubsection}{Entertainment: Disk, USB and IPod}{19}{section*.9}
+\contentsline {subsubsection}{Entertainment: Disk, USB and IPod}{19}{section*.10}
 \contentsline {subsection}{\numberline {3.2.2}Short-range wireless access}{19}{subsection.3.2.2}
-\contentsline {subsubsection}{Remote Keyless Entry}{19}{section*.10}
-\contentsline {subsubsection}{RFID car keys}{19}{section*.11}
-\contentsline {subsubsection}{TPMS}{19}{section*.12}
-\contentsline {subsubsection}{V2V, V2I and V2N}{20}{section*.13}
+\contentsline {subsubsection}{Remote Keyless Entry}{19}{section*.11}
+\contentsline {subsubsection}{RFID car keys}{19}{section*.12}
+\contentsline {subsubsection}{TPMS}{19}{section*.13}
+\contentsline {subsubsection}{V2V, V2I and V2N}{20}{section*.14}
 \contentsline {subsection}{\numberline {3.2.3}Long-range wireless access}{20}{subsection.3.2.3}
-\contentsline {subsubsection}{GPS}{20}{section*.14}
-\contentsline {subsubsection}{Radio}{20}{section*.15}
-\contentsline {subsubsection}{Vehicle Telematics}{21}{section*.16}
+\contentsline {subsubsection}{GPS}{20}{section*.15}
+\contentsline {subsubsection}{Radio}{20}{section*.16}
+\contentsline {subsubsection}{Vehicle Telematics}{21}{section*.17}
 \contentsline {subsection}{\numberline {3.2.4}Future Systems}{21}{subsection.3.2.4}
-\contentsline {subsubsection}{ITS}{21}{section*.17}
+\contentsline {subsubsection}{ITS}{21}{section*.18}
 \contentsline {section}{\numberline {3.3}Internal Vehicle Security}{22}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}VulCAN}{23}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}CANCrypt}{24}{subsection.3.3.2}
@@ -59,25 +61,25 @@
 \contentsline {chapter}{\chapternumberline {4}Problem Statement}{25}{chapter.4}
 \contentsline {section}{\numberline {4.1}Current State}{25}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Example attacks}{25}{subsection.4.1.1}
-\contentsline {subsubsection}{Speedometer}{26}{section*.18}
-\contentsline {subsubsection}{Denial of Service}{26}{section*.19}
-\contentsline {subsubsection}{Diagnostic session}{27}{section*.20}
+\contentsline {subsubsection}{Speedometer}{26}{section*.19}
+\contentsline {subsubsection}{Denial of Service}{26}{section*.20}
+\contentsline {subsubsection}{Diagnostic session}{27}{section*.21}
 \contentsline {subsection}{\numberline {4.1.2}Impact}{27}{subsection.4.1.2}
 \contentsline {section}{\numberline {4.2}Attacker model}{27}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Informal Model}{28}{subsection.4.2.1}
-\contentsline {subsubsection}{Type of Attack}{28}{section*.21}
-\contentsline {subsubsection}{Type of Attacker}{29}{section*.22}
+\contentsline {subsubsection}{Type of Attack}{28}{section*.22}
+\contentsline {subsubsection}{Type of Attacker}{29}{section*.23}
 \contentsline {subsection}{\numberline {4.2.2}Formal Model}{30}{subsection.4.2.2}
 \contentsline {chapter}{\chapternumberline {5}Preliminaries}{33}{chapter.5}
 \contentsline {section}{\numberline {5.1}ECU Microcontrollers}{33}{section.5.1}
 \contentsline {section}{\numberline {5.2}Role-Base Access Control}{34}{section.5.2}
 \contentsline {subsection}{\numberline {5.2.1}Permissions Table}{35}{subsection.5.2.1}
 \contentsline {section}{\numberline {5.3}Public Key Cryptography}{35}{section.5.3}
-\contentsline {paragraph}{Cryptography}{35}{section*.23}
-\contentsline {paragraph}{Symmetric vs Asymmetric}{35}{section*.24}
+\contentsline {paragraph}{Cryptography}{35}{section*.24}
+\contentsline {paragraph}{Symmetric vs Asymmetric}{35}{section*.25}
 \contentsline {section}{\numberline {5.4}Key Exchange}{36}{section.5.4}
-\contentsline {paragraph}{Session Keys}{36}{section*.25}
-\contentsline {paragraph}{Key Exchange Algorithms}{36}{section*.26}
+\contentsline {paragraph}{Session Keys}{36}{section*.26}
+\contentsline {paragraph}{Key Exchange Algorithms}{36}{section*.27}
 \contentsline {section}{\numberline {5.5}Authentication}{37}{section.5.5}
 \contentsline {subsection}{\numberline {5.5.1}Hash functions}{37}{subsection.5.5.1}
 \contentsline {subsection}{\numberline {5.5.2}Digital Signatures}{37}{subsection.5.5.2}
@@ -86,10 +88,10 @@
 \contentsline {section}{\numberline {5.7}Security Level}{38}{section.5.7}
 \contentsline {section}{\numberline {5.8}Chosen Security Systems}{38}{section.5.8}
 \contentsline {subsection}{\numberline {5.8.1}Elliptic Curve Cryptography}{38}{subsection.5.8.1}
-\contentsline {paragraph}{ECC}{39}{section*.27}
-\contentsline {subsubsection}{ECDSA}{39}{section*.28}
-\contentsline {subsubsection}{ECDH}{39}{section*.29}
-\contentsline {subsubsection}{ECDHE\_ECDSA}{40}{section*.30}
+\contentsline {paragraph}{ECC}{39}{section*.28}
+\contentsline {subsubsection}{ECDSA}{39}{section*.29}
+\contentsline {subsubsection}{ECDH}{39}{section*.30}
+\contentsline {subsubsection}{ECDHE\_ECDSA}{40}{section*.31}
 \contentsline {subsection}{\numberline {5.8.2}SHA}{40}{subsection.5.8.2}
 \contentsline {subsection}{\numberline {5.8.3}HMAC}{41}{subsection.5.8.3}
 \contentsline {chapter}{\chapternumberline {6}Proposed Solution}{43}{chapter.6}
@@ -103,10 +105,10 @@
 \contentsline {section}{\numberline {7.2}Demo Set-Up}{52}{section.7.2}
 \contentsline {section}{\numberline {7.3}OBD-II Access Control Implementation}{53}{section.7.3}
 \contentsline {subsection}{\numberline {7.3.1}Authentication Procedure Implementation}{53}{subsection.7.3.1}
-\contentsline {paragraph}{The Procedure}{54}{section*.31}
+\contentsline {paragraph}{The Procedure}{54}{section*.32}
 \contentsline {subsection}{\numberline {7.3.2}Message Authentication Procedure Implementation}{54}{subsection.7.3.2}
 \contentsline {subsection}{\numberline {7.3.3}Permissions Table Implementation}{55}{subsection.7.3.3}
-\contentsline {chapter}{Bibliography}{57}{section*.33}
+\contentsline {chapter}{Bibliography}{57}{section*.34}
 \select@language {dutch}
 \select@language {english}
 \select@language {dutch}

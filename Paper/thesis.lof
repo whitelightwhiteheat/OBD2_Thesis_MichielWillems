@@ -11,6 +11,7 @@
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
+\addvspace {10pt}
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Typical intra vehicle network infrastructure \cite {Enisa}}}{6}{figure.2.1}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces An overview of different network technologies and their characteristics \cite {Tuhoy}.}}{7}{figure.2.2}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Mapping of traffic types to network technologies \cite {Tuhoy}.}}{8}{figure.2.3}
@@ -32,7 +33,6 @@
 \contentsline {figure}{\numberline {7.1}{\ignorespaces Hardware set-up that is used to implement the proposed solution.}}{53}{figure.7.1}
 \contentsline {figure}{\numberline {7.2}{\ignorespaces OBD-II Authentication Procedure Implementation}}{55}{figure.7.2}
 \contentsline {figure}{\numberline {7.3}{\ignorespaces OBD-II Message Authentication Implementation}}{56}{figure.7.3}
-\contentsline {figure}{\numberline {7.4}{\ignorespaces Permissions table implementation with example.}}{56}{figure.7.4}
 \select@language {dutch}
 \select@language {english}
 \select@language {dutch}
