@@ -19,7 +19,7 @@
 \contentsline {chapter}{\chapternumberline {2}Background}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}Intra Vehicle Networks}{5}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Sub-Networks}{5}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Example: ABS}{7}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.2}Example: ABS}{8}{subsection.2.1.2}
 \contentsline {section}{\numberline {2.2}CAN}{8}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Brief History}{8}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}Architecture}{9}{subsection.2.2.2}
@@ -30,9 +30,9 @@
 \contentsline {subsection}{\numberline {2.2.7}Security Issues}{11}{subsection.2.2.7}
 \contentsline {section}{\numberline {2.3}OBD-II}{12}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}Design Goals}{12}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Brief History}{13}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.2}Brief History}{12}{subsection.2.3.2}
 \contentsline {subsection}{\numberline {2.3.3}DLC}{13}{subsection.2.3.3}
-\contentsline {subsection}{\numberline {2.3.4}PID's}{14}{subsection.2.3.4}
+\contentsline {subsection}{\numberline {2.3.4}PID's}{13}{subsection.2.3.4}
 \contentsline {subsection}{\numberline {2.3.5}Security Issues}{15}{subsection.2.3.5}
 \contentsline {chapter}{\chapternumberline {3}Related work}{17}{chapter.3}
 \contentsline {section}{\numberline {3.1}OBD-II Access Control}{17}{section.3.1}
@@ -41,8 +41,8 @@
 \contentsline {paragraph}{Timer Method}{18}{section*.9}
 \contentsline {subsection}{\numberline {3.1.1}Discussion}{18}{subsection.3.1.1}
 \contentsline {section}{\numberline {3.2}Other attack vectors}{18}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Indirect physical access}{19}{subsection.3.2.1}
-\contentsline {subsubsection}{Entertainment: Disk, USB and IPod}{19}{section*.10}
+\contentsline {subsection}{\numberline {3.2.1}Indirect physical access}{18}{subsection.3.2.1}
+\contentsline {subsubsection}{Entertainment: Disk, USB and IPod}{18}{section*.10}
 \contentsline {subsection}{\numberline {3.2.2}Short-range wireless access}{19}{subsection.3.2.2}
 \contentsline {subsubsection}{Remote Keyless Entry}{19}{section*.11}
 \contentsline {subsubsection}{RFID car keys}{19}{section*.12}
@@ -55,20 +55,20 @@
 \contentsline {subsection}{\numberline {3.2.4}Future Systems}{21}{subsection.3.2.4}
 \contentsline {subsubsection}{ITS}{21}{section*.18}
 \contentsline {section}{\numberline {3.3}Internal Vehicle Security}{22}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}VulCAN}{23}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}CANCrypt}{24}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.1}CANCrypt}{23}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}VulCAN}{23}{subsection.3.3.2}
 \contentsline {subsection}{\numberline {3.3.3}VatiCAN}{24}{subsection.3.3.3}
 \contentsline {chapter}{\chapternumberline {4}Problem Statement}{25}{chapter.4}
 \contentsline {section}{\numberline {4.1}Current State}{25}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Example attacks}{25}{subsection.4.1.1}
 \contentsline {subsubsection}{Speedometer}{26}{section*.19}
-\contentsline {subsubsection}{Denial of Service}{26}{section*.20}
+\contentsline {subsubsection}{Denial of Service}{27}{section*.20}
 \contentsline {subsubsection}{Diagnostic session}{27}{section*.21}
 \contentsline {subsection}{\numberline {4.1.2}Impact}{27}{subsection.4.1.2}
 \contentsline {section}{\numberline {4.2}Attacker model}{27}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Informal Model}{28}{subsection.4.2.1}
 \contentsline {subsubsection}{Type of Attack}{28}{section*.22}
-\contentsline {subsubsection}{Type of Attacker}{29}{section*.23}
+\contentsline {subsubsection}{Type of Attacker}{28}{section*.23}
 \contentsline {subsection}{\numberline {4.2.2}Formal Model}{30}{subsection.4.2.2}
 \contentsline {chapter}{\chapternumberline {5}Preliminaries}{33}{chapter.5}
 \contentsline {section}{\numberline {5.1}ECU Microcontrollers}{33}{section.5.1}
