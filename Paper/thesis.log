@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  27 DEC 2018 22:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  28 DEC 2018 21:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1697,31 +1697,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-[43]
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-[44] <images-thesis/solution.png, id=1033, 946.53625pt x 562.1pt>
+[43]
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
+[44] <images-thesis/solution.png, id=1034, 946.53625pt x 562.1pt>
 File: images-thesis/solution.png Graphic file (type png)
 
 <use images-thesis/solution.png>
-Package pdftex.def Info: images-thesis/solution.png used on input line 22.
+Package pdftex.def Info: images-thesis/solution.png used on input line 19.
 (pdftex.def)             Requested size: 398.0pt x 236.34627pt.
  [45 <./images-thesis/solution.png>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Reference `sec:authentication_procedure' on page 46 undefined on
- input line 62.
-
-
-LaTeX Warning: Reference `sec:MAC' on page 46 undefined on input line 62.
+LaTeX Warning: Reference `sec:MAC' on page 46 undefined on input line 59.
 
 
 LaTeX Warning: Reference `sec:permissions_table' on page 46 undefined on input 
-line 64.
+line 61.
 
 [46]
 
@@ -1730,7 +1731,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [47] [48]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 105.
+               Default added (so using `tbp') on input line 102.
 
 ) [49]
 \openout2 = `chapter6.aux'.
@@ -1756,17 +1757,14 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images-thesis/permissions.png, id=1138, 1087.06125pt x 297.11pt>
+[55] <images-thesis/permissions.png, id=1163, 1087.06125pt x 297.11pt>
 File: images-thesis/permissions.png Graphic file (type png)
 
 <use images-thesis/permissions.png>
 Package pdftex.def Info: images-thesis/permissions.png used on input line 107.
 (pdftex.def)             Requested size: 398.0pt x 108.78198pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) [55] [56 <./images-thesis/permissions.png>] (./thesis.bbl
+) [56 <./images-thesis/permissions.png>]
+(./thesis.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 20--24
 []\OT1/cmr/m/n/10.95 (+20) Abdul Re-hwan An-war.  Bus ar-bi-tra-tion in can (co
 n-troller
@@ -1925,16 +1923,16 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 118.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 118.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 118.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: FD43E83716F5485CB2A98C4678DB438F;5200.
+(rerunfilecheck)             Checksum: 1C4AD9586439EFEB409F5EEBA745FC84;5236.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 33726 strings out of 493014
- 616947 string characters out of 6133351
- 794265 words of memory out of 5000000
+ 33728 strings out of 493014
+ 617007 string characters out of 6133351
+ 795427 words of memory out of 5000000
  36279 multiletter control sequences out of 15000+600000
  29753 words of font info for 118 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1960,10 +1958,10 @@ type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
 e1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/
 helvetic/uhvr8a.pfb>
-Output written on thesis.pdf (73 pages, 1124399 bytes).
+Output written on thesis.pdf (73 pages, 1126617 bytes).
 PDF statistics:
- 1390 PDF objects out of 1440 (max. 8388607)
- 1253 compressed objects within 13 object streams
- 330 named destinations out of 1000 (max. 500000)
+ 1400 PDF objects out of 1440 (max. 8388607)
+ 1263 compressed objects within 13 object streams
+ 332 named destinations out of 1000 (max. 500000)
  24265 words of extra memory for PDF output out of 24883 (max. 10000000)
 
