@@ -1,0 +1,70 @@
+
+\chapter{Evaluation}
+\label{chap:evaluation}
+
+As mentioned in section \ref{sec:challenges}, the main challenge of this research topic are the portability, security and speed of the proposed system, namely the OBD-II access control system that is introduced in chapter \ref{chap:solution}. After introducing the demo implementation in chapter \ref{chap:implementation}, it is time to assess whether it meets the aforementioned challenges; proving the feasibility it's design. This chapter is structured according to our three challenges. First, the overall portability of the system is quantified, by looking at the memory footprint of the software that is deployed on our gateway microcontroller. Second, the overall security is determined by surveying any potential vulnerabilities. Third, we look at the speed it takes to perform the various procedures. In the last part of this chapter we will gather all the results to conclude whether all of our challenges are met.   
+
+\section{Portability}
+\label{sec:portability}
+
+The portability of our system refers to the ease at which it is introduced in extant vehicle networks. A system that consists of introducing specific hardware, requiring lots of modifications to be made to the vehicle, is unsuitable. Our system consists of introducing additional code to the gateway. In theory, this would consists of simply reprogramming the gateway microcontroller. Granted, the size of the code that enforces the access control system, is bounded by the memory specifications of the gateway. This is why the size of the code that is introduced to the gateway should be kept as small as possible. As an indication, we can take a look at the size of the code of our demo. 
+
+TODO: discuss memory.
+
+Once the OBD-II system is introduced to a vehicle's gateway ECU, no additional modifications are required to the vehicle. However, there are two more elements required too arrive at a fully functional system: the tester and the central server. The central server allows easy access to the appropriate key functions to everyone, granted they have the right credentials and a functional internet connection. The tester connects to the central server to start an authenticated session with the intra vehicle network. Once a central server is in place, and tester devices or software applications are widely available, the system would be up and running.
+
+\section{Speed}
+\label{sec:speed}
+
+The speed of our proposed system is of great importance. This is mainly due to the real-time nature of vehicle networks. Messages that are transmitted over different sub-networks, thereby passing through the gateway, need to be delivered as fast as possible. Significant message delays could result in the failure of critical systems (e.g. engine control, ABS, powertrain, etc.). If the authentication scheme proposed in section \ref{subsec:authenticated_key_agreement_procedure} takes to long to perform, it could cause the gateway to effectively abandon it's other operations. This is also the case for the message authentication procedure presented in section \ref{subsec:message_authentication_procedure_implementation}. Moreover, a significant delay introduced here could effectively impede the function of the OBD-II interface. This is because a lot of diagnostic and maintenance operations require multiple messages to be sent in sequence. The introduced delays could prohibit the ECU's from recognizing and accepting these sequences. Also, if normal CAN messages are injected to test certain systems, a real-time performance is definitely required here. To evaluate the speed performance of our system, the aforementioned procedures are key. We will discuss them in turn next.
+
+\subsection{Authenticated Key Agreement Procedure}
+\label{subsec:speed1}
+
+We've mentioned before that asymmetric cryptographic operations are computationally hard to perform; especially on platforms with limited processing power, as is the case here. The authentication procedure of our proposed system introduces three ECC operations performed on the gateway: Generating a new public key pair (KGen), Verifying the signature that is received from the tester (Ver), and the generation of the shared secret (ECDH).
+
+TODO: discuss results
+
+We skipped over the operations that are performed by the tester (calling the central server for the signature, as well as also generating a shared secret). This is because any tester device would be designed with these operations in mind, introducing dedicated hardware that allows fast and efficient shared secret generation. As well as a direct way of interfacing with the central server. 
+
+\subsection{Message Authentication Procedure}
+\label{subsec:speed2}
+
+This procedure only includes one significant cryptographic operation: the MAC verification (Ver). Again, we don't consider the operations that are performed by the tester. Since we're working with a symmetric session key, these operations are generally faster than they were for ECC.
+
+TODO: discuss results
+
+\section{Security}
+\label{sec:security}
+
+The most intrinsic property of any RBAC system is it's security, and OBD-II access control is certainly no exception. The goal of our system is to curtail the wide open nature of the OBD-II interface; forcing individuals to garner the right credentials, before access is granted. If the procedures that were introduced to enforce these goals are flawed, thereby allowing them to be easily bypassed, the design of our system has critically failed. To systematically evaluate the security of our system, we will attempt to survey any potential weaknesses.
+
+
+\paragraph{Cryptographic Primitives} An obvious potential weakness of our system is the cryptographic primitives themselves: the ECC keys and operations, the hash functions and of course the MAC verification process. A weakness in any of these would present a significant security breach. Imagine if the ECC signatures could be easily calculated without possession of the appropriate private key. Or if MAC messages could be replayed in an effort to hijack extant sessions. To guarantee the security of these primitives three things need to be assured. First, the original design should universally be considered sound and secure, allowing them to be used in professional applications. Luckily this is the case for all the primitives included in our solution: all ECC operations, HMAC\textunderscore SHA256 and SHA512. Second, the size of the keys and signatures should be sufficiently large. Again, this is the case since all of them were chosen to guarantee a security level of 128 bits. Third, the implementation of these primitives should not contain any flaws, allowing them to be broken. The burden of guaranteeing this lies with the OEM's themselves, since they would eventually be implementing them in vehicles all over the world. 
+
+\paragraph{Authenticated Key Agreement Procedure}
+Remember from section \ref{subsec:informal_model} we consider 2 basic attack scenarios: an attacker directly interfacing with the OBD-II port (figure \ref{fig:attackmodel_1}) and an attacker hijacking an extant session remotely (figure \ref{fig:attackmodel_2}). The first scenario is directly linked with the authentication procedure. This procedure was based on the ECDHE\textunderscore ECDSA procedure introduced in \cite{RFC4492}, so it's it's safe to assume our design inherits the same security guarantees. However, we did introduce some changes; we need to make sure these changes do not jeopardise the overall security of the procedure. Next, we take a look at these changes one-by-one, ensuring they are harmless.
+\begin{itemize}
+	\item \textbf{Gateway Key Pair:} The generation of a new ECC key pair was introduced on the gateway since both parties require a key pair for the ECDH operations. The only difference with the original ECDHE\textunderscore ECDSA system is that this pair is generated on the fly for the gateway. When generating this key pair, it must be assured that they are random. If they were not, this would allow individuals to predict them. The problem of random number generation is discussed in the next paragraph.
+	
+	\item \textbf{Perfect Forward Secrecy:} We already discussed why PFS is not a concern for our system. Omitting the ephemeral key pairs results in a more efficient system without having an adverse effect on it's security.
+	
+	\item \textbf{Mutual Authentication:} The omission of two way authentication is necessary because of the initial absence of an ECC key pair on the gateway. In the end, to only security property that is lost here is authentication of the gateway, which is not necessary since the user should be aware whether s/he is interfacing with a legitimate gateway or not.
+\end{itemize} 
+
+\paragraph{Random Number Generation} As mentioned before, a sound random number generator (RNG) is essential to the security of our system. RNG's are difficult to implement in software because of it's deterministic nature. A software RNG with a known seed will always generate the same sequence of numbers, allowing them to be predicted when the RNG procedure and seed are known (e.g. by reverse engineering the gateway). This is why it is often implemented by using sources that are inherently unpredictable: the noise on a network bus, the value of a sensor, the contents of an arbitrary memory location, etc. Hash functions can also be useful here to provide an extra layer of entropy. 
+
+\paragraph{Message Authentication Procedure}
+The message authentication procedure is more concerned with our second attack scenario (remote attack on an extant session). This is because the MAC's were introduced to ensure that the messages were transmitted by the authenticated user (i.e. the user that successfully performed the authentication procedure). Our procedure follows the general structure of any MAC system: a message is sent together with a MAC of the message. Any adversary that has the ability to read and inject messages into this session is limited in terms of attack capabilities. Altering extant messages is impossible, since this would invalidate the MAC. Injecting messages is also impossible since the attacker would have to generate a MAC, and this requires knowledge of the session key. They could flood the system with messages to shut down the session. Or intercept valid messages that were sent by the user. These problems can only be solved by securing the remote connection itself.  
+
+\paragraph{Central Server Connection} With the introduction of the central server, we have unintentionally introduced a third attack vector: the connection to the central server. If these connection were insecure, it would allow third parties to monitor and interfere with the signature transmission. While this may seem harmless, it does open up the ability of systematically collecting signature/public key pairs for a specific car model, allowing them to be replayed in the future whenever the same public key is generated. Luckily, the cost in terms of time and effort is immense, which might prevent anyone from ever attempting it. Nonetheless, a secure internet connection is certainly preferable.
+
+\paragraph{Private Key Disclosure} It is essential that the OBD-II private keys are securely stored on the central server. Disclosure of these keys would invalidate the entire system, requiring the introduction of new public keys in all vehicles that support our solution. Luckily, secure servers are commonplace on the internet, so it's just a matter of employing the technologies. Besides the OBD-II private keys, there's also the private key that is generated on the gateway, as well as the shared secret. We do not protect against physical access, so an adversary analysing a gateway and extracting the newly generated private key is something that is possible (although it seems futile, since physical access would allow the attacker to bypass the RBAC system altogether). Only protected memory architectures would solve this issue. However, if a software vulnerability is introduced that discloses the private key or session key on the CAN bus, this would be disastrous and should be avoided at all times.
+
+\paragraph{Permissions Table} The permissions table introduces the same issue as before. If someone has physical access to the gateway, s/he can modify the permissions table. Again this attack is only solvable by introducing sections of protected memory. The system will undoubtedly include admin messages that are designed to modify the security policy (i.e. the permissions table). If an attacker is able to succesfully transmit these messages, it would mean the OBD-II port is wide open once more.
+ 
+
+
+
+
+  

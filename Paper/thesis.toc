@@ -108,7 +108,20 @@
 \contentsline {paragraph}{The Procedure}{54}{section*.28}
 \contentsline {subsection}{\numberline {7.3.2}Message Authentication Procedure Implementation}{54}{subsection.7.3.2}
 \contentsline {subsection}{\numberline {7.3.3}Permissions Table Implementation}{55}{subsection.7.3.3}
-\contentsline {chapter}{Bibliography}{57}{section*.30}
+\contentsline {chapter}{\chapternumberline {8}Evaluation}{57}{chapter.8}
+\contentsline {section}{\numberline {8.1}Portability}{57}{section.8.1}
+\contentsline {section}{\numberline {8.2}Speed}{58}{section.8.2}
+\contentsline {subsection}{\numberline {8.2.1}Authenticated Key Agreement Procedure}{58}{subsection.8.2.1}
+\contentsline {subsection}{\numberline {8.2.2}Message Authentication Procedure}{58}{subsection.8.2.2}
+\contentsline {section}{\numberline {8.3}Security}{59}{section.8.3}
+\contentsline {paragraph}{Cryptographic Primitives}{59}{section*.29}
+\contentsline {paragraph}{Authenticated Key Agreement Procedure}{59}{section*.30}
+\contentsline {paragraph}{Random Number Generation}{60}{section*.31}
+\contentsline {paragraph}{Message Authentication Procedure}{60}{section*.32}
+\contentsline {paragraph}{Central Server Connection}{60}{section*.33}
+\contentsline {paragraph}{Private Key Disclosure}{61}{section*.34}
+\contentsline {paragraph}{Permissions Table}{61}{section*.35}
+\contentsline {chapter}{Bibliography}{63}{section*.37}
 \select@language {dutch}
 \select@language {english}
 \select@language {dutch}
