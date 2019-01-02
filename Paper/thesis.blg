@@ -8,6 +8,7 @@ A level-1 auxiliary file: chapter3.aux
 A level-1 auxiliary file: chapter4.aux
 A level-1 auxiliary file: chapter5.aux
 A level-1 auxiliary file: chapter6.aux
+A level-1 auxiliary file: chapter7.aux
 The style file: plainurl.bst
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
@@ -16,7 +17,6 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: references.bib
 Warning--entry type for "ECU" isn't style-file defined
 --line 223 of file references.bib
-Warning--I didn't find a database entry for "Bluetooh"
 Warning--to sort, need author or key in Enisa
 Warning--to sort, need author or key in ISO11898-3
 Warning--empty author in Enisa
@@ -42,45 +42,45 @@ Warning--empty note in Pfeiffer
 Warning--empty note in Pike15
 Warning--empty title in Leia
 Warning--empty year in TPMS
-You've used 59 entries,
+You've used 60 entries,
             2849 wiz_defined-function locations,
-            913 strings with 15585 characters,
-and the built_in function-call counts, 21929 in all, are:
-= -- 2210
-> -- 1008
+            918 strings with 15801 characters,
+and the built_in function-call counts, 22357 in all, are:
+= -- 2247
+> -- 1032
 < -- 2
-+ -- 379
-- -- 318
-* -- 1000
-:= -- 3350
-add.period$ -- 193
-call.type$ -- 59
-change.case$ -- 351
++ -- 389
+- -- 326
+* -- 1022
+:= -- 3414
+add.period$ -- 196
+call.type$ -- 60
+change.case$ -- 358
 chr.to.int$ -- 0
-cite$ -- 84
-duplicate$ -- 549
-empty$ -- 1925
-format.name$ -- 318
-if$ -- 5616
+cite$ -- 85
+duplicate$ -- 563
+empty$ -- 1966
+format.name$ -- 326
+if$ -- 5723
 int.to.chr$ -- 0
-int.to.str$ -- 59
-missing$ -- 10
-newline$ -- 313
-num.names$ -- 114
-pop$ -- 642
+int.to.str$ -- 60
+missing$ -- 11
+newline$ -- 318
+num.names$ -- 116
+pop$ -- 657
 preamble$ -- 1
-purify$ -- 277
+purify$ -- 283
 quote$ -- 0
-skip$ -- 1606
+skip$ -- 1632
 stack$ -- 0
-substring$ -- 406
-swap$ -- 70
+substring$ -- 412
+swap$ -- 72
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 236
+type$ -- 240
 warning$ -- 25
-while$ -- 117
-width$ -- 61
-write$ -- 628
-(There were 27 warnings)
+while$ -- 119
+width$ -- 62
+write$ -- 638
+(There were 26 warnings)

@@ -12,13 +12,16 @@
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
+\contentsline {table}{\numberline {2.1}{\ignorespaces An overview of different network technologies and their characteristics \cite {Tuhoy}.}}{16}{table.2.1}
+\contentsline {table}{\numberline {2.2}{\ignorespaces Mapping of traffic types to network technologies \cite {Tuhoy}.}}{16}{table.2.2}
+\contentsline {table}{\numberline {2.3}{\ignorespaces Base format CAN frame.}}{18}{table.2.3}
+\contentsline {table}{\numberline {2.4}{\ignorespaces Extended format CAN frame.}}{18}{table.2.4}
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
+\contentsline {table}{\numberline {5.1}{\ignorespaces OBD-II permissions table design \& example.}}{47}{table.5.1}
 \addvspace {10pt}
-\contentsline {table}{\numberline {6.1}{\ignorespaces OBD-II permissions table design \& example.}}{49}{table.6.1}
-\addvspace {10pt}
-\contentsline {table}{\numberline {7.1}{\ignorespaces Permissions table implementation with example.}}{56}{table.7.1}
+\contentsline {table}{\numberline {6.1}{\ignorespaces Permissions table implementation with example.}}{54}{table.6.1}
 \addvspace {10pt}
 \select@language {dutch}
 \select@language {english}

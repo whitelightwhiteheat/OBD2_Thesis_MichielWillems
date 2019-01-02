@@ -82,6 +82,12 @@ C.~Dixon, C.~Hill, M.~Dumville, and D.~Lowe.
 \newblock Gnss vulnerabilities: Testing the truth.
 \newblock {\em Coordinates Mag}, 8(3):13\textendash 20, March 2012.
 
+\bibitem{Bluetooth}
+Pauric Doherty, Alan Molloy, Martin Glavin, and Fearghal Morgan.
+\newblock A review of bluetooth security in the automotive environment.
+\newblock In {\em Proceedings, the Irish Signals and Systems Conference 2004 :
+  ISSC 2004}, 2004.
+
 \bibitem{KeeLoq}
 Thomas Eisenbarth, Timo Kasper, Amir Moradi, Christof Paar, Mahmoud
   Salmasizadeh, and Mohammad T.~Manzuri Shalman.
