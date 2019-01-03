@@ -1,0 +1,131 @@
+\chapter{Related work}
+\label{chap:related_work}
+
+In this chapter we take a look at some papers that are relevant to our subject. A lot of these, while not necessarily tackling the same problem, were a vital influence on this paper. A closer look at the contributions they provided is definitely in order. First, we discuss a paper that attempts to meet one of the challenges of this paper, namely by introducing access control to the OBD-II interface. Second, some of the possible attack vectors that haven't been discussed so far are introduced, as well as the papers that surveyed them. Third, a summary is made of different proposed application layer CAN protocols that were designed to remedy CAN's inherent security issues. Fourth, another summary of security solutions is presented, but regarding external instead of internal vehicle security. 
+
+\section{OBD-II Access Control}
+\label{sec:obd_access_control}
+
+The paper discussed here is \cite{Yadav16}, which states that the OBD-II interface in modern cars exposes the internal system to a myriad of different attacks (see Section \ref{subsec:example_attacks} for some examples). On top of sharing this insight, the paper also proposes a solution that was deemed insufficiently secure (the seed key algorithm), as well as implementing them in a small demo. These solutions will be discussed next.
+
+
+\paragraph{Seed key algorithm} The seed key algorithm applies a secret key value to calculate the response key from a randomly generated seed. Only the person with the correct secret key can gain access to the diagnostic service of a specific ECU. The idea is that a dedicated and trusted device would be distributed; this device would contain the secret key, and allow authenticated diagnostic sessions with the ECU's inside the vehicle. This solution was stipulated by \cite{Bayer} and has already been implemented in a lot of vehicles (see Section \ref{subsubsec:diagnostic_session}). The problem with this algorithm is the fact the same ECU in different cars will have the same secret key. Another problem is that the secret key material is often stored in unprotected memory. If enough keys are made public this would undermine the security of the entire algorithm.  
+
+\paragraph{Two-Way authentication method}
+This algorithm is an extension of the seed-key algorithm. In addition to requiring possession of the secret key, a message will be sent to the client of the vehicle whenever access is requested (Cellular or via Internet). Without acknowledgement from the user the seed is dropped and access is denied. The above process adds a layer of safety as a result of keeping the client informed at every stage.
+
+\paragraph{Timer Method}  
+The timer method is again an extension of the Two-Way authentication method. It Exploits the time brute force methods and other algorithms take to crack a 16-bit long seed key, as well as giving more autonomy to the car owner by giving the global seed directly to the client, who in turn must enter the key to complete the authentication process. As soon as a security access request is sent by the tester, the timer will be started. Once the timer runs out, a message or a notification alert is sent to the client, informing them about the malicious activity, as well as aborting the authentication process. 
+
+\paragraph{Discussion} 
+The two extensions offered by this paper do not actually help in preventing most of the original algorithms shortcomings. The key oversight that is that the added security comes from a dedicated device that is tasked with performing the additional authentication procedures (e.g. sending a message for the two-way authentication method and starting a timer for the timer method). There is nothing preventing anyone from circumventing these procedure by using anything other than this dedicated device to gain access to the system (e.g. computer connected directly to the OBD-II port). 
+
+\section{Other attack vectors}
+\label{sec:other_attack_vectors}
+
+A couple of possible attack vectors have been discussed already (OBD-II in Section \ref{sec:obd_access_control} and Bluetooth in Section \ref{sec:context}). Let's take the time to look at some other attack vectors that were discovered. We will follow the same general classification of these attack vectors as \cite{Kosher}: indirect physical access (those that require physical access to the vehicle or via an intermediate), short-range wireless and long range wireless.\footnote{It should be clear that the OBD-II interface belongs to the indirect physical access class of attack vectors, while Bluetooth is considered a short-range wireless kind of access.}
+
+\subsection{Indirect physical access}
+\label{subsec:indirect_physical_access}
+
+\subsubsection{Entertainment: Disk, USB and IPod} 
+\label{subsubsec:entertainment}
+It is hard to find any new vehicle that does not include the ability to play an audio CD, plug in a USB audio device, or directly connect with a MP3 player or smartphone in order to play music. It is not unthinkable for someone to encode malicious input onto multiple CD's, and distributing them to non-suspecting targets. To go from a CD or USB drive to an audio stream, the input must interact with many hundreds of thousands of lines of code throughout a stack of software components, which could contain vulnerabilities that could be exploited to take control of the system \cite{Pike15}. Corrupting a vehicle's CD-player might be considered a fairly innocent attack, but these are often connected with other, more safety-crucial systems. This is the reason why entertainment systems should be seriously considered when potential attack vectors are surveyed.
+
+\subsection{Short-range wireless access}
+\label{subsec:short-range_wireless_access}
+
+\subsubsection{Remote Keyless Entry}
+\label{subsubsec:rke}
+
+Today, almost all automobiles shipped in the US use RF-based remote keyless entry (RKE) systems to remotely open doors, activate alarms, flash lights and in some cases even start the ignition \cite{Kosher}. In these systems the radio transmitter sends encrypted data containing identifying information that the ECU can use to determine if the key is valid \cite{MillerA}. Mounting attacks with regards to remote code execution in this way is infeasible. However it has been shown that in \cite{KeeLoq} that it is possible to unlock/start the car without the proper key fob, which would result in unauthorised access being granted.
+
+\subsubsection{RFID car keys}
+\label{subsubsec:rfid} 
+
+A Radio-frequency identifier (RFID) immobilizer, also called passive anti-theft system (PATS), is a chip embedded in the top part of an ignition key. This chip sends out an encrypted string of radio-frequency signals when the driver inserts it into the ignition-key slot. Without this code, the car either won't start or won't activate the fuel pump. So even if someone hotwires the car or copies an ignition key, the car is not going to start because it hasn't received the proper radio-frequency code \cite{RFID}. As with RKE, this does not provide a significant attack surface. \cite{MillerA}
+
+\subsubsection{TPMS} 
+\label{subsubsec:tpms}
+
+The tire pressure monitoring system (TPMS) is designed to alert drivers about under- or overinflated tires. The most common form of such systems uses rotating sensors that are constantly measuring the tire pressure and transmitting real time data to an ECU (frequently in similar bands as RKEs) \cite{Kosher}. While the attack surface is also small here, It is has been shown that it is possible to perform some actions against the TPMS, such as causing the vehicle to think that it has a tire problem \cite{TPMS}, or in some cases even crashing the ECU that the data is sent to \cite{MillerA}. Alternatively TPMS could be used to track the car from a distance \cite{TPMS}. These problems could be solved by introducing some detection mechanism to raise an alarm when detecting frequent conflicting information, as well as encrypting and authenticating the TPM packets sent by the sensors \cite{TPMS}.
+
+\subsubsection{V2V, V2I and V2N} 
+\label{subsubsec:v2v}
+
+While the technology is fairly new, car manufacturers have started to introduce more external connectivity to the vehicles they produce. This is exemplified in many forms \cite{Ahmed}. First, vehicle-to-vehicle (V2V) connections are mainly introduced in the context of self driving cars who communicate with each other to avoid collisions \cite{Enisa}. Second, vehicle-to-infrastructure (V2I) connection; think of a car automatically paying for gas without the need for the driver to do so, or a repair shop diagnosing a car from a distance \cite{Kleberger}. Third, vehicle-to-network communication. There is a considerable amount of literature that attempts to address the concern around this newly emerging technology \cite{Kleberger15, Russel17, Maxim, Crispo}.
+
+\subsection{Long-range wireless access}
+\label{subsec:lone-range_wireless_access}
+
+A distinction can be made between two types of long-range wireless access methods. First, there are addressable channels, which are directed towards a specific automobile. Second, there are broadcast channels, where an automobile "tunes in" on demand; a prime example of the latter is GPS.
+
+\subsubsection{GPS} 
+\label{subsubsec:gps}
+
+Global positioning systems (GPS) are used in automobiles to accurately determine their positions, as well as guiding them to user specified locations. GPS does not provide a significant remote attack surface, since GPS signals are predominantly processed by custom hardware \cite{Kosher}. However, some attacks have been successfully proposed. First, there is GPS jamming, where a cheap device (approximately 20 dollars) is used to jam all GPS signals in the area. This could be used by a car thief to prevent a car's anti theft system from knowing where the vehicle is.\footnote{In these types  of systems a message is sent to the owner of the car whenever a location change is detected by the GPS system and the owner is not present in the vehicle.} Second, There is GPS spoofing, where normal GPS signals are replicated in an effort to provide false locations. These could again be used to counter location based anti theft systems \cite{Petit}. Multiple mitigation techniques are presented in \cite{GPS1} and back-office countermeasures to counter GPS jamming and spoofing are presented in \cite{GPS2} and \cite{GPS3}. 
+
+\subsubsection{Radio} 
+\label{subsubsec:radio}
+
+Another broadcast channel is radio signals; these can either be standard AM/FM radio (Digital Radio) or satellite radio. These signals are simply converted to audio output upon reception, so they are not likely to contain exploitable vulnerabilities. However, the Radio Data System data that is used to send information along with FM analogue signals (or the equivalent on satellite radio) can be a vulnerability. Since the radio unit is often connected to the intra vehicle network, and because radio data needs to be parsed and displayed (think of artist and song title data). These vulnerability could be fixed by ridding the radio data code of any bugs that could be exploited, as well as introducing input validation and sanitation on any data that is received\footnote{Input validation consists of checking if the received information meets a particular set of criteria. Input sanitation on the other hand consist of modifying this information to ensure it meets these criteria.} \cite{MillerA, MillerD, Kosher}.
+
+\subsubsection{Vehicle Telematics} 
+\label{subsubsec:telematics}
+
+Vehicle telematics is a broad term, that encompasses nearly all addressable communication channels of a vehicle. They typically use cellular voice and data systems to provide continuous communication with the vehicle (e.g. General Motor's OnStar system, Toyota's SafetyConnect, Lexus' Enform, BMW's BMW Assist, and Mercedes-Benz' mbrace). These systems provide a broad range of features like crash reporting, diagnostics (reporting a mechanical issue to the owner) and anti-theft (location based anti theft systems) \cite{Kosher}. Due to it's characteristics (long distance, high bandwidth, addressable, etc.) these systems are considered the holy grail of automotive attacks \cite{MillerA}. In 2015 an article was published in Wired magazine (see \cite{Wired}) documenting the work of 2 researchers (Charlie Miller and Chris Valasek), and their attempt at remotely hacking into a 2014 Jeep Cherokee exploiting it's telematics system (UConnect). They were able to remotely disable the brakes, honk the horn, jerk the seatbelt and even take control of the steering wheel \cite{Wired}. The number of vehicles that were vulnerable were in the hundreds of thousands and it forced a 1.4 million vehicle recall by Fiat-Chrysler (who also own the Jeep automotive brand) \cite{MillerD}.
+
+\subsection{Future Systems}
+\label{subsec:future_systems}
+
+The automotive industry is rapidly evolving. What is considered a critical safety concern today, might be nullified by a new innovation tomorrow. But more importantly, these new innovations might come with their own safety critical concerns. One example of this is discussed here (Intelligent transportation systems); however, it should come as no surprise that there are many other future designs that will have to be researched.
+
+\subsubsection{ITS} 
+\label{subsubsec:its}
+
+Intelligent transportation systems (ITS), or in this case more commonly referred to as self-driving cars, are automated vehicles that require barely any user interaction while driving. they are based on communication of data among vehicles (V2V) and/or between vehicles and the infrastructure (V2I/I2V) to provide this new functionality. Although innovative and potentially a solution to a couple of serious transportation related issues (e.g. congestion, accidents, etc), it has been shown in \cite{Petit} that this also introduces a couple of interesting new attack vectors:   
+
+\begin{itemize}
+	\item \textbf{infrastructure signs:} Any decent ITS should be able to recognise and interpret road signs in order for them to adhere to local traffic regulations. However, can these systems make the distinction between an official road sign, and a fake one made by a malicious agent in an attempt to cause havoc. 
+	
+	\item \textbf{Video Image Processing:} Besides detecting and interpreting road signs, the ITS should be able to correctly interpret it's surroundings (e.g. width of the road, speed bumps, other vehicles, pedestrians, etc). This technology will probably be provided by artificial intelligence (AI) systems (also called machine vision), which are trained to detect certain objects. Any vulnerabilities found in these systems could be exploited, again causing significant chaos (e.g. painting an image on the road that tricks automated vehicles into thinking someone's crossing the road).
+	
+	\item \textbf{GPS:} It should be obvious that any ITS will rely heavily on GPS to automatically navigate. A GPS jamming/spoofing device in the wrong hands would be a powerful tool, allowing malicious agents to influence the navigation of all automated vehicles within the action radius of the device.
+	
+	\item \textbf{Acoustic Sensors:} These could be used by an ITS to detect a known signal (e.g. a car crashing). Again, it opens up the possibility for attackers to look for vulnerabilities in how these signals are processed. This would allow them to falsely trigger events (e.g. playing a modulated crashing sound on a stereo causing the air bag to be triggered and brakes to be engaged), as well as using jammers to block the sensors from correctly interpreting any sounds.
+	
+	\item \textbf{Radar and Lidar:} Because of the shortcomings of video image processing discussed earlier, it should be possible for the vehicle to detect physical objects. Radar and Lidar (Using light instead of sound to detect objects) could be used here. Again, jamming/spoofing devices could be developed that are designed to interfere with these detection systems.
+\end{itemize}
+
+\section{Internal Vehicle Security}
+\label{sec:internal_vehicle_security}
+
+We discussed the vast majority of attack vectors on modern cars in Section \ref{sec:other_attack_vectors}. Defending against these requires a specific measure per vector, meaning no solution will confidently prevent attacks over all surfaces. Take TPMS for example; the solution here is to define a way of communicating between the tire pressure sensors and the TPMS ECU that cannot be spoofed or interfered with. This approach is fine, but it doesn't address a greater issue with in-vehicle networks. Namely, unauthorised access gives an attacker the ability to interfere with all ECU's, as well as all the communications between them (if no additional security measures are implemented of course). This vulnerability is an inherent flaw of the network communications protocol (CAN in our case). In Section \ref{sec:can} the layered nature of the CAN protocol was discussed. What if an application layer extension of the protocol was introduced that alleviates the aforementioned security issues? This would mean that even is access is attained, this breach will be confined to the ECU that was used as an attack vector, severely limiting the scope of the attack. Fortunately these solutions have been proposed and a selection of them will be discussed next.
+
+\subsection{CANCrypt}
+\label{subsec:cancrypt}
+
+CANcrypt uses a CAN feature that allows two devices to exchange a hidden bit that is not visible to other CAN devices. This allows generating pairing keys that only the two devices know. CANcrypt uses a dynamic 64-bit key to cover the longest possible secure data block, which is 8 bytes. From this key a pseudo one-time pad is generated and changed frequently. CANcrypt does not protect against DOS attacks \cite{Pfeiffer}.
+
+\subsection{VatiCAN} 
+\label{subsec:vatican}
+
+VatiCAN is a framework for embedded controllers connected to the CAN bus, which allows both senders and receivers to authenticate exchanged data. It introduces some of the same features that VulCAN does: MAC's for message authentication, nonces to prevent replay attacks and backward compatibility. However, it also introduces a new feature; namely, spoof detection and prevention. spoofed messages are detected by monitoring the bus, and detecting messages that have the same sender ID as the monitoring node (remember that CAN messages are broadcasted over the entire network). If one of these messages is detected, it must be a spoofed message. Once spoofing is detected it can still be prevented (the ID is the first thing that is sent over the bus). This is done by writing dominant bits (zeros) to the bus, effectively invalidating the CRC bits while the spoofed CAN frame is still being processed \cite{VatiCAN}.
+
+\subsection{VulCAN}
+\label{subsec:vulcan}
+
+VulCAN is presented in \cite{VulCAN} as a generic design for vehicular message authentication, software component attestation and isolation. This solution is distinguished from previous work by relying on trusted hardware and a minimal trusted computing Base (TCB). This TCB relies heavily on the SANCUS security architecture \cite{Sancus}. the goal of SANCUS is to provide network embedded systems with remote attestation and strong integrity and authenticity guarantees with a minimal hardware TCB. The infrastructure provider provides a number of nodes on which software providers can deploy software modules. This model is applicable to many ICT systems today (in the case of VulCAN this system is a CAN network) \cite{Sancus}. VulCAN uses SANCUS to compartmentalise every ECU into a small group of trustworthy authenticated software components. It does so by introducing the following security features: 
+
+\begin{itemize}
+	\item \textbf{Message Authentication}: The system uses message authentication codes (MAC)\footnote{For more information on MAC's see section \ref{subsec:MAC}.} to prove the message was indeed sent by a trusted sender component.
+	
+	\item \textbf{Lightweight Cryptography}: This is a must because of strict timing constraints and because of the computational limitations of the embedded devices. 
+	
+	\item \textbf{Replay Attack Resistance}: the authentication scheme is immune to replay attacks (a malicious agent injecting a previously sent message in the hope of it being falsely authenticated). This is ensured by using short term session keys, as well as a monotonically increasing counter or nonce as a source of freshness in the MAC computation.
+	
+	\item \textbf{Backwards Compatibility}: Legacy unmodified applications without authenticated communication should continue to function. To this end the system broadcasts the authenticated message in plain text, and afterwards constructs and transmits authentication data on a different CAN identifier, effectively decoupling the authentication metadata from the original message.
+\end{itemize}
+
+
+

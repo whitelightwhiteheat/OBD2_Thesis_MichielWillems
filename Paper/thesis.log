@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  2 JAN 2019 04:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  3 JAN 2019 02:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1363,8 +1363,9 @@ Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
  (./thesis.aux
-(./introduction.aux) (./chapter1.aux) (./chapter2.aux) (./chapter3.aux)
-(./chapter5.aux) (./chapter6.aux) (./chapter7.aux))
+(./introduction.aux) (./background.aux) (./problem_statement.aux)
+(./related_work.aux) (./solution.aux) (./implementation_and_evaluation.aux)
+(./conclusion.aux))
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
@@ -1492,7 +1493,7 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `kulemtfpf' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- <logokuleng.pdf, id=264, 159.33528pt x 85.358pt>
+ <logokuleng.pdf, id=256, 159.33528pt x 85.358pt>
 File: logokuleng.pdf Graphic file (type pdf)
 
 <use logokuleng.pdf>
@@ -1560,9 +1561,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ]
 [2] [3]) [4]
-\openout2 = `chapter1.aux'.
+\openout2 = `background.aux'.
 
- (./chapter1.tex
+ (./background.tex
 
 LaTeX Warning: Reference `sec:solution' on page 5 undefined on input line 5.
 
@@ -1574,21 +1575,11 @@ LaTeX Warning: Reference `sec:solution' on page 5 undefined on input line 5.
 Underfull \vbox (badness 2158) has occurred while \output is active []
 
  [8]
-[9]
-
-LaTeX Warning: Reference `sec:authentication_procedure' on page 10 undefined on
- input line 108.
-
-[10]
-
-LaTeX Warning: Reference `sec:authentication_procedure' on page 11 undefined on
- input line 138.
-
-[11]
+[9] [10] [11]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[12] [13] <images-thesis/enisa.png, id=599, 853.1875pt x 724.7075pt>
+[12] [13] <images-thesis/enisa.png, id=593, 853.1875pt x 724.7075pt>
 File: images-thesis/enisa.png Graphic file (type png)
 
 <use images-thesis/enisa.png>
@@ -1602,51 +1593,43 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 212.
 
-[14]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 229.
 
-[15 <./images-thesis/enisa.png>] [16] [17]
+[14] [15 <./images-thesis/enisa.png>] [16] [17]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 309.
 
-[18]
-
-LaTeX Warning: Reference `sec:issues' on page 19 undefined on input line 343.
-
-[19] [20] [21] <images-thesis/typeA.png, id=696, 218.8175pt x 87.32625pt>
+[18] [19] [20] [21] <images-thesis/typeA.png, id=692, 218.8175pt x 87.32625pt>
 File: images-thesis/typeA.png Graphic file (type png)
 
 <use images-thesis/typeA.png>
-Package pdftex.def Info: images-thesis/typeA.png used on input line 414.
+Package pdftex.def Info: images-thesis/typeA.png used on input line 413.
 (pdftex.def)             Requested size: 218.81696pt x 87.32603pt.
 
-<images-thesis/typeB.png, id=700, 218.8175pt x 87.32625pt>
+<images-thesis/typeB.png, id=696, 218.8175pt x 87.32625pt>
 File: images-thesis/typeB.png Graphic file (type png)
 
 <use images-thesis/typeB.png>
-Package pdftex.def Info: images-thesis/typeB.png used on input line 421.
+Package pdftex.def Info: images-thesis/typeB.png used on input line 420.
 (pdftex.def)             Requested size: 218.81696pt x 87.32603pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 428--432
 
  []
 
-[22 <./images-thesis/typeA.png> <./images-thesis/typeB.png>] [23]) [24]
-\openout2 = `chapter2.aux'.
+[22 <./images-thesis/typeA.png> <./images-thesis/typeB.png>]) [23]
+\openout2 = `problem_statement.aux'.
 
 
-(./chapter2.tex [25
+(./problem_statement.tex [24
 
 
 
-] [26] [27] [28] [29] [30] [31]) [32]
-\openout2 = `chapter3.aux'.
-
- (./chapter3.tex
-<images-thesis/obd_topography.png, id=861, 908.39375pt x 470.75874pt>
+]
+<images-thesis/obd_topography.png, id=739, 908.39375pt x 470.75874pt>
 File: images-thesis/obd_topography.png Graphic file (type png)
 
 <use images-thesis/obd_topography.png>
@@ -1657,15 +1640,11 @@ Package pdftex.def Info: images-thesis/obd_topography.png used on input line 15
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[33
-
-
-
-]
+[25]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [34 <./images-thesis/obd_topography.png>] [35]
-<images-thesis/attackmodel_1.png, id=889, 917.4275pt x 469.755pt>
+ [26 <./images-thesis/obd_topography.png>] [27]
+<images-thesis/attackmodel_1.png, id=767, 917.4275pt x 469.755pt>
 File: images-thesis/attackmodel_1.png Graphic file (type png)
 
 <use images-thesis/attackmodel_1.png>
@@ -1676,7 +1655,7 @@ Package pdftex.def Info: images-thesis/attackmodel_1.png used on input line 61.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images-thesis/attackmodel_2.png, id=890, 896.34875pt x 466.74374pt>
+<images-thesis/attackmodel_2.png, id=768, 896.34875pt x 466.74374pt>
 File: images-thesis/attackmodel_2.png Graphic file (type png)
 
 <use images-thesis/attackmodel_2.png>
@@ -1687,15 +1666,26 @@ Package pdftex.def Info: images-thesis/attackmodel_2.png used on input line 68.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[36] [37 <./images-thesis/attackmodel_1.png> <./images-thesis/attackmodel_2.png
->] [38]) [39]
-\openout2 = `chapter5.aux'.
+[28] [29 <./images-thesis/attackmodel_1.png> <./images-thesis/attackmodel_2.png
+>] [30]) [31]
+\openout2 = `related_work.aux'.
 
- (./chapter5.tex [40
+ (./related_work.tex [32
 
 
 
 ]
+Underfull \vbox (badness 1466) has occurred while \output is active []
+
+ [33]
+[34]
+Underfull \vbox (badness 1147) has occurred while \output is active []
+
+ [35]
+[36] [37] [38] [39]) [40]
+\openout2 = `solution.aux'.
+
+ (./solution.tex
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
@@ -1710,12 +1700,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-[41]
+[41
+
+
+
+]
 Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
  []
 
-[42] <images-thesis/solution.png, id=948, 946.53625pt x 562.1pt>
+[42] <images-thesis/solution.png, id=944, 946.53625pt x 562.1pt>
 File: images-thesis/solution.png Graphic file (type png)
 
 <use images-thesis/solution.png>
@@ -1742,23 +1736,23 @@ LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 102.
 
 ) [47]
-\openout2 = `chapter6.aux'.
+\openout2 = `implementation_and_evaluation.aux'.
 
- (./chapter6.tex [48
+ (./implementation_and_evaluation.tex [48
 
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 9--11
+Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
 
 [49] [50] [51]
 
-LaTeX Warning: Reference `fig:CANframe' on page 52 undefined on input line 50.
+LaTeX Warning: Reference `fig:CANframe' on page 52 undefined on input line 53.
 
 
-Overfull \hbox (7.632pt too wide) in paragraph at lines 67--68
+Overfull \hbox (7.632pt too wide) in paragraph at lines 70--71
  [][] 
  []
 
@@ -1769,28 +1763,31 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[53] <images-thesis/permissions.png, id=1077, 1087.06125pt x 297.11pt>
+[53] <images-thesis/permissions.png, id=1076, 1087.06125pt x 297.11pt>
 File: images-thesis/permissions.png Graphic file (type png)
 
 <use images-thesis/permissions.png>
-Package pdftex.def Info: images-thesis/permissions.png used on input line 107.
+Package pdftex.def Info: images-thesis/permissions.png used on input line 110.
 (pdftex.def)             Requested size: 398.0pt x 108.78198pt.
-) [54 <./images-thesis/permissions.png>]
-\openout2 = `chapter7.aux'.
+ [54 <./images-thesis/permissions.png>]
+[55] [56] [57]) [58] [59]
+\openout2 = `conclusion.aux'.
 
-
-(./chapter7.tex
-Underfull \vbox (badness 1005) has occurred while \output is active []
-
- [55
+ (./conclusion.tex [60
 
 
 
 ]
-[56] [57] [58]) [59] [60
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+ []
 
 
-] (./thesis.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+ []
+
+[61]) [62] (./thesis.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 20--24
 []\OT1/cmr/m/n/10.95 (+20) Abdul Re-hwan An-war.  Bus ar-bi-tra-tion in can (co
 n-troller
@@ -1808,124 +1805,126 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--24
 ul-[]rehman-[]anwer ,[]
  []
 
-[61
+[63
+
+
 
 ]
-Underfull \hbox (badness 1215) in paragraph at lines 102--107
+Underfull \hbox (badness 1215) in paragraph at lines 109--114
 []\OT1/cmr/m/n/10.95 (+20) Andy Green-berg.  Hack-ers re-motely kill a jeep on 
 the high-way{with
  []
 
 
-Underfull \hbox (badness 3590) in paragraph at lines 102--107
+Underfull \hbox (badness 3590) in paragraph at lines 109--114
 \OT1/cmr/m/n/10.95 (+20) me in it.  \OT1/cmr/m/it/10.95 (+20) Wired\OT1/cmr/m/n
 /10.95 (+20) , 2015.  URL: [][]$\OT1/cmtt/m/n/10.95 https : / / www . wired . c
 om / 2015 / 07 /
  []
 
-[62] [63]
-Underfull \hbox (badness 1472) in paragraph at lines 280--286
+[64] [65]
+Underfull \hbox (badness 1472) in paragraph at lines 287--293
 []\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  Anti-lock brak-ing sys-t
 em --- Wikipedia, the
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 280--286
+Underfull \hbox (badness 1028) in paragraph at lines 287--293
 \OT1/cmr/m/n/10.95 (+20) free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-N
 ovember-2018].  URL:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 280--286
+Underfull \hbox (badness 10000) in paragraph at lines 287--293
 [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? t
 itle = Anti-[]lock _ braking _
  []
 
 
-Underfull \hbox (badness 7576) in paragraph at lines 288--294
+Underfull \hbox (badness 7576) in paragraph at lines 295--301
 []\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  Byzan-tine fault tol-er-
 ance --- Wikipedia,
  []
 
 
-Underfull \hbox (badness 4229) in paragraph at lines 288--294
+Underfull \hbox (badness 4229) in paragraph at lines 295--301
 \OT1/cmr/m/n/10.95 (+20) the free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 
 29-November-2018].
  []
 
 
-Underfull \hbox (badness 3525) in paragraph at lines 288--294
+Underfull \hbox (badness 3525) in paragraph at lines 295--301
 \OT1/cmr/m/n/10.95 (+20) URL: [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikiped
 ia . org / w / index . php ? title = Byzantine _ fault _
  []
 
-[64]
-Underfull \hbox (badness 1028) in paragraph at lines 296--302
+
+Underfull \hbox (badness 1028) in paragraph at lines 303--309
 \OT1/cmr/m/n/10.95 (+20) free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-N
 ovember-2018].  URL:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 296--302
+Underfull \hbox (badness 10000) in paragraph at lines 303--309
 [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? t
 itle = Cryptographic _ hash _
  []
 
-
-Underfull \hbox (badness 3312) in paragraph at lines 311--317
+[66]
+Underfull \hbox (badness 3312) in paragraph at lines 318--324
 []\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  Diffie{hellman key ex-ch
 ange --- Wikipedia,
  []
 
 
-Underfull \hbox (badness 4229) in paragraph at lines 311--317
+Underfull \hbox (badness 4229) in paragraph at lines 318--324
 \OT1/cmr/m/n/10.95 (+20) the free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 
 29-November-2018].
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 311--317
+Underfull \hbox (badness 10000) in paragraph at lines 318--324
 \OT1/cmr/m/n/10.95 (+20) URL: [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikiped
 ia . org / w / index . php ? title = Diffie % E2 % 80 %
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 326--332
+Underfull \hbox (badness 1028) in paragraph at lines 333--339
 \OT1/cmr/m/n/10.95 (+20) free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-N
 ovember-2018].  URL:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 326--332
+Underfull \hbox (badness 10000) in paragraph at lines 333--339
 [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? t
 itle = Elliptic-[]curve _
  []
 
 
-Underfull \hbox (badness 1769) in paragraph at lines 334--340
+Underfull \hbox (badness 1769) in paragraph at lines 341--347
 []\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  El-lip-tic curve dig-i-t
 al sig-na-ture al-go-rithm ---
  []
 
 
-Underfull \hbox (badness 1383) in paragraph at lines 363--369
+Underfull \hbox (badness 1383) in paragraph at lines 370--376
 []\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  Role-based ac-cess con-t
 rol --- Wikipedia, the
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 363--369
+Underfull \hbox (badness 1028) in paragraph at lines 370--376
 \OT1/cmr/m/n/10.95 (+20) free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-N
 ovember-2018].  URL:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 363--369
+Underfull \hbox (badness 10000) in paragraph at lines 370--376
 [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? t
 itle = Role-[]based _ access _
  []
 
-[65]) [66] [67
+[67]) [68] [69
 
 ]
 \tf@toc=\write6
@@ -1939,23 +1938,23 @@ itle = Role-[]based _ access _
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 123.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 123.
- (./thesis.aux (./introduction.aux) (./chapter1.aux)
-(./chapter2.aux) (./chapter3.aux) (./chapter5.aux) (./chapter6.aux)
-(./chapter7.aux))
+ (./thesis.aux (./introduction.aux) (./background.aux)
+(./problem_statement.aux) (./related_work.aux) (./solution.aux)
+(./implementation_and_evaluation.aux) (./conclusion.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 123.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 123.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: C5C001DB4275D3394294A4A906C13363;4220.
+(rerunfilecheck)             Checksum: 68B549485574994890AEDB63B0CB1822;4007.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 34913 strings out of 493014
- 641393 string characters out of 6133351
- 914229 words of memory out of 5000000
- 37417 multiletter control sequences out of 15000+600000
+ 34915 strings out of 493014
+ 641792 string characters out of 6133351
+ 914446 words of memory out of 5000000
+ 37416 multiletter control sequences out of 15000+600000
  29861 words of font info for 119 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,23n,65p,10398b,1484s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1980,10 +1979,10 @@ type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
 e1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/
 helvetic/uhvr8a.pfb>
-Output written on thesis.pdf (75 pages, 963022 bytes).
+Output written on thesis.pdf (77 pages, 967276 bytes).
 PDF statistics:
- 1359 PDF objects out of 1440 (max. 8388607)
- 1227 compressed objects within 13 object streams
- 349 named destinations out of 1000 (max. 500000)
- 24122 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 1377 PDF objects out of 1440 (max. 8388607)
+ 1243 compressed objects within 13 object streams
+ 353 named destinations out of 1000 (max. 500000)
+ 24106 words of extra memory for PDF output out of 24883 (max. 10000000)
 

@@ -88,6 +88,13 @@ Pauric Doherty, Alan Molloy, Martin Glavin, and Fearghal Morgan.
 \newblock In {\em Proceedings, the Irish Signals and Systems Conference 2004 :
   ISSC 2004}, 2004.
 
+\bibitem{Dyer}
+Ezra Dyer.
+\newblock Why cars are safer than they've ever been.
+\newblock {\em Popular Mechanics}, September 2014.
+\newblock URL:
+  \url{https://www.popularmechanics.com/cars/a11201/why-cars-are-safer-than-theyve-ever-been-17194116/}.
+
 \bibitem{KeeLoq}
 Thomas Eisenbarth, Timo Kasper, Amir Moradi, Christof Paar, Mahmoud
   Salmasizadeh, and Mohammad T.~Manzuri Shalman.
@@ -110,6 +117,11 @@ G.~Hancke.
 \newblock Security of embedded location systems.
 \newblock {\em Secure Smart Embedded Devices, Platforms and Applications,},
   267\textendash 286, 2014.
+
+\bibitem{RFC6234}
+T.~Hansen.
+\newblock Us secure hash algorithms (sha and sha-based hmac and hkdf).
+\newblock RFC 6234, IETF, May 2011.
 
 \bibitem{GPS2}
 T.~E. Humphreys, B.~M. Ledvina, M.~L. Psiaki, B.~W. OHanlon, and P.~M.~Kintner
@@ -196,13 +208,6 @@ Job Noorman, Pieter Agten, Wilfried Daniels, Raoul Strackx, Anthony~Van
   zero-software trusted computing base.
 \newblock Technical report, iMinds-DistriNet and iMinds-COSIC, KU Leuven.
 
-\bibitem{Pan}
-L.~Pan, X.~Zheng, H.X. Chen, T.~Luan, H.~Bootwala, and L.~Batten.
-\newblock Cyber security attacks to modern vehicular systems.
-\newblock Technical report, School of Information Technology,Deakin University,
-  Geelong, Victoria, 3220, Australia and State Key Laboratory of Automotive
-  Safety and Energy, Tsinghua University, Beijing, China, August 2017.
-
 \bibitem{Petit}
 Jonathan Petit and Steven~E. Schladover.
 \newblock Potential cyberattacks on automated vehicles.
@@ -218,11 +223,6 @@ Olaf Pfeiffer and Christian Keydel.
 Lee Pike, Jamey Sharp, Mark Tullsen, Patrick~C. Hickey, and James Bielman.
 \newblock Securing the automobile: A comprehensive approach.
 \newblock 2015.
-
-\bibitem{Leia}
-Andreea-Ina Radu and D.~Flavio.
-\newblock Technical report, Garcia School of Computer Science, University of
-  Birmingham, UK, LeiA: A Lightweight Authentication Protocol for CAN.
 
 \bibitem{Maxim}
 Maxim Raya and Jean-Pierre Hubaux.
@@ -250,6 +250,13 @@ M.~Sethi, J.~Arkko, A.~Keranen, H.~Back Ericsson, and Comptel.
 \newblock Technical report, IETF, August 2017.
 \newblock URL:
   \url{https://tools.ietf.org/id/draft-ietf-lwig-crypto-sensors-04.html}.
+
+\bibitem{Stevens}
+Marc Stevens, Elie Bursztein, Pierre Karpman, and Ange~Albertini andYarik
+  Markov.
+\newblock The first collision for full sha-1.
+\newblock Technical report, CWI Amsterdam and Google Research, 2011.
+\newblock URL: \url{https://shattered.io/static/shattered.pdf}.
 
 \bibitem{OBDconnector}
 AutoTap \textendash OBDII Automotive Diagnostic~Tool.
