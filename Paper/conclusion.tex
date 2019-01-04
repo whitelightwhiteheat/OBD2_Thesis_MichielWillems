@@ -1,11 +1,17 @@
 
 \chapter{Conclusion}
+\label{chap:conclusion}
+
 The last chapter of this thesis paper consists of two main parts. First, the contribution presented in section \ref{sec:contributions} is reviewed and discussed. Second, we present a couple of areas where additional research is required, as well as why this is the case.
 
 \section{Contribution in Review}
+\label{sec:contribution_in_review}
+
 The contribution presented in section \ref{sec:contributions} consists of two assertions. First, the proposal of a role-based access control model for OBD-II that is based on public key cryptography. Second, providing an implementation of this model on a resource-constrained ECU that is evaluated in terms of portability, speed and security. \\ \\ The first assertion corresponds with the solution that is proposed in section \ref{chap:solution}. While limited in scope (i.e. no protection against physical access), this solution does exactly what it was designed for: protecting the OBD-II interface. By introducing this solution to the gateway, there is no way for any OBD-II connection to circumvent it. By storing the public keys on the gateway and the private keys on a central server, key disclosure problems are limited. And, by introducing the central server, it is feasible for anyone to initiate an OBD-II session. As long as they are in possession of the right credentials, as well as a working internet connection. The procedures that were introduced to facilitate these authenticated sessions are state of the art (e.g. ECC), and are based on other well-known and often used designs (e.g. ECDHE\textunderscore ECDSA, which is used in TLS). \\ \\ The second assertion corresponds with the implementation and evaluation presented in section \ref{chap:implementation}. While the microcontrollers that we used in our implementation are not automotive ECU's, they closely match their specifications in terms of architecture and performance (e.g. 8 bit AVR). The technical difficulties of implementing a lightweight security procedure based on public key cryptography, are the same for both types of hardware (e.g. limited processing power, limited memory, etc.). This is why our implementation should be considered a proof of concept of OBD-II security for the automotive industry. Moreover, in section \ref{chap:evaluation} this implementation is successfully evaluated in terms of portability, speed and security. It is therefore safe to assume that our solution ports well to extant vehicle networks, while guaranteeing the same level of security that our implementation did. Which is exactly what we set out to do with this thesis paper.
 
 \section{Future Research}
+\label{sec:future_research}
+
 The contribution of this thesis paper is from all-encompassing. The extensive nature of our problem statement attributes to a series of areas that require additional research. This thesis is concluded with a presentation of different topics that merit a research paper of their own.
 
 \begin{itemize}

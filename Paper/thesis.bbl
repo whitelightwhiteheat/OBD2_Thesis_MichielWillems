@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{SHA3}
+Sha-3 standard: Permutation-based hash and extendable output functions.
+\newblock Technical report, NIST, August 2015.
+\newblock URL: \url{http://dx.doi.org/10.6028/NIST.FIPS.202}.
+
 \bibitem{Enisa}
 Cyber security and resilience of smart cars.
 \newblock Technical report, Agency for Network and Information Security
@@ -34,12 +39,6 @@ Tarun Argawal.
 S.~Bayer, R.~Jung, and M.~Wolf.
 \newblock Obd = open barn door? security vulnerabilities and protections for
   vehicular on-board diagnosis (obd).
-
-\bibitem{Bayer15}
-Stephanie Bayer, Thomas Enderle, Dennis~Kengo Oka, and Marko Wolf.
-\newblock Security crash test \textendash practical security evaluations of
-  automotive onboard it components.
-\newblock Technical report, 2015.
 
 \bibitem{Crispo}
 Cesar Bernardini, Muhammad~Rizwan Asghar, and Bruno Crispo.
@@ -388,6 +387,11 @@ Stefan~N. \"{u}rnberger and Christian~Rossow Cispa.
 \newblock [Online; accessed 29-November-2018].
 \newblock URL:
   \url{https://en.wikipedia.org/w/index.php?title=Secure_Hash_Algorithms&oldid=837517049}.
+
+\bibitem{Michel}
+Michiel Willems.
+\newblock URL:
+  \url{https://github.com/whitelightwhiteheat/OBD2_Thesis_MichielWillems}.
 
 \bibitem{Yadav16}
 Aastha Yadav, Gaurav Bose, Radhika Bhange, Karan Kapoor, N.~Ch.S.~N Iyengar,

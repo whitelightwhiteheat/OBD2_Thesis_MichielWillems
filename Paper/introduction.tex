@@ -12,8 +12,14 @@ there are numerous points of entry to the internal vehicle network, both physica
 \section{Motivation}
 \label{sec:motivation}
 
-The On-board Diagnostics (OBD-II) port is one of the potential attack vectors.  OBD-II systems are widely deployed in auto-mobiles as a way of getting diagnostics information from the vehicle. OBD-II introduces a physical interface inside the vehicle passanger compartment (usually under the steering wheel) called the Data Link Connector (DLC). This physical interface allows full access to the internal network. It has been shown in \cite{MillerA,Yadav16,MillerB,MillerC} that a set of messages or signals can be injected on a car's CAN bus to control key components (e.g. lights, locks, brakes, and engine) as well as injecting code into ECUs. A couple of security solutions were proposed that are designed to amend this problem, like the seed-key algorithm discussed in \cite{Yadav16}. However, it is our opinion that a comprehensive solution to this problem is yet to be proposed. The focus of this thesis will be to try and mitigate the vulnerability of OBD-II, by introducing access control to the OBD-II interface. 
+The On-board Diagnostics (OBD-II) port is one of the potential attack vectors.  OBD-II systems are widely deployed in auto-mobiles as a way of getting diagnostics information from the vehicle. OBD-II introduces a physical interface inside the vehicle passenger compartment (usually under the steering wheel) called the Data Link Connector (DLC). This physical interface allows full access to the internal network. It has been shown in \cite{MillerA,Yadav16,MillerB,MillerC} that a set of messages or signals can be injected on a car's CAN bus to control key components (e.g. lights, locks, brakes, and engine) as well as injecting code into ECUs. The OBD-II specification relies on a signalling protocol to communicate with the intra vehicle network. A couple of standards are defined but the CAN protocol is by far the most widely employed. Unfortunately, CAN suffers from a myriad of security vulnerabilities, as is discussed in Section \ref{subsec:can:security_issues}. The use of CAN as signalling protocol for OBD-II operations, thereby inheriting all of CAN's security related shortcomings, attributes to a system that is intrinsically insecure. Figure \ref{fig:topography} shows the typical topography of the OBD-II system. The user interacts with the intra vehicle network via the OBD-II interface using some computerised device (see section \ref{subsec:obd:pid}). The central gateway receives and interprets all messages issued by this device, before forwarding them to the appropriate sub-networks. Optionally, upon reception by the intended ECU, a response could be issued and forwarded back to the user. All of this happens concurrently with the normal operation of the intra vehicle network (remember that messages are exchanged by ECU's over the entire intra vehicle network to guarantee the optimal operation of the vehicle). The problem of this system is the indiscriminate nature at which the gateway forwards the messages it receives from the OBD-II interface. It does not discern between a normal message and a potentially harmful one. This results in an interface that is rendered wide open to any message that the gateway understands. while in theory, it was designed solely for diagnostic and maintenance purposes. This discrepancy between the intention of OBD-II and the wide open nature of it's design is apparent. As a result of this, the OBD-II interface can be used to mount a series of attacks. A couple of security solutions were proposed that are designed to amend this problem, like the seed-key algorithm discussed in \cite{Yadav16}. However, it is our opinion that a comprehensive solution to this problem is yet to be proposed. The focus of this thesis will be to try and mitigate the vulnerability of OBD-II, by introducing access control to the OBD-II interface. 
 
+\begin{figure}[h]
+	\label{fig:topography}
+	\centering
+	\includegraphics[width=\textwidth]{obd_topography.png}
+	\caption{OBD-II System Topography.}
+\end{figure}
  
 
 \section{Challenges} \label{sec:challenges}
@@ -33,27 +39,19 @@ The contribution of this thesis can be summarized as follows:
 \begin{itemize}
 	\item Overcoming the security limitation identified by the unauthorised access to the vehicle CAN network via the OBD-II port by designing and developing a role-based access control model based on public key cryptography.
 	
-	\item Providing an open source proof of concept implementation of our designed model on a CAN-enabled resource-constrained ECU that is used in various automotive models. Furthermore, we evaluate and show that our approach is secure, feasible and lightweight in terms of memory footprint and runtime overhead.
+	\item Providing an open source proof of concept implementation of our designed model on a CAN-enabled resource-constrained ECU that is used in various automotive models \cite{Michel}. Furthermore, we evaluate and show that our approach is secure, feasible and lightweight in terms of memory footprint and runtime overhead.
 \end{itemize} 
 
 \section{Text Outline}
-The remainder of this text is separated into 8 chapters:
+The remainder of this text is separated into five chapters:
 \begin{itemize}
-	\item \textbf{Chapter \ref{chap:background}} is concerned with providing some insight in the operation of intra vehicle networks. In lieu with this intention, the CAN protocol and the OBD-II standard are discussed in detail. The main takeaway of this chapter consists of a solid technical background, allowing the reader to correctly interpret the rest of this paper.
+	\item \textbf{Chapter \ref{chap:background}} is a technical primer to all the security systems that are applied in our proposed solution, as well as providing some insight in the operation of intra vehicle networks. In lieu with this intention, the CAN protocol and the OBD-II standard are discussed in detail. The main takeaway of this chapter consists of a solid technical background, allowing the reader to correctly interpret the rest of this paper.
 	
 	\item \textbf{Chapter \ref{chap:related_work}} is a survey of several studies that are topically related to this paper. The idea is that this will help to contextually situate our study, as well as getting the reader up to date with the current state of affairs vis-\`a-vis automotive network security.
 	
-	\item \textbf{Chapter \ref{chap:problem_statement}} illustrates the main research topic of this paper. Namely, the vulnerability of the OBD-II interface. A detailed discussion of this problem is held, illustrated by some example attacks. A suitable attacker model is also defined. The insights made in this chapter will give us a set of security requirements that any proposed solution should meet.
+	\item \textbf{Chapter \ref{chap:solution}} illustrates the main research topic of this paper. Namely, the vulnerability of the OBD-II interface. A detailed discussion of this problem is held, illustrated by some example attacks. A suitable attacker model is also defined. In the last section of this chapter our proposed solution is presented, namely OBD-II role-based access control. A detailed description of the design is given, accompanied by a series of diagrams.
 	
-	\item \textbf{Chapter \ref{chap:preliminaries}} serves as a technical primer to all the security systems that are applied in our proposed solution. These preliminaries are included for readers without a software security background, in an effort to help them understand how these systems work, and why they were chosen.
+	\item \textbf{Chapter \ref{chap:implementation}} describes a demo implementation of our solution. Where two microcontrollers are programmed to perform the authentication procedures introduced in Chapter \ref{chap:solution}. Furthermore, this implementation is evaluated in terms of portability, speed and security.
 	
-	\item \textbf{Chapter \ref{chap:solution}} is devoted to our proposed solution, namely OBD-II role-based access control. A detailed description of the design is given, accompanied by a series of diagrams.
-	
-	\item \textbf{Chapter \ref{chap:implementation}} documents how the proposed
-	
-	 solution from chapter \ref{chap:solution} was implemented in hardware. 
-	
-	\item \textbf{Chapter TODO}
-	
-	\item \textbf{Chapter TODO}
+	\item \textbf{Chapter \ref{chap:conclusion}} Reviews the contributions of this thesis paper with respect to the results of the evaluation performed in Chapter \ref{chap:implementation}. We also present a series of future research topics introduced by our proposed solution.
 \end{itemize}
