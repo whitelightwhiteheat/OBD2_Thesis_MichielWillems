@@ -40,45 +40,45 @@ Warning--empty year in Sancus
 Warning--empty note in Pfeiffer
 Warning--empty note in Pike15
 Warning--empty year in TPMS
-You've used 62 entries,
+You've used 63 entries,
             2849 wiz_defined-function locations,
-            930 strings with 15869 characters,
-and the built_in function-call counts, 22853 in all, are:
-= -- 2309
-> -- 1011
+            935 strings with 16181 characters,
+and the built_in function-call counts, 23312 in all, are:
+= -- 2353
+> -- 1045
 < -- 3
-+ -- 382
-- -- 316
-* -- 1026
-:= -- 3459
-add.period$ -- 204
-call.type$ -- 62
-change.case$ -- 358
++ -- 395
+- -- 328
+* -- 1056
+:= -- 3537
+add.period$ -- 207
+call.type$ -- 63
+change.case$ -- 368
 chr.to.int$ -- 0
-cite$ -- 87
-duplicate$ -- 589
-empty$ -- 2050
-format.name$ -- 316
-if$ -- 5888
+cite$ -- 88
+duplicate$ -- 597
+empty$ -- 2079
+format.name$ -- 328
+if$ -- 5995
 int.to.chr$ -- 0
-int.to.str$ -- 62
+int.to.str$ -- 63
 missing$ -- 12
-newline$ -- 330
-num.names$ -- 118
-pop$ -- 668
+newline$ -- 335
+num.names$ -- 120
+pop$ -- 680
 preamble$ -- 1
-purify$ -- 282
+purify$ -- 290
 quote$ -- 0
-skip$ -- 1699
+skip$ -- 1725
 stack$ -- 0
-substring$ -- 423
+substring$ -- 428
 swap$ -- 75
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 248
+type$ -- 252
 warning$ -- 25
-while$ -- 121
-width$ -- 64
-write$ -- 662
+while$ -- 123
+width$ -- 65
+write$ -- 673
 (There were 26 warnings)
