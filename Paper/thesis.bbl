@@ -257,6 +257,14 @@ M.~Sethi, J.~Arkko, A.~Keranen, H.~Back Ericsson, and Comptel.
 \newblock URL:
   \url{https://tools.ietf.org/id/draft-ietf-lwig-crypto-sensors-04.html}.
 
+\bibitem{Siddiqui}
+Rahat Siddiqui and Suresh Mehrotra.
+\newblock A review on elliptic curve cryptography for embedded systems.
+\newblock {\em International Journal of Computer Science & Information
+  Technology (IJCSIT)}, Vol 3,:Pp 84--103, 06 2011.
+\newblock \href {http://dx.doi.org/10.5121/ijcsit.2011.3307}
+  {\path{doi:10.5121/ijcsit.2011.3307}}.
+
 \bibitem{Stevens}
 Marc Stevens, Elie Bursztein, Pierre Karpman, and Ange~Albertini andYarik
   Markov.
@@ -342,14 +350,6 @@ Stefan~N. \"{u}rnberger and Christian~Rossow Cispa.
 \newblock [Online; accessed 29-November-2018].
 \newblock URL:
   \url{https://en.wikipedia.org/w/index.php?title=Elliptic-curve_cryptography&oldid=867536222}.
-
-\bibitem{wiki:ECDSA}
-{Wikipedia contributors}.
-\newblock Elliptic curve digital signature algorithm --- {Wikipedia}{,} the
-  free encyclopedia, 2018.
-\newblock [Online; accessed 18-December-2018].
-\newblock URL:
-  \url{https://en.wikipedia.org/w/index.php?title=Elliptic_Curve_Digital_Signature_Algorithm&oldid=873142043}.
 
 \bibitem{wiki:PID}
 {Wikipedia contributors}.

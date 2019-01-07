@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  6 JAN 2019 23:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  7 JAN 2019 18:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1765,6 +1765,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--14
+
+ []
+
 [47
 
 
@@ -1778,26 +1783,25 @@ Overfull \hbox (7.632pt too wide) in paragraph at lines 70--71
  [][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[50]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[51] <images-thesis/permissions.png, id=1095, 1087.06125pt x 297.11pt>
+[50] [51] <images-thesis/permissions.png, id=1094, 1087.06125pt x 297.11pt>
 File: images-thesis/permissions.png Graphic file (type png)
 
 <use images-thesis/permissions.png>
 Package pdftex.def Info: images-thesis/permissions.png used on input line 110.
 (pdftex.def)             Requested size: 398.0pt x 108.78198pt.
- [52 <./images-thesis/permissions.png>]
-[53] [54]
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[52] [53 <./images-thesis/permissions.png>]
+Underfull \vbox (badness 1320) has occurred while \output is active []
+
+ [54]
 
 LaTeX Warning: Reference `subsec:informal_model' on page 55 undefined on input 
 line 159.
 
-[55]) [56] [57]
+[55] [56]) [57]
 \openout2 = `conclusion.aux'.
 
  (./conclusion.tex [58
@@ -1850,87 +1854,92 @@ om / 2015 / 07 /
  []
 
 [62] [63]
-Underfull \hbox (badness 1472) in paragraph at lines 293--299
+! Misplaced alignment tab character &.
+l.263 ...ternational Journal of Computer Science &
+                                                   Information
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+[64]
+Underfull \hbox (badness 1472) in paragraph at lines 301--307
 []\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  Anti-lock brak-ing sys-t
 em --- Wikipedia, the
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 293--299
+Underfull \hbox (badness 1028) in paragraph at lines 301--307
 \OT1/cmr/m/n/10.95 (+20) free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-N
 ovember-2018].  URL:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 293--299
+Underfull \hbox (badness 10000) in paragraph at lines 301--307
 [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? t
 itle = Anti-[]lock _ braking _
  []
 
-[64]
-Underfull \hbox (badness 7576) in paragraph at lines 301--307
+
+Underfull \hbox (badness 7576) in paragraph at lines 309--315
 []\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  Byzan-tine fault tol-er-
 ance --- Wikipedia,
  []
 
 
-Underfull \hbox (badness 4229) in paragraph at lines 301--307
+Underfull \hbox (badness 4229) in paragraph at lines 309--315
 \OT1/cmr/m/n/10.95 (+20) the free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 
 29-November-2018].
  []
 
 
-Underfull \hbox (badness 3525) in paragraph at lines 301--307
+Underfull \hbox (badness 3525) in paragraph at lines 309--315
 \OT1/cmr/m/n/10.95 (+20) URL: [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikiped
 ia . org / w / index . php ? title = Byzantine _ fault _
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 309--315
+Underfull \hbox (badness 1028) in paragraph at lines 317--323
 \OT1/cmr/m/n/10.95 (+20) free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-N
 ovember-2018].  URL:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 309--315
+Underfull \hbox (badness 10000) in paragraph at lines 317--323
 [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? t
 itle = Cryptographic _ hash _
  []
 
 
-Underfull \hbox (badness 3312) in paragraph at lines 324--330
+Underfull \hbox (badness 3312) in paragraph at lines 332--338
 []\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  Diffie{hellman key ex-ch
 ange --- Wikipedia,
  []
 
 
-Underfull \hbox (badness 4229) in paragraph at lines 324--330
+Underfull \hbox (badness 4229) in paragraph at lines 332--338
 \OT1/cmr/m/n/10.95 (+20) the free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 
 29-November-2018].
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 324--330
+Underfull \hbox (badness 10000) in paragraph at lines 332--338
 \OT1/cmr/m/n/10.95 (+20) URL: [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikiped
 ia . org / w / index . php ? title = Diffie % E2 % 80 %
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 339--345
+Underfull \hbox (badness 1028) in paragraph at lines 347--353
 \OT1/cmr/m/n/10.95 (+20) free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-N
 ovember-2018].  URL:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 339--345
+Underfull \hbox (badness 10000) in paragraph at lines 347--353
 [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? t
 itle = Elliptic-[]curve _
- []
-
-
-Underfull \hbox (badness 1769) in paragraph at lines 347--353
-[]\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  El-lip-tic curve dig-i-t
-al sig-na-ture al-go-rithm ---
  []
 
 
@@ -1995,11 +2004,11 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 34930 strings out of 493014
- 641850 string characters out of 6133351
- 914394 words of memory out of 5000000
+ 34932 strings out of 493014
+ 641860 string characters out of 6133351
+ 908435 words of memory out of 5000000
  37422 multiletter control sequences out of 15000+600000
- 30338 words of font info for 125 fonts, out of 8000000 for 9000
+ 30446 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,23n,65p,10398b,1482s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
@@ -2023,10 +2032,10 @@ type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
 e1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/
 helvetic/uhvr8a.pfb>
-Output written on thesis.pdf (78 pages, 979042 bytes).
+Output written on thesis.pdf (78 pages, 982246 bytes).
 PDF statistics:
- 1415 PDF objects out of 1440 (max. 8388607)
- 1280 compressed objects within 13 object streams
+ 1414 PDF objects out of 1440 (max. 8388607)
+ 1279 compressed objects within 13 object streams
  356 named destinations out of 1000 (max. 500000)
  24098 words of extra memory for PDF output out of 24883 (max. 10000000)
 

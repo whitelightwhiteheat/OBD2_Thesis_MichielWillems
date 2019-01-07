@@ -14,7 +14,7 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: references.bib
 Warning--entry type for "ECU" isn't style-file defined
---line 269 of file references.bib
+--line 301 of file references.bib
 Warning--to sort, need author or key in Enisa
 Warning--to sort, need author or key in SHA3
 Warning--to sort, need author or key in ISO11898-3
@@ -42,43 +42,43 @@ Warning--empty note in Pike15
 Warning--empty year in TPMS
 You've used 63 entries,
             2849 wiz_defined-function locations,
-            935 strings with 16181 characters,
-and the built_in function-call counts, 23312 in all, are:
-= -- 2353
-> -- 1045
+            939 strings with 16170 characters,
+and the built_in function-call counts, 23450 in all, are:
+= -- 2368
+> -- 1052
 < -- 3
-+ -- 395
-- -- 328
-* -- 1056
-:= -- 3537
++ -- 398
+- -- 330
+* -- 1079
+:= -- 3559
 add.period$ -- 207
 call.type$ -- 63
-change.case$ -- 368
+change.case$ -- 369
 chr.to.int$ -- 0
 cite$ -- 88
-duplicate$ -- 597
-empty$ -- 2079
-format.name$ -- 328
-if$ -- 5995
+duplicate$ -- 599
+empty$ -- 2083
+format.name$ -- 330
+if$ -- 6021
 int.to.chr$ -- 0
 int.to.str$ -- 63
-missing$ -- 12
+missing$ -- 13
 newline$ -- 335
 num.names$ -- 120
-pop$ -- 680
+pop$ -- 673
 preamble$ -- 1
-purify$ -- 290
+purify$ -- 291
 quote$ -- 0
-skip$ -- 1725
+skip$ -- 1729
 stack$ -- 0
-substring$ -- 428
-swap$ -- 75
+substring$ -- 456
+swap$ -- 77
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 252
 warning$ -- 25
-while$ -- 123
+while$ -- 124
 width$ -- 65
-write$ -- 673
+write$ -- 674
 (There were 26 warnings)
