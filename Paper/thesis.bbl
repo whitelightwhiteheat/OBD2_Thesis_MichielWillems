@@ -260,7 +260,7 @@ M.~Sethi, J.~Arkko, A.~Keranen, H.~Back Ericsson, and Comptel.
 \bibitem{Siddiqui}
 Rahat Siddiqui and Suresh Mehrotra.
 \newblock A review on elliptic curve cryptography for embedded systems.
-\newblock {\em International Journal of Computer Science & Information
+\newblock {\em International Journal of Computer Science \& Information
   Technology (IJCSIT)}, Vol 3,:Pp 84--103, 06 2011.
 \newblock \href {http://dx.doi.org/10.5121/ijcsit.2011.3307}
   {\path{doi:10.5121/ijcsit.2011.3307}}.

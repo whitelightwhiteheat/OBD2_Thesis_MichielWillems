@@ -12,6 +12,7 @@
 \usepackage{epigraph}
 \usepackage{mathtools}
 \usepackage[table,xcdraw]{xcolor}
+\usepackage{hhline}
 \usepackage[hang]{footmisc}
 \usepackage{cryptocode}
 \usepackage{url}
@@ -25,7 +26,7 @@
 \graphicspath{ {images-thesis/} }
 
 \setup{	filingcard,
-		translatedtitle={Veiligheid van netwerken in auto's: kwetsbaarheid en beveiliging van de "on-board diagnostics port" (OBD-II).},
+		translatedtitle={Veiligheid van netwerken in auto's: kwetsbaarheid en beveiliging van de \textit{on-board diagnostics port} (OBD-II).},
 		udc=621.3,
 shortabstract={
 	\foreignlanguage{Dutch}{Een verontrustend aantal studies hebben reeds de vele kwetsbaarheden van automobiele netwerken blootgelegd \cite{Kosher,Kosher2,TPMS,MillerA,Pike15,Tuhoy,Pan,Petit}. Deze netwerken bestaan uit een verzameling van zogenaamde \textit{electronic control units} (ECU), die vervolgens met elkaar verbonden zijn door een data bus. Het resultaat van deze evolutie is dat er steeds meer manieren worden gevonden om deze netwerken digitaal aan te vallen. Functionele extensies zoals Bluetooth, GPS, Infotainment, etc. zijn maar een paar voorbeelden van mogelijke aanvalsvectoren. Een van hen is de \textit{on-board diagnostics} (OBD-II) interface, tevens ook het hoofdonderwerp van deze master thesis. OBD-II is een voertuigmanagementsysteem dat het mogelijk maakt om informatie uit te lezen over verschillende delen van het voertuig. Spijtig genoeg is deze interface een makkelijke manier om illegale toegang te verkrijgen tot het interne netwerk \cite{MillerA,Yadav16,MillerB,MillerC}; wat het mogelijk maakt voor aanvallers om hun eigen berichten te injecteren, waardoor ze de controle kunnen krijgen over cruciale elektronische componenten. In het eerste deel van deze tekst proberen we de omvang van dit probleem in kaart te brengen. Eerst wordt de werking van automobiele netwerken zelf toegelicht, voordat we het hebben over de vele kwetsbaarheden die ze bezitten. De OBD-II interface en het CAN protocol verdienen wat extra aandacht. We stellen ook een aantal beginselen van de computerbeveiliging voor.}

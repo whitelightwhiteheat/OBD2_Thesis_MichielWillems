@@ -176,6 +176,8 @@ The general architecture of RBAC permission tables is as follows: every entry in
 	\label{table:2}
 \end{table}
 
+
+
 \paragraph{}
 To sum up, our proposal employs cryptographic keys to apply a RBAC model to the OBD-II system. More specifically, an asymmetric key pair is associated with every role. The corresponding private key is distributed to the appropriate users (e.g. manufacturers, repairmen, policemen, etc), while the public keys are stored on the vehicle gateway. Whenever a user wishes to gain access to the intra vehicle network via the OBD-II port, (s)he will first have to authenticate him/herself by proving (s)he is in possession of the appropriate private key. This is done by completing an authenticated key agreement procedure, whereby the user is authenticated and a temporary symmetric key is established. Next, a message authentication procedure is performed for every message that is sent by the user. This procedure uses the aforementioned temporary symmetric key to authenticate every message. On top of checking the authenticity, the permission table is checked as well for every message. This permission table determines which messages are allowed for each role, effectively determining the security policy of the OBD-II RBAC system.
 

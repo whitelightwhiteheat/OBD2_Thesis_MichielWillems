@@ -102,13 +102,37 @@ Figure \ref{fig:message_authentication_implementation} shows the implementation 
 \subsubsection{Permissions Table Implementation}
 \label{subsec:permissions_table_implementation}
 
-The permissions table is implemented according to the design of Section \ref{subsec:permissions_table}. Generally, a permissions table for a RBAC system will use hash functions to map user names to fixed size indices. However, in our case the user names are replaced by CAN message ID's, which already have a fixed size of 11 bits (or 29 if the extended frame format is used), negating the need for any hash functions. Table \ref{table:permissions} shows how the permission table was implemented. The upper table lists all the roles currently implemented, as well as their byte representation (This byte representation is also used in the $Role^{8}$ message of the authentication procedure in section \ref{subsec:authenticated_key_agreement_procedure_implementation}). Beneath this, the implementation of the example of table \ref{table:2} is given. Every ID entry points to a data structure consisting of a series of bytes; each one associated with a role. The presence of a certain role in this series of bytes, indicates that this role has the permission to send a message with the aforementioned ID. Permissions are easily granted and revoked (Admin role) by deleting and adding role bytes to the data structure pointed to by the chosen ID. 
+The permissions table is implemented according to the design of Section \ref{subsec:permissions_table}. Generally, a permissions table for a RBAC system will use hash functions to map user names to fixed size indices. However, in our case the user names are replaced by CAN message ID's, which already have a fixed size of 11 bits (or 29 if the extended frame format is used), negating the need for any hash functions. Table \ref{table:permissions} shows how the permission table was implemented. Table \ref{table:roles} lists all the roles currently implemented, as well as their byte representation (This byte representation is also used in the $Role^{8}$ message of the authentication procedure in Section \ref{subsec:authenticated_key_agreement_procedure_implementation}). Beneath this, the implementation of the example of table \ref{table:2} is given. Every ID entry points to a data structure consisting of a series of bytes; each one associated with a role. The presence of a certain role in this series of bytes, indicates that this role has the permission to send a message with the aforementioned ID. Permissions are easily granted and revoked (Admin role) by deleting and adding role bytes to the data structure pointed to by the chosen ID. 
 
-\begin{table}[h]
-	\label{table:permissions}
+\begin{table}[]
 	\centering
-	\includegraphics[width=\textwidth]{permissions.png}
-	\caption{Permissions table implementation with example.}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		\rowcolor[HTML]{9B9B9B} 
+		Admin & OEM & Policeman & Repairman & Owner \\ \hline
+		\rowcolor[HTML]{FFFFFF} 
+		00000000 & 00000001 & 00000010 & 00000011 & 00000100 \\ \hline
+	\end{tabular}
+	\label{table:roles}
+	\caption{Role implementation}
+\end{table}
+
+\begin{table}[]
+	\adjustbox{max width=\textwidth}{%
+	\begin{tabular}{|
+			>{\columncolor[HTML]{9B9B9B}}c |c|
+			>{\columncolor[HTML]{9B9B9B}}c |
+			>{\columncolor[HTML]{9B9B9B}}c |
+			>{\columncolor[HTML]{9B9B9B}}c 
+			>{\columncolor[HTML]{9B9B9B}}c 
+			>{\columncolor[HTML]{FFFFFF}}c }
+	\hhline{-~-----}
+	   IDH: 02, IDL: 01	& \begin{tikzpicture}[thick] \draw [black,  -latex] (0,6.5) -- (2,6.5); \end{tikzpicture} & 00000000 & 00000001 & \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B} 00000010} & \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B} 00000011}  & \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B} 00000100}  \\ \hhline{-~-----} \multicolumn{1}{c}{\cellcolor[HTML]{FFFFFF}} & \multicolumn{1}{c}{\cellcolor[HTML]{FFFFFF}} & \multicolumn{1}{c}{\cellcolor[HTML]{FFFFFF}} & \multicolumn{1}{c}{\cellcolor[HTML]{FFFFFF}} & \multicolumn{1}{c}{\cellcolor[HTML]{FFFFFF}} & \multicolumn{1}{c}{\cellcolor[HTML]{FFFFFF}} &  \\ \hhline{-~---~~}
+	   IDH: 04, IDL: 02	& \begin{tikzpicture}[thick] \draw [black,  -latex] (0,6.5) -- (2,6.5); \end{tikzpicture} & 00000000 & 00000001 & \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B} 00000011} & \multicolumn{1}{c}{\cellcolor[HTML]{FFFFFF}} &                                               \\ \hhline{-~---~~} \multicolumn{1}{c}{\cellcolor[HTML]{FFFFFF}} & \multicolumn{1}{c}{\cellcolor[HTML]{FFFFFF}} & \multicolumn{1}{c}{\cellcolor[HTML]{FFFFFF}} & \multicolumn{1}{c}{\cellcolor[HTML]{FFFFFF}} & \multicolumn{1}{c}{\cellcolor[HTML]{FFFFFF}} & \multicolumn{1}{c}{\cellcolor[HTML]{FFFFFF}} & \\ \hhline{-~--~~~}
+	   IDH: 00, IDL: 00	& \begin{tikzpicture}[thick] \draw [black,  -latex] (0,6.5) -- (2,6.5); \end{tikzpicture} & 00000000 & 00000001 & \cellcolor[HTML]{FFFFFF}                      & \cellcolor[HTML]{FFFFFF} &                                         \\ \cline{1-1} \cline{3-4}
+	\end{tabular}}
+	\label{table:permissions}
+	\caption{Permissions table implementation.}
 \end{table}
 
 
