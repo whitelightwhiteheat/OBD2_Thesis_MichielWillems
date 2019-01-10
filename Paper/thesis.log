@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  7 JAN 2019 20:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  10 JAN 2019 05:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1370,20 +1370,20 @@ Package csquotes Info: Redefining alias 'default' -> 'english'.
 (./implementation_and_evaluation.aux) (./conclusion.aux))
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
 
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1471,7 +1471,7 @@ Sidefootvsep and sidefootheight: 13.6pt and 594.32022pt
 
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box61
-Package hyperref Info: Link coloring ON on input line 40.
+Package hyperref Info: Link coloring ON on input line 41.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1483,10 +1483,10 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 40.
-LaTeX Info: Redefining \ref on input line 40.
-LaTeX Info: Redefining \pageref on input line 40.
-LaTeX Info: Redefining \nameref on input line 40.
+LaTeX Info: Redefining \nameref on input line 41.
+LaTeX Info: Redefining \ref on input line 41.
+LaTeX Info: Redefining \pageref on input line 41.
+LaTeX Info: Redefining \nameref on input line 41.
 (./thesis.out) (./thesis.out)
 \@outlinefile=\write5
 \openout5 = `thesis.out'.
@@ -1499,19 +1499,19 @@ Package microtype Info: Loading generic settings for font family
 File: logokuleng.pdf Graphic file (type pdf)
 
 <use logokuleng.pdf>
-Package pdftex.def Info: logokuleng.pdf used on input line 40.
+Package pdftex.def Info: logokuleng.pdf used on input line 41.
 (pdftex.def)             Requested size: 159.33542pt x 85.3617pt.
  [-1
 
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </Users/
 michielwillems/Library/texmf/tex/latex/kulemt/logokuleng.pdf>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 40.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 41.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 40.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 41.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `cmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
@@ -1520,7 +1520,7 @@ Package microtype Info: Loading generic settings for font family
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 43--44
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
 
  []
 
@@ -1532,7 +1532,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 43--44
 
 
 ]) [3]
-Underfull \hbox (badness 10000) in paragraph at lines 49--51
+Underfull \hbox (badness 10000) in paragraph at lines 50--52
 
  []
 
@@ -1540,34 +1540,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 49--51
 
 ]
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 54.
+(babel)             in language  on input line 55.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 54.
+(babel)             in language  on input line 55.
 Package babel Info: Redefining dutch shorthand "y
-(babel)             in language  on input line 54.
+(babel)             in language  on input line 55.
 Package babel Info: Redefining dutch shorthand "Y
-(babel)             in language  on input line 54.
+(babel)             in language  on input line 55.
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--56
+Underfull \hbox (badness 10000) in paragraph at lines 55--57
 
  []
 
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 56.
+(babel)             in language  on input line 57.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 56.
+(babel)             in language  on input line 57.
 Package babel Info: Redefining dutch shorthand "y
-(babel)             in language  on input line 56.
+(babel)             in language  on input line 57.
 Package babel Info: Redefining dutch shorthand "Y
-(babel)             in language  on input line 56.
+(babel)             in language  on input line 57.
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 56.
+(babel)             in language  on input line 57.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 56.
+(babel)             in language  on input line 57.
 Package babel Info: Redefining dutch shorthand "y
-(babel)             in language  on input line 56.
+(babel)             in language  on input line 57.
 Package babel Info: Redefining dutch shorthand "Y
-(babel)             in language  on input line 56.
+(babel)             in language  on input line 57.
 [5
 
 
@@ -1577,7 +1577,7 @@ Package babel Info: Redefining dutch shorthand "Y
 ] [7
 
 ]
-Overfull \hbox (17.0pt too wide) in paragraph at lines 116--117
+Overfull \hbox (17.0pt too wide) in paragraph at lines 117--118
 [][] 
  []
 
@@ -1602,7 +1602,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-[2] <images-thesis/obd_topography.png, id=495, 908.39375pt x 470.75874pt>
+[2] <images-thesis/obd_topography.png, id=501, 908.39375pt x 470.75874pt>
 File: images-thesis/obd_topography.png Graphic file (type png)
 
 <use images-thesis/obd_topography.png>
@@ -1616,80 +1616,63 @@ Package pdftex.def Info: images-thesis/obd_topography.png used on input line 20
 
 
 
-]
-
-LaTeX Warning: Reference `sec:solution' on page 7 undefined on input line 5.
-
-[7] [8] [9]
-Underfull \vbox (badness 2158) has occurred while \output is active []
-
- [10]
-[11] [12] [13]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[14] [15] <images-thesis/enisa.png, id=648, 853.1875pt x 724.7075pt>
+] [7]
+<images-thesis/enisa.png, id=539, 853.1875pt x 724.7075pt>
 File: images-thesis/enisa.png Graphic file (type png)
 
 <use images-thesis/enisa.png>
-Package pdftex.def Info: images-thesis/enisa.png used on input line 204.
+Package pdftex.def Info: images-thesis/enisa.png used on input line 28.
 (pdftex.def)             Requested size: 398.0pt x 338.0692pt.
+ [8 <./images-thesis/enisa.png>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 34.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 50.
+
+[9] [10]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 122.
+
+[11] [12] [13] [14] <images-thesis/typeA.png, id=636, 218.8175pt x 87.32625pt>
+File: images-thesis/typeA.png Graphic file (type png)
+
+<use images-thesis/typeA.png>
+Package pdftex.def Info: images-thesis/typeA.png used on input line 223.
+(pdftex.def)             Requested size: 218.81696pt x 87.32603pt.
+
+<images-thesis/typeB.png, id=639, 218.8175pt x 87.32625pt>
+File: images-thesis/typeB.png Graphic file (type png)
+
+<use images-thesis/typeB.png>
+Package pdftex.def Info: images-thesis/typeB.png used on input line 230.
+(pdftex.def)             Requested size: 218.81696pt x 87.32603pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 212.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 229.
-
-[16] [17 <./images-thesis/enisa.png>] [18] [19]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 309.
-
-[20] [21] [22] [23] <images-thesis/typeA.png, id=746, 218.8175pt x 87.32625pt>
-File: images-thesis/typeA.png Graphic file (type png)
-
-<use images-thesis/typeA.png>
-Package pdftex.def Info: images-thesis/typeA.png used on input line 413.
-(pdftex.def)             Requested size: 218.81696pt x 87.32603pt.
-
-<images-thesis/typeB.png, id=749, 218.8175pt x 87.32625pt>
-File: images-thesis/typeB.png Graphic file (type png)
-
-<use images-thesis/typeB.png>
-Package pdftex.def Info: images-thesis/typeB.png used on input line 420.
-(pdftex.def)             Requested size: 218.81696pt x 87.32603pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 428--432
+Underfull \hbox (badness 10000) in paragraph at lines 238--242
 
  []
 
-[24 <./images-thesis/typeA.png> <./images-thesis/typeB.png>]
+[15 <./images-thesis/typeA.png>] [16 <./images-thesis/typeB.png>] [17] [18]
+[19] [20] [21] [22] [23]
 
-LaTeX Warning: Reference `chap:problem_statement' on page 25 undefined on input
- line 446.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [25]
+[24]) [25]
 \openout2 = `related_work.aux'.
 
  (./related_work.tex [26
 
 
 
-]
-Underfull \vbox (badness 1466) has occurred while \output is active []
-
- [27]
-[28]
-Underfull \vbox (badness 1147) has occurred while \output is active []
-
- [29]
-[30] [31] [32] [33]) [34]
+] [27] [28] [29] [30] [31] [32] [33])
+[34]
 \openout2 = `solution.aux'.
 
  (./solution.tex [35
@@ -1697,79 +1680,72 @@ Underfull \vbox (badness 1147) has occurred while \output is active []
 
 
 ]
-<images-thesis/attackmodel_1.png, id=914, 917.4275pt x 469.755pt>
+<images-thesis/attackmodel_1.png, id=929, 917.4275pt x 469.755pt>
 File: images-thesis/attackmodel_1.png Graphic file (type png)
 
 <use images-thesis/attackmodel_1.png>
-Package pdftex.def Info: images-thesis/attackmodel_1.png used on input line 18.
+Package pdftex.def Info: images-thesis/attackmodel_1.png used on input line 20.
 
 (pdftex.def)             Requested size: 398.0pt x 203.78986pt.
 
-<images-thesis/attackmodel_2.png, id=915, 896.34875pt x 466.74374pt>
+<images-thesis/attackmodel_2.png, id=930, 896.34875pt x 466.74374pt>
 File: images-thesis/attackmodel_2.png Graphic file (type png)
 
 <use images-thesis/attackmodel_2.png>
-Package pdftex.def Info: images-thesis/attackmodel_2.png used on input line 25.
+Package pdftex.def Info: images-thesis/attackmodel_2.png used on input line 27.
 
 (pdftex.def)             Requested size: 398.0pt x 207.24094pt.
+ [36 <./images-thesis/attackmodel_1.png> <./images-thesis/attackmodel_2.png>] [
+37]
+Underfull \vbox (badness 1635) has occurred while \output is active []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[36 <./images-thesis/attackmodel_1.png>] [37 <./images-thesis/attackmodel_2.png
->] [38]
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
+ [38]
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
 
  []
 
 [39]
-Underfull \hbox (badness 10000) in paragraph at lines 78--79
+Underfull \hbox (badness 10000) in paragraph at lines 81--82
 
  []
 
-[40] <images-thesis/solution.png, id=959, 946.53625pt x 562.1pt>
+[40] <images-thesis/solution.png, id=974, 946.53625pt x 562.1pt>
 File: images-thesis/solution.png Graphic file (type png)
 
 <use images-thesis/solution.png>
-Package pdftex.def Info: images-thesis/solution.png used on input line 83.
+Package pdftex.def Info: images-thesis/solution.png used on input line 86.
 (pdftex.def)             Requested size: 398.0pt x 236.34627pt.
-
-Underfull \vbox (badness 4205) has occurred while \output is active []
-
  [41 <./images-thesis/solution.png>] [42]
-
-LaTeX Warning: Reference `sec:permissions_table' on page 43 undefined on input 
-line 125.
-
 [43] [44]
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
-LaTeX Warning: Reference `subsec:informal_model' on page 45 undefined on input 
-line 160.
+ []
 
+[45]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 166.
+               Default added (so using `tbp') on input line 169.
 
-[45]) [46]
+) [46]
 \openout2 = `implementation_and_evaluation.aux'.
 
  (./implementation_and_evaluation.tex
-Underfull \hbox (badness 10000) in paragraph at lines 12--14
+Underfull \hbox (badness 10000) in paragraph at lines 14--16
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 12--14
+Underfull \hbox (badness 10000) in paragraph at lines 14--16
 
  []
 
@@ -1777,33 +1753,68 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
 
 
-] [48] [49]
+] [48] <images-thesis/demo_setup.jpg, id=1058, 1445.4pt x 963.6pt>
+File: images-thesis/demo_setup.jpg Graphic file (type jpg)
 
-LaTeX Warning: Reference `fig:CANframe' on page 50 undefined on input line 53.
+<use images-thesis/demo_setup.jpg>
+Package pdftex.def Info: images-thesis/demo_setup.jpg used on input line 42.
+(pdftex.def)             Requested size: 398.0pt x 265.33635pt.
 
 
-Overfull \hbox (7.632pt too wide) in paragraph at lines 70--71
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[49] [50 <./images-thesis/demo_setup.jpg>]
+Overfull \hbox (7.632pt too wide) in paragraph at lines 74--75
  [][] 
  []
 
-[50] [51]
+[51]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [52]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 107.
+               Default added (so using `tbp') on input line 111.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 120.
+               Default added (so using `tbp') on input line 124.
 
-[52] [53] [54]
 
-LaTeX Warning: Reference `subsec:informal_model' on page 55 undefined on input 
-line 183.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[55] [56]) [57]
+ [53]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 156.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
+
+ []
+
+[54]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 177.
+
+
+Package natbib Warning: Citation `a' on page 55 undefined on input line 189.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
+
+ []
+
+[55] [56] [57] [58]) [59]
 \openout2 = `conclusion.aux'.
 
- (./conclusion.tex [58
+ (./conclusion.tex [60
 
 
 
@@ -1817,157 +1828,172 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
 
-[59]) [60] (./thesis.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 25--29
+[61]) [62] (./thesis.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 4--5
+[]\OT1/cmr/m/n/10.95 (+20) URL: [][]$\OT1/cmtt/m/n/10.95 https : / / www . st .
+ com / en / automotive-[]microcontrollers /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--10
+[]\OT1/cmr/m/n/10.95 (+20) Atmel avr mi-cro-con-trollers for au-to-mo-tive.  UR
+L:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--10
+[][]$\OT1/cmtt/m/n/10.95 http : / / ww1 . microchip . com / downloads / en / De
+viceDoc /
+ []
+
+
+Underfull \hbox (badness 4621) in paragraph at lines 12--15
+[]\OT1/cmr/m/n/10.95 (+20) Aurix 32-bit mi-cro-con-trollers for au-to-mo-tive a
+nd in-dus-trial ap-pli-ca-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--47
 []\OT1/cmr/m/n/10.95 (+20) Abdul Re-hwan An-war.  Bus ar-bi-tra-tion in can (co
 n-troller
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 25--29
+Underfull \hbox (badness 10000) in paragraph at lines 43--47
 \OT1/cmr/m/n/10.95 (+20) area net-work).  URL: [][]$\OT1/cmtt/m/n/10.95 https :
  / / www . linkedin . com / pulse /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 25--29
+Underfull \hbox (badness 10000) in paragraph at lines 43--47
 \OT1/cmtt/m/n/10.95 bus-[]arbitration-[]can-[]controller-[]area-[]network-[]abd
 ul-[]rehman-[]anwer ,[]
  []
 
-[61
+[63
 
 
 
 ]
-Underfull \hbox (badness 1215) in paragraph at lines 108--113
+Underfull \hbox (badness 1215) in paragraph at lines 131--136
 []\OT1/cmr/m/n/10.95 (+20) Andy Green-berg.  Hack-ers re-motely kill a jeep on 
 the high-way{with
  []
 
 
-Underfull \hbox (badness 3590) in paragraph at lines 108--113
+Underfull \hbox (badness 3590) in paragraph at lines 131--136
 \OT1/cmr/m/n/10.95 (+20) me in it.  \OT1/cmr/m/it/10.95 (+20) Wired\OT1/cmr/m/n
 /10.95 (+20) , 2015.  URL: [][]$\OT1/cmtt/m/n/10.95 https : / / www . wired . c
 om / 2015 / 07 /
  []
 
-[62] [63] [64]
-Underfull \hbox (badness 1472) in paragraph at lines 301--307
+[64] [65] [66]
+Underfull \hbox (badness 1472) in paragraph at lines 343--349
 []\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  Anti-lock brak-ing sys-t
 em --- Wikipedia, the
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 301--307
+Underfull \hbox (badness 1028) in paragraph at lines 343--349
 \OT1/cmr/m/n/10.95 (+20) free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-N
 ovember-2018].  URL:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--307
+Underfull \hbox (badness 10000) in paragraph at lines 343--349
 [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? t
 itle = Anti-[]lock _ braking _
  []
 
 
-Underfull \hbox (badness 7576) in paragraph at lines 309--315
+Underfull \hbox (badness 7576) in paragraph at lines 351--357
 []\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  Byzan-tine fault tol-er-
 ance --- Wikipedia,
  []
 
 
-Underfull \hbox (badness 4229) in paragraph at lines 309--315
+Underfull \hbox (badness 4229) in paragraph at lines 351--357
 \OT1/cmr/m/n/10.95 (+20) the free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 
 29-November-2018].
  []
 
 
-Underfull \hbox (badness 3525) in paragraph at lines 309--315
+Underfull \hbox (badness 3525) in paragraph at lines 351--357
 \OT1/cmr/m/n/10.95 (+20) URL: [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikiped
 ia . org / w / index . php ? title = Byzantine _ fault _
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 317--323
+Underfull \hbox (badness 1028) in paragraph at lines 359--365
 \OT1/cmr/m/n/10.95 (+20) free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-N
 ovember-2018].  URL:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 317--323
+Underfull \hbox (badness 10000) in paragraph at lines 359--365
 [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? t
 itle = Cryptographic _ hash _
  []
 
-
-Underfull \hbox (badness 3312) in paragraph at lines 332--338
+[67]
+Underfull \hbox (badness 3312) in paragraph at lines 374--380
 []\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  Diffie{hellman key ex-ch
 ange --- Wikipedia,
  []
 
 
-Underfull \hbox (badness 4229) in paragraph at lines 332--338
+Underfull \hbox (badness 4229) in paragraph at lines 374--380
 \OT1/cmr/m/n/10.95 (+20) the free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 
 29-November-2018].
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 332--338
+Underfull \hbox (badness 10000) in paragraph at lines 374--380
 \OT1/cmr/m/n/10.95 (+20) URL: [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikiped
 ia . org / w / index . php ? title = Diffie % E2 % 80 %
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 347--353
-\OT1/cmr/m/n/10.95 (+20) free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-N
-ovember-2018].  URL:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 347--353
-[][]$\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? t
-itle = Elliptic-[]curve _
- []
-
-
-Underfull \hbox (badness 1383) in paragraph at lines 376--382
+Underfull \hbox (badness 1383) in paragraph at lines 410--416
 []\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  Role-based ac-cess con-t
 rol --- Wikipedia, the
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 376--382
+Underfull \hbox (badness 1028) in paragraph at lines 410--416
 \OT1/cmr/m/n/10.95 (+20) free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-N
 ovember-2018].  URL:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 376--382
+Underfull \hbox (badness 10000) in paragraph at lines 410--416
 [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? t
 itle = Role-[]based _ access _
  []
 
-[65]) [66]
+) [68]
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 134.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 134.
 Package babel Info: Redefining dutch shorthand "y
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 134.
 Package babel Info: Redefining dutch shorthand "Y
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 134.
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 134.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 134.
 Package babel Info: Redefining dutch shorthand "y
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 134.
 Package babel Info: Redefining dutch shorthand "Y
-(babel)             in language  on input line 133.
- [67
+(babel)             in language  on input line 134.
+ [69
 
-] [68]
+] [70]
+
+Package natbib Warning: There were undefined citations.
+
 \tf@toc=\write6
 \openout6 = `thesis.toc'.
 
@@ -1977,26 +2003,21 @@ Package babel Info: Redefining dutch shorthand "Y
 \tf@lot=\write8
 \openout8 = `thesis.lot'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 133.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 133.
- (./thesis.aux (./introduction.aux) (./background.aux)
-(./related_work.aux) (./solution.aux) (./implementation_and_evaluation.aux)
-(./conclusion.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 133.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 133.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 134.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 134.
+(./thesis.aux (./introduction.aux) (./background.aux) (./related_work.aux)
+(./solution.aux) (./implementation_and_evaluation.aux) (./conclusion.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 134.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 134.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 4C475F9085E577C10A3EBFAC0D352F45;3937.
-
-
-LaTeX Warning: There were undefined references.
-
+(rerunfilecheck)             Checksum: A77F76B49D98E42136BCFE1D5D4053D9;3937.
  ) 
 Here is how much of TeX's memory you used:
- 34940 strings out of 493014
- 641964 string characters out of 6133351
- 909135 words of memory out of 5000000
- 37428 multiletter control sequences out of 15000+600000
- 30446 words of font info for 126 fonts, out of 8000000 for 9000
+ 34978 strings out of 493014
+ 642672 string characters out of 6133351
+ 910677 words of memory out of 5000000
+ 37452 multiletter control sequences out of 15000+600000
+ 30560 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,23n,65p,10398b,1482s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
@@ -2020,10 +2041,10 @@ type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
 e1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/
 helvetic/uhvr8a.pfb>
-Output written on thesis.pdf (78 pages, 969176 bytes).
+Output written on thesis.pdf (80 pages, 12771642 bytes).
 PDF statistics:
- 1414 PDF objects out of 1440 (max. 8388607)
- 1281 compressed objects within 13 object streams
- 357 named destinations out of 1000 (max. 500000)
- 24093 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 1478 PDF objects out of 1728 (max. 8388607)
+ 1341 compressed objects within 14 object streams
+ 369 named destinations out of 1000 (max. 500000)
+ 24098 words of extra memory for PDF output out of 24883 (max. 10000000)
 

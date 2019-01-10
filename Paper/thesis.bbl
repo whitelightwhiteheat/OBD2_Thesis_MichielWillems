@@ -1,5 +1,23 @@
 \begin{thebibliography}{10}
 
+\bibitem{GatewayST}
+URL: \url{https://www.st.com/en/automotive-microcontrollers/spc560d30l3.html}.
+
+\bibitem{GatewayAtmel}
+Atmel avr microcontrollers for automotive.
+\newblock URL:
+  \url{http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-4073-AVR-Microcontrollers-for-Automotive_Brochure.pdf}.
+
+\bibitem{GatewayInfineon}
+Aurix 32-bit microcontrollers for automotive and industrial applications.
+\newblock URL:
+  \url{https://www.infineon.com/dgdl/Infineon-TriCore_Family_BR-2018-BC-v03_00-EN.pdf?fileId=5546d4625d5945ed015dc81f47b436c7}.
+
+\bibitem{CANspeed}
+Can best and worst case calculator.
+\newblock URL:
+  \url{http://www.esacademy.com/en/library/calculators/can-best-and-worst-case-calculator.html}.
+
 \bibitem{SHA3}
 Sha-3 standard: Permutation-based hash and extendable output functions.
 \newblock Technical report, NIST, August 2015.
@@ -104,6 +122,11 @@ Thomas Eisenbarth, Timo Kasper, Amir Moradi, Christof Paar, Mahmoud
   Electronic Research Center Sharif University of Technology, Tehran, Iran,
   2008.
 
+\bibitem{RSAlength}
+Damien Giry.
+\newblock Cryptographic key length recommendation.
+\newblock URL: \url{https://www.keylength.com/en/4/}.
+
 \bibitem{Wired}
 Andy Greenberg.
 \newblock Hackers remotely kill a jeep on the highway\textendash with me in it.
@@ -174,6 +197,13 @@ Julia Layton.
 \newblock URL:
   \url{https://electronics.howstuffworks.com/gadgets/automotive/rfid-ignition-system.html}.
 
+\bibitem{SHA256Collision}
+Florian Mendel, Tomislav Nad, and Martin Schl{\"a}ffer.
+\newblock Improving local collisions: New attacks on reduced sha-256.
+\newblock In Thomas Johansson and Phong~Q. Nguyen, editors, {\em Advances in
+  Cryptology -- EUROCRYPT 2013}, pages 262--278, Berlin, Heidelberg, 2013.
+  Springer Berlin Heidelberg.
+
 \bibitem{MillerC}
 Charlie Miller and Chris Valasek.
 \newblock Adventures in automotive networks and control units.
@@ -198,6 +228,15 @@ Jan~Tobias M\"{u}hlberg, Frank Piessens, and Jo~Van Bulck.
 \newblock Vulcan: Efficient component authentication and so ware isolation for
   automotive control networks.
 \newblock Technical report, Imec-Distrinet KuLeuven, 2017.
+
+\bibitem{Murvay}
+Pal-Stefan Murvay and Bogdan Groza.
+\newblock Performance evaluation of sha-2 standard vs. sha-3 finalists on two
+  freescale platforms.
+\newblock {\em Int. J. Secur. Softw. Eng.}, 4(4):1--24, October 2013.
+\newblock URL: \url{http://dx.doi.org/10.4018/ijsse.2013100101}, \href
+  {http://dx.doi.org/10.4018/ijsse.2013100101}
+  {\path{doi:10.4018/ijsse.2013100101}}.
 
 \bibitem{Sancus}
 Job Noorman, Pieter Agten, Wilfried Daniels, Raoul Strackx, Anthony~Van
@@ -260,10 +299,8 @@ M.~Sethi, J.~Arkko, A.~Keranen, H.~Back Ericsson, and Comptel.
 \bibitem{Siddiqui}
 Rahat Siddiqui and Suresh Mehrotra.
 \newblock A review on elliptic curve cryptography for embedded systems.
-\newblock {\em International Journal of Computer Science \& Information
-  Technology (IJCSIT)}, Vol 3,:Pp 84--103, 06 2011.
-\newblock \href {http://dx.doi.org/10.5121/ijcsit.2011.3307}
-  {\path{doi:10.5121/ijcsit.2011.3307}}.
+\newblock {\em International Journal of Computer Science and Information
+  Technology (IJCSIT)}, Vol 3:Pp 84--103, 06 2011.
 
 \bibitem{Stevens}
 Marc Stevens, Elie Bursztein, Pierre Karpman, and Ange~Albertini andYarik
@@ -296,6 +333,11 @@ Shane Tuhoy, Martin Glavin, Ciar\'{a}n Hughes, Edward Jones, Mohan Trivedi, and
 Stefan~N. \"{u}rnberger and Christian~Rossow Cispa.
 \newblock Vatican vetted authenticated can bus.
 \newblock Technical report, CISPA, Saarland University, Germany, 2016.
+
+\bibitem{GatewayPerformance}
+Zhu WeiDa.
+\newblock Performance analysis of autosar vehicle network gateways.
+\newblock 07 2007.
 
 \bibitem{wiki:ABS}
 {Wikipedia contributors}.
@@ -342,14 +384,6 @@ Stefan~N. \"{u}rnberger and Christian~Rossow Cispa.
 \newblock [Online; accessed 29-November-2018].
 \newblock URL:
   \url{https://en.wikipedia.org/w/index.php?title=Digital_signature&oldid=871043749}.
-
-\bibitem{wiki:ECC}
-{Wikipedia contributors}.
-\newblock Elliptic-curve cryptography --- {Wikipedia}{,} the free encyclopedia,
-  2018.
-\newblock [Online; accessed 29-November-2018].
-\newblock URL:
-  \url{https://en.wikipedia.org/w/index.php?title=Elliptic-curve_cryptography&oldid=867536222}.
 
 \bibitem{wiki:PID}
 {Wikipedia contributors}.
