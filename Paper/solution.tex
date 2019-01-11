@@ -15,17 +15,17 @@ All of the example attacks presented later in Section \ref{subsec:example_attack
 
 
 \begin{figure}[h]
-	\label{fig:attackmodel_1}
 	\centering
 	\includegraphics[width=\textwidth]{attackmodel_1.png}
 	\caption{Attacker with physical access.}
+	\label{fig:attackmodel_1}
 \end{figure}
 
 \begin{figure}[h]
-	\label{fig:attackmodel_2}
 	\centering
 	\includegraphics[width=\textwidth]{attackmodel_2.png}
 	\caption{Attacker hijacking another OBD-II session.}
+	\label{fig:attackmodel_2}
 \end{figure}
 
 \subsection{Type of Attacker}
@@ -63,7 +63,7 @@ In this example, performed on a 2010 Toyota Prius, the researchers managed to id
 \subsubsection{Denial of Service} 
 \label{subsubsec:denial_of_service}
 
-Here the researches cleverly take advantage of how the CAN protocol works. Remember from section \ref{subsec:can:message_arbitration} that CAN uses priority scheduling over the ID's of the messages that are sent on the bus. This means that spamming a high priority message would prevent all other messages from being transmitted. This vulnerability is exploited here by flooding the bus with CAN messages with an ID of 0. This flooding of the CAN bus halts the engine from being turned on, as well as putting the system in an all out state of disarray.
+Here the researches cleverly take advantage of how the CAN protocol works. Remember from Section \ref{subsec:can:message_arbitration} that CAN uses priority scheduling over the ID's of the messages that are sent on the bus. This means that spamming a high priority message would prevent all other messages from being transmitted. This vulnerability is exploited here by flooding the bus with CAN messages with an ID of 0. This flooding of the CAN bus halts the engine from being turned on, as well as putting the system in an all out state of disarray.
 
 \subsubsection{Diagnostic session} 
 \label{subsubsec:diagnostic_session}
@@ -81,10 +81,10 @@ The research question of this thesis paper is: can a solution be developed that 
 It is time to present our solution. Our proposal constitutes a RBAC system for the OBD-II interface, that employs asymmetric key pairs to authenticate users. This system is illustrated in Figure \ref{fig:solution}. The choice was made to make use of cryptographic keys to implement access control. This means that users will have to prove they are in possession of the appropriate cryptographic key, in order for them to gain access to the vehicle network. Introducing a single cryptographic key that grants access to all extant vehicles is considered infeasible (requiring all vehicle manufacturers to cooperate), as well as insecure (disclosure of this single key would result in the exposure of all vehicles). This is why we propose to introduce different cryptographic keys for every vehicle model. From Section \ref{sec:PKC} it follows that there are two distinct cryptographic key technologies that can be considered: symmetric and asymmetric. Symmetric cryptography has the advantage of shorter key lengths and faster calculations, however this would entail that if the keys of one vehicle were extracted and distributed (e.g. by physically analysing the gateway), all vehicles of the same model would be compromised. That is why the decision was made to use asymmetric keys for authentication, as well as generating a temporary symmetric key. This symmetric key can then be used to secure the following communications session against session hijacking. \\ \\ The gateway stores a series of public keys, each one associated with a specific role. A user wishing to authenticate him/herself would have to prove the ownership of the appropriate private key.\footnote{This key ownership configuration could be flipped (i.e. gateway stores private key and user owns public key). However, this configuration has the same major design flaw that symmetric encryption had, namely possible extraction of the private key from the vehicle} The decision to use asymmetric keys moves the responsibility of safely storing the private key to the users. Intuitively this might seem like a bad idea, since now the private keys are already in the hands of individuals; individuals that might have ulterior motives concerning their level of access. This flaw was countered by introducing a central server that safely stores the private keys, together with an internet connected device called a tester that physically connects to the OBD-II port. Users with privileged roles will first authenticate to the central server via the tester, using some other authentication method (e.g. login and password). This dedicated device will then initiate an authentication procedure with the gateway, proving ownership of the appropriate private key while also establishing a shared secret. This authenticated key agreement procedure is discussed in more detail next.
 
 \begin{figure}[h]
-	\label{fig:solution}
 	\centering
 	\includegraphics[width=\textwidth]{solution.png}
 	\caption{OBD-II access control architecture.}
+	\label{fig:solution}
 \end{figure}
 
 

@@ -109,12 +109,12 @@
 \contentsline {subsubsection}{Message Authentication Procedure Implementation}{52}{section*.53}
 \contentsline {subsubsection}{Permission Table Implementation}{53}{section*.54}
 \contentsline {section}{\numberline {5.2}Evaluation}{53}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Portability}{54}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.1}Portability}{53}{subsection.5.2.1}
 \contentsline {paragraph}{Results}{54}{section*.55}
 \contentsline {paragraph}{Discussion}{54}{section*.56}
 \contentsline {subsection}{\numberline {5.2.2}Speed}{55}{subsection.5.2.2}
 \contentsline {paragraph}{Results}{55}{section*.57}
-\contentsline {paragraph}{Discussion}{56}{section*.58}
+\contentsline {paragraph}{Discussion}{55}{section*.58}
 \contentsline {subsection}{\numberline {5.2.3}Security}{57}{subsection.5.2.3}
 \contentsline {paragraph}{Cryptographic Primitives}{57}{section*.59}
 \contentsline {paragraph}{Authenticated Key Agreement Procedure}{57}{section*.60}

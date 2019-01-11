@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  10 JAN 2019 05:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.15)  11 JAN 2019 02:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1606,7 +1606,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: images-thesis/obd_topography.png Graphic file (type png)
 
 <use images-thesis/obd_topography.png>
-Package pdftex.def Info: images-thesis/obd_topography.png used on input line 20
+Package pdftex.def Info: images-thesis/obd_topography.png used on input line 19
 .
 (pdftex.def)             Requested size: 398.0pt x 206.25813pt.
  [3 <./images-thesis/obd_topography.png>] [4]) [5]
@@ -1637,14 +1637,14 @@ LaTeX Warning: No positions in optional float specifier.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 122.
 
-[11] [12] [13] [14] <images-thesis/typeA.png, id=636, 218.8175pt x 87.32625pt>
+[11] [12] [13] [14] <images-thesis/typeA.png, id=640, 218.8175pt x 87.32625pt>
 File: images-thesis/typeA.png Graphic file (type png)
 
 <use images-thesis/typeA.png>
 Package pdftex.def Info: images-thesis/typeA.png used on input line 223.
 (pdftex.def)             Requested size: 218.81696pt x 87.32603pt.
 
-<images-thesis/typeB.png, id=639, 218.8175pt x 87.32625pt>
+<images-thesis/typeB.png, id=643, 218.8175pt x 87.32625pt>
 File: images-thesis/typeB.png Graphic file (type png)
 
 <use images-thesis/typeB.png>
@@ -1680,19 +1680,19 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 ]
-<images-thesis/attackmodel_1.png, id=929, 917.4275pt x 469.755pt>
+<images-thesis/attackmodel_1.png, id=933, 917.4275pt x 469.755pt>
 File: images-thesis/attackmodel_1.png Graphic file (type png)
 
 <use images-thesis/attackmodel_1.png>
-Package pdftex.def Info: images-thesis/attackmodel_1.png used on input line 20.
+Package pdftex.def Info: images-thesis/attackmodel_1.png used on input line 19.
 
 (pdftex.def)             Requested size: 398.0pt x 203.78986pt.
 
-<images-thesis/attackmodel_2.png, id=930, 896.34875pt x 466.74374pt>
+<images-thesis/attackmodel_2.png, id=934, 896.34875pt x 466.74374pt>
 File: images-thesis/attackmodel_2.png Graphic file (type png)
 
 <use images-thesis/attackmodel_2.png>
-Package pdftex.def Info: images-thesis/attackmodel_2.png used on input line 27.
+Package pdftex.def Info: images-thesis/attackmodel_2.png used on input line 26.
 
 (pdftex.def)             Requested size: 398.0pt x 207.24094pt.
  [36 <./images-thesis/attackmodel_1.png> <./images-thesis/attackmodel_2.png>] [
@@ -1719,11 +1719,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 81--82
 
  []
 
-[40] <images-thesis/solution.png, id=974, 946.53625pt x 562.1pt>
+[40] <images-thesis/solution.png, id=978, 946.53625pt x 562.1pt>
 File: images-thesis/solution.png Graphic file (type png)
 
 <use images-thesis/solution.png>
-Package pdftex.def Info: images-thesis/solution.png used on input line 86.
+Package pdftex.def Info: images-thesis/solution.png used on input line 85.
 (pdftex.def)             Requested size: 398.0pt x 236.34627pt.
  [41 <./images-thesis/solution.png>] [42]
 [43] [44]
@@ -1753,7 +1753,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--16
 
 
 
-] [48] <images-thesis/demo_setup.jpg, id=1058, 1445.4pt x 963.6pt>
+] [48] <images-thesis/demo_setup.jpg, id=1062, 1445.4pt x 963.6pt>
 File: images-thesis/demo_setup.jpg Graphic file (type jpg)
 
 <use images-thesis/demo_setup.jpg>
@@ -1780,10 +1780,7 @@ LaTeX Warning: No positions in optional float specifier.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 124.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [53]
+[53]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 156.
@@ -1793,15 +1790,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
-[54]
+
+Underfull \vbox (badness 1354) has occurred while \output is active []
+
+ [54]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 177.
 
 
-Package natbib Warning: Citation `a' on page 55 undefined on input line 189.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 189--190
 
  []
@@ -1811,7 +1808,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 189--190
 
  []
 
-[55] [56] [57] [58]) [59]
+[55]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [56]
+[57] [58]) [59]
 \openout2 = `conclusion.aux'.
 
  (./conclusion.tex [60
@@ -1829,45 +1830,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--11
  []
 
 [61]) [62] (./thesis.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 4--5
-[]\OT1/cmr/m/n/10.95 (+20) URL: [][]$\OT1/cmtt/m/n/10.95 https : / / www . st .
- com / en / automotive-[]microcontrollers /
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 7--10
-[]\OT1/cmr/m/n/10.95 (+20) Atmel avr mi-cro-con-trollers for au-to-mo-tive.  UR
-L:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 7--10
-[][]$\OT1/cmtt/m/n/10.95 http : / / ww1 . microchip . com / downloads / en / De
-viceDoc /
- []
-
-
-Underfull \hbox (badness 4621) in paragraph at lines 12--15
-[]\OT1/cmr/m/n/10.95 (+20) Aurix 32-bit mi-cro-con-trollers for au-to-mo-tive a
-nd in-dus-trial ap-pli-ca-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 43--47
+Underfull \hbox (badness 10000) in paragraph at lines 30--34
 []\OT1/cmr/m/n/10.95 (+20) Abdul Re-hwan An-war.  Bus ar-bi-tra-tion in can (co
 n-troller
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--47
+Underfull \hbox (badness 10000) in paragraph at lines 30--34
 \OT1/cmr/m/n/10.95 (+20) area net-work).  URL: [][]$\OT1/cmtt/m/n/10.95 https :
  / / www . linkedin . com / pulse /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--47
+Underfull \hbox (badness 10000) in paragraph at lines 30--34
 \OT1/cmtt/m/n/10.95 bus-[]arbitration-[]can-[]controller-[]area-[]network-[]abd
 ul-[]rehman-[]anwer ,[]
+ []
+
+
+Underfull \hbox (badness 3078) in paragraph at lines 44--49
+[]\OT1/cmr/m/n/10.95 (+20) Atmel.  At-mel avr mi-cro-con-trollers for au-to-mo-
+tive.  Tech-ni-cal re-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--49
+\OT1/cmr/m/n/10.95 (+20) port.  URL: [][]$\OT1/cmtt/m/n/10.95 http : / / ww1 . 
+microchip . com / downloads / en / DeviceDoc /
  []
 
 [63
@@ -1875,98 +1864,116 @@ ul-[]rehman-[]anwer ,[]
 
 
 ]
-Underfull \hbox (badness 1215) in paragraph at lines 131--136
+Underfull \hbox (badness 1215) in paragraph at lines 125--130
 []\OT1/cmr/m/n/10.95 (+20) Andy Green-berg.  Hack-ers re-motely kill a jeep on 
 the high-way{with
  []
 
 
-Underfull \hbox (badness 3590) in paragraph at lines 131--136
+Underfull \hbox (badness 3590) in paragraph at lines 125--130
 \OT1/cmr/m/n/10.95 (+20) me in it.  \OT1/cmr/m/it/10.95 (+20) Wired\OT1/cmr/m/n
 /10.95 (+20) , 2015.  URL: [][]$\OT1/cmtt/m/n/10.95 https : / / www . wired . c
 om / 2015 / 07 /
  []
 
 [64] [65] [66]
-Underfull \hbox (badness 1472) in paragraph at lines 343--349
+Underfull \hbox (badness 7576) in paragraph at lines 313--319
+[]\OT1/cmr/m/n/10.95 (+20) Infineon Tech-nolo-gies.  Au-rix 32-bit mi-cro-con-t
+rollers for au-to-mo-
+ []
+
+
+Underfull \hbox (badness 3568) in paragraph at lines 313--319
+\OT1/cmr/m/n/10.95 (+20) tive and in-dus-trial ap-pli-ca-tions.  Tech-ni-cal re
+-port.  URL: [][]$\OT1/cmtt/m/n/10.95 https :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 313--319
+\OT1/cmtt/m/n/10.95 / / www . infineon . com / dgdl / Infineon-[]TriCore _ Fami
+ly _ BR-[]2018-[]BC-[]v03 _
+ []
+
+
+Underfull \hbox (badness 1472) in paragraph at lines 351--357
 []\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  Anti-lock brak-ing sys-t
 em --- Wikipedia, the
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 343--349
+Underfull \hbox (badness 1028) in paragraph at lines 351--357
 \OT1/cmr/m/n/10.95 (+20) free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-N
 ovember-2018].  URL:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 343--349
+Underfull \hbox (badness 10000) in paragraph at lines 351--357
 [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? t
 itle = Anti-[]lock _ braking _
  []
 
 
-Underfull \hbox (badness 7576) in paragraph at lines 351--357
+Underfull \hbox (badness 7576) in paragraph at lines 359--365
 []\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  Byzan-tine fault tol-er-
 ance --- Wikipedia,
  []
 
 
-Underfull \hbox (badness 4229) in paragraph at lines 351--357
+Underfull \hbox (badness 4229) in paragraph at lines 359--365
 \OT1/cmr/m/n/10.95 (+20) the free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 
 29-November-2018].
  []
 
 
-Underfull \hbox (badness 3525) in paragraph at lines 351--357
+Underfull \hbox (badness 3525) in paragraph at lines 359--365
 \OT1/cmr/m/n/10.95 (+20) URL: [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikiped
 ia . org / w / index . php ? title = Byzantine _ fault _
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 359--365
+Underfull \hbox (badness 1028) in paragraph at lines 367--373
 \OT1/cmr/m/n/10.95 (+20) free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-N
 ovember-2018].  URL:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--365
+Underfull \hbox (badness 10000) in paragraph at lines 367--373
 [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? t
 itle = Cryptographic _ hash _
  []
 
 [67]
-Underfull \hbox (badness 3312) in paragraph at lines 374--380
+Underfull \hbox (badness 3312) in paragraph at lines 382--388
 []\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  Diffie{hellman key ex-ch
 ange --- Wikipedia,
  []
 
 
-Underfull \hbox (badness 4229) in paragraph at lines 374--380
+Underfull \hbox (badness 4229) in paragraph at lines 382--388
 \OT1/cmr/m/n/10.95 (+20) the free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 
 29-November-2018].
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 374--380
+Underfull \hbox (badness 10000) in paragraph at lines 382--388
 \OT1/cmr/m/n/10.95 (+20) URL: [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikiped
 ia . org / w / index . php ? title = Diffie % E2 % 80 %
  []
 
 
-Underfull \hbox (badness 1383) in paragraph at lines 410--416
+Underfull \hbox (badness 1383) in paragraph at lines 418--424
 []\OT1/cmr/m/n/10.95 (+20) Wikipedia con-trib-u-tors.  Role-based ac-cess con-t
 rol --- Wikipedia, the
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 410--416
+Underfull \hbox (badness 1028) in paragraph at lines 418--424
 \OT1/cmr/m/n/10.95 (+20) free en-cy-clo-pe-dia, 2018.  [On-line; ac-cessed 29-N
 ovember-2018].  URL:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--416
+Underfull \hbox (badness 10000) in paragraph at lines 418--424
 [][]$\OT1/cmtt/m/n/10.95 https : / / en . wikipedia . org / w / index . php ? t
 itle = Role-[]based _ access _
  []
@@ -1991,9 +1998,6 @@ Package babel Info: Redefining dutch shorthand "Y
  [69
 
 ] [70]
-
-Package natbib Warning: There were undefined citations.
-
 \tf@toc=\write6
 \openout6 = `thesis.toc'.
 
@@ -2005,19 +2009,20 @@ Package natbib Warning: There were undefined citations.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 134.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 134.
-(./thesis.aux (./introduction.aux) (./background.aux) (./related_work.aux)
-(./solution.aux) (./implementation_and_evaluation.aux) (./conclusion.aux))
+ (./thesis.aux (./introduction.aux) (./background.aux)
+(./related_work.aux) (./solution.aux) (./implementation_and_evaluation.aux)
+(./conclusion.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 134.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 134.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: A77F76B49D98E42136BCFE1D5D4053D9;3937.
  ) 
 Here is how much of TeX's memory you used:
- 34978 strings out of 493014
- 642672 string characters out of 6133351
- 910677 words of memory out of 5000000
- 37452 multiletter control sequences out of 15000+600000
- 30560 words of font info for 126 fonts, out of 8000000 for 9000
+ 34981 strings out of 493014
+ 642705 string characters out of 6133351
+ 910788 words of memory out of 5000000
+ 37451 multiletter control sequences out of 15000+600000
+ 30776 words of font info for 128 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,23n,65p,10398b,1482s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
@@ -2041,10 +2046,10 @@ type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
 e1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/
 helvetic/uhvr8a.pfb>
-Output written on thesis.pdf (80 pages, 12771642 bytes).
+Output written on thesis.pdf (80 pages, 12770989 bytes).
 PDF statistics:
- 1478 PDF objects out of 1728 (max. 8388607)
- 1341 compressed objects within 14 object streams
+ 1471 PDF objects out of 1728 (max. 8388607)
+ 1334 compressed objects within 14 object streams
  369 named destinations out of 1000 (max. 500000)
  24098 words of extra memory for PDF output out of 24883 (max. 10000000)
 

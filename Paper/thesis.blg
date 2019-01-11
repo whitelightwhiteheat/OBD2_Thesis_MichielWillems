@@ -15,19 +15,17 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: references.bib
 Warning--entry type for "ECU" isn't style-file defined
 --line 459 of file references.bib
-Warning--I didn't find a database entry for "a"
 Warning--to sort, need author or key in Enisa
 Warning--to sort, need author or key in ISO11898-3
 Warning--to sort, need author or key in SHA3
 Warning--to sort, need author or key in CANspeed
-Warning--to sort, need author or key in GatewayInfineon
-Warning--to sort, need author or key in GatewayAtmel
-Warning--to sort, need author or key in GatewayST
 Warning--empty author in SHA3
 Warning--empty author in Enisa
 Warning--empty author in ISO11898-3
 Warning--empty note in Ahmed
 Warning--empty note in CANarbitration
+Warning--empty institution in GatewayAtmel
+Warning--empty year in GatewayAtmel
 Warning--empty note in Bayer
 Warning--empty note in Crispo
 Warning--empty year in Kosher
@@ -45,46 +43,51 @@ Warning--empty year in Sancus
 Warning--empty note in Pfeiffer
 Warning--empty note in Pike15
 Warning--empty year in TPMS
+Warning--empty title in GatewayST
+Warning--empty institution in GatewayST
+Warning--empty year in GatewayST
+Warning--empty institution in GatewayInfineon
+Warning--empty year in GatewayInfineon
 Warning--empty journal in GatewayPerformance
 You've used 70 entries,
             2849 wiz_defined-function locations,
-            984 strings with 17386 characters,
-and the built_in function-call counts, 25804 in all, are:
-= -- 2597
-> -- 1110
+            983 strings with 17385 characters,
+and the built_in function-call counts, 26015 in all, are:
+= -- 2631
+> -- 1128
 < -- 4
-+ -- 419
-- -- 344
-* -- 1185
-:= -- 3834
-add.period$ -- 223
++ -- 425
+- -- 350
+* -- 1206
+:= -- 3915
+add.period$ -- 229
 call.type$ -- 70
-change.case$ -- 395
+change.case$ -- 401
 chr.to.int$ -- 0
-cite$ -- 100
-duplicate$ -- 681
-empty$ -- 2360
-format.name$ -- 344
-if$ -- 6678
+cite$ -- 104
+duplicate$ -- 684
+empty$ -- 2342
+format.name$ -- 350
+if$ -- 6697
 int.to.chr$ -- 0
 int.to.str$ -- 70
 missing$ -- 16
-newline$ -- 364
-num.names$ -- 128
-pop$ -- 750
+newline$ -- 370
+num.names$ -- 134
+pop$ -- 746
 preamble$ -- 1
-purify$ -- 311
+purify$ -- 314
 quote$ -- 0
-skip$ -- 1936
+skip$ -- 1925
 stack$ -- 0
 substring$ -- 539
-swap$ -- 92
+swap$ -- 89
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 280
-warning$ -- 30
-while$ -- 136
+warning$ -- 34
+while$ -- 142
 width$ -- 72
-write$ -- 731
-(There were 32 warnings)
+write$ -- 743
+(There were 35 warnings)

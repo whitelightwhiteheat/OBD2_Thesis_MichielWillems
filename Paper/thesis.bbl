@@ -1,18 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{GatewayST}
-URL: \url{https://www.st.com/en/automotive-microcontrollers/spc560d30l3.html}.
-
-\bibitem{GatewayAtmel}
-Atmel avr microcontrollers for automotive.
-\newblock URL:
-  \url{http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-4073-AVR-Microcontrollers-for-Automotive_Brochure.pdf}.
-
-\bibitem{GatewayInfineon}
-Aurix 32-bit microcontrollers for automotive and industrial applications.
-\newblock URL:
-  \url{https://www.infineon.com/dgdl/Infineon-TriCore_Family_BR-2018-BC-v03_00-EN.pdf?fileId=5546d4625d5945ed015dc81f47b436c7}.
-
 \bibitem{CANspeed}
 Can best and worst case calculator.
 \newblock URL:
@@ -52,6 +39,13 @@ Tarun Argawal.
 \newblock [Online; accessed 29-November-2018].
 \newblock URL:
   \url{https://www.elprocus.com/different-microcontrollers-used-in-automobiles/}.
+
+\bibitem{GatewayAtmel}
+Atmel.
+\newblock Atmel avr microcontrollers for automotive.
+\newblock Technical report.
+\newblock URL:
+  \url{http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-4073-AVR-Microcontrollers-for-Automotive_Brochure.pdf}.
 
 \bibitem{Bayer}
 S.~Bayer, R.~Jung, and M.~Wolf.
@@ -308,6 +302,20 @@ Marc Stevens, Elie Bursztein, Pierre Karpman, and Ange~Albertini andYarik
 \newblock The first collision for full sha-1.
 \newblock Technical report, CWI Amsterdam and Google Research, 2011.
 \newblock URL: \url{https://shattered.io/static/shattered.pdf}.
+
+\bibitem{GatewayST}
+STMicroelectronics.
+\newblock Technical report.
+\newblock URL:
+  \url{https://www.st.com/en/automotive-microcontrollers/spc560d30l3.html}.
+
+\bibitem{GatewayInfineon}
+Infineon Technologies.
+\newblock Aurix 32-bit microcontrollers for automotive and industrial
+  applications.
+\newblock Technical report.
+\newblock URL:
+  \url{https://www.infineon.com/dgdl/Infineon-TriCore_Family_BR-2018-BC-v03_00-EN.pdf?fileId=5546d4625d5945ed015dc81f47b436c7}.
 
 \bibitem{OBDconnector}
 AutoTap \textendash OBDII Automotive Diagnostic~Tool.
