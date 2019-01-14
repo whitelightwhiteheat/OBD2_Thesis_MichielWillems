@@ -17,7 +17,7 @@ Both are connected via CAN (DB9 connector).
 For more information on the proposed solution and the problem in general, see thesis.pdf.
 
 ## Contents
-- **articles:** Articles and papers that constitute the background of this research topic.
+- **Articles:** Articles and papers that constitute the background of this research topic.
 - **GccApplication2:** Source code of the tester device.
 - **GccApplication3:** Source code of the automotive gateway.
 - **Paper:** Contains the thesis text, i.e. thesis.pdf.
