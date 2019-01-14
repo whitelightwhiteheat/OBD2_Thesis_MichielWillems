@@ -3,9 +3,9 @@
 Part of a master's thesis for a master of engineering: computer science.
 KuLeuven, Department of Computer Science.
 
-Student: Michiel Willems
-Thesis Assisants: Mahmoud Ammar and Hassaan Janjua
-Promotor: Prof. dr. Bruno Crispo
+Student: Michiel Willems.
+Thesis Assisants: Mahmoud Ammar and Hassaan Janjua.
+Promotor: Prof. dr. Bruno Crispo.
 
 ## Features
 
