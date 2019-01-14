@@ -3,6 +3,10 @@
 Part of a master's thesis for a master of engineering: computer science.
 KuLeuven, Department of Computer Science.
 
+Student: Michiel Willems
+Thesis Assisants: Mahmoud Ammar and Hassaan Janjua
+Promotor: Prof. dr. Bruno Crispo
+
 ## Features
 
 This repository contains the source code for a 'proof-of-concept' of a newly proposed OBD-II access control system.
@@ -18,3 +22,4 @@ For more information on the proposed solution and the problem in general, see th
 - **GccApplication3:** Source code of the automotive gateway.
 - **Paper:** Contains the thesis text, i.e. thesis.pdf.
 - **Presentation:** All presentations that were given on this subject can be found here.
+
