@@ -8,6 +8,8 @@
 #include <avr/io.h>
 #include <string.h>
 #include "uart_f.h"
+#include "types.h"
+
 
 void uart_init(){
 	UBRR0H = (BAUD_PRESCALE >> 8); // Load upper 8-bits of the baud rate value into the high byte of the UBRR register

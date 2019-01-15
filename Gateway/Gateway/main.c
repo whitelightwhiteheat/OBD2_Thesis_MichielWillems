@@ -9,7 +9,6 @@
 #include <stdlib.h>
 #include <avr/interrupt.h>
 
-#define F_CPU 8000000L
 
 #include "types.h"
 #include "uart_f.h"
@@ -21,7 +20,6 @@
 #include "sha2/sha512.h"
 #include "sha2/hmac-sha256.h"
 #include <util/delay.h>
-
 
 const char private_key1_hex[64] = "92990788d66bf558052d112f5498111747b3e28c55984d43fed8c8822ad9f1a7";
 const char public_key1_hex[128] = "f0c863f8e555114bf4882cc787b95c272a7fe4dcddf1922f4f18a494e1c357a1a6c32d07beb576ab601068068f0a9e0160c3a14119f5d426a7955da3e6ed3e81";
@@ -35,30 +33,28 @@ const char public_key3_hex[128] = "ccfd9d101862143f83b3de5caccdf4a3aa55c0cdd8cd8
 const char private_key4_hex[64] = "b2c950abc87a55442cc00f1e3ac38f81b7e95036fd191ea134ff616d9806e10c";
 const char public_key4_hex[128] = "bd42371aac680a6603eba1cf0f5e495ace59299a4e2f42aa943b8406c42b66c8182c093637eb1199ec41dee8ba7a2faae07b04857b569033c7b73e318a1f6321";
 
+const char private_key5_hex[64] = "b08039a19079d5218465f6d97552bd70b8867423d67365b8431b6f213a197471";
+const char public_key5_hex[128] = "5d19b55cc3528aaf8664bb20c9a199567a2444b549ebfa11c721fd7fdce2d2b31571b5033932b1d14373f6860d5a97f6efe65470e547aa1c663bdbb57977378c";
+
 static const can_id_t default_id = {0x00, 0x00};
 static const can_mask_t zero_mask = {0x00, 0x00};
 static const can_mask_t default_mask = {255, 255};
 static const can_msg_t ack_pos = {ACK_POS};
 static const can_msg_t ack_neg = {ACK_NEG};
 
-
 volatile state_t state = IDLE_S;
 volatile event_t event = NULL_E;
-
-
 
 void buttons_init(){
 	DDRE = 0x00;
 	PORTE = 1 << PE4 | 1 << PE5 | 1 << PE6 | 1 << PE7;
 	EICRB = 0x00;
-	//EICRB = 1 << ISC40 | 1 << ISC41 | 1 << ISC50 | 1 << ISC51 | 1 << ISC60 | 1 << ISC61 | 1 << ISC70 | 1 << ISC71; // set interrupt on falling edge.
 	EIMSK = 1 << INT4 | 1 << INT5 | 1 << INT6 | 1 << INT7;
-	
 }
 
 static int RNG(uint8_t *dest, unsigned size) {
 	while(size){
-		uint8_t val = (uint8_t) rand() + rand();
+		uint8_t val = (uint8_t) rand() + rand() + rand();
 		*dest = val;
 		++dest;
 		--size;
@@ -69,22 +65,25 @@ static int RNG(uint8_t *dest, unsigned size) {
 static void get_public_key(uint8_t role, uint8_t public[64]){
 	switch (role)
 	{
-		case OWNER_ROLE :
+		case ADMIN_ROLE :
 		hex_to_bytes(public_key1_hex, 128, public);
 		break;
-		case REPAIRSHOP_ROLE :
+		case OEM_ROLE :
 		hex_to_bytes(public_key2_hex, 128, public);
 		break;
 		case POLICEMAN_ROLE :
 		hex_to_bytes(public_key3_hex, 128, public);
 		break;
-		case TESTER_ROLE :
+		case REPAIRMAN_ROLE :
 		hex_to_bytes(public_key4_hex, 128, public);
+		break;
+		case OWNER_ROLE :
+		hex_to_bytes(public_key5_hex, 128, public);
 		break;
 	}
 }
 
-int verify_signature(uint8_t challenge[64], uint8_t signature[64], permissions_t role){
+int verify_signature(uint8_t challenge[64], uint8_t signature[64], role_t role){
 	const struct uECC_Curve_t * curve = uECC_secp256r1();
 	int result;
 	uint8_t hash[64];
@@ -96,7 +95,8 @@ int verify_signature(uint8_t challenge[64], uint8_t signature[64], permissions_t
 }
 
 
-int authenticate(permissions_t role){
+int authenticated_key_agreement(role_t role, uint8_t *dest){
+	PORTB = _BV(PB2);
 	
 	//Start protocol by calculating new private/public key pair for shared secret establishment.
 	volatile uint8_t result;
@@ -114,17 +114,28 @@ int authenticate(permissions_t role){
 	can_send_frame_buffer(public2, 8);
 	uart_puts("public key sent");
 	
+	PORTB = 0x00;  
+	//PORTB = _BV(PB3);
+	
 	//Wait for Signature.
 	uint8_t signature[64];
 	can_receive_frame_buffer(signature, 8);
+	
+	//PORTB = 0x00;
+	PORTB = _BV(PB2);
 	
 	uint8_t ack;
 	uint8_t secret[32];
 	
 	//Verify Signature.
 	result = verify_signature(public2, signature, role);
+	
+	PORTB = 0x00;
+	
 	if(result==1) {
 		uart_puts("signature is valid!");
+		
+		PORTB = _BV(PB2);
 		
 		//calculate shared secret.
 		result = uECC_shared_secret(public, private2, secret_unhashed, curve);
@@ -137,15 +148,23 @@ int authenticate(permissions_t role){
 		can_send_message(0, 0x00, ack_neg);
 		return 1;
 	}
-	
+	memcpy(dest,secret,32); 
+	return 0;
+}
+
+int message_authentication(role_t role, uint8_t	secret[32]){
 	//---Every iteration of this loop equals 1 message being authenticated using the shared secret---.
 	while(1){
 		can_id_t id;
 		can_msg_t message;
 		
+		PORTB = 0x00;
+		
 		// Receive the message that the tester wants to send to the network.
 		can_receive_message(0, default_id, zero_mask, message);
 		can_get_id(0, id);
+		
+		PORTB = _BV(PB2);
 		
 		//Check the Permission.
 		if(check_permission(id, role) == 0){
@@ -160,8 +179,13 @@ int authenticate(permissions_t role){
 		// Acknowledge permission.
 		uint8_t mac[16];
 		
+		PORTB = 0x00;
+		
 		// Receive the MAC of the message
 		can_receive_frame_buffer(mac,2);
+		
+		PORTB = _BV(PB2);
+		
 		uint8_t mac2[32];
 		uint16_t klen = 256;
 		uint32_t msglen = 64;
@@ -177,10 +201,12 @@ int authenticate(permissions_t role){
 			continue;
 		}
 		
+		PORTB = 0x00;
+		
 		//Forward the message to the internal vehicle network.
 		forward_message(message, id);
 	}
-	return result;
+	return 0;
 	
 }
 
@@ -204,7 +230,6 @@ void forward_message(can_msg_t msg, can_id_t id){
 
 
 
-
  int main()
  {
 	uart_init();
@@ -213,10 +238,13 @@ void forward_message(can_msg_t msg, can_id_t id){
 	init_permissions_table();
 	uart_puts("idle");
 	can_msg_t init;
+	uint8_t secret[32]
 	while(1){
 		can_receive_message(0, default_id, zero_mask, init);
-		authenticate(init[0]);
+		authenticated_key_agreement(init[0],secret);
+		message_authentication(init[0],secret);
 	}
+	return 0;
  }
 
 

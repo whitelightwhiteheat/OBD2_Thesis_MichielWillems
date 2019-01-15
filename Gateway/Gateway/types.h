@@ -14,14 +14,16 @@
 #define POLICEMAN_ROLE_BIT 2
 #define TESTER_ROLE_BIT 3
 
-#define OWNER_ROLE 0b00000001
-#define REPAIRSHOP_ROLE 0b00000010
-#define POLICEMAN_ROLE 0b00000100
-#define TESTER_ROLE 0b00001000
+#define ADMIN_ROLE 0b00000000
+#define OEM_ROLE 0b00000001
+#define POLICEMAN_ROLE 0b00000010
+#define REPAIRMAN_ROLE 0b00000011
+#define OWNER_ROLE 0b00000100
 
 #define ACK_POS 0x00
 #define ACK_NEG 0x01
 
+#define F_CPU 8000000L
 
 typedef enum {
 	IDLE_S,
@@ -35,15 +37,6 @@ typedef enum {
 	SIGNATURE_RECEIVED_E,
 	MESSAGE_RECEIVED_E
 } event_t;
-
-/*
-typedef enum {
-	OWNER_ROLE,
-	REPAISHOP_ROLE,
-	POLICEMAN_ROLE,
-	TESTER_ROLE
-} role_t;
-*/
  
 typedef uint8_t can_id_t[2];
 typedef uint8_t can_mask_t[2];
