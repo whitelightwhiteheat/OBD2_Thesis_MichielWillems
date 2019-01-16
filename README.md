@@ -18,8 +18,8 @@ For more information on the proposed solution and the problem in general, see th
 
 ## Contents
 - **Articles:** Articles and papers that constitute the background of this research topic.
-- **GccApplication2:** Source code of the tester device.
-- **GccApplication3:** Source code of the automotive gateway.
+- **Tester:** Source code of the tester device.
+- **Gateway** Source code of the automotive gateway.
 - **Paper:** Contains the thesis text, i.e. thesis.pdf.
 - **Presentation:** All presentations that were given on this subject can be found here.
 
