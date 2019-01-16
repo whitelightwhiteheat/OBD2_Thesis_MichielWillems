@@ -69,13 +69,14 @@ static void set_page_indx(uint8_t indx, uint8_t mobnr){
 
 void can_get_frame_buffer( uint8_t *message , uint8_t buff_len){
 	uint8_t j = buff_len;
+	uint8_t len;
 	for(j=0; j<8; j++){
-		can_get_message(j,message);
+		can_get_message(j,message, &len);
 		message = message + 8;
 	}
 }
 
-void can_get_message(uint8_t mobnr , uint8_t *message ){
+void can_get_message(uint8_t mobnr , uint8_t *message , uint8_t *len){
 	set_page(mobnr);
 	uint8_t j;
 	for(j=0; j<8; j++){
@@ -83,13 +84,16 @@ void can_get_message(uint8_t mobnr , uint8_t *message ){
 		*message = CANMSG;
 		message++;
 	}
+	uint8_t mask = 0x0F;
+	*len = CANCDMOB & 0x0F;
 	set_page_indx(0, mobnr);
 }
 
 void can_print_message(uint8_t mobnr){
+	uint8_t len;
 	uart_puts("message:");
 	uint8_t message[8] = {0};
-	can_get_message(mobnr , message);
+	can_get_message(mobnr , message, &len);
 	char hex[16] = "";
 	bytes_to_hex(message, 8, hex);
 	uart_puts(hex);
@@ -124,26 +128,28 @@ void can_init_mask (can_mask_t mask){
 	CANIDM4 = (0 << RTRMSK) | (0 << IDEMSK);
 }
 
-void can_init_message( uint8_t *message , uint8_t mobnr){
+void can_init_message( uint8_t *message , uint8_t mobnr, uint8_t size){
+	if(size > 8) size = 8;
 	set_page(mobnr);
 	uint8_t j;
-	for(j=0; j<8; j++){
+	for(j=0; j<size; j++){
 		set_page_indx(j, mobnr);
 		CANMSG = *message;
 		message++;
 	}
 	set_page_indx(0, mobnr);
+	CANCDMOB |= size; 
 }
 
-int can_send_message( uint8_t mobnr , can_id_t id, can_msg_t message ){
+int can_send_message( uint8_t mobnr , can_id_t id, can_msg_t message, uint8_t size){
 	//select mob.
 	set_page(mobnr);
 	//copy ID.
 	can_init_id(id);
 	//copy message.
-	can_init_message(message, mobnr);
+	can_init_message(message, mobnr, size);
 	//enable transmission.
-	CANCDMOB = (1 << CONMOB0) | (1 << DLC3);
+	CANCDMOB |= (1 << CONMOB0);
 	//wait for transmission.
 	while(CANSTMOB != (1 << TXOK));
 	//reset mob.
@@ -152,7 +158,7 @@ int can_send_message( uint8_t mobnr , can_id_t id, can_msg_t message ){
 	return 0;
 }
 
-int can_receive_message( uint8_t mobnr, can_id_t id, can_mask_t mask, can_msg_t message){
+int can_receive_message( uint8_t mobnr, can_id_t id, can_mask_t mask, can_msg_t message , uint8_t *len){
 	set_page(mobnr);
 	CANIE2 = (1 << mobnr);
 	can_init_id(id);
@@ -163,6 +169,9 @@ int can_receive_message( uint8_t mobnr, can_id_t id, can_mask_t mask, can_msg_t 
 	while((CANGIT & INTR_MASK) != (1 << CANIT));
 	//check if it is the right interrupt.
 	if((CANSTMOB & RXOK_MASK) != (1 << RXOK)) return 1;
+	
+	can_get_message(mobnr, message, len);
+	
 	//reset mob.
 	CANSTMOB = 0x00;
 	CANCDMOB = 0x00;
@@ -171,7 +180,6 @@ int can_receive_message( uint8_t mobnr, can_id_t id, can_mask_t mask, can_msg_t 
 	//reset interrupt register.
 	CANGIT = CANGIT;
 	//retrieve message.
-	can_get_message(mobnr, message);
 	return 0;
 }
 
@@ -179,7 +187,7 @@ int can_send_frame_buffer( uint8_t *message, uint8_t buff_len ){
 	uint8_t j = 0;
 	for(j=0; j<buff_len; j++){
 		can_id_t id = {j , 0x00};
-		can_send_message(j,id,message);
+		can_send_message(j,id,message,8);
 		message = message + 8;
 	}
 	return 0;

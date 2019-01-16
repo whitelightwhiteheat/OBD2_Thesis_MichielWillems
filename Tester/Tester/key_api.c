@@ -19,6 +19,10 @@ const char public_key3_hex[128] = "ccfd9d101862143f83b3de5caccdf4a3aa55c0cdd8cd8
 const char private_key4_hex[64] = "b2c950abc87a55442cc00f1e3ac38f81b7e95036fd191ea134ff616d9806e10c";
 const char public_key4_hex[128] = "bd42371aac680a6603eba1cf0f5e495ace59299a4e2f42aa943b8406c42b66c8182c093637eb1199ec41dee8ba7a2faae07b04857b569033c7b73e318a1f6321";
 
+const char private_key5_hex[64] = "b08039a19079d5218465f6d97552bd70b8867423d67365b8431b6f213a197471";
+const char public_key5_hex[128] = "5d19b55cc3528aaf8664bb20c9a199567a2444b549ebfa11c721fd7fdce2d2b31571b5033932b1d14373f6860d5a97f6efe65470e547aa1c663bdbb57977378c";
+
+
 int RNG(uint8_t *dest, unsigned size){
 	while(size){
 		uint8_t val = (uint8_t) rand();
@@ -32,17 +36,20 @@ int RNG(uint8_t *dest, unsigned size){
 static void get_private_key(uint8_t role, uint8_t private[32]){
 	switch (role)
 	{
-		case OWNER_ROLE :
+		case ADMIN_ROLE :
 			hex_to_bytes(private_key1_hex, 64, private);
 			break;
-		case REPAIRSHOP_ROLE :
+		case OEM_ROLE :
 			hex_to_bytes(private_key2_hex, 64, private);
 			break;
 		case POLICEMAN_ROLE :
 			hex_to_bytes(private_key3_hex, 64, private);
 			break;
-		case TESTER_ROLE :
+		case REPAIRMAN_ROLE :
 			hex_to_bytes(private_key4_hex, 64, private);
+			break;
+		case OWNER_ROLE :
+			hex_to_bytes(private_key5_hex, 64, private);
 			break;
 	}
 } 

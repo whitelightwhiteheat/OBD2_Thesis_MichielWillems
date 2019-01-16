@@ -67,7 +67,7 @@
     <com_atmel_avrdbg_tool_atmelice>
       <ToolOptions>
         <InterfaceProperties>
-          <JtagDbgClock>200000</JtagDbgClock>
+          <JtagDbgClock>1228481</JtagDbgClock>
         </InterfaceProperties>
         <InterfaceName>JTAG</InterfaceName>
       </ToolOptions>
@@ -76,7 +76,7 @@
       <ToolName>Atmel-ICE</ToolName>
     </com_atmel_avrdbg_tool_atmelice>
     <avrtoolinterface>JTAG</avrtoolinterface>
-    <avrtoolinterfaceclock>200000</avrtoolinterfaceclock>
+    <avrtoolinterfaceclock>1228481</avrtoolinterfaceclock>
     <custom>
       <ToolOptions xmlns="">
         <InterfaceProperties>
@@ -203,6 +203,12 @@
     <Compile Include="can.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="clock.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="clock.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="ECC\types.h">
       <SubType>compile</SubType>
     </Compile>
@@ -219,6 +225,24 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hexconv.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ISO-TP\isotp_user.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ISO-TP\isotp.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ISO-TP\isotp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ISO-TP\isotp_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ISO-TP\isotp_defines.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ISO-TP\isotp_user.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="key_api.c">
@@ -290,6 +314,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ECC" />
+    <Folder Include="ISO-TP" />
     <Folder Include="sha2" />
   </ItemGroup>
   <ItemGroup>
@@ -330,6 +355,9 @@
       <SubType>compile</SubType>
     </None>
     <None Include="ECC\README.md">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="ISO-TP\README.mkd">
       <SubType>compile</SubType>
     </None>
   </ItemGroup>

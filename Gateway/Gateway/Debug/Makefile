@@ -34,14 +34,18 @@ LINKER_SCRIPT_DEP:=
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
 ../ECC \
+../ISO-TP \
 ../sha2
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../can.c \
+../clock.c \
 ../ECC/uECC.c \
 ../hexconv.c \
+../ISO-TP/isotp.c \
+../ISO-TP/isotp_user.c \
 ../leds.c \
 ../main.c \
 ../permission_table.c \
@@ -63,8 +67,11 @@ ASM_SRCS +=
 
 OBJS +=  \
 can.o \
+clock.o \
 ECC/uECC.o \
 hexconv.o \
+ISO-TP/isotp.o \
+ISO-TP/isotp_user.o \
 leds.o \
 main.o \
 permission_table.o \
@@ -79,8 +86,11 @@ uart_f.o
 
 OBJS_AS_ARGS +=  \
 can.o \
+clock.o \
 ECC/uECC.o \
 hexconv.o \
+ISO-TP/isotp.o \
+ISO-TP/isotp_user.o \
 leds.o \
 main.o \
 permission_table.o \
@@ -95,8 +105,11 @@ uart_f.o
 
 C_DEPS +=  \
 can.d \
+clock.d \
 ECC/uECC.d \
 hexconv.d \
+ISO-TP/isotp.d \
+ISO-TP/isotp_user.d \
 leds.d \
 main.d \
 permission_table.d \
@@ -111,8 +124,11 @@ uart_f.d
 
 C_DEPS_AS_ARGS +=  \
 can.d \
+clock.d \
 ECC/uECC.d \
 hexconv.d \
+ISO-TP/isotp.d \
+ISO-TP/isotp_user.d \
 leds.d \
 main.d \
 permission_table.d \
@@ -168,6 +184,12 @@ LINKER_SCRIPT_DEP+=
 
 
 
+
+
+
+
+
+
 ./%.o: .././%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
@@ -176,6 +198,13 @@ LINKER_SCRIPT_DEP+=
 	
 
 ECC/%.o: ../ECC/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=at90can128 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\at90can128" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+ISO-TP/%.o: ../ISO-TP/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=at90can128 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\at90can128" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

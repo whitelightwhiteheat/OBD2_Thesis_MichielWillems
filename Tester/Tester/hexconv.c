@@ -8,25 +8,22 @@
 #include <avr/io.h>
 #include "hexconv.h"
 
-
-void bytes_to_hex(const uint8_t *src, uint8_t intlen, char *dest)
+void bytes_to_hex(const uint8_t *src, uint8_t intlen, char dest[intlen*2])
 {
 	static const unsigned char table[] = "0123456789abcdef";
 
-	for (; intlen > 0; --intlen)
+	for (; intlen > 0; intlen--)
 	{
 		unsigned char c = *src++;
 		*dest++ = table[c >> 4];
 		*dest++ = table[c & 0x0f];
 	}
-	
-	//*dest = '/0';
 }
 
-void hex_to_bytes(char* src, uint8_t slength, uint8_t dest[slength/2]) {
-	memset(dest, 0, slength/2);
+void hex_to_bytes(char *src, uint8_t strlen, uint8_t dest[strlen/2]) {
+	memset(dest, 0, strlen/2);
 	uint8_t index = 0;
-	while (index < slength) {
+	while (index < strlen) {
 		char c = src[index];
 		int value = 0;
 		if(c >= '0' && c <= '9')

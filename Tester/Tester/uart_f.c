@@ -6,7 +6,10 @@
  */ 
 
 #include <avr/io.h>
+#include <string.h>
 #include "uart_f.h"
+#include "types.h"
+
 
 void uart_init(){
 	UBRR0H = (BAUD_PRESCALE >> 8); // Load upper 8-bits of the baud rate value into the high byte of the UBRR register
@@ -16,19 +19,19 @@ void uart_init(){
 }
 
 void uart_puts(char* s){
-	int i;
+	volatile uint8_t i;
 	int len = strlen(s);
 	for (i = 0; i < len; i++){
 		while(!( UCSR0A & 0X20));
 		UDR0=s[i];
 	}
-	while(!( UCSR0A & 0X20)); 
+	while(!( UCSR0A & 0X20));
 	UDR0 = 13;
 	while(!( UCSR0A & 0X20));
 	UDR0 = 10;
 }
 
-void uart_putsl(char* s, uint8_t len){
+void uart_putd(char* s, uint8_t len){
 	int i;
 	for (i = 0; i < len; i++){
 		while(!( UCSR0A & 0X20));
@@ -39,4 +42,5 @@ void uart_putsl(char* s, uint8_t len){
 	while(!( UCSR0A & 0X20));
 	UDR0 = 10;
 }
+
 

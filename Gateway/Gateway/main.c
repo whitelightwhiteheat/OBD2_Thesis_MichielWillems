@@ -20,6 +20,10 @@
 #include "sha2/sha512.h"
 #include "sha2/hmac-sha256.h"
 #include <util/delay.h>
+#include "ISO-TP/isotp.h"
+#include "ISO-TP/isotp_defines.h"
+#include "ISO-TP/isotp_user.h"
+#include "clock.h"
 
 const char private_key1_hex[64] = "92990788d66bf558052d112f5498111747b3e28c55984d43fed8c8822ad9f1a7";
 const char public_key1_hex[128] = "f0c863f8e555114bf4882cc787b95c272a7fe4dcddf1922f4f18a494e1c357a1a6c32d07beb576ab601068068f0a9e0160c3a14119f5d426a7955da3e6ed3e81";
@@ -54,7 +58,7 @@ void buttons_init(){
 
 static int RNG(uint8_t *dest, unsigned size) {
 	while(size){
-		uint8_t val = (uint8_t) rand() + rand() + rand();
+		uint8_t val = (uint8_t) rand() + rand();
 		*dest = val;
 		++dest;
 		--size;
@@ -142,10 +146,10 @@ int authenticated_key_agreement(role_t role, uint8_t *dest){
 		uint32_t len = 256;
 		sha256(secret, secret_unhashed, len);
 		
-		can_send_message(0, 0x00, ack_pos);
+		can_send_message(0, 0x00, ack_pos, 8);
 	}else{
 		uart_puts("signature is false!");
-		can_send_message(0, 0x00, ack_neg);
+		can_send_message(0, 0x00, ack_neg, 8);
 		return 1;
 	}
 	memcpy(dest,secret,32); 
@@ -160,8 +164,9 @@ int message_authentication(role_t role, uint8_t	secret[32]){
 		
 		PORTB = 0x00;
 		
+		uint8_t len;
 		// Receive the message that the tester wants to send to the network.
-		can_receive_message(0, default_id, zero_mask, message);
+		can_receive_message(0, default_id, zero_mask, message, &len);
 		can_get_id(0, id);
 		
 		PORTB = _BV(PB2);
@@ -169,10 +174,10 @@ int message_authentication(role_t role, uint8_t	secret[32]){
 		//Check the Permission.
 		if(check_permission(id, role) == 0){
 			uart_puts("Permission Ok");
-			can_send_message(0, default_id, ack_pos);
+			can_send_message(0, default_id, ack_pos, 8);
 		}else{
 			uart_puts("Permission Failed");
-			can_send_message(0, default_id, ack_neg);
+			can_send_message(0, default_id, ack_neg, 8);
 			continue;
 		}
 		
@@ -194,10 +199,10 @@ int message_authentication(role_t role, uint8_t	secret[32]){
 		//Check the MAC.
 		if(memcmp(mac, mac2, 16) == 0){
 			uart_puts("Authentication Ok");
-			can_send_message(0, default_id, ack_pos);
+			can_send_message(0, default_id, ack_pos, 8);
 		}else{
 			uart_puts("Authentication Failed");
-			can_send_message(0, default_id, ack_neg);
+			can_send_message(0, default_id, ack_neg, 8);
 			continue;
 		}
 		
@@ -228,6 +233,12 @@ void forward_message(can_msg_t msg, can_id_t id){
 	uart_puts("------------------------------------");
 }
 
+/* Alloc IsoTpLink statically in RAM */
+static IsoTpLink g_link;
+
+/* Alloc send and receive buffer statically in RAM */
+static uint8_t g_isotpRecvBuf[128];
+static uint8_t g_isotpSendBuf[128];
 
 
  int main()
@@ -237,13 +248,61 @@ void forward_message(can_msg_t msg, can_id_t id){
 	can_init();
 	init_permissions_table();
 	uart_puts("idle");
+	clock_Init();
+	
+    /* Initialize CAN and other peripheral */
+    
+    /* Initialize link, 0x7TT is the CAN ID you send */
+    isotp_init_link(&g_link, 0x00,
+					g_isotpSendBuf, sizeof(g_isotpSendBuf), 
+					g_isotpRecvBuf, sizeof(g_isotpRecvBuf));
+    
+    while(1){
+		
+		uint8_t ret;
+		can_msg_t init;
+		uint8_t len;
+    
+        /* If recevie any interested can message, call isotp_on_can_message to handle message */
+        ret = can_receive_message(0, default_id, zero_mask, init, &len);
+        
+        /* 0x7RR is CAN ID you want to receive */
+		_delay_ms(50);
+        isotp_on_can_message(&g_link, init, len);
+        
+        /* Poll link to handle multiple frame transmition */
+		while(g_link.receive_status == ISOTP_RECEIVE_STATUS_INPROGRESS){
+			ret = can_receive_message(0, default_id, zero_mask, init, &len);
+			_delay_ms(50);
+			isotp_on_can_message(&g_link, init, len);
+		}       
+        
+		uint8_t payload[28];
+		
+        /* You can recevie message with isotp_receive.
+           payload is upper layer message buffer, usually UDS;
+           payload_size is payload buffer size;
+           out_size is the actuall read size;
+           */
+		uint8_t out_size;
+        ret = isotp_receive(&g_link, payload, 28, &out_size);
+		uart_puts("complete");
+        if (ISOTP_RET_OK == ret){
+            /* Handle received message */
+        }
+		
+		while(1){};
+	}
+        
+	/*
 	can_msg_t init;
-	uint8_t secret[32]
+	uint8_t secret[32];
 	while(1){
 		can_receive_message(0, default_id, zero_mask, init);
 		authenticated_key_agreement(init[0],secret);
 		message_authentication(init[0],secret);
 	}
+	*/
 	return 0;
  }
 

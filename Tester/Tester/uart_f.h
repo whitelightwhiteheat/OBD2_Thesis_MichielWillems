@@ -16,11 +16,29 @@
 #define USART_BAUDRATE 9600
 #define BAUD_PRESCALE (((F_CPU / (USART_BAUDRATE * 16UL))) - 1)
 
+/* uart_init() function.
+Initialize the UART controller by setting the baud rate and enabling the connection.
+*/
 void uart_init();
 
+/* uart_puts() function.
+Transmit a string over the UART interface.
+
+	Inputs:
+		s		- The string that is to be sent.
+				  Carriage return (CR) and line feed (LF) characters are automatically transmitted at the end of the string.
+*/
 void uart_puts(char* s);
 
-void uart_putsl(char* s, uint8_t len);
+/* uart_putd() function.
+Transmits a byte array over the UART interface.
+
+	Inputs:
+		s		- The byte array that is to be sent.
+		len		- The length of the byte array.
+				  Carriage return (CR) and line feed (LF) characters are automatically transmitted at the end of the string.	
+*/
+void uart_putd(char* s, uint8_t len);
 
 
 #endif /* UART_F_H_ */

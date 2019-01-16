@@ -17,6 +17,9 @@
 #include "sha2/sha512.h"
 #include "types.h"
 #include "key_api.h"
+#include "ISO-TP/isotp.h"
+#include "ISO-TP/isotp_config.h"
+#include "ISO-TP/isotp_defines.h"
 
 #define F_CPU 8000000L
 #include <util/delay.h>
@@ -79,7 +82,7 @@ int authenticate(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t rounds)
 	//init authentication.
 	can_msg_t init;
 	init[0] = role;
-	can_send_message(0, default_id, init);
+	can_send_message(0, default_id, init,1);
 	uint8_t public[64];
 	
 	//Receive generated public key.
@@ -109,9 +112,10 @@ int authenticate(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t rounds)
 	uint8_t ack[8];
 	
 	//wait for acknowledgment.
-	can_receive_message(0, default_id, 0x00, ack);
+	uint8_t len;
+	can_receive_message(0, default_id, 0x00, ack, &len);
 	if(ack[0] == ACK_POS){
-		uart_puts("Succesfully authenticated!");
+		uart_puts("Successfully authenticated!");
 		}else{
 		uart_puts("Authentication failed!");
 		return 0;
@@ -121,11 +125,11 @@ int authenticate(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t rounds)
 		rounds--;
 		
 		//Send message you want to send to the vehicle network.
-		can_send_message(0, *id, *message);
+		can_send_message(0, *id, *message, 8);
 		
 		//Wait for acknowledgment.
 		can_msg_t ack;
-		can_receive_message(0, default_id, 0x00, ack);
+		can_receive_message(0, default_id, 0x00, ack, &len);
 		if(ack[0] == ACK_POS){
 			uart_puts("permission granted!");
 			}else{
@@ -143,7 +147,7 @@ int authenticate(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t rounds)
 		can_send_frame_buffer(mac2, 2);
 		
 		//wait for acknowledgment.
-		can_receive_message(0, default_id, 0x00, ack);
+		can_receive_message(0, default_id, 0x00, ack, &len);
 		if(ack[0] == ACK_POS){
 			uart_puts("message accepted!");
 		}else{
@@ -157,16 +161,55 @@ int authenticate(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t rounds)
 	return 0;
 }
 
+static IsoTpLink g_link;
+
+/* Alloc send and receive buffer statically in RAM */
+static uint8_t g_isotpRecvBuf[64];
+static uint8_t g_isotpSendBuf[64];
+
+
+
  int main()
  {	
 	 uart_init();
 	 buttons_init();
 	 can_init();
+	 uart_puts("test");
+	 clock_Init();
 	 
+	 isotp_init_link(&g_link, 0x00,
+					g_isotpSendBuf, sizeof(g_isotpSendBuf), 
+					g_isotpRecvBuf, sizeof(g_isotpRecvBuf));
+    
+    while(1){
+		uint8_t ret;
+		uint8_t payload[28] = {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1};
+		
+        
+        /* And send message with isotp_send */
+        ret = isotp_send(&g_link, payload, 28);
+        if (ISOTP_RET_OK == ret){
+            /* Send ok */
+        } else {
+            /* Error occur */
+        }
+		can_msg_t message;
+		uint8_t len;
+		while(g_link.send_status == ISOTP_SEND_STATUS_INPROGRESS){
+			can_receive_message(0,default_id,zero_mask,message,&len);
+			isotp_on_can_message(&g_link,message,len);
+			_delay_ms(200);
+			isotp_poll(&g_link);	
+		}
+		return len;
+		while(1){}
+    }
+	 
+	/*
 	 while(1){
 		run_t runlcl = run_scenario;
 		uint8_t msgs[3][8] = { {0,0,0,0,0,0,0,0} , {0,0,0,0,0,0,0,0} , {0,0,0,0,0,0,0,0} };
-		uint8_t ids[3][2] = {{177,7},{224,7},{38,7}};
+		uint8_t ids[3][2] = {{2,1},{4,2},{0,0}};
 		switch(runlcl){
 			case NOTHING :
 				break;
@@ -185,11 +228,12 @@ int authenticate(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t rounds)
 				
 			//SCENARIO3: Use tester private key (all messages accepted).
 			case SCENARIO3 :
-				authenticate(msgs, ids, TESTER_ROLE,3);
+				authenticate(msgs, ids, ADMIN_ROLE,3);
 				return 0;
 				break;
 		}
 	 }
 	 return 0;
+	 */
  }
 

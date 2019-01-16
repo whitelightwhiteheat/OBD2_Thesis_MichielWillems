@@ -12,24 +12,6 @@
 
 permission_table_t *permission_table; 
 
-void init_permissions_table(){
-	permission_table = malloc(sizeof(permission_table_t));
-	permission_table->head = NULL;
-	add_entry_hex("0201");
-	add_permission_hex("0201", ADMIN_ROLE);
-	add_permission_hex("0201", OEM_ROLE);
-	add_permission_hex("0201", POLICEMAN_ROLE);
-	add_permission_hex("0201", REPAIRMAN_ROLE);
-	add_permission_hex("0201", OWNER_ROLE);
-	add_entry_hex("0402");
-	add_permission_hex("0402", ADMIN_ROLE);
-	add_permission_hex("0402", OEM_ROLE);
-	add_permission_hex("0402", REPAIRMAN_ROLE);
-	add_entry_hex("0000");
-	add_permission_hex("0000", ADMIN_ROLE);
-	add_permission_hex("0000", OEM_ROLE);
-}
-
 int add_permission_hex(char *hex, role_t role){
 	can_id_t id;
 	hex_to_bytes(hex,4,id);
@@ -125,4 +107,22 @@ int check_permission(can_id_t id, role_t role){
 	if(find_entry(id, &entry)) return 2;
 	permission_t *p;
 	return find_permission(entry, role, &p);
+}
+
+void init_permissions_table(){
+	permission_table = malloc(sizeof(permission_table_t));
+	permission_table->head = NULL;
+	add_entry_hex("0201");
+	add_permission_hex("0201", ADMIN_ROLE);
+	add_permission_hex("0201", OEM_ROLE);
+	add_permission_hex("0201", POLICEMAN_ROLE);
+	add_permission_hex("0201", REPAIRMAN_ROLE);
+	add_permission_hex("0201", OWNER_ROLE);
+	add_entry_hex("0402");
+	add_permission_hex("0402", ADMIN_ROLE);
+	add_permission_hex("0402", OEM_ROLE);
+	add_permission_hex("0402", REPAIRMAN_ROLE);
+	add_entry_hex("0000");
+	add_permission_hex("0000", ADMIN_ROLE);
+	add_permission_hex("0000", OEM_ROLE);
 }

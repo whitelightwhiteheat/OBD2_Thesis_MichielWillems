@@ -4,9 +4,15 @@
 
 can.c
 
+clock.c
+
 ECC\uECC.c
 
 hexconv.c
+
+ISO-TP\isotp_user.c
+
+ISO-TP\isotp.c
 
 key_api.c
 
