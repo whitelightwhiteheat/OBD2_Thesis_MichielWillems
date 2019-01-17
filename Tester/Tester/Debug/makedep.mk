@@ -14,6 +14,8 @@ ISO-TP\isotp_user.c
 
 ISO-TP\isotp.c
 
+isotp_interface.c
+
 key_api.c
 
 leds.c

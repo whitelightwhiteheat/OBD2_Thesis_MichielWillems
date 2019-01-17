@@ -245,6 +245,12 @@
     <Compile Include="ISO-TP\isotp_user.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="isotp_interface.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="isotp_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="key_api.c">
       <SubType>compile</SubType>
     </Compile>

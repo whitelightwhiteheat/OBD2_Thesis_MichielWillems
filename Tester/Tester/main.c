@@ -24,9 +24,7 @@
 #define F_CPU 8000000L
 #include <util/delay.h>
 
-const can_id_t default_id = {0x00, 0x00};
-const can_mask_t zero_mask = {0x00, 0x00};
-const can_mask_t default_mask = {255, 255};
+const can_id_t default_id = {0x05, 0x05};
 
 typedef enum {
 	NOTHING,
@@ -80,13 +78,16 @@ int authenticate(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t rounds)
 	uart_puts("starting authentication");
 	
 	//init authentication.
-	can_msg_t init;
-	init[0] = role;
-	can_send_message(0, default_id, init,1);
+
+	can_msg_t init = {0,0,0,0,0,0,0,0}; 
+	init[0]= role;
+	isotpi_send(default_id, 7, init);
 	uint8_t public[64];
 	
+	can_id_t id_tmp;
 	//Receive generated public key.
-	can_receive_frame_buffer(public, 8);
+	isotpi_receive_multi(default_id, id_tmp ,64, public);
+	uart_puts("public key received");
 	
 	//Calculate shared secret.
 	uint8_t secret[32];
@@ -107,13 +108,14 @@ int authenticate(can_msg_t *message, can_id_t *id, uint8_t role, uint8_t rounds)
 	}
 	
 	//Send signature.
-	can_send_frame_buffer(signature, 8);
+	isotpi_send_multi(default_id,64,signature);
 	uart_puts("signature sent");
 	uint8_t ack[8];
 	
 	//wait for acknowledgment.
 	uint8_t len;
-	can_receive_message(0, default_id, 0x00, ack, &len);
+	isotpi_receive(default_id,7,ack);
+	uart_putd(ack,8);
 	if(ack[0] == ACK_POS){
 		uart_puts("Successfully authenticated!");
 		}else{
@@ -176,36 +178,19 @@ static uint8_t g_isotpSendBuf[64];
 	 can_init();
 	 uart_puts("test");
 	 clock_Init();
-	 
-	 isotp_init_link(&g_link, 0x00,
-					g_isotpSendBuf, sizeof(g_isotpSendBuf), 
-					g_isotpRecvBuf, sizeof(g_isotpRecvBuf));
-    
-    while(1){
-		uint8_t ret;
-		uint8_t payload[28] = {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1};
-		
-        
-        /* And send message with isotp_send */
-        ret = isotp_send(&g_link, payload, 28);
-        if (ISOTP_RET_OK == ret){
-            /* Send ok */
-        } else {
-            /* Error occur */
-        }
-		can_msg_t message;
-		uint8_t len;
-		while(g_link.send_status == ISOTP_SEND_STATUS_INPROGRESS){
-			can_receive_message(0,default_id,zero_mask,message,&len);
-			isotp_on_can_message(&g_link,message,len);
-			_delay_ms(200);
-			isotp_poll(&g_link);	
-		}
-		return len;
-		while(1){}
-    }
-	 
-	/*
+	 /*
+	 uint8_t ret;
+	 uint8_t payload[28] = {1,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9};
+	 ret = isotpi_send_multi(default_id,28,payload);
+	 uart_puts("sent");
+	 uint8_t out_size;
+	 can_id_t id_rec;
+	 ret = isotpi_receive_multi(default_id,id_rec,28,payload);
+	 uart_puts("received");
+	 uart_puts(payload);
+	 */
+	
+	
 	 while(1){
 		run_t runlcl = run_scenario;
 		uint8_t msgs[3][8] = { {0,0,0,0,0,0,0,0} , {0,0,0,0,0,0,0,0} , {0,0,0,0,0,0,0,0} };
@@ -234,6 +219,5 @@ static uint8_t g_isotpSendBuf[64];
 		}
 	 }
 	 return 0;
-	 */
  }
 

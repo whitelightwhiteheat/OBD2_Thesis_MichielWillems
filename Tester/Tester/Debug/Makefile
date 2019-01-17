@@ -46,6 +46,7 @@ C_SRCS +=  \
 ../hexconv.c \
 ../ISO-TP/isotp_user.c \
 ../ISO-TP/isotp.c \
+../isotp_interface.c \
 ../key_api.c \
 ../leds.c \
 ../main.c \
@@ -72,6 +73,7 @@ ECC/uECC.o \
 hexconv.o \
 ISO-TP/isotp_user.o \
 ISO-TP/isotp.o \
+isotp_interface.o \
 key_api.o \
 leds.o \
 main.o \
@@ -91,6 +93,7 @@ ECC/uECC.o \
 hexconv.o \
 ISO-TP/isotp_user.o \
 ISO-TP/isotp.o \
+isotp_interface.o \
 key_api.o \
 leds.o \
 main.o \
@@ -110,6 +113,7 @@ ECC/uECC.d \
 hexconv.d \
 ISO-TP/isotp_user.d \
 ISO-TP/isotp.d \
+isotp_interface.d \
 key_api.d \
 leds.d \
 main.d \
@@ -129,6 +133,7 @@ ECC/uECC.d \
 hexconv.d \
 ISO-TP/isotp_user.d \
 ISO-TP/isotp.d \
+isotp_interface.d \
 key_api.d \
 leds.d \
 main.d \
@@ -155,6 +160,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

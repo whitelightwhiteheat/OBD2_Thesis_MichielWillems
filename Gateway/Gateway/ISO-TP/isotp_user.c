@@ -19,7 +19,7 @@ void isotp_user_debug(const char* message){
 int  isotp_user_send_can(const uint32_t arbitration_id, const uint8_t* data, const uint8_t size){
 	can_msg_t message;
 	can_id_t id;
-	memcpy(id,arbitration_id,2);
+	memcpy(id,&arbitration_id,2);
 	can_send_message(0, id, data, size);
 	return 0;
 }

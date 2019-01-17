@@ -24,6 +24,7 @@
 #include "ISO-TP/isotp_defines.h"
 #include "ISO-TP/isotp_user.h"
 #include "clock.h"
+#include "isotp_interface.h"
 
 const char private_key1_hex[64] = "92990788d66bf558052d112f5498111747b3e28c55984d43fed8c8822ad9f1a7";
 const char public_key1_hex[128] = "f0c863f8e555114bf4882cc787b95c272a7fe4dcddf1922f4f18a494e1c357a1a6c32d07beb576ab601068068f0a9e0160c3a14119f5d426a7955da3e6ed3e81";
@@ -40,7 +41,7 @@ const char public_key4_hex[128] = "bd42371aac680a6603eba1cf0f5e495ace59299a4e2f4
 const char private_key5_hex[64] = "b08039a19079d5218465f6d97552bd70b8867423d67365b8431b6f213a197471";
 const char public_key5_hex[128] = "5d19b55cc3528aaf8664bb20c9a199567a2444b549ebfa11c721fd7fdce2d2b31571b5033932b1d14373f6860d5a97f6efe65470e547aa1c663bdbb57977378c";
 
-static const can_id_t default_id = {0x00, 0x00};
+static const can_id_t default_id = {0x05, 0x05};
 static const can_mask_t zero_mask = {0x00, 0x00};
 static const can_mask_t default_mask = {255, 255};
 static const can_msg_t ack_pos = {ACK_POS};
@@ -115,7 +116,7 @@ int authenticated_key_agreement(role_t role, uint8_t *dest){
 	get_public_key(role, public);
 	
 	//Send new public key.
-	can_send_frame_buffer(public2, 8);
+	isotpi_send_multi(default_id, 64, public2);
 	uart_puts("public key sent");
 	
 	PORTB = 0x00;  
@@ -123,19 +124,20 @@ int authenticated_key_agreement(role_t role, uint8_t *dest){
 	
 	//Wait for Signature.
 	uint8_t signature[64];
-	can_receive_frame_buffer(signature, 8);
+	can_id_t idtmp;
+	isotpi_receive_multi(default_id, idtmp, 64, signature);
+	uart_puts("signature_received");
 	
 	//PORTB = 0x00;
 	PORTB = _BV(PB2);
 	
-	uint8_t ack;
 	uint8_t secret[32];
 	
 	//Verify Signature.
 	result = verify_signature(public2, signature, role);
 	
 	PORTB = 0x00;
-	
+	can_msg_t ack;
 	if(result==1) {
 		uart_puts("signature is valid!");
 		
@@ -146,10 +148,11 @@ int authenticated_key_agreement(role_t role, uint8_t *dest){
 		uint32_t len = 256;
 		sha256(secret, secret_unhashed, len);
 		
-		can_send_message(0, 0x00, ack_pos, 8);
+		isotpi_send(default_id, 7, ack_pos);
 	}else{
 		uart_puts("signature is false!");
-		can_send_message(0, 0x00, ack_neg, 8);
+		
+		isotpi_send(default_id, 7, ack_neg);
 		return 1;
 	}
 	memcpy(dest,secret,32); 
@@ -249,61 +252,30 @@ static uint8_t g_isotpSendBuf[128];
 	init_permissions_table();
 	uart_puts("idle");
 	clock_Init();
+   	
+	   /*
+	uint8_t payload[28];
+	uint8_t out_size;
+	uint8_t id[2] = {0,0};
+	uint8_t idrec[2];
+	uint8_t ret = isotpi_receive_multi(default_id,idrec,28,payload);
+	if(ret==0) uart_puts("transmission complete");
+	uint8_t id2[2] = {0,0};	
+	ret = isotpi_send_multi(default_id,28,payload);
+    if(ret==0) uart_puts("receive complete");
+	return 0;
+	*/
+	      
 	
-    /* Initialize CAN and other peripheral */
-    
-    /* Initialize link, 0x7TT is the CAN ID you send */
-    isotp_init_link(&g_link, 0x00,
-					g_isotpSendBuf, sizeof(g_isotpSendBuf), 
-					g_isotpRecvBuf, sizeof(g_isotpRecvBuf));
-    
-    while(1){
-		
-		uint8_t ret;
-		can_msg_t init;
-		uint8_t len;
-    
-        /* If recevie any interested can message, call isotp_on_can_message to handle message */
-        ret = can_receive_message(0, default_id, zero_mask, init, &len);
-        
-        /* 0x7RR is CAN ID you want to receive */
-		_delay_ms(50);
-        isotp_on_can_message(&g_link, init, len);
-        
-        /* Poll link to handle multiple frame transmition */
-		while(g_link.receive_status == ISOTP_RECEIVE_STATUS_INPROGRESS){
-			ret = can_receive_message(0, default_id, zero_mask, init, &len);
-			_delay_ms(50);
-			isotp_on_can_message(&g_link, init, len);
-		}       
-        
-		uint8_t payload[28];
-		
-        /* You can recevie message with isotp_receive.
-           payload is upper layer message buffer, usually UDS;
-           payload_size is payload buffer size;
-           out_size is the actuall read size;
-           */
-		uint8_t out_size;
-        ret = isotp_receive(&g_link, payload, 28, &out_size);
-		uart_puts("complete");
-        if (ISOTP_RET_OK == ret){
-            /* Handle received message */
-        }
-		
-		while(1){};
-	}
-        
-	/*
 	can_msg_t init;
 	uint8_t secret[32];
+	uint16_t size = 1;
 	while(1){
-		can_receive_message(0, default_id, zero_mask, init);
-		authenticated_key_agreement(init[0],secret);
-		message_authentication(init[0],secret);
+		isotpi_receive(default_id, 7, init);
+		if(authenticated_key_agreement(init[0],secret)) return 0;
+		if(message_authentication(init[0],secret)) return 0;
 	}
-	*/
-	return 0;
+	
  }
 
 

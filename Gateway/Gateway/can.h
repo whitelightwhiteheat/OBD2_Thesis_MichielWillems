@@ -24,7 +24,7 @@ void can_get_frame_buffer( uint8_t *message , uint8_t buff_len );
 
 int can_send_message( uint8_t mobnr , can_id_t id, can_msg_t message, uint8_t size);
 
-void can_get_message( uint8_t mobnr , can_msg_t message , uint8_t *len);
+void can_get_message( uint8_t mobnr , can_msg_t message);
 
 void can_print_message( uint8_t mobnr);
 
@@ -35,6 +35,12 @@ int can_receive_message( uint8_t mobnr, can_id_t id, can_mask_t mask, can_msg_t 
 int can_receive_frame_buffer( uint8_t *message, uint8_t buff_len);
 
 void can_get_id(uint8_t mobnr, can_id_t id);
+
+void can_enable_receive(uint8_t mobnr, can_mask_t mask);
+
+int can_wait_for_receive();
+
+void can_free_mob(uint8_t mobnr);
 
 
 #endif /* CAN_H_ */

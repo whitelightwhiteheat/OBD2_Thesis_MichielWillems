@@ -46,6 +46,7 @@ C_SRCS +=  \
 ../hexconv.c \
 ../ISO-TP/isotp.c \
 ../ISO-TP/isotp_user.c \
+../isotp_interface.c \
 ../leds.c \
 ../main.c \
 ../permission_table.c \
@@ -72,6 +73,7 @@ ECC/uECC.o \
 hexconv.o \
 ISO-TP/isotp.o \
 ISO-TP/isotp_user.o \
+isotp_interface.o \
 leds.o \
 main.o \
 permission_table.o \
@@ -91,6 +93,7 @@ ECC/uECC.o \
 hexconv.o \
 ISO-TP/isotp.o \
 ISO-TP/isotp_user.o \
+isotp_interface.o \
 leds.o \
 main.o \
 permission_table.o \
@@ -110,6 +113,7 @@ ECC/uECC.d \
 hexconv.d \
 ISO-TP/isotp.d \
 ISO-TP/isotp_user.d \
+isotp_interface.d \
 leds.d \
 main.d \
 permission_table.d \
@@ -129,6 +133,7 @@ ECC/uECC.d \
 hexconv.d \
 ISO-TP/isotp.d \
 ISO-TP/isotp_user.d \
+isotp_interface.d \
 leds.d \
 main.d \
 permission_table.d \
@@ -155,6 +160,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 
