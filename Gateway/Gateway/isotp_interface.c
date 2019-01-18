@@ -16,14 +16,9 @@
 const can_mask_t zero_mask = {0x00, 0x00};
 const can_mask_t default_mask = {255, 255};
 
-/* Alloc IsoTpLink statically in RAM */
 static IsoTpLink g_link;
-
-/* Alloc send and receive buffer statically in RAM */
 static uint8_t g_isotpRecvBuf[128];
 static uint8_t g_isotpSendBuf[128];
-
-
 
 int isotpi_send(can_id_t id, uint8_t payload_size , uint8_t payload[payload_size]){
 	uint32_t arbitration_id = 0;
@@ -49,7 +44,6 @@ int isotpi_send_multi(can_id_t id, uint8_t payload_size ,uint8_t payload[payload
 	isotp_init_link(&g_link,arbitration_id, g_isotpSendBuf, sizeof(g_isotpSendBuf),g_isotpRecvBuf, sizeof(g_isotpRecvBuf));
 
 	can_enable_receive(1,zero_mask);
-	/* And send message with isotp_send */
 	isotp_send(&g_link, payload, payload_size);
 	
 	can_msg_t message;
@@ -59,7 +53,7 @@ int isotpi_send_multi(can_id_t id, uint8_t payload_size ,uint8_t payload[payload
 	
 	mobnr = can_wait_for_receive();
 	
-	can_receive_message2(mobnr, message_id, message, &len);
+	can_retrieve_message(mobnr, message_id, message, &len);
 	isotp_on_can_message(&g_link,message,len);
 	
 	while(1){
@@ -75,17 +69,16 @@ int isotpi_send_multi(can_id_t id, uint8_t payload_size ,uint8_t payload[payload
 			can_free_mob(1);
 			return 1;
 		}
-		
 	}
-	
 }
 
 int isotpi_receive_multi(can_id_t id_send, can_id_t id_rec, uint8_t payload_size, uint8_t payload[payload_size]){
 	uint32_t arbitration_id = 0;
 	memcpy(&arbitration_id,id_send,2);
 	isotp_init_link(&g_link, arbitration_id, g_isotpSendBuf, sizeof(g_isotpSendBuf), g_isotpRecvBuf, sizeof(g_isotpRecvBuf));
-  
-    while(1){
+    
+	while(1){
+		
 		uint8_t j;
 		for(j=0; j<14; j++){
 			can_enable_receive(j,zero_mask);
@@ -96,12 +89,9 @@ int isotpi_receive_multi(can_id_t id_send, can_id_t id_rec, uint8_t payload_size
 		uint8_t size;
 		
 		while(1){
-			
-			uart_puts("test");
 			mobnr = can_wait_for_receive();
-			can_receive_message2(mobnr, id_rec, message, &size);
+			can_retrieve_message(mobnr, id_rec, message, &size);
 			isotp_on_can_message(&g_link, message, size);
-        
 			switch(g_link.receive_status){
 				case ISOTP_RECEIVE_STATUS_INPROGRESS :
 				break;

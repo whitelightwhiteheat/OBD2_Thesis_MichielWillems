@@ -88,16 +88,12 @@ int find_entry(can_id_t msg_id, entry_t **dest){
 
 int find_permission(entry_t *entry, role_t role, permission_t **dest){
 	permission_t *curr = entry->permissions;
-	if(curr != NULL){
-		while(curr->successor != NULL){
-			curr = curr->successor;
-			if(role == curr->role){
-				*dest = curr;
-				return 0;
-			}
+	while(curr != NULL){
+		if(role == curr->role){
+			*dest = curr;
+			return 0;
 		}
-	}else{
-		return 1;
+		curr = curr->successor;
 	}
 	return 1;
 }

@@ -21,7 +21,6 @@ int  isotp_user_send_can(const uint32_t arbitration_id, const uint8_t* data, con
 	can_id_t id;
 	memcpy(id,&arbitration_id,2);
 	can_send_message(0, id, data, size);
-	uart_puts("message sent");
 	return 0;
 }
 
