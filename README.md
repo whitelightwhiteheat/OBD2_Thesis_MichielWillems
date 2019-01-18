@@ -18,6 +18,7 @@ For more information on the proposed solution and the problem in general, see th
 
 ## Contents
 - **Articles:** Articles and papers that constitute the background of this research topic.
+- **Demo:** Pictures of the UART outputs when running the demo.
 - **Tester:** Source code of the tester device.
 - **Gateway** Source code of the automotive gateway.
 - **Paper:** Contains the thesis text, i.e. thesis.pdf.
