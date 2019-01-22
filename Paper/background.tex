@@ -84,7 +84,7 @@ Let's take a closer look at ABS to get a sense of how the intra vehicle network 
 \subsection{CAN}
 \label{sec:can}
 
-The CAN protocol has become a ubiquitous part of the automotive industry. In the context of internal vehicle networks, CAN messages have multiple purposes: First, there are informative messages, that are designed to transmit data from and to ECU's (e.g. the Anti-Lock System (ABS) broadcasting the speed of each wheel). Second, there are action messages that are designed to request another ECU to perform a specific action (e.g. the adaptive Cruise Control (ACC) module submitting a request for the brakes to be applied). Third, there are the diagnostic messages defined by the OBD-II protocol \cite{MillerB}. Naturally the last type of message is the focus of this paper. The following paragraphs are dedicated to the CAN protocol.
+The CAN protocol has become a ubiquitous part of the automotive industry. In the context of internal vehicle networks, CAN messages have multiple purposes: First, there are informative messages, that are designed to transmit data from and to ECU's (e.g. the Anti-Lock System (ABS) broadcasting the speed of each wheel). Second, there are action messages that are designed to request another ECU to perform a specific action (e.g. the adaptive Cruise Control (ACC) module submitting a request for the brakes to be applied). Third, there are the diagnostic messages defined by the OBD-II protocol \cite{MillerB}. Naturally the last type of message is the focus of this paper. The following paragraphs are dedicated to the CAN protocol \cite{wiki:CAN,ISO11898-1}.
 
 \subsubsection{Brief History} 
 \label{subsec:can:briefhistory}
@@ -190,6 +190,8 @@ We refer te reader to \cite{ISO11898-2} and \cite{ISO11898-3} for more informati
 \subsubsection{Brief History}
 \label{subsec:obd:brief_history} 
 
+\cite{ISO15031-1,ISO15031-2,ISO15031-3,ISO15031-4,ISO15031-5,ISO15031-6,ISO15031-7}
+
 There have been a lot of different proprietary automotive diagnostics systems introduced over the years, before a standard arrived with the introduction of OBD-II. This brief history, cited from \cite{OBDhistory}, does an excellent job of concisely explaining how OBD-II came to be:
 
 \begin{displayquote}
@@ -248,6 +250,25 @@ There are multiple ways for a user to interact with this interface:
 	\item A data logger, which is designed to capture real-time data while the vehicle is in operation.
 \end{itemize}
 Typically, ODB-II is used like this (CAN as signalling protocol): First, the user enters the PID of the data (s)he wants to query into a diagnostic tool. Second, this data is packaged in a CAN frame and sent over the CAN-bus. Third, the ECU that is responsible for the data identified by the PID in the message recognizes it as it's own, and transmits a CAN frame containing the requested data. Fourth, the diagnostic tool recognizes the response and displays the data to the user \cite{wiki:PID}. The OBD-II port can also be used to upgrade the ECU's firmware or to perform a myriad of other diagnostic tasks.
+
+\subsubsection{ISO-TP}
+\begin{figure}[h]
+	\centering
+	\fbox{
+		\procedure{ISO-TP}{%
+			\textbf{Sender}  \<\< \textbf{Receiver} \\
+			\< \sendmessageright{top=First Frame} \<\\
+			\< \sendmessageleft{top=Flow Control Frame} \<\\
+			\< \sendmessageright{top=Consecutive Frame} \<\\
+			\< \sendmessageright{top=Consecutive Frame} \<\\
+			\vdots \< \< \vdots \\
+			\< \sendmessageright{top=Consecutive Frame} \<\\
+		}
+	}
+	\caption{ISO-TP}
+	\label{fig:ISO-TP}
+\end{figure} 
+
 
 \subsubsection{Security Issues}
 \label{subsec:obd:security_issues}

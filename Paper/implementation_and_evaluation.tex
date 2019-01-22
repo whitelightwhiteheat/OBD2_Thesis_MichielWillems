@@ -62,13 +62,13 @@ The authentication procedure is initiated by the tester, which transmits an init
 		\procedure{OBD-II authenticated key agreement procedure implementation}{%
 			\textbf{Tester}  \<\< \textbf{Gateway} \\
 			\text{$Pr_{obd}^{256}$} \<\< \text{$Pb_{obd}^{512}$} \\
-			\< \sendmessageright{top=\text{$Role^8$ (1 frame)}} \<\\
+			\< \sendmessageright{top=\text{$Role^8$}} \<\\
 			\<\< \text{KGen($Pb_g^{512}$,$Pr_g^{256}$)} \\
-			\< \sendmessageleft{top=\text{$Pb_g^{512}$ (8 frames)}} \<\\
+			\< \sendmessageleft{top=\text{$Pb_g^{512}$}} \<\\
 			\text{$S^{512}$=Sig(SHA512($Pb_g^{512}$),$Pr_{obd}^{256}$)} \<\<\<\< \\
-			\< \sendmessageright{top=\text{$S^{512}$ (8 frames)}} \<\\
+			\< \sendmessageright{top=\text{$S^{512}$}} \<\\
 			\<\< \text{Ver(SHA512($S^{512}$),$Pb_{obd}^{512}$)} \\
-			\< \sendmessageleft{top=\text{$ACK^{8}$ (1 frame)}} \<\\
+			\< \sendmessageleft{top=\text{$ACK^{8}$}} \<\\
 			\text{$K^{256}$=ECDH($Pr_{obd}^{256}$,$Pb_g^{512}$)} \<\< \text{$K^{256}$=ECDH($Pr_g^{256}$,$Pb_{obd}^{512}$)} \\
 		}
 	}
@@ -86,17 +86,17 @@ Figure \ref{fig:message_authentication_implementation} shows the implementation 
 \begin{figure}[h]
 	\centering
 	\fbox{
-		\procedure{Message Authentication}{%
+		\procedure{Message Authentication Procedure Implementation}{%
 			\textbf{Tester}  \<\< \textbf{Gateway} \\
 			\text{$K$}  \<\< \text{$K$} \\
-			\< \sendmessageright{top=\text{OBD-II message $M^{64}$ (1 frame)}} \<\\
+			\< \sendmessageright{top=\text{OBD-II message $M^{64}$}} \<\\
 			\<\< \text{CheckP($M^{256}$)} \\
-			\< \sendmessageleft{top=\text{$ACK^8$ (1 frame)}} \< \\
+			\< \sendmessageleft{top=\text{$ACK^8$}} \< \\
 			\text{$Mac^{256}$=Hmac\textunderscore SHA256($M$,$K$) } \<\< \\
-			\< \sendmessageright{top=\text{$Mac^{256}$} (4 frames)} \<\\
+			\< \sendmessageright{top=\text{$Mac^{256}$}} \<\\
 			\<\< \text{Ver($Mac^{256}$,$K$)}  \\
 			\<\< \text{Forward($M^{64}$)}  \\
-			\< \sendmessageleft{top=\text{$ACK^8$ (1 frame)}} \< \\
+			\< \sendmessageleft{top=\text{$ACK^8$}} \< \\
 		}
 	}
 	\caption{OBD-II Message Authentication Implementation}
@@ -158,7 +158,7 @@ The total memory footprint (program memory) of our gateway implementation is giv
 	\begin{tabular}{|c|c|c|c||c|}
 		\hline
 		\rowcolor[HTML]{9B9B9B} Type & SHA2 & ECC & Rest (CAN, UART, etc.) & Total \\ \hline
-		\cellcolor[HTML]{9B9B9B} Size (Kb) & \cellcolor[HTML]{FFFFFF} 2,706 & 18,762 & 10,384 & 31,852 \\ \hline
+		\cellcolor[HTML]{9B9B9B} Size (KB) & \cellcolor[HTML]{FFFFFF} 2,706 & 18,762 & 10,384 & 31,852 \\ \hline
 	\end{tabular}
 	\caption{Program memory footprint of implementation on a resource constrained microcontroller.}
 	\label{table:portability}

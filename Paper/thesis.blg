@@ -49,45 +49,45 @@ Warning--empty year in GatewayST
 Warning--empty institution in GatewayInfineon
 Warning--empty year in GatewayInfineon
 Warning--empty journal in GatewayPerformance
-You've used 70 entries,
+You've used 79 entries,
             2849 wiz_defined-function locations,
-            983 strings with 17385 characters,
-and the built_in function-call counts, 26015 in all, are:
-= -- 2631
-> -- 1128
+            1012 strings with 18873 characters,
+and the built_in function-call counts, 28729 in all, are:
+= -- 2931
+> -- 1200
 < -- 4
-+ -- 425
-- -- 350
-* -- 1206
-:= -- 3915
-add.period$ -- 229
-call.type$ -- 70
-change.case$ -- 401
++ -- 452
+- -- 368
+* -- 1271
+:= -- 4344
+add.period$ -- 257
+call.type$ -- 79
+change.case$ -- 445
 chr.to.int$ -- 0
-cite$ -- 104
-duplicate$ -- 684
-empty$ -- 2342
-format.name$ -- 350
-if$ -- 6697
+cite$ -- 113
+duplicate$ -- 757
+empty$ -- 2614
+format.name$ -- 368
+if$ -- 7432
 int.to.chr$ -- 0
-int.to.str$ -- 70
+int.to.str$ -- 79
 missing$ -- 16
-newline$ -- 370
-num.names$ -- 134
-pop$ -- 746
+newline$ -- 416
+num.names$ -- 152
+pop$ -- 815
 preamble$ -- 1
-purify$ -- 314
+purify$ -- 341
 quote$ -- 0
-skip$ -- 1925
+skip$ -- 2162
 stack$ -- 0
-substring$ -- 539
-swap$ -- 89
+substring$ -- 584
+swap$ -- 90
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 280
+type$ -- 316
 warning$ -- 34
-while$ -- 142
-width$ -- 72
-write$ -- 743
+while$ -- 160
+width$ -- 81
+write$ -- 843
 (There were 35 warnings)

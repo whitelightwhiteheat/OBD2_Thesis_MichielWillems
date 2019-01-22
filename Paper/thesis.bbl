@@ -152,11 +152,64 @@ CAN in~Automation~(CiA).
 \newblock History of can technology.
 \newblock URL: \url{https://www.can-cia.org/can-knowledge/can/can-history/}.
 
+\bibitem{ISO11898-1}
+ISO11898-1.
+\newblock Road vehicles -- controller area network (can) -- part 1: Data link
+  layer and physical signalling.
+\newblock standard, International Organization for Standardization, 2015.
+
 \bibitem{ISO11898-2}
 ISO11898-2.
 \newblock Iso11898-2:2016: Road vehicles -- controller area network (can) --
   part 2: High-speed medium access unit.
 \newblock Standard, International Organization for Standardization, 2016.
+
+\bibitem{ISO15031-1}
+ISO15031-1.
+\newblock Road vehicles -- communication between vehicle and external equipment
+  for emissions-related diagnostics -- part 1: General information and use case
+  definition.
+\newblock Standard, International Organization for Standardization, 2010.
+
+\bibitem{ISO15031-2}
+ISO15031-2.
+\newblock Road vehicles -- communication between vehicle and external equipment
+  for emissions-related diagnostics -- part 2: Guidance on terms, definitions,
+  abbreviations and acronyms.
+\newblock Standard, International Organization for Standardization, 2010.
+
+\bibitem{ISO15031-3}
+ISO15031-3.
+\newblock Road vehicles -- communication between vehicle and external equipment
+  for emissions-related diagnostics -- part 3: Diagnostic connector and related
+  electrical circuits: Specification and use.
+\newblock Standard, International Organization for Standardization, 2016.
+
+\bibitem{ISO15031-4}
+ISO15031-4.
+\newblock Road vehicles -- communication between vehicle and external equipment
+  for emissions-related diagnostics -- part 4: External test equipment.
+\newblock Standard, International Organization for Standardization, 2014.
+
+\bibitem{ISO15031-5}
+ISO15031-5.
+\newblock Road vehicles -- communication between vehicle and external equipment
+  for emissions-related diagnostics -- part 5: Emissions-related diagnostic
+  services.
+\newblock Standard, International Organization for Standardization, 2015.
+
+\bibitem{ISO15031-6}
+ISO15031-6.
+\newblock Road vehicles -- communication between vehicle and external equipment
+  for emissions-related diagnostics -- part 6: Diagnostic trouble code
+  definitions.
+\newblock Standard, International Organization for Standardization, 2015.
+
+\bibitem{ISO15031-7}
+ISO15031-7.
+\newblock Road vehicles -- communication between vehicle and external equipment
+  for emissions-related diagnostics -- part 7: Data link security.
+\newblock Standard, International Organization for Standardization, 2013.
 
 \bibitem{Kleberger15}
 Pierre Kleberger.
@@ -362,6 +415,13 @@ Zhu WeiDa.
 \newblock [Online; accessed 29-November-2018].
 \newblock URL:
   \url{https://en.wikipedia.org/w/index.php?title=Byzantine_fault_tolerance&oldid=869107483}.
+
+\bibitem{wiki:CAN}
+{Wikipedia contributors}.
+\newblock Can bus --- {Wikipedia}{,} the free encyclopedia, 2018.
+\newblock [Online; accessed 29-November-2018].
+\newblock URL:
+  \url{https://en.wikipedia.org/w/index.php?title=CAN_bus&oldid=870995924}.
 
 \bibitem{wiki:Hash}
 {Wikipedia contributors}.
