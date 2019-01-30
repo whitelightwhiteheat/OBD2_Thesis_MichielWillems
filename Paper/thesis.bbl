@@ -20,6 +20,11 @@ Iso11898-3:2006: Road vehicles -- controller area network (can) -- part 3:
   Low-speed, fault-tolerant, medium-dependent interface.
 \newblock Standard, International Organization for Standardization, 2016.
 
+\bibitem{ISO15765-2:2016}
+Road vehicles -- diagnostic communication over controller area network (docan)
+  -- part 2: Transport protocol and network layer services.
+\newblock standard, International Organization for standardization, 2016.
+
 \bibitem{Ahmed}
 Siam Ahmed.
 \newblock Get to know connected vehicle technology: V2v, v2x, v2i.
@@ -163,6 +168,11 @@ ISO11898-2.
 \newblock Iso11898-2:2016: Road vehicles -- controller area network (can) --
   part 2: High-speed medium access unit.
 \newblock Standard, International Organization for Standardization, 2016.
+
+\bibitem{ISO14229}
+ISO14229.
+\newblock Road vehicles - unified diagnostic services (uds) - part 1: Specification and requirements.
+\newblock Standard, International Organization for Standardization, 2013.
 
 \bibitem{ISO15031-1}
 ISO15031-1.

@@ -218,7 +218,16 @@ The system can also be very useful in a number of other situations: a repairman 
 \subsubsection{DLC}
 \label{subsec:obd:dlc}
 
-To allow a user to communicate with the vehicle's internal network, OBD-II introduces the data link connector (DLC). The DLC is a 16-pin hardware interface (although only 9 pins are specified by the standard) that is generally found close to the steering wheel (by law it is required to be installed within 0.61 m of the steering wheel) \cite{wiki:OBD}. There are 2 basic types of connectors: Type A as seen in Figure \ref{fig:typeA} (using a 12V power supply) and Type B as seen in Figure \ref{fig:typeB} (using a 24V power supply). The design of the two connector types prevents the insertion of a type A male plug into a type B female socket.
+To allow a user to communicate with the vehicle's internal network, OBD-II introduces the data link connector (DLC). The DLC is a 16-pin hardware interface (although only 9 pins are specified by the standard) that is generally found close to the steering wheel (by law it is required to be installed within 0.61 m of the steering wheel) \cite{wiki:OBD}. There are 2 basic types of connectors: Type A as seen in Figure \ref{fig:typeA} (using a 12V power supply) and Type B as seen in Figure \ref{fig:typeB} (using a 24V power supply). The design of the two connector types prevents the insertion of a type A male plug into a type B female socket. There are multiple ways for a user to connect to the the OBD-II DLC:
+\begin{itemize}
+	\item A standard diagnostic scanning tool, which is a dedicated device that consists of a small hand-held module (equipped with a small screen and some buttons), connected to a male DLC (The DLC inside the vehicle is always female).
+	
+	\item An advanced Diagnostic scanning tool that includes a DLC-connector with wifi/Bluetooth compatibility, allowing for remote diagnostics via smartphone or PC.
+	
+	\item A DLC-connector with a USB adapter, allowing access via dedicated software on a PC. Since 2014, all new cars in the US support the SAE J2534 "PassThru" standard, which is a Windows application programming interface (API) that provides a standard way to communicate with a car's internal buses \cite{Kosher}.\footnote{For more information on SAE J2534, see the full API reference at: \url{https://tunertools.com/prodimages/DrewTech/Manuals/PassThru\textunderscore API-1.pdf}}
+	
+	\item A data logger, which is designed to capture real-time data while the vehicle is in operation.
+\end{itemize}
 
 \begin{figure}[h]
 	\centering
@@ -234,40 +243,50 @@ To allow a user to communicate with the vehicle's internal network, OBD-II intro
 	\label{fig:typeB}
 \end{figure}
 
-\subsubsection{PID}
+\subsubsection{PID and DTC}
 \label{subsec:obd:pid}
 
-OBD-II introduces parameter ID's (PID), which are codes used to identify and query specific data. The protocol is designed to work with multiple signalling protocols (the messaging protocol that is used to request and receive data from the network), but the CAN protocol is mostly implemented (Since 2008 all new vehicles sold in the US implement this signalling protocol \cite{OBDconnector}). \newline
-\newline
-There are multiple ways for a user to interact with this interface:
-\begin{itemize}
-	\item A standard diagnostic scanning tool, which is a dedicated device that consists of a small hand-held module (equipped with a small screen and some buttons), connected to a male DLC (The DLC inside the vehicle is always female).
-	
-	\item An advanced Diagnostic scanning tool that includes a DLC-connector with wifi/Bluetooth compatibility, allowing for remote diagnostics via smartphone or PC.
-	
-	\item A DLC-connector with a USB adapter, allowing access via dedicated software on a PC. Since 2014, all new cars in the US support the SAE J2534 "PassThru" standard, which is a Windows application programming interface (API) that provides a standard way to communicate with a car's internal buses \cite{Kosher}.\footnote{For more information on SAE J2534, see the full API reference at: \url{https://tunertools.com/prodimages/DrewTech/Manuals/PassThru\textunderscore API-1.pdf}}
-	
-	\item A data logger, which is designed to capture real-time data while the vehicle is in operation.
-\end{itemize}
-Typically, ODB-II is used like this (CAN as signalling protocol): First, the user enters the PID of the data (s)he wants to query into a diagnostic tool. Second, this data is packaged in a CAN frame and sent over the CAN-bus. Third, the ECU that is responsible for the data identified by the PID in the message recognizes it as it's own, and transmits a CAN frame containing the requested data. Fourth, the diagnostic tool recognizes the response and displays the data to the user \cite{wiki:PID}. The OBD-II port can also be used to upgrade the ECU's firmware or to perform a myriad of other diagnostic tasks.
+OBD-II introduces parameter identification numbers (PID) in ISO15031-5 \cite{ISO15031-5}, which are codes used to identify and query data. Besides the PID's offered by this standard (suitably called the standard PID's), a lot of manufacturers will implement their own model-specific PID's. Two types of data that can be queried. First, there is raw engine data like fuel pressure, air intake temperature, engine rounds per minute, etc. Second, there are diagnostic trouble codes (DTC). These codes consist of five characters, encoded in two bytes of data. With the help of the appropriate OBD-II DTC table, these codes can be interpreted to identify and locate specific problems \cite{wiki:PID}.
 
 \subsubsection{ISO-TP}
+
+The PID's introduced in the previous paragraph need to transmitted to the appropriate ECU. This is where the signalling protocol comes in. Five different signalling protocols are permitted for transmitting OBD-II messages. However, ISO-TP, which is introduced in ISO15765 \cite{ISO15765-2:2016}, is the most widely implemented. This is because since 2008, all new vehicles sold in the US are required by law to implement this protocol. ISO-TP was designed in accordance with the Unified Diagnostic Services (UDS) specified in ISO14229 \cite{ISO14229}. It allows a message size of up to 4095 bytes, and facilitates this by spreading out the message over multiple CAN frames. The format of these messages is left unchanged, thus allowing 8 bytes of data per frame. However, the first data byte is used for Protocol Control Information (PCI), resulting in only 7 bytes of actual data being transmitted with each frame. The four most significant bits of the PCI indicate the PCI type. There are four types of ISO-TP frames:
+\begin{itemize}
+	\item \textbf{Single Frame (SF):} Whenever the message is no more than 7 bytes long, it will fit into a single ISO-TP frame. Upon reception of a SF, the receiving party knows the entire message was transmitted.
+	
+	\item \textbf{First Frame (FF):} This frame is used to let the receiver know that the message is longer than 7 bytes, thereby requiring multiple frames (Multi-Frame format). The FF uses two bytes of data for PCI: the four most significant bits are used to indicate the PCI type, and the 12 least significant bits are used to indicate the size of the complete message, allowing the receiver to know how many more frames to expect.
+	
+	\item \textbf{Flow Control Frame (FC)}: Upon reception of a FF, the receiver will respond by transmitting a FC. This frame contains synchronisation and buffering information, allowing the sender to transmit frames at the appropriate frequency, as well as when to expect (i.e. after how many successful transmissions) another FC frame update.
+	
+	\item \textbf{Consecutive Frame (CF)}: When transmitting a message in multi-Frame Format, consecutive messages will be sent until the entire message was transmitted. The four least significant bits of a CF implement a counter to allow the receiver to correctly assemble the original message.
+\end{itemize}
+Figure \ref{fig:ISO-TP} shows the operation of ISO-TP when transmitting a message in Multi-Frame format. Notice the fact that this sequence can include the transmission of multiple FC's. This is because the receiver might be limited in the amount of CAN buffers available. Every FC will contain information on how many messages to send before these buffers are full.
+
 \begin{figure}[h]
 	\centering
 	\fbox{
-		\procedure{ISO-TP}{%
+		\procedure{ISO-TP Multi Frame Format}{%
 			\textbf{Sender}  \<\< \textbf{Receiver} \\
 			\< \sendmessageright{top=First Frame} \<\\
 			\< \sendmessageleft{top=Flow Control Frame} \<\\
 			\< \sendmessageright{top=Consecutive Frame} \<\\
 			\< \sendmessageright{top=Consecutive Frame} \<\\
 			\vdots \< \< \vdots \\
+			\< \sendmessageleft{top=Flow Control Frame} \<\\
 			\< \sendmessageright{top=Consecutive Frame} \<\\
+			\< \sendmessageright{top=Consecutive Frame} \<\\
+			\vdots \< \< \vdots \\
 		}
 	}
 	\caption{ISO-TP}
 	\label{fig:ISO-TP}
 \end{figure} 
+
+\subsubsection{Use Case}
+Typically, ODB-II is used like this (CAN as signalling protocol): First, the user enters the PID of the data (s)he wants to query into a diagnostic tool. Second, this data is packaged in a CAN frame and sent over the CAN-bus. Third, the ECU that is responsible for the data identified by the PID in the message recognizes it as it's own, and transmits a CAN frame containing the requested data. Fourth, the diagnostic tool recognizes the response and displays the data to the user \cite{wiki:PID}. The OBD-II port can also be used to upgrade the ECU's firmware or to perform a myriad of other diagnostic tasks.
+
+
+
 
 
 \subsubsection{Security Issues}

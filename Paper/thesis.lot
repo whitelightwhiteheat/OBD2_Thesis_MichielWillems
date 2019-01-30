@@ -22,12 +22,12 @@
 \contentsline {table}{\numberline {2.4}{\ignorespaces Extended format CAN frame.}}{12}{table.2.4}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {table}{\numberline {4.1}{\ignorespaces OBD-II permissions table design \& example.}}{46}{table.4.1}
+\contentsline {table}{\numberline {4.1}{\ignorespaces OBD-II permissions table design \& example.}}{48}{table.4.1}
 \addvspace {10pt}
-\contentsline {table}{\numberline {5.1}{\ignorespaces Role implementation}}{53}{table.5.1}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Permissions table implementation.}}{53}{table.5.2}
-\contentsline {table}{\numberline {5.3}{\ignorespaces Program memory footprint of implementation on a resource constrained microcontroller.}}{54}{table.5.3}
-\contentsline {table}{\numberline {5.4}{\ignorespaces Performance of cryptographic operations on a resource constrained microcontroller.}}{55}{table.5.4}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Role implementation}}{55}{table.5.1}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Permissions table implementation.}}{55}{table.5.2}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Program memory footprint of implementation on a resource constrained microcontroller.}}{56}{table.5.3}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Performance of cryptographic operations on a resource constrained microcontroller.}}{57}{table.5.4}
 \addvspace {10pt}
 \select@language {dutch}
 \select@language {dutch}

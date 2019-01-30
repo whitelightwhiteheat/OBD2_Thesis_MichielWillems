@@ -15,13 +15,20 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: references.bib
 Warning--entry type for "ECU" isn't style-file defined
 --line 459 of file references.bib
+I was expecting a `,' or a `}'---line 1117 of file references.bib
+ :  
+ :  author = {ISO14229-2},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Warning--to sort, need author or key in Enisa
 Warning--to sort, need author or key in ISO11898-3
+Warning--to sort, need author or key in ISO15765-2:2016
 Warning--to sort, need author or key in SHA3
 Warning--to sort, need author or key in CANspeed
 Warning--empty author in SHA3
 Warning--empty author in Enisa
 Warning--empty author in ISO11898-3
+Warning--empty author in ISO15765-2:2016
 Warning--empty note in Ahmed
 Warning--empty note in CANarbitration
 Warning--empty institution in GatewayAtmel
@@ -49,45 +56,45 @@ Warning--empty year in GatewayST
 Warning--empty institution in GatewayInfineon
 Warning--empty year in GatewayInfineon
 Warning--empty journal in GatewayPerformance
-You've used 79 entries,
+You've used 81 entries,
             2849 wiz_defined-function locations,
-            1012 strings with 18873 characters,
-and the built_in function-call counts, 28729 in all, are:
-= -- 2931
-> -- 1200
+            1019 strings with 19194 characters,
+and the built_in function-call counts, 29274 in all, are:
+= -- 2991
+> -- 1210
 < -- 4
-+ -- 452
-- -- 368
-* -- 1271
-:= -- 4344
-add.period$ -- 257
-call.type$ -- 79
-change.case$ -- 445
++ -- 456
+- -- 370
+* -- 1288
+:= -- 4422
+add.period$ -- 262
+call.type$ -- 81
+change.case$ -- 454
 chr.to.int$ -- 0
-cite$ -- 113
-duplicate$ -- 757
-empty$ -- 2614
-format.name$ -- 368
-if$ -- 7432
+cite$ -- 117
+duplicate$ -- 773
+empty$ -- 2672
+format.name$ -- 370
+if$ -- 7584
 int.to.chr$ -- 0
-int.to.str$ -- 79
+int.to.str$ -- 81
 missing$ -- 16
-newline$ -- 416
-num.names$ -- 152
-pop$ -- 815
+newline$ -- 425
+num.names$ -- 154
+pop$ -- 829
 preamble$ -- 1
-purify$ -- 341
+purify$ -- 346
 quote$ -- 0
-skip$ -- 2162
+skip$ -- 2212
 stack$ -- 0
-substring$ -- 584
+substring$ -- 594
 swap$ -- 90
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 316
-warning$ -- 34
-while$ -- 160
-width$ -- 81
-write$ -- 843
-(There were 35 warnings)
+type$ -- 324
+warning$ -- 36
+while$ -- 162
+width$ -- 83
+write$ -- 863
+(There was 1 error message)

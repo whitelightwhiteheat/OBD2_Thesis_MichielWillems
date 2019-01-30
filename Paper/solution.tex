@@ -105,15 +105,15 @@ Considering these modifications, the procedure from Figure \ref{fig:authenticati
 	\centering
 	\fbox{
 		\procedure{OBD-II authenticated key agreement procedure}{%
-			\textbf{Central Server} \<\< \textbf{Tester}  \<\< \textbf{Gateway} \\
-			\text{$Pr_{obd}$} \<\<\<\< \text{$Pb_{obd}$} \\
-			\<\< \< \sendmessageright{length=1.5cm,top=\text{init}} \<\\
+			\textbf{OBD-II Server} \<\< \textbf{Tester}  \<\< \textbf{Gateway} \\
+			\text{$Pr_{0}$,$Pr_{1}$, ...} \<\<\<\< \text{$Pb_{0}$,$Pb_{1}$, ...} \\
+			\<\< \< \sendmessageright{length=1.5cm,top=\text{init(Role)}} \<\\
 			\<\<\<\< \text{KGen($Pb_g$,$Pr_g$)} \\
-			\<\sendmessageleft{length=1.5cm,top=\text{$Pb_g$}} \<\< \sendmessageleft{length=1.5cm,top=\text{$Pb_g$}} \<\\
-			\text{$S$=Sig($Pb_g$,$Pr_{obd}$)} \<\<\<\< \\
+			\<\sendmessageleft{length=1.5cm,top=\text{$Pb_g$,Role}} \<\< \sendmessageleft{length=1.5cm,top=\text{$Pb_g$}} \<\\
+			\text{$S$=Sig($Pb_g$,$Pr_{Role}$)} \<\<\<\< \\
 			\< \sendmessageright{length=1.5cm,top=\text{$S$}} \<\< \sendmessageright{length=1.5cm,top=\text{$S$}} \<\\
-			\<\<\<\< \text{Ver($S$,$Pb_{obd}$)} \\
-			\text{$K$=ECDH($Pr_{obd}$,$Pb_g$)} \< \sendmessageright{length=1.5cm,top=\text{$K$}} \<\<\< \text{$K$=ECDH($Pr_g$,$Pb_{obd}$)} \\
+			\<\<\<\< \text{Ver($S$,$Pb_{Role}$)} \\
+			\text{$K$=ECDH($Pr_{Role}$,$Pb_g$)} \< \sendmessageright{length=1.5cm,top=\text{$K$}} \<\<\< \text{$K$=ECDH($Pr_g$,$Pb_{Role}$)} \\
 		}
 	}
 	\caption{OBD-II authenticated key agreement procedure}
